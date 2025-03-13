@@ -1,0 +1,3198 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02750D7F43D6C3EDB43DA25F /* Onboarding.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AFCC57A0EE1A747FC6D514C6 /* Onboarding.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		032E7590EA4DCD35A70C9995 /* GRDB_GRDB.bundle in Dependencies */ = {isa = PBXBuildFile; fileRef = 2D0A0F1BA4DCAC41C8A420BB /* GRDB_GRDB.bundle */; };
+		03FEB9BAE71DF9ABC5EC6DC4 /* Sharing2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE0FA26C105521D619C50708 /* Sharing2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		076B1961B6A6106CCEA1D520 /* AppSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC00B74A445108E2BCA382 /* AppSettingsView.swift */; };
+		0ADB44E8F3B95291076244FF /* HomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3EC67BA24302FC3E49017B /* HomeTests.swift */; };
+		0EE111A13C77BC14C0E75E86 /* SharingGRDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DBA41DC6C1578B253D0E342 /* SharingGRDB.framework */; };
+		13C8192BF9EFE574F4C52932 /* CombineSchedulers.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B8AF5B014AFB978DEF214451 /* CombineSchedulers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1442618D3217E119659A9193 /* HomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23889BE6F1834CCA8B1645F /* HomeButton.swift */; };
+		146BA7D07028CA56217E1A94 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; };
+		155EBEC9AA9DC80773DC028F /* BalancingEnergyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB359F3DF25939A4087B6164 /* BalancingEnergyList.swift */; };
+		1822734C08E5DCA53D98F9DD /* IdentifiedCollections.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F4583744CB6A1E0C424027D8 /* IdentifiedCollections.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1B0C9A8AD54ADF49C4D282FA /* Common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1EFA852222DA02C0D073A9FE /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
+		201452629B69CE4015BF6CB0 /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEEB72F2DF1834AFF235E16 /* Schema.swift */; };
+		2211952DE50D29D02CB08B5C /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; };
+		282B3F2F283A936E19EBD9ED /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
+		2A7F809E8715B4D3D5AF7E63 /* KarmicHealingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B601C97CD8A2356AD07CBEF8 /* KarmicHealingView.swift */; };
+		2D063D2135124A9249DA3C1E /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
+		3283B7AFC3E2F0B7306CDEDA /* BalancingEnergy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DCCD6F2EEA1EFE1B0C75AD59 /* BalancingEnergy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		379B6D2ED5DB581DEEC1F895 /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
+		3D7370B4C965FCF49533C8DC /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; };
+		431241F6831DEC99FB1E4FCF /* BalancingEnergy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCD6F2EEA1EFE1B0C75AD59 /* BalancingEnergy.framework */; };
+		461C0B38F62D26D3F7493E13 /* OrderedCollections.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00E7681AF5A25E6A938F5F1F /* OrderedCollections.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4E5D3CB08D3281554F64720C /* BalancingEnergyList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937951BDE4A7DF3DE0227873 /* BalancingEnergyList.framework */; };
+		54CF84DD3F45CB6BAEA4CB9B /* MailComposerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9F72DC2A14CE3B17B6A9B0 /* MailComposerView.swift */; };
+		55E78F5FEA3833CDE1286D69 /* Sharing.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C0B59758EFA10BA8AA6DA0D1 /* Sharing.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		58C0B482EFB1A571D13E0F38 /* IssueReporting.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 029923781F6C803C25C065FD /* IssueReporting.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		597E4C427F06E8303131B7AB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD886FBCE4DE4450B9B2CFC /* XCTest.framework */; };
+		5A5603796097B4AC78E96D1E /* Requests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AFFEAB7951F1AB5D591E8C /* Requests.framework */; };
+		5B799EC8C9AF360961E244FC /* KarmicHealingAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF5AC93973189BA300A0954 /* KarmicHealingAlertView.swift */; };
+		5C46A2B9B61966C3A51E0C0E /* TuistBundle+Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18DBDF5630C1EA9E7AE7DCE /* TuistBundle+Resources.swift */; };
+		603C13D01413EBF9EF68149D /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
+		611495A73C8E242612B73BCF /* GRDB_GRDB.bundle in Dependencies */ = {isa = PBXBuildFile; fileRef = 2D0A0F1BA4DCAC41C8A420BB /* GRDB_GRDB.bundle */; };
+		659A9EC77FFAA74B3CBC0517 /* FullScreenCoverBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400056EC77ECD6BA7E3B731B /* FullScreenCoverBackgroundView.swift */; };
+		666B2D0467C48D9F7D35F0F3 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1AB95A017359AC83F42C1A6 /* Colors.xcassets */; };
+		66CA89E5916FBD0D2C912809 /* XCTestDynamicOverlay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E122681E7BC43CA057476B60 /* XCTestDynamicOverlay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6935C57B7B8B3F79FE3BFCCA /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; };
+		6B327F406573E7D4A1200907 /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; };
+		6EAB365A9BBBE66618C346F3 /* TuistBundle+KarmicHealing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D93201106153BC9279C770 /* TuistBundle+KarmicHealing.swift */; };
+		701ED31157BD8602EA46DAE2 /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
+		709D71937CE4FAF1D6D10429 /* BalancingEnergyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2620BE86A788A5976BA13BFA /* BalancingEnergyView.swift */; };
+		734059DAC275038C63A0BD4D /* UserDefaultClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A331D9AAAC17C23F9FEB388 /* UserDefaultClient.swift */; };
+		73F50560ACA07D04637FE1B5 /* SwiftDataExplorations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2D45E590A86AAE3640BB92 /* SwiftDataExplorations.swift */; };
+		748544E2BB8BF0F3FC1020EF /* KarmicHealingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE58283C3A274F5F92A7FD1 /* KarmicHealingApp.swift */; };
+		78937BD4CCE48AAB88D80162 /* PerceptionCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 290CA8030B15A0AA5C2CCFFB /* PerceptionCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B324E6B7D4F59A548C936D4 /* BalancingEnergyList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937951BDE4A7DF3DE0227873 /* BalancingEnergyList.framework */; };
+		7BC08B2770614B64B167F7A3 /* XCTest+withTrackedCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF29FDB478366F2E7225B38 /* XCTest+withTrackedCalls.swift */; };
+		7F5626B0611F053EABB3718E /* Home.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04F8E16E9A85D842C27D7B75 /* Home.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		80418E4FD398616DE7CDB088 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 061863713A55E985902E3263 /* Icons.xcassets */; };
+		83BDF02A56751191BE80F116 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; };
+		8A0FD27E9747F6656C419293 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87D4296571F0460A46D013E /* Step.swift */; };
+		8A2C8FC1DEC63DC6A3BE2C30 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135D35F200CBF453C042ADEE /* HomeView.swift */; };
+		8A459562993DF44C41548E46 /* Sharing1.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3614AA82FB39C74A8B9D6E /* Sharing1.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8A58E78BA85D192543FDB196 /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
+		904A96FE6F4FBD1B3EBD19BE /* BalancingEnergy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A350AA2DADC5C8EA3D278D /* BalancingEnergy.swift */; };
+		9433F7E6732212EBE2439BEF /* TuistAssets+Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8FD516CA44D211DF048D7 /* TuistAssets+Resources.swift */; };
+		9C8C914EDF8CA4A9C71DBB98 /* Dependencies.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 521A308467BDA5B20A8073FB /* Dependencies.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9CE970894F21072CC11E52D6 /* TabView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C000C78A1E665D1B1E7F85DD /* TabView+Ext.swift */; };
+		9EDAAA7133C130EEB8BA0AFE /* Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F8E16E9A85D842C27D7B75 /* Home.framework */; };
+		A0DEDE8581CA144A3D155FF0 /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
+		A46B7E76AEEC439EEF444984 /* KarmicHealingDisclosureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD72813AC78FA3378C43BC7 /* KarmicHealingDisclosureCell.swift */; };
+		A558C3D62DA36492D4ABB014 /* KarmicHealing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8E247924B97BE74F980EE2 /* KarmicHealing.swift */; };
+		A59CE832DC08E246A0101E7F /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; };
+		A5CCC648F2DE494C84F58E11 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EC5F1A20AB7DE04590F636 /* OnboardingView.swift */; };
+		AAEC02716638E7886CBF6B91 /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; };
+		AC91711A46744B42B746FE1F /* GRDB_GRDB.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2D0A0F1BA4DCAC41C8A420BB /* GRDB_GRDB.bundle */; };
+		AE71F75F68DFC6DCCDF60EAE /* KarmicHealingAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B19F508923B07979CC702E8 /* KarmicHealingAlert.swift */; };
+		AEDDAF74DD332F9D09C184D4 /* AppSettings.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10B8D2F9EDCFE04EF7D9E500 /* AppSettings.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B504A12C457FFC0D809BEE0F /* BalancingEnergyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035250898164081970D4C3AE /* BalancingEnergyListView.swift */; };
+		B5383194545B21ADD25ABE5C /* BalancingEnergyList.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 937951BDE4A7DF3DE0227873 /* BalancingEnergyList.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B667BA1AA9F679C2208F3AAB /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; };
+		B989D888AC268EB514247247 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE0B0C32B9B575FF3ADF75D /* Onboarding.swift */; };
+		BBF5D94FA26053CCD727D221 /* ConcurrencyExtras.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1169C48DEE11FEB08AE83FBA /* ConcurrencyExtras.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BFCCE3CCD39973F7A25C235C /* BalancingEnergy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCD6F2EEA1EFE1B0C75AD59 /* BalancingEnergy.framework */; };
+		C7EDD47524AC300488535AA4 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462084A1E74237E95A83266B /* AppSettings.swift */; };
+		CDEA95E544D51AE1AB282F50 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; };
+		D3D1C4E3F02DC037451E2495 /* Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F8E16E9A85D842C27D7B75 /* Home.framework */; };
+		D5E94556B773B21BB70512FD /* TuistAssets+KarmicHealing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D41708495D3BE707CEE866 /* TuistAssets+KarmicHealing.swift */; };
+		DB300BCCADF57F8B2B8BD631 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE11386EDB68E796E01D3B1 /* Requests.swift */; };
+		DB8ED1567B4FBA780BD5D482 /* InternalCollectionsUtilities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39B4C42BD50A7E19ED4EDD17 /* InternalCollectionsUtilities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DBD9DBE8FBA452E97FE55D9C /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF69DADA3FE361892D9A9B9 /* Home.swift */; };
+		DCF1A53AC09361A0506CE50B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8713013181939438F04B4BB9 /* LaunchScreen.storyboard */; };
+		DD16ED6809DBFF3F0EE92709 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; };
+		DE3593631E9ECD8F6F8130DF /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
+		E080209B7FE4E310A61C96E4 /* TestingUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC78A05FC6DB55E86D8DCCF5 /* TestingUtilities.framework */; };
+		E14DDA5A61724C3253E18EF5 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AA4BB66567BBDD9C9B4C20 /* Steps.swift */; };
+		E8E2C208EAA0F21233E9680F /* RequestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F8597B465E949011A03FA /* RequestsView.swift */; };
+		E94F5ECEC2F224AE2CA6BB87 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; };
+		EB206743EBFABED2B9084AFD /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; };
+		EB5AD4D488DAACA52CE68F24 /* Requests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AFFEAB7951F1AB5D591E8C /* Requests.framework */; };
+		EC69CACC5FB83951A6D3BB9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507E3BACDFA1B623FFF0085C /* Assets.xcassets */; };
+		EEAD2DF36F46D59095E00F9B /* SharingGRDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1DBA41DC6C1578B253D0E342 /* SharingGRDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EECF0DC3D74D30761AA1A8E9 /* NavigationBar+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DFBD0BC5FEB41A37F7996 /* NavigationBar+Ext.swift */; };
+		EFA8D73FC778CAA85696288B /* Resources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F040666E0BE22C8B98880A92 /* XCTestDynamicOverlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E122681E7BC43CA057476B60 /* XCTestDynamicOverlay.framework */; };
+		F2568E3AB99DDDA1946653FA /* GRDB_GRDB.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2D0A0F1BA4DCAC41C8A420BB /* GRDB_GRDB.bundle */; };
+		F31D9DC674BDF73BEB21ED1B /* XCTest+expectParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDAC96EA79D8D0D062C6341 /* XCTest+expectParameter.swift */; };
+		F46FCB7F273FCA29A702D03F /* AppSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B8D2F9EDCFE04EF7D9E500 /* AppSettings.framework */; };
+		F6AF8ACB620AED7F305C336D /* CMTime+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3687F91BBB526CC60FC4DD8A /* CMTime+Ext.swift */; };
+		F7DF2422EC712E844DBA5132 /* Requests.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E5AFFEAB7951F1AB5D591E8C /* Requests.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F7F812586C62078996EC5B37 /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
+		F8EF6AF25A1F76F03DE4D129 /* CustomDump.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB9747434FBD49D9267F979 /* CustomDump.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F9B79DEE9EF81F492F9C9119 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A283FF0AAE64A1782229F900 /* Localizable.xcstrings */; };
+		FCBE30FA1F9AFB187248411A /* ComposableArchitecture.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FD86161E32D478D1014AF73A /* HomeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F0E42B795DFC188453D03 /* HomeButtonView.swift */; };
+		FFF4CDD513E9C228BD87176A /* Onboarding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFCC57A0EE1A747FC6D514C6 /* Onboarding.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		00F0A921189920FD6364F2AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92B8152D790C553ABCB8FCF0;
+			remoteInfo = Requests;
+		};
+		084C65913E324C4FED0E2203 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5478B72F927EF41FAAD1A812;
+			remoteInfo = Common;
+		};
+		08FDA55793E4A1B4E426D862 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5478B72F927EF41FAAD1A812;
+			remoteInfo = Common;
+		};
+		12D86E6F2F4AF0EE78611C63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92B8152D790C553ABCB8FCF0;
+			remoteInfo = Requests;
+		};
+		1704013E1D949A08CFE16BCB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 850C2836C562EF4C53B3C6C1;
+			remoteInfo = Home;
+		};
+		241BDB3BE60F5D0DDFFB7A6A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED7F6540CBCAEA0A1A2871E9;
+			remoteInfo = Resources;
+		};
+		2BE01E520760BFD3BACEDAA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5478B72F927EF41FAAD1A812;
+			remoteInfo = Common;
+		};
+		37D4D0A7DDAAC8151764BBBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 850C2836C562EF4C53B3C6C1;
+			remoteInfo = Home;
+		};
+		3EC989B6CBCA25D8AE6E3F52 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B071305EC98B7EE2D7AC866;
+			remoteInfo = BalancingEnergyList;
+		};
+		585754C12D0DE6FEDC92F919 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D9E21BF9E22F63C4A0178D2;
+			remoteInfo = TestingUtilities;
+		};
+		705214F4D07D4D6658FE41AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED7F6540CBCAEA0A1A2871E9;
+			remoteInfo = Resources;
+		};
+		73248C159BD0A38BCE2A4041 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B071305EC98B7EE2D7AC866;
+			remoteInfo = BalancingEnergyList;
+		};
+		738FDB7BC128BC30DC0D95AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5478B72F927EF41FAAD1A812;
+			remoteInfo = Common;
+		};
+		9B76B2268D2756DFD1CCC12E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED7F6540CBCAEA0A1A2871E9;
+			remoteInfo = Resources;
+		};
+		9D8CFE06FB00E751486EABA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5478B72F927EF41FAAD1A812;
+			remoteInfo = Common;
+		};
+		A1405104BEBD9B8F2DD07F39 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED7F6540CBCAEA0A1A2871E9;
+			remoteInfo = Resources;
+		};
+		A808A27771827252B69BEEF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5478B72F927EF41FAAD1A812;
+			remoteInfo = Common;
+		};
+		B7B292DCC8AFB0FA4701858C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 488451BFB78E2B2E8E24F0D0;
+			remoteInfo = AppSettings;
+		};
+		B96680D6D6122451621856C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E9B8F1705F579CDF62AF8E7;
+			remoteInfo = Onboarding;
+		};
+		C2A6F729F7DE0255BA8A7666 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED7F6540CBCAEA0A1A2871E9;
+			remoteInfo = Resources;
+		};
+		C6DE0AC4951F2ED033FFB419 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED7F6540CBCAEA0A1A2871E9;
+			remoteInfo = Resources;
+		};
+		D4E988E14971F2DDCE493F43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1F0DB3FD5F4DD1B938C14EB;
+			remoteInfo = BalancingEnergy;
+		};
+		F6CE96CFBCAFD974AE7AF1B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5478B72F927EF41FAAD1A812;
+			remoteInfo = Common;
+		};
+		FB24F98C58914EF41441D9E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1F0DB3FD5F4DD1B938C14EB;
+			remoteInfo = BalancingEnergy;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0051B4DD3DFCD72B0B478A79 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AEDDAF74DD332F9D09C184D4 /* AppSettings.framework in Embed Frameworks */,
+				3283B7AFC3E2F0B7306CDEDA /* BalancingEnergy.framework in Embed Frameworks */,
+				B5383194545B21ADD25ABE5C /* BalancingEnergyList.framework in Embed Frameworks */,
+				13C8192BF9EFE574F4C52932 /* CombineSchedulers.framework in Embed Frameworks */,
+				1B0C9A8AD54ADF49C4D282FA /* Common.framework in Embed Frameworks */,
+				FCBE30FA1F9AFB187248411A /* ComposableArchitecture.framework in Embed Frameworks */,
+				BBF5D94FA26053CCD727D221 /* ConcurrencyExtras.framework in Embed Frameworks */,
+				F8EF6AF25A1F76F03DE4D129 /* CustomDump.framework in Embed Frameworks */,
+				9C8C914EDF8CA4A9C71DBB98 /* Dependencies.framework in Embed Frameworks */,
+				7F5626B0611F053EABB3718E /* Home.framework in Embed Frameworks */,
+				1822734C08E5DCA53D98F9DD /* IdentifiedCollections.framework in Embed Frameworks */,
+				DB8ED1567B4FBA780BD5D482 /* InternalCollectionsUtilities.framework in Embed Frameworks */,
+				58C0B482EFB1A571D13E0F38 /* IssueReporting.framework in Embed Frameworks */,
+				02750D7F43D6C3EDB43DA25F /* Onboarding.framework in Embed Frameworks */,
+				461C0B38F62D26D3F7493E13 /* OrderedCollections.framework in Embed Frameworks */,
+				78937BD4CCE48AAB88D80162 /* PerceptionCore.framework in Embed Frameworks */,
+				F7DF2422EC712E844DBA5132 /* Requests.framework in Embed Frameworks */,
+				EFA8D73FC778CAA85696288B /* Resources.framework in Embed Frameworks */,
+				55E78F5FEA3833CDE1286D69 /* Sharing.framework in Embed Frameworks */,
+				8A459562993DF44C41548E46 /* Sharing1.framework in Embed Frameworks */,
+				03FEB9BAE71DF9ABC5EC6DC4 /* Sharing2.framework in Embed Frameworks */,
+				EEAD2DF36F46D59095E00F9B /* SharingGRDB.framework in Embed Frameworks */,
+				66CA89E5916FBD0D2C912809 /* XCTestDynamicOverlay.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		101855728ACD4FA1827EBF7A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14FDFBB6C672A588696A1211 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D256EE9A152AD0F9D1E3061 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		421519C5D3008F68FDD9ED14 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		484C0554A2289F65D4CA5CB3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5935421C084B1BF1D0BEB599 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		707183773F2074AD641FBDDC /* Dependencies */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstSubfolderSpec = 16;
+			files = (
+				032E7590EA4DCD35A70C9995 /* GRDB_GRDB.bundle in Dependencies */,
+			);
+			name = Dependencies;
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		9D74294154CAC9F3C871580D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1E1484DB6A409FCB12D7869 /* Dependencies */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstSubfolderSpec = 16;
+			files = (
+				611495A73C8E242612B73BCF /* GRDB_GRDB.bundle in Dependencies */,
+			);
+			name = Dependencies;
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		A996FF385F0F06A9ECE8C14D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C45AC0308B6FEB65B348EDA7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1C5A0EA20C81A587885A74E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		00E7681AF5A25E6A938F5F1F /* OrderedCollections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OrderedCollections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		029923781F6C803C25C065FD /* IssueReporting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IssueReporting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0350537808759544E24BE7DF /* ComposableArchitecture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ComposableArchitecture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		035250898164081970D4C3AE /* BalancingEnergyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancingEnergyListView.swift; sourceTree = "<group>"; };
+		04C426E45AF0F18A74DF53D6 /* Home-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Home-Info.plist"; sourceTree = "<group>"; };
+		04F8E16E9A85D842C27D7B75 /* Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		061863713A55E985902E3263 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
+		0A331D9AAAC17C23F9FEB388 /* UserDefaultClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultClient.swift; sourceTree = "<group>"; };
+		0AF69DADA3FE361892D9A9B9 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		10B8D2F9EDCFE04EF7D9E500 /* AppSettings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppSettings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1169C48DEE11FEB08AE83FBA /* ConcurrencyExtras.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ConcurrencyExtras.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		135D35F200CBF453C042ADEE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		1DB9747434FBD49D9267F979 /* CustomDump.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CustomDump.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DBA41DC6C1578B253D0E342 /* SharingGRDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SharingGRDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EF5AC93973189BA300A0954 /* KarmicHealingAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarmicHealingAlertView.swift; sourceTree = "<group>"; };
+		2620BE86A788A5976BA13BFA /* BalancingEnergyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancingEnergyView.swift; sourceTree = "<group>"; };
+		290CA8030B15A0AA5C2CCFFB /* PerceptionCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PerceptionCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BE11386EDB68E796E01D3B1 /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
+		2D0A0F1BA4DCAC41C8A420BB /* GRDB_GRDB.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GRDB_GRDB.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E2D45E590A86AAE3640BB92 /* SwiftDataExplorations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataExplorations.swift; sourceTree = "<group>"; };
+		2E3614AA82FB39C74A8B9D6E /* Sharing1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sharing1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3687F91BBB526CC60FC4DD8A /* CMTime+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime+Ext.swift"; sourceTree = "<group>"; };
+		377F8597B465E949011A03FA /* RequestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsView.swift; sourceTree = "<group>"; };
+		38A350AA2DADC5C8EA3D278D /* BalancingEnergy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancingEnergy.swift; sourceTree = "<group>"; };
+		39B4C42BD50A7E19ED4EDD17 /* InternalCollectionsUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InternalCollectionsUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DE6F8724694B2C80388579D /* Preview Content */ = {isa = PBXFileReference; path = "Preview Content"; sourceTree = "<group>"; };
+		400056EC77ECD6BA7E3B731B /* FullScreenCoverBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenCoverBackgroundView.swift; sourceTree = "<group>"; };
+		42B4794F9892895099628422 /* Resources-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Resources-Info.plist"; sourceTree = "<group>"; };
+		437C255FD6B4927A3574DC7A /* HomeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "HomeTests-Info.plist"; sourceTree = "<group>"; };
+		462084A1E74237E95A83266B /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		48DC36A78958C5F735A322A5 /* KarmicHealing-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "KarmicHealing-Info.plist"; sourceTree = "<group>"; };
+		507E3BACDFA1B623FFF0085C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		521A308467BDA5B20A8073FB /* Dependencies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Dependencies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		521C60B6112B40DCB8C32F02 /* BalancingEnergyList-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BalancingEnergyList-Info.plist"; sourceTree = "<group>"; };
+		521F0E42B795DFC188453D03 /* HomeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButtonView.swift; sourceTree = "<group>"; };
+		52D41708495D3BE707CEE866 /* TuistAssets+KarmicHealing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+KarmicHealing.swift"; sourceTree = "<group>"; };
+		5D3EC67BA24302FC3E49017B /* HomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTests.swift; sourceTree = "<group>"; };
+		5DF29FDB478366F2E7225B38 /* XCTest+withTrackedCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+withTrackedCalls.swift"; sourceTree = "<group>"; };
+		601EB9BCB25828503CE5B0B1 /* Onboarding-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Onboarding-Info.plist"; sourceTree = "<group>"; };
+		692DFBD0BC5FEB41A37F7996 /* NavigationBar+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationBar+Ext.swift"; sourceTree = "<group>"; };
+		6B19F508923B07979CC702E8 /* KarmicHealingAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarmicHealingAlert.swift; sourceTree = "<group>"; };
+		6CD886FBCE4DE4450B9B2CFC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		73AA4BB66567BBDD9C9B4C20 /* Steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
+		7B1A3F74D9A0F7E059908D2A /* TestingUtilities-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "TestingUtilities-Info.plist"; sourceTree = "<group>"; };
+		7B8E247924B97BE74F980EE2 /* KarmicHealing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarmicHealing.swift; sourceTree = "<group>"; };
+		7BC3E01675AA2571947993BA /* AppSettings-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "AppSettings-Info.plist"; sourceTree = "<group>"; };
+		7FE58283C3A274F5F92A7FD1 /* KarmicHealingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarmicHealingApp.swift; sourceTree = "<group>"; };
+		80D93201106153BC9279C770 /* TuistBundle+KarmicHealing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+KarmicHealing.swift"; sourceTree = "<group>"; };
+		80DC255D38450C9D907A5140 /* Requests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Requests-Info.plist"; sourceTree = "<group>"; };
+		84C8FD516CA44D211DF048D7 /* TuistAssets+Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+Resources.swift"; sourceTree = "<group>"; };
+		8713013181939438F04B4BB9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		87179576D83D01449EED8B00 /* HomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		881F8A734FFF7D8372D06ED8 /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		937951BDE4A7DF3DE0227873 /* BalancingEnergyList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BalancingEnergyList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A283FF0AAE64A1782229F900 /* Localizable.xcstrings */ = {isa = PBXFileReference; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		AB359F3DF25939A4087B6164 /* BalancingEnergyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancingEnergyList.swift; sourceTree = "<group>"; };
+		AFCC57A0EE1A747FC6D514C6 /* Onboarding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Onboarding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1AB95A017359AC83F42C1A6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		B23889BE6F1834CCA8B1645F /* HomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButton.swift; sourceTree = "<group>"; };
+		B601C97CD8A2356AD07CBEF8 /* KarmicHealingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarmicHealingView.swift; sourceTree = "<group>"; };
+		B85762BF97E9D27C30C53840 /* Resources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Resources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8AF5B014AFB978DEF214451 /* CombineSchedulers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CombineSchedulers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC78A05FC6DB55E86D8DCCF5 /* TestingUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TestingUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C000C78A1E665D1B1E7F85DD /* TabView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabView+Ext.swift"; sourceTree = "<group>"; };
+		C0B59758EFA10BA8AA6DA0D1 /* Sharing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sharing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C18DBDF5630C1EA9E7AE7DCE /* TuistBundle+Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+Resources.swift"; sourceTree = "<group>"; };
+		C6C90AC6419664A553E5DA30 /* Common-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Common-Info.plist"; sourceTree = "<group>"; };
+		C87D4296571F0460A46D013E /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
+		CAEEB72F2DF1834AFF235E16 /* Schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
+		CBD72813AC78FA3378C43BC7 /* KarmicHealingDisclosureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarmicHealingDisclosureCell.swift; sourceTree = "<group>"; };
+		CD9F72DC2A14CE3B17B6A9B0 /* MailComposerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposerView.swift; sourceTree = "<group>"; };
+		CFE0B0C32B9B575FF3ADF75D /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		D1EC5F1A20AB7DE04590F636 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		D4D467CF8916CF9A51CDDD7E /* BalancingEnergy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BalancingEnergy-Info.plist"; sourceTree = "<group>"; };
+		DCCD6F2EEA1EFE1B0C75AD59 /* BalancingEnergy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BalancingEnergy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCDAC96EA79D8D0D062C6341 /* XCTest+expectParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+expectParameter.swift"; sourceTree = "<group>"; };
+		E122681E7BC43CA057476B60 /* XCTestDynamicOverlay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XCTestDynamicOverlay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E408783B2AAA3C06DBB33B5A /* KarmicHealing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KarmicHealing.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5AFFEAB7951F1AB5D591E8C /* Requests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Requests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4583744CB6A1E0C424027D8 /* IdentifiedCollections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IdentifiedCollections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBBC00B74A445108E2BCA382 /* AppSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsView.swift; sourceTree = "<group>"; };
+		FE0FA26C105521D619C50708 /* Sharing2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sharing2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0F886CA685A4699BA8B5724F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D063D2135124A9249DA3C1E /* ComposableArchitecture.framework in Frameworks */,
+				D3D1C4E3F02DC037451E2495 /* Home.framework in Frameworks */,
+				E080209B7FE4E310A61C96E4 /* TestingUtilities.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0FEDB81B3F1EAF824EE1B536 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD16ED6809DBFF3F0EE92709 /* Common.framework in Frameworks */,
+				A0DEDE8581CA144A3D155FF0 /* ComposableArchitecture.framework in Frameworks */,
+				A59CE832DC08E246A0101E7F /* Resources.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		179381A347E890E78E3E2380 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				431241F6831DEC99FB1E4FCF /* BalancingEnergy.framework in Frameworks */,
+				CDEA95E544D51AE1AB282F50 /* Common.framework in Frameworks */,
+				701ED31157BD8602EA46DAE2 /* ComposableArchitecture.framework in Frameworks */,
+				3D7370B4C965FCF49533C8DC /* Resources.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2884AC4D3A6213165F983E72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFCCE3CCD39973F7A25C235C /* BalancingEnergy.framework in Frameworks */,
+				7B324E6B7D4F59A548C936D4 /* BalancingEnergyList.framework in Frameworks */,
+				83BDF02A56751191BE80F116 /* Common.framework in Frameworks */,
+				DE3593631E9ECD8F6F8130DF /* ComposableArchitecture.framework in Frameworks */,
+				9EDAAA7133C130EEB8BA0AFE /* Home.framework in Frameworks */,
+				FFF4CDD513E9C228BD87176A /* Onboarding.framework in Frameworks */,
+				5A5603796097B4AC78E96D1E /* Requests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E1CFA7F360A5622747F75AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6935C57B7B8B3F79FE3BFCCA /* Common.framework in Frameworks */,
+				379B6D2ED5DB581DEEC1F895 /* ComposableArchitecture.framework in Frameworks */,
+				B667BA1AA9F679C2208F3AAB /* Resources.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CF62EE715B54041C8E7212D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E94F5ECEC2F224AE2CA6BB87 /* Common.framework in Frameworks */,
+				1EFA852222DA02C0D073A9FE /* ComposableArchitecture.framework in Frameworks */,
+				2211952DE50D29D02CB08B5C /* Resources.framework in Frameworks */,
+				0EE111A13C77BC14C0E75E86 /* SharingGRDB.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBEF51B2004B30F6C2577817 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFA975A3A616869902F674C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F46FCB7F273FCA29A702D03F /* AppSettings.framework in Frameworks */,
+				4E5D3CB08D3281554F64720C /* BalancingEnergyList.framework in Frameworks */,
+				146BA7D07028CA56217E1A94 /* Common.framework in Frameworks */,
+				F7F812586C62078996EC5B37 /* ComposableArchitecture.framework in Frameworks */,
+				EB5AD4D488DAACA52CE68F24 /* Requests.framework in Frameworks */,
+				6B327F406573E7D4A1200907 /* Resources.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D55C5F4EC3C3DAA8925810B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				597E4C427F06E8303131B7AB /* XCTest.framework in Frameworks */,
+				603C13D01413EBF9EF68149D /* ComposableArchitecture.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9C9702BFFC13D40E7C657EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB206743EBFABED2B9084AFD /* Common.framework in Frameworks */,
+				282B3F2F283A936E19EBD9ED /* ComposableArchitecture.framework in Frameworks */,
+				AAEC02716638E7886CBF6B91 /* Resources.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD25E1B8EE0B7A322457CB25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A58E78BA85D192543FDB196 /* ComposableArchitecture.framework in Frameworks */,
+				F040666E0BE22C8B98880A92 /* XCTestDynamicOverlay.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04CA190027D786149CB8AD53 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6B19F508923B07979CC702E8 /* KarmicHealingAlert.swift */,
+				1EF5AC93973189BA300A0954 /* KarmicHealingAlertView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		059E318F0BEAE562A0B14448 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AB359F3DF25939A4087B6164 /* BalancingEnergyList.swift */,
+				035250898164081970D4C3AE /* BalancingEnergyListView.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		0961E5A1D8AF7C6B067DAB2A /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				115E97671A9CB1DB56BF5431 /* HomeButton */,
+				0AF69DADA3FE361892D9A9B9 /* Home.swift */,
+				135D35F200CBF453C042ADEE /* HomeView.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		115E97671A9CB1DB56BF5431 /* HomeButton */ = {
+			isa = PBXGroup;
+			children = (
+				B23889BE6F1834CCA8B1645F /* HomeButton.swift */,
+				521F0E42B795DFC188453D03 /* HomeButtonView.swift */,
+			);
+			path = HomeButton;
+			sourceTree = "<group>";
+		};
+		148DF1D260B9EBB4A6106CE2 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				E191D1D41269FC35ADBC17D5 /* AppSettings */,
+				C3616447A7DFB431AF0257BF /* BalancingEnergy */,
+				B60854C2B4FD92D14B8F96C9 /* BalancingEnergyList */,
+				E5F940091CF3974ACE58187A /* Common */,
+				A040ADF93221F67D31462ABB /* Home */,
+				7BAA77828A13539B0FF3A1FB /* Onboarding */,
+				5031000F83F04A20FF41DEA2 /* Requests */,
+				FBD5BEE7F204F154A2BE98F1 /* Resources */,
+				95CFB6B5839BC48BFFEF0A3B /* TestingUtilities */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		1A113E4AC218122C07A089B5 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				7B8E247924B97BE74F980EE2 /* KarmicHealing.swift */,
+				7FE58283C3A274F5F92A7FD1 /* KarmicHealingApp.swift */,
+				B601C97CD8A2356AD07CBEF8 /* KarmicHealingView.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		27E5E51626BE92EA53AFD4C0 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				90F62AC1180CC64B4ABB8AA8 /* DB */,
+				2BE11386EDB68E796E01D3B1 /* Requests.swift */,
+				377F8597B465E949011A03FA /* RequestsView.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		29EF60B9B030A63F2496326D = {
+			isa = PBXGroup;
+			children = (
+				BF18E27207349F4D04356F2D /* Project */,
+				DDD2F1F584485938C3313276 /* Products */,
+				9B25E0BBBBF54A8E33FFC55D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2C3E17E5E597E01F70F2EE53 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				52D41708495D3BE707CEE866 /* TuistAssets+KarmicHealing.swift */,
+				84C8FD516CA44D211DF048D7 /* TuistAssets+Resources.swift */,
+				80D93201106153BC9279C770 /* TuistBundle+KarmicHealing.swift */,
+				C18DBDF5630C1EA9E7AE7DCE /* TuistBundle+Resources.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		323162E8899197D7D31A40CC /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				5D3EC67BA24302FC3E49017B /* HomeTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		5031000F83F04A20FF41DEA2 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				27E5E51626BE92EA53AFD4C0 /* Sources */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		54ADCC4FDF2CCAB24F742D8B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				B1AB95A017359AC83F42C1A6 /* Colors.xcassets */,
+				061863713A55E985902E3263 /* Icons.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		6647A708D158A6E58A69AA22 /* SwifUI+Ext */ = {
+			isa = PBXGroup;
+			children = (
+				692DFBD0BC5FEB41A37F7996 /* NavigationBar+Ext.swift */,
+				C000C78A1E665D1B1E7F85DD /* TabView+Ext.swift */,
+			);
+			path = "SwifUI+Ext";
+			sourceTree = "<group>";
+		};
+		70BF9DCE07829874EBDAB91C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3687F91BBB526CC60FC4DD8A /* CMTime+Ext.swift */,
+				DCDAC96EA79D8D0D062C6341 /* XCTest+expectParameter.swift */,
+				5DF29FDB478366F2E7225B38 /* XCTest+withTrackedCalls.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		7B866D3223B2A7DE86063F82 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				507E3BACDFA1B623FFF0085C /* Assets.xcassets */,
+				8713013181939438F04B4BB9 /* LaunchScreen.storyboard */,
+				A283FF0AAE64A1782229F900 /* Localizable.xcstrings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7BAA77828A13539B0FF3A1FB /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				C1866DF803C41F053BBBB942 /* Sources */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		8042DEACBF4299DDCF0981BF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				400056EC77ECD6BA7E3B731B /* FullScreenCoverBackgroundView.swift */,
+				CBD72813AC78FA3378C43BC7 /* KarmicHealingDisclosureCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		814E61149F38E409614C76B9 /* KarmicHealing */ = {
+			isa = PBXGroup;
+			children = (
+				148DF1D260B9EBB4A6106CE2 /* Features */,
+				E0443D2978A32B062D7E728C /* MainTarget */,
+			);
+			path = KarmicHealing;
+			sourceTree = "<group>";
+		};
+		90F62AC1180CC64B4ABB8AA8 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				CAEEB72F2DF1834AFF235E16 /* Schema.swift */,
+				2E2D45E590A86AAE3640BB92 /* SwiftDataExplorations.swift */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
+		95CFB6B5839BC48BFFEF0A3B /* TestingUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				70BF9DCE07829874EBDAB91C /* Sources */,
+			);
+			path = TestingUtilities;
+			sourceTree = "<group>";
+		};
+		9B25E0BBBBF54A8E33FFC55D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6CD886FBCE4DE4450B9B2CFC /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A040ADF93221F67D31462ABB /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0961E5A1D8AF7C6B067DAB2A /* Sources */,
+				323162E8899197D7D31A40CC /* Tests */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B3B37A17BDDB8BD09CFF823B /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				ECBD255DF3AC545104D3C0A9 /* Helpers */,
+				462084A1E74237E95A83266B /* AppSettings.swift */,
+				FBBC00B74A445108E2BCA382 /* AppSettingsView.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		B60854C2B4FD92D14B8F96C9 /* BalancingEnergyList */ = {
+			isa = PBXGroup;
+			children = (
+				059E318F0BEAE562A0B14448 /* Sources */,
+			);
+			path = BalancingEnergyList;
+			sourceTree = "<group>";
+		};
+		B9E27FE7BD17BEF9A5933DE7 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				0A331D9AAAC17C23F9FEB388 /* UserDefaultClient.swift */,
+			);
+			path = Clients;
+			sourceTree = "<group>";
+		};
+		BF18E27207349F4D04356F2D /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				CBAA0A82B7EA99F329D85E10 /* Derived */,
+				814E61149F38E409614C76B9 /* KarmicHealing */,
+				3DE6F8724694B2C80388579D /* Preview Content */,
+			);
+			name = Project;
+			sourceTree = "<group>";
+		};
+		C1866DF803C41F053BBBB942 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				CFE0B0C32B9B575FF3ADF75D /* Onboarding.swift */,
+				D1EC5F1A20AB7DE04590F636 /* OnboardingView.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		C3616447A7DFB431AF0257BF /* BalancingEnergy */ = {
+			isa = PBXGroup;
+			children = (
+				C4988371849E6EC244654DEE /* Sources */,
+			);
+			path = BalancingEnergy;
+			sourceTree = "<group>";
+		};
+		C4988371849E6EC244654DEE /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C92F0A7534B998378656B09C /* Model */,
+				38A350AA2DADC5C8EA3D278D /* BalancingEnergy.swift */,
+				2620BE86A788A5976BA13BFA /* BalancingEnergyView.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		C5144D6C00CC506697AE0A03 /* InfoPlists */ = {
+			isa = PBXGroup;
+			children = (
+				7BC3E01675AA2571947993BA /* AppSettings-Info.plist */,
+				D4D467CF8916CF9A51CDDD7E /* BalancingEnergy-Info.plist */,
+				521C60B6112B40DCB8C32F02 /* BalancingEnergyList-Info.plist */,
+				C6C90AC6419664A553E5DA30 /* Common-Info.plist */,
+				04C426E45AF0F18A74DF53D6 /* Home-Info.plist */,
+				437C255FD6B4927A3574DC7A /* HomeTests-Info.plist */,
+				48DC36A78958C5F735A322A5 /* KarmicHealing-Info.plist */,
+				601EB9BCB25828503CE5B0B1 /* Onboarding-Info.plist */,
+				80DC255D38450C9D907A5140 /* Requests-Info.plist */,
+				42B4794F9892895099628422 /* Resources-Info.plist */,
+				7B1A3F74D9A0F7E059908D2A /* TestingUtilities-Info.plist */,
+			);
+			path = InfoPlists;
+			sourceTree = "<group>";
+		};
+		C92F0A7534B998378656B09C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C87D4296571F0460A46D013E /* Step.swift */,
+				73AA4BB66567BBDD9C9B4C20 /* Steps.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CB9F3E9F24DEB5B29F7934CF /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B9E27FE7BD17BEF9A5933DE7 /* Clients */,
+				8042DEACBF4299DDCF0981BF /* Components */,
+				6647A708D158A6E58A69AA22 /* SwifUI+Ext */,
+				04CA190027D786149CB8AD53 /* Views */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		CBAA0A82B7EA99F329D85E10 /* Derived */ = {
+			isa = PBXGroup;
+			children = (
+				C5144D6C00CC506697AE0A03 /* InfoPlists */,
+				2C3E17E5E597E01F70F2EE53 /* Sources */,
+			);
+			path = Derived;
+			sourceTree = "<group>";
+		};
+		DDD2F1F584485938C3313276 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				10B8D2F9EDCFE04EF7D9E500 /* AppSettings.framework */,
+				DCCD6F2EEA1EFE1B0C75AD59 /* BalancingEnergy.framework */,
+				937951BDE4A7DF3DE0227873 /* BalancingEnergyList.framework */,
+				B8AF5B014AFB978DEF214451 /* CombineSchedulers.framework */,
+				881F8A734FFF7D8372D06ED8 /* Common.framework */,
+				0350537808759544E24BE7DF /* ComposableArchitecture.framework */,
+				1169C48DEE11FEB08AE83FBA /* ConcurrencyExtras.framework */,
+				1DB9747434FBD49D9267F979 /* CustomDump.framework */,
+				521A308467BDA5B20A8073FB /* Dependencies.framework */,
+				2D0A0F1BA4DCAC41C8A420BB /* GRDB_GRDB.bundle */,
+				04F8E16E9A85D842C27D7B75 /* Home.framework */,
+				87179576D83D01449EED8B00 /* HomeTests.xctest */,
+				F4583744CB6A1E0C424027D8 /* IdentifiedCollections.framework */,
+				39B4C42BD50A7E19ED4EDD17 /* InternalCollectionsUtilities.framework */,
+				029923781F6C803C25C065FD /* IssueReporting.framework */,
+				E408783B2AAA3C06DBB33B5A /* KarmicHealing.app */,
+				AFCC57A0EE1A747FC6D514C6 /* Onboarding.framework */,
+				00E7681AF5A25E6A938F5F1F /* OrderedCollections.framework */,
+				290CA8030B15A0AA5C2CCFFB /* PerceptionCore.framework */,
+				E5AFFEAB7951F1AB5D591E8C /* Requests.framework */,
+				B85762BF97E9D27C30C53840 /* Resources.framework */,
+				C0B59758EFA10BA8AA6DA0D1 /* Sharing.framework */,
+				2E3614AA82FB39C74A8B9D6E /* Sharing1.framework */,
+				FE0FA26C105521D619C50708 /* Sharing2.framework */,
+				1DBA41DC6C1578B253D0E342 /* SharingGRDB.framework */,
+				BC78A05FC6DB55E86D8DCCF5 /* TestingUtilities.framework */,
+				E122681E7BC43CA057476B60 /* XCTestDynamicOverlay.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E0443D2978A32B062D7E728C /* MainTarget */ = {
+			isa = PBXGroup;
+			children = (
+				7B866D3223B2A7DE86063F82 /* Resources */,
+				1A113E4AC218122C07A089B5 /* Sources */,
+			);
+			path = MainTarget;
+			sourceTree = "<group>";
+		};
+		E191D1D41269FC35ADBC17D5 /* AppSettings */ = {
+			isa = PBXGroup;
+			children = (
+				B3B37A17BDDB8BD09CFF823B /* Sources */,
+			);
+			path = AppSettings;
+			sourceTree = "<group>";
+		};
+		E5F940091CF3974ACE58187A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CB9F3E9F24DEB5B29F7934CF /* Sources */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		ECBD255DF3AC545104D3C0A9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CD9F72DC2A14CE3B17B6A9B0 /* MailComposerView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		FBD5BEE7F204F154A2BE98F1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				54ADCC4FDF2CCAB24F742D8B /* Assets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0B23355E064D27591EBFD153 /* HomeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0840DFEAF0FC904CD00A8868 /* Build configuration list for PBXNativeTarget "HomeTests" */;
+			buildPhases = (
+				72864F2C44F57E9443630C3C /* Sources */,
+				B353E5CBD8622797E52CC501 /* Resources */,
+				A996FF385F0F06A9ECE8C14D /* Embed Frameworks */,
+				0F886CA685A4699BA8B5724F /* Frameworks */,
+				707183773F2074AD641FBDDC /* Dependencies */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2FAD5E22431B23620545A6A8 /* PBXTargetDependency */,
+				7F7A35EC2A33D3BCA94DDD5B /* PBXTargetDependency */,
+			);
+			name = HomeTests;
+			productName = HomeTests;
+			productReference = 87179576D83D01449EED8B00 /* HomeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2E9B8F1705F579CDF62AF8E7 /* Onboarding */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16F0BB4E430A070B650B75A1 /* Build configuration list for PBXNativeTarget "Onboarding" */;
+			buildPhases = (
+				A03AF6635B6D5A44442D9804 /* Sources */,
+				F1A851CCB74A9D3F3ABE4C6D /* Resources */,
+				484C0554A2289F65D4CA5CB3 /* Embed Frameworks */,
+				3E1CFA7F360A5622747F75AC /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5063188A40F7397AC80603E /* PBXTargetDependency */,
+				7625EA060123028320F3182B /* PBXTargetDependency */,
+			);
+			name = Onboarding;
+			productName = Onboarding;
+			productReference = AFCC57A0EE1A747FC6D514C6 /* Onboarding.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3D9E21BF9E22F63C4A0178D2 /* TestingUtilities */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16820349ED9C77E017954FAE /* Build configuration list for PBXNativeTarget "TestingUtilities" */;
+			buildPhases = (
+				A5477E8DC7DD73FF8B5AE612 /* Sources */,
+				18FA0CD5CD4238B8A687B9C8 /* Resources */,
+				5935421C084B1BF1D0BEB599 /* Embed Frameworks */,
+				D55C5F4EC3C3DAA8925810B3 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestingUtilities;
+			productName = TestingUtilities;
+			productReference = BC78A05FC6DB55E86D8DCCF5 /* TestingUtilities.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		488451BFB78E2B2E8E24F0D0 /* AppSettings */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 889A98A38267B5E906775AF9 /* Build configuration list for PBXNativeTarget "AppSettings" */;
+			buildPhases = (
+				BC13ABED3B3A9A8E65A611C2 /* Sources */,
+				D30FB890AA9017D3803348A5 /* Resources */,
+				F1C5A0EA20C81A587885A74E /* Embed Frameworks */,
+				D9C9702BFFC13D40E7C657EB /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B2CF37CC6C5A1155F724FDCE /* PBXTargetDependency */,
+				24DC217E155C0B6D95DAEDAC /* PBXTargetDependency */,
+			);
+			name = AppSettings;
+			productName = AppSettings;
+			productReference = 10B8D2F9EDCFE04EF7D9E500 /* AppSettings.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5478B72F927EF41FAAD1A812 /* Common */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F34A4CD93ABFA620CD1E1D8 /* Build configuration list for PBXNativeTarget "Common" */;
+			buildPhases = (
+				8A03A4A1D29CE608CE92E373 /* Sources */,
+				9F145EB07E1743E925E8B752 /* Resources */,
+				C45AC0308B6FEB65B348EDA7 /* Embed Frameworks */,
+				FD25E1B8EE0B7A322457CB25 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Common;
+			productName = Common;
+			productReference = 881F8A734FFF7D8372D06ED8 /* Common.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6B071305EC98B7EE2D7AC866 /* BalancingEnergyList */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63D2AEF1B213C233D5F77E9B /* Build configuration list for PBXNativeTarget "BalancingEnergyList" */;
+			buildPhases = (
+				0BA04E2F9B50D75985D49C78 /* Sources */,
+				8D58E3FF40AE7A39B1106916 /* Resources */,
+				101855728ACD4FA1827EBF7A /* Embed Frameworks */,
+				179381A347E890E78E3E2380 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CCA9C46A843C0B0A59986926 /* PBXTargetDependency */,
+				782F9D647E19140DFDEEAFD7 /* PBXTargetDependency */,
+				21DFB96128A4246062EA9D86 /* PBXTargetDependency */,
+			);
+			name = BalancingEnergyList;
+			productName = BalancingEnergyList;
+			productReference = 937951BDE4A7DF3DE0227873 /* BalancingEnergyList.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		850C2836C562EF4C53B3C6C1 /* Home */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7364AB6181225682E1EE5E09 /* Build configuration list for PBXNativeTarget "Home" */;
+			buildPhases = (
+				1A07BF8AE99D1224C44577E5 /* Sources */,
+				631FD26419C232B60D3EC519 /* Resources */,
+				2D256EE9A152AD0F9D1E3061 /* Embed Frameworks */,
+				BFA975A3A616869902F674C6 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3CB941761D2268C7B9D09155 /* PBXTargetDependency */,
+				D323053EE4B912D3812F65A6 /* PBXTargetDependency */,
+				862DDAE914DC64339A49C8C5 /* PBXTargetDependency */,
+				5FAC5F09AF51E82DF45771B7 /* PBXTargetDependency */,
+				885C150AAB481BCE5C8B7662 /* PBXTargetDependency */,
+			);
+			name = Home;
+			productName = Home;
+			productReference = 04F8E16E9A85D842C27D7B75 /* Home.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		92B8152D790C553ABCB8FCF0 /* Requests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE2C0EF78657BCC65046B1C4 /* Build configuration list for PBXNativeTarget "Requests" */;
+			buildPhases = (
+				3245E9A87FF9405BE327978C /* Sources */,
+				C93EB945476051E5A7CE1CDF /* Resources */,
+				9D74294154CAC9F3C871580D /* Embed Frameworks */,
+				9CF62EE715B54041C8E7212D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4657A5238E9FFE14D2102698 /* PBXTargetDependency */,
+				8FBA205012569AE069ECCBFC /* PBXTargetDependency */,
+			);
+			name = Requests;
+			productName = Requests;
+			productReference = E5AFFEAB7951F1AB5D591E8C /* Requests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D5734659E17303697C587D84 /* KarmicHealing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F1AEC9BDAC3B0928932562C /* Build configuration list for PBXNativeTarget "KarmicHealing" */;
+			buildPhases = (
+				6D7F2D584A5C1F16E2973AA1 /* Sources */,
+				C044A6FA657DB5830512B701 /* Resources */,
+				0051B4DD3DFCD72B0B478A79 /* Embed Frameworks */,
+				2884AC4D3A6213165F983E72 /* Frameworks */,
+				A1E1484DB6A409FCB12D7869 /* Dependencies */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F9CEC3B4E19D1FF90C41B34E /* PBXTargetDependency */,
+				F7F5B06322D3CA9983A93F05 /* PBXTargetDependency */,
+				A19F97AA75941D8E5D534E69 /* PBXTargetDependency */,
+				0B63311D327765F90301FD9D /* PBXTargetDependency */,
+				9FAFAFD26F07273147CB2C87 /* PBXTargetDependency */,
+				1EA0799F6F9FEEA7588EB227 /* PBXTargetDependency */,
+			);
+			name = KarmicHealing;
+			productName = KarmicHealing;
+			productReference = E408783B2AAA3C06DBB33B5A /* KarmicHealing.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ED7F6540CBCAEA0A1A2871E9 /* Resources */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E19BC154343EBC74B099E973 /* Build configuration list for PBXNativeTarget "Resources" */;
+			buildPhases = (
+				06D7EB4968487DBF41C17BAE /* Sources */,
+				0371BD75223148262FD97B55 /* Resources */,
+				14FDFBB6C672A588696A1211 /* Embed Frameworks */,
+				BBEF51B2004B30F6C2577817 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Resources;
+			productName = Resources;
+			productReference = B85762BF97E9D27C30C53840 /* Resources.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F1F0DB3FD5F4DD1B938C14EB /* BalancingEnergy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 44A4FBDC6FBC823C45CF68B5 /* Build configuration list for PBXNativeTarget "BalancingEnergy" */;
+			buildPhases = (
+				5AE0257803E05262B2ABCE0C /* Sources */,
+				60EACD0BCBECA1DB8CC228DB /* Resources */,
+				421519C5D3008F68FDD9ED14 /* Embed Frameworks */,
+				0FEDB81B3F1EAF824EE1B536 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9E4903CAF65DCDD41B9FF348 /* PBXTargetDependency */,
+				8B7AAC8C6B0AA08BC77A3E3F /* PBXTargetDependency */,
+			);
+			name = BalancingEnergy;
+			productName = BalancingEnergy;
+			productReference = DCCD6F2EEA1EFE1B0C75AD59 /* BalancingEnergy.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		66A2EB0C3E9DCCB0C56A5693 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				ORGANIZATIONNAME = home;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = 7859095E2874F5559794556D /* Build configuration list for PBXProject "KarmicHealing" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 29EF60B9B030A63F2496326D;
+			productRefGroup = DDD2F1F584485938C3313276 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				488451BFB78E2B2E8E24F0D0 /* AppSettings */,
+				F1F0DB3FD5F4DD1B938C14EB /* BalancingEnergy */,
+				6B071305EC98B7EE2D7AC866 /* BalancingEnergyList */,
+				5478B72F927EF41FAAD1A812 /* Common */,
+				850C2836C562EF4C53B3C6C1 /* Home */,
+				0B23355E064D27591EBFD153 /* HomeTests */,
+				D5734659E17303697C587D84 /* KarmicHealing */,
+				2E9B8F1705F579CDF62AF8E7 /* Onboarding */,
+				92B8152D790C553ABCB8FCF0 /* Requests */,
+				ED7F6540CBCAEA0A1A2871E9 /* Resources */,
+				3D9E21BF9E22F63C4A0178D2 /* TestingUtilities */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0371BD75223148262FD97B55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				666B2D0467C48D9F7D35F0F3 /* Colors.xcassets in Resources */,
+				80418E4FD398616DE7CDB088 /* Icons.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18FA0CD5CD4238B8A687B9C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60EACD0BCBECA1DB8CC228DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		631FD26419C232B60D3EC519 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D58E3FF40AE7A39B1106916 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F145EB07E1743E925E8B752 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B353E5CBD8622797E52CC501 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC91711A46744B42B746FE1F /* GRDB_GRDB.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C044A6FA657DB5830512B701 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC69CACC5FB83951A6D3BB9D /* Assets.xcassets in Resources */,
+				DCF1A53AC09361A0506CE50B /* LaunchScreen.storyboard in Resources */,
+				F9B79DEE9EF81F492F9C9119 /* Localizable.xcstrings in Resources */,
+				F2568E3AB99DDDA1946653FA /* GRDB_GRDB.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C93EB945476051E5A7CE1CDF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D30FB890AA9017D3803348A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1A851CCB74A9D3F3ABE4C6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		06D7EB4968487DBF41C17BAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9433F7E6732212EBE2439BEF /* TuistAssets+Resources.swift in Sources */,
+				5C46A2B9B61966C3A51E0C0E /* TuistBundle+Resources.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0BA04E2F9B50D75985D49C78 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				155EBEC9AA9DC80773DC028F /* BalancingEnergyList.swift in Sources */,
+				B504A12C457FFC0D809BEE0F /* BalancingEnergyListView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A07BF8AE99D1224C44577E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBD9DBE8FBA452E97FE55D9C /* Home.swift in Sources */,
+				1442618D3217E119659A9193 /* HomeButton.swift in Sources */,
+				FD86161E32D478D1014AF73A /* HomeButtonView.swift in Sources */,
+				8A2C8FC1DEC63DC6A3BE2C30 /* HomeView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3245E9A87FF9405BE327978C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				201452629B69CE4015BF6CB0 /* Schema.swift in Sources */,
+				73F50560ACA07D04637FE1B5 /* SwiftDataExplorations.swift in Sources */,
+				DB300BCCADF57F8B2B8BD631 /* Requests.swift in Sources */,
+				E8E2C208EAA0F21233E9680F /* RequestsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AE0257803E05262B2ABCE0C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				904A96FE6F4FBD1B3EBD19BE /* BalancingEnergy.swift in Sources */,
+				709D71937CE4FAF1D6D10429 /* BalancingEnergyView.swift in Sources */,
+				8A0FD27E9747F6656C419293 /* Step.swift in Sources */,
+				E14DDA5A61724C3253E18EF5 /* Steps.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D7F2D584A5C1F16E2973AA1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5E94556B773B21BB70512FD /* TuistAssets+KarmicHealing.swift in Sources */,
+				6EAB365A9BBBE66618C346F3 /* TuistBundle+KarmicHealing.swift in Sources */,
+				A558C3D62DA36492D4ABB014 /* KarmicHealing.swift in Sources */,
+				748544E2BB8BF0F3FC1020EF /* KarmicHealingApp.swift in Sources */,
+				2A7F809E8715B4D3D5AF7E63 /* KarmicHealingView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72864F2C44F57E9443630C3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0ADB44E8F3B95291076244FF /* HomeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A03A4A1D29CE608CE92E373 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				734059DAC275038C63A0BD4D /* UserDefaultClient.swift in Sources */,
+				659A9EC77FFAA74B3CBC0517 /* FullScreenCoverBackgroundView.swift in Sources */,
+				A46B7E76AEEC439EEF444984 /* KarmicHealingDisclosureCell.swift in Sources */,
+				EECF0DC3D74D30761AA1A8E9 /* NavigationBar+Ext.swift in Sources */,
+				9CE970894F21072CC11E52D6 /* TabView+Ext.swift in Sources */,
+				AE71F75F68DFC6DCCDF60EAE /* KarmicHealingAlert.swift in Sources */,
+				5B799EC8C9AF360961E244FC /* KarmicHealingAlertView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A03AF6635B6D5A44442D9804 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B989D888AC268EB514247247 /* Onboarding.swift in Sources */,
+				A5CCC648F2DE494C84F58E11 /* OnboardingView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5477E8DC7DD73FF8B5AE612 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6AF8ACB620AED7F305C336D /* CMTime+Ext.swift in Sources */,
+				F31D9DC674BDF73BEB21ED1B /* XCTest+expectParameter.swift in Sources */,
+				7BC08B2770614B64B167F7A3 /* XCTest+withTrackedCalls.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC13ABED3B3A9A8E65A611C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7EDD47524AC300488535AA4 /* AppSettings.swift in Sources */,
+				076B1961B6A6106CCEA1D520 /* AppSettingsView.swift in Sources */,
+				54CF84DD3F45CB6BAEA4CB9B /* MailComposerView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0B63311D327765F90301FD9D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Home;
+			target = 850C2836C562EF4C53B3C6C1 /* Home */;
+			targetProxy = 1704013E1D949A08CFE16BCB /* PBXContainerItemProxy */;
+		};
+		1EA0799F6F9FEEA7588EB227 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Requests;
+			target = 92B8152D790C553ABCB8FCF0 /* Requests */;
+			targetProxy = 00F0A921189920FD6364F2AE /* PBXContainerItemProxy */;
+		};
+		21DFB96128A4246062EA9D86 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Resources;
+			target = ED7F6540CBCAEA0A1A2871E9 /* Resources */;
+			targetProxy = 241BDB3BE60F5D0DDFFB7A6A /* PBXContainerItemProxy */;
+		};
+		24DC217E155C0B6D95DAEDAC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Resources;
+			target = ED7F6540CBCAEA0A1A2871E9 /* Resources */;
+			targetProxy = C2A6F729F7DE0255BA8A7666 /* PBXContainerItemProxy */;
+		};
+		2FAD5E22431B23620545A6A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Home;
+			target = 850C2836C562EF4C53B3C6C1 /* Home */;
+			targetProxy = 37D4D0A7DDAAC8151764BBBA /* PBXContainerItemProxy */;
+		};
+		3CB941761D2268C7B9D09155 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AppSettings;
+			target = 488451BFB78E2B2E8E24F0D0 /* AppSettings */;
+			targetProxy = B7B292DCC8AFB0FA4701858C /* PBXContainerItemProxy */;
+		};
+		4657A5238E9FFE14D2102698 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Common;
+			target = 5478B72F927EF41FAAD1A812 /* Common */;
+			targetProxy = 08FDA55793E4A1B4E426D862 /* PBXContainerItemProxy */;
+		};
+		5FAC5F09AF51E82DF45771B7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Requests;
+			target = 92B8152D790C553ABCB8FCF0 /* Requests */;
+			targetProxy = 12D86E6F2F4AF0EE78611C63 /* PBXContainerItemProxy */;
+		};
+		7625EA060123028320F3182B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Resources;
+			target = ED7F6540CBCAEA0A1A2871E9 /* Resources */;
+			targetProxy = 705214F4D07D4D6658FE41AA /* PBXContainerItemProxy */;
+		};
+		782F9D647E19140DFDEEAFD7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Common;
+			target = 5478B72F927EF41FAAD1A812 /* Common */;
+			targetProxy = A808A27771827252B69BEEF4 /* PBXContainerItemProxy */;
+		};
+		7F7A35EC2A33D3BCA94DDD5B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TestingUtilities;
+			target = 3D9E21BF9E22F63C4A0178D2 /* TestingUtilities */;
+			targetProxy = 585754C12D0DE6FEDC92F919 /* PBXContainerItemProxy */;
+		};
+		862DDAE914DC64339A49C8C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Common;
+			target = 5478B72F927EF41FAAD1A812 /* Common */;
+			targetProxy = F6CE96CFBCAFD974AE7AF1B7 /* PBXContainerItemProxy */;
+		};
+		885C150AAB481BCE5C8B7662 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Resources;
+			target = ED7F6540CBCAEA0A1A2871E9 /* Resources */;
+			targetProxy = 9B76B2268D2756DFD1CCC12E /* PBXContainerItemProxy */;
+		};
+		8B7AAC8C6B0AA08BC77A3E3F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Resources;
+			target = ED7F6540CBCAEA0A1A2871E9 /* Resources */;
+			targetProxy = C6DE0AC4951F2ED033FFB419 /* PBXContainerItemProxy */;
+		};
+		8FBA205012569AE069ECCBFC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Resources;
+			target = ED7F6540CBCAEA0A1A2871E9 /* Resources */;
+			targetProxy = A1405104BEBD9B8F2DD07F39 /* PBXContainerItemProxy */;
+		};
+		9E4903CAF65DCDD41B9FF348 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Common;
+			target = 5478B72F927EF41FAAD1A812 /* Common */;
+			targetProxy = 738FDB7BC128BC30DC0D95AA /* PBXContainerItemProxy */;
+		};
+		9FAFAFD26F07273147CB2C87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Onboarding;
+			target = 2E9B8F1705F579CDF62AF8E7 /* Onboarding */;
+			targetProxy = B96680D6D6122451621856C2 /* PBXContainerItemProxy */;
+		};
+		A19F97AA75941D8E5D534E69 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Common;
+			target = 5478B72F927EF41FAAD1A812 /* Common */;
+			targetProxy = 084C65913E324C4FED0E2203 /* PBXContainerItemProxy */;
+		};
+		B2CF37CC6C5A1155F724FDCE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Common;
+			target = 5478B72F927EF41FAAD1A812 /* Common */;
+			targetProxy = 2BE01E520760BFD3BACEDAA3 /* PBXContainerItemProxy */;
+		};
+		CCA9C46A843C0B0A59986926 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BalancingEnergy;
+			target = F1F0DB3FD5F4DD1B938C14EB /* BalancingEnergy */;
+			targetProxy = FB24F98C58914EF41441D9E1 /* PBXContainerItemProxy */;
+		};
+		D323053EE4B912D3812F65A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BalancingEnergyList;
+			target = 6B071305EC98B7EE2D7AC866 /* BalancingEnergyList */;
+			targetProxy = 3EC989B6CBCA25D8AE6E3F52 /* PBXContainerItemProxy */;
+		};
+		D5063188A40F7397AC80603E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Common;
+			target = 5478B72F927EF41FAAD1A812 /* Common */;
+			targetProxy = 9D8CFE06FB00E751486EABA3 /* PBXContainerItemProxy */;
+		};
+		F7F5B06322D3CA9983A93F05 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BalancingEnergyList;
+			target = 6B071305EC98B7EE2D7AC866 /* BalancingEnergyList */;
+			targetProxy = 73248C159BD0A38BCE2A4041 /* PBXContainerItemProxy */;
+		};
+		F9CEC3B4E19D1FF90C41B34E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BalancingEnergy;
+			target = F1F0DB3FD5F4DD1B938C14EB /* BalancingEnergy */;
+			targetProxy = D4E988E14971F2DDCE493F43 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		027E8162604189DA9F7B72E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(inherited)",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-navigation/Sources/UIKitNavigationShim/include",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include",
+				);
+				INFOPLIST_FILE = "Derived/InfoPlists/Onboarding-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+				);
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.onboarding;
+				PRODUCT_NAME = Onboarding;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+					"$(inherited)",
+					DEBUG,
+				);
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		11D829DBF897D86603806BEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(inherited)",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-navigation/Sources/UIKitNavigationShim/include",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include",
+				);
+				INFOPLIST_FILE = "Derived/InfoPlists/Requests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+				);
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.requests;
+				PRODUCT_NAME = Requests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+					"$(inherited)",
+					DEBUG,
+				);
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		12F8276974FE340211A8FC4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(inherited)",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-navigation/Sources/UIKitNavigationShim/include",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include",
+				);
+				INFOPLIST_FILE = "Derived/InfoPlists/Onboarding-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+				);
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.onboarding;
+				PRODUCT_NAME = Onboarding;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		155B23B9B108A9D8675D2AA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(inherited)",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-navigation/Sources/UIKitNavigationShim/include",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include",
+				);
+				INFOPLIST_FILE = "Derived/InfoPlists/BalancingEnergy-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+				);
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.balancingEnergy;
+				PRODUCT_NAME = BalancingEnergy;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		156BFB7DD4633197058C2C83 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CFBundleDisplayName = "Karmic Healing";
+				CFBundleName = KarmicHealing;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				ENABLE_PREVIEWS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(inherited)",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-navigation/Sources/UIKitNavigationShim/include",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include",
+				);
+				INFOPLIST_FILE = "Derived/InfoPlists/KarmicHealing-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+				);
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing;
+				PRODUCT_NAME = KarmicHealing;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+					"$(inherited)",
+					DEBUG,
+				);
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		158D32EB6538D5D0B213FAC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(inherited)",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-navigation/Sources/UIKitNavigationShim/include",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include",
+				);
+				INFOPLIST_FILE = "Derived/InfoPlists/Home-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+				);
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.home;
+				PRODUCT_NAME = Home;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		24ADE1208DC0AA4FEF33723F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(inherited)",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-navigation/Sources/UIKitNavigationShim/include",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include",
+				);
+				INFOPLIST_FILE = "Derived/InfoPlists/Common-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+				);
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.common;
+				PRODUCT_NAME = Common;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+					"$(inherited)",
+					DEBUG,
+				);
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2E94077C5D03E952FDE304ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(inherited)",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-navigation/Sources/UIKitNavigationShim/include",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include",
+				);
+				INFOPLIST_FILE = "Derived/InfoPlists/AppSettings-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+				);
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.appSettings;
+				PRODUCT_NAME = AppSettings;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		30CD92FE835EC29005935A79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		54560B97B053A966B7BA70F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(inherited)",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-navigation/Sources/UIKitNavigationShim/include",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include",
+				);
+				INFOPLIST_FILE = "Derived/InfoPlists/BalancingEnergy-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+				);
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.balancingEnergy;
+				PRODUCT_NAME = BalancingEnergy;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+					"$(inherited)",
+					DEBUG,
+				);
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5EE3F3B5ECADF9811BCC3351 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(inherited)",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-navigation/Sources/UIKitNavigationShim/include",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include",
+				);
+				INFOPLIST_FILE = "Derived/InfoPlists/HomeTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+				);
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.home.tests;
+				PRODUCT_NAME = HomeTests;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+					"$(inherited)",
+					DEBUG,
+				);
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		6204725438901115B93922F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(inherited)",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-navigation/Sources/UIKitNavigationShim/include",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include",
+				);
+				INFOPLIST_FILE = "Derived/InfoPlists/TestingUtilities-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+				);
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.testingUtilities;
+				PRODUCT_NAME = TestingUtilities;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+					"$(inherited)",
+					DEBUG,
+				);
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		73576524863D4ECD5E71624F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(inherited)",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-navigation/Sources/UIKitNavigationShim/include",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include",
+				);
+				INFOPLIST_FILE = "Derived/InfoPlists/BalancingEnergyList-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+				);
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.balancingEnergyList;
+				PRODUCT_NAME = BalancingEnergyList;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8E476B032338128F33176902 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(inherited)",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-navigation/Sources/UIKitNavigationShim/include",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include",
+				);
+				INFOPLIST_FILE = "Derived/InfoPlists/Common-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+				);
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.common;
+				PRODUCT_NAME = Common;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		940D987705CF89A45749ACA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Derived/InfoPlists/Resources-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.resources;
+				PRODUCT_NAME = Resources;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B8B792687164B713ABE93A58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(inherited)",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-navigation/Sources/UIKitNavigationShim/include",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include",
+				);
+				INFOPLIST_FILE = "Derived/InfoPlists/TestingUtilities-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+				);
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.testingUtilities;
+				PRODUCT_NAME = TestingUtilities;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BE253F53A94187205E7EF656 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(inherited)",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-navigation/Sources/UIKitNavigationShim/include",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include",
+				);
+				INFOPLIST_FILE = "Derived/InfoPlists/BalancingEnergyList-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+				);
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.balancingEnergyList;
+				PRODUCT_NAME = BalancingEnergyList;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+					"$(inherited)",
+					DEBUG,
+				);
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D036D71F4631A08AA03D5908 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(inherited)",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-navigation/Sources/UIKitNavigationShim/include",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include",
+				);
+				INFOPLIST_FILE = "Derived/InfoPlists/AppSettings-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+				);
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.appSettings;
+				PRODUCT_NAME = AppSettings;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+					"$(inherited)",
+					DEBUG,
+				);
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D21C94A226EC1CB25DFF78A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DB79A39DE958721F552C5121 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(inherited)",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-navigation/Sources/UIKitNavigationShim/include",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include",
+				);
+				INFOPLIST_FILE = "Derived/InfoPlists/HomeTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+				);
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.home.tests;
+				PRODUCT_NAME = HomeTests;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		E38091AFC3224ACA773D2473 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(inherited)",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-navigation/Sources/UIKitNavigationShim/include",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include",
+				);
+				INFOPLIST_FILE = "Derived/InfoPlists/Home-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+				);
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.home;
+				PRODUCT_NAME = Home;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+					"$(inherited)",
+					DEBUG,
+				);
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EFC15D9E5860B5EEC4DF15DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CFBundleDisplayName = "Karmic Healing";
+				CFBundleName = KarmicHealing;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				ENABLE_PREVIEWS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(inherited)",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-navigation/Sources/UIKitNavigationShim/include",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include",
+				);
+				INFOPLIST_FILE = "Derived/InfoPlists/KarmicHealing-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+				);
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing;
+				PRODUCT_NAME = KarmicHealing;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F9185644BC76E862E47F5605 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(inherited)",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-navigation/Sources/UIKitNavigationShim/include",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include",
+				);
+				INFOPLIST_FILE = "Derived/InfoPlists/Requests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+				);
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.requests;
+				PRODUCT_NAME = Requests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FE4DDC382C57F8C9ED0387D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Derived/InfoPlists/Resources-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.resources;
+				PRODUCT_NAME = Resources;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+					"$(inherited)",
+					DEBUG,
+				);
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0840DFEAF0FC904CD00A8868 /* Build configuration list for PBXNativeTarget "HomeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EE3F3B5ECADF9811BCC3351 /* Debug */,
+				DB79A39DE958721F552C5121 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16820349ED9C77E017954FAE /* Build configuration list for PBXNativeTarget "TestingUtilities" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6204725438901115B93922F3 /* Debug */,
+				B8B792687164B713ABE93A58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16F0BB4E430A070B650B75A1 /* Build configuration list for PBXNativeTarget "Onboarding" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				027E8162604189DA9F7B72E0 /* Debug */,
+				12F8276974FE340211A8FC4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F1AEC9BDAC3B0928932562C /* Build configuration list for PBXNativeTarget "KarmicHealing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				156BFB7DD4633197058C2C83 /* Debug */,
+				EFC15D9E5860B5EEC4DF15DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		44A4FBDC6FBC823C45CF68B5 /* Build configuration list for PBXNativeTarget "BalancingEnergy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54560B97B053A966B7BA70F9 /* Debug */,
+				155B23B9B108A9D8675D2AA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63D2AEF1B213C233D5F77E9B /* Build configuration list for PBXNativeTarget "BalancingEnergyList" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE253F53A94187205E7EF656 /* Debug */,
+				73576524863D4ECD5E71624F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7364AB6181225682E1EE5E09 /* Build configuration list for PBXNativeTarget "Home" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E38091AFC3224ACA773D2473 /* Debug */,
+				158D32EB6538D5D0B213FAC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7859095E2874F5559794556D /* Build configuration list for PBXProject "KarmicHealing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30CD92FE835EC29005935A79 /* Debug */,
+				D21C94A226EC1CB25DFF78A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		889A98A38267B5E906775AF9 /* Build configuration list for PBXNativeTarget "AppSettings" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D036D71F4631A08AA03D5908 /* Debug */,
+				2E94077C5D03E952FDE304ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F34A4CD93ABFA620CD1E1D8 /* Build configuration list for PBXNativeTarget "Common" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24ADE1208DC0AA4FEF33723F /* Debug */,
+				8E476B032338128F33176902 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE2C0EF78657BCC65046B1C4 /* Build configuration list for PBXNativeTarget "Requests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11D829DBF897D86603806BEB /* Debug */,
+				F9185644BC76E862E47F5605 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E19BC154343EBC74B099E973 /* Build configuration list for PBXNativeTarget "Resources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE4DDC382C57F8C9ED0387D7 /* Debug */,
+				940D987705CF89A45749ACA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+}

@@ -1,0 +1,78 @@
+//
+//   Karmic Healing 2025
+//
+
+import Foundation
+import ComposableArchitecture
+import SwiftUI
+import Common
+import Resources
+import BalancingEnergy
+
+public struct BalancingEnergyListView: View {
+  @SwiftUI.Environment(\.dismiss) var dismiss
+
+  private let store: StoreOf<BalancingEnergyList>
+
+  public init(store: StoreOf<BalancingEnergyList>) {
+    self.store = store
+  }
+
+  private struct ViewState: Equatable {
+    init(state: BalancingEnergyList.State) {
+
+    }
+  }
+
+  public var body: some View {
+    WithViewStore(store, observe: ViewState.init) { viewStore in
+      ZStack {
+        ResourcesAsset.Colors.background.swiftUIColor
+          .ignoresSafeArea()
+        ScrollView {
+          VStack {
+            KarmicHealingDisclosureGroup {
+              KarmicHealingDisclosureCell(String(localized: "initial_process", bundle: .main)) {
+                self.store.send(.initialProcess)
+              }
+
+              KarmicHealingDisclosureCell(String(localized: "essential_self", bundle: .main)) {
+                self.store.send(.essentialSelf)
+              }
+
+              KarmicHealingDisclosureCell(String(localized: "divine_self", bundle: .main)) {
+                self.store.send(.divineSelf)
+              }
+            }
+          }
+        }
+        .font(.system(size: 18))
+        .padding(.horizontal)
+        .padding(.top)
+      }
+      .navigationTitle(String(localized: "energy_balancing", bundle: .main))
+      .navigationBarBackButtonHidden(true)
+      .navigationBarBackgroundColor(ResourcesAsset.Colors.background.swiftUIColor)
+      .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+      .toolbar {
+        ToolbarItem(placement: .topBarLeading) {
+          Button(action: { dismiss() }) {
+            Image(systemName: "chevron.left")
+              .renderingMode(.template)
+              .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+          }
+        }
+      }
+    }
+  }
+}
+
+#Preview {
+  BalancingEnergyListView(store: .init(
+    initialState: .init(),
+    reducer: {
+      BalancingEnergyList()
+    }
+  ))
+}
+

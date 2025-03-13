@@ -1,0 +1,111 @@
+//
+// Karmic Healing 2025
+//
+
+import Foundation
+import ComposableArchitecture
+import SwiftUI
+import Resources
+import Common
+
+public struct AppSettingsView: View {
+  @SwiftUI.Environment(\.dismiss) var dismiss
+
+  let store: StoreOf<AppSettings>
+
+  public init(store: StoreOf<AppSettings>) {
+    self.store = store
+  }
+
+  private struct ViewState: Equatable {
+    init(state: AppSettings.State) {
+
+    }
+  }
+
+  public var body: some View {
+    WithViewStore(store, observe: ViewState.init) { viewStore in
+      ZStack {
+        ResourcesAsset.Colors.background.swiftUIColor
+          .ignoresSafeArea()
+
+        ScrollView {
+          VStack {
+            KarmicHealingDisclosureGroup {
+              KarmicHealingDisclosureCell(String(localized: "about", bundle: .main)) {
+                self.store.send(.didTapAbout)
+              }
+
+              KarmicHealingDisclosureCell(String(localized: "change_language", bundle: .main)) {
+                self.store.send(.didTapChangeLanguage)
+              }
+
+              KarmicHealingDisclosureCell(String(localized: "write_to_us", bundle: .main)) {
+                self.store.send(.didTapContactEmail)
+              }
+            }
+          }
+        }
+        .font(.system(size: 18))
+        .padding(.horizontal)
+        .padding(.top)
+      }
+      .navigationTitle(String(localized: "settings", bundle: .main))
+      .navigationBarBackButtonHidden(true)
+      .navigationBarBackgroundColor(ResourcesAsset.Colors.background.swiftUIColor)
+      .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+      .toolbar {
+        ToolbarItem(placement: .topBarLeading) {
+          Button(action: { dismiss() }) {
+            Image(systemName: "chevron.left")
+              .renderingMode(.template)
+              .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+          }
+        }
+      }
+      .fullScreenCover(
+        store: store.scope(
+          state: \.$destination,
+          action: \.destination
+        ),
+        state: \.aboutAlert,
+        action: Destination.Action.aboutAlert,
+        content: KarmicHealingAlertView<Destination.Action.Alert>.init(store:)
+      )
+      .fullScreenCover(
+        store: store.scope(
+          state: \.$destination,
+          action: \.destination
+        ),
+        state: \.clipboardAlert,
+        action: Destination.Action.clipboardAlert,
+        content: KarmicHealingAlertView<Destination.Action.CopyAlert>.init(store:)
+      )
+      .fullScreenCover(
+        store: self.store.scope(
+          state: \.$destination,
+          action: \.destination
+        ),
+        state: \.mailComposer,
+        action: Destination.Action.mailComposer
+      ) { store in
+        MailComposerView(
+          isShowing: Binding(
+            get: { true },
+            set: { if !$0 { self.store.send(.destination(.dismiss)) } }
+          )
+        )
+      }
+    }
+  }
+}
+
+#Preview {
+  AppSettingsView(store: .init(
+    initialState: .init(),
+    reducer: {
+      AppSettings()
+    }
+  ))
+}
+
