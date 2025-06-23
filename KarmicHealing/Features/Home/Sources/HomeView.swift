@@ -19,12 +19,8 @@ public struct HomeView: View {
     self.store = store
   }
 
-  private struct ViewState: Equatable {
-    init(state: Home.State) {}
-  }
-
   public var body: some View {
-    WithViewStore(store, observe: ViewState.init) { viewStore in
+    WithViewStore(store, observe: { $0 }) { viewStore in
       NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
         ZStack {
           ResourcesAsset.Colors.background.swiftUIColor

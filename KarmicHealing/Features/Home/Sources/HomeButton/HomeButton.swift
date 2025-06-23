@@ -30,7 +30,7 @@ extension HomeButton {
 
   public static var notesButton: Self {
     .init(
-      color: ResourcesAsset.Colors.clam.swiftUIColor,
+      color: ResourcesAsset.Colors.friendly.swiftUIColor,
       icon: Image(systemName: "pencil.and.list.clipboard"),
       title: String(localized: "notes", bundle: .main).uppercased()
     )
@@ -38,7 +38,7 @@ extension HomeButton {
 
   public static var settingsButton: Self {
     .init(
-      color: ResourcesAsset.Colors.friendly.swiftUIColor,
+      color: ResourcesAsset.Colors.clam.swiftUIColor,
       icon: Image(systemName: "gearshape"),
       title: String(localized: "settings", bundle: .main).uppercased()
     )

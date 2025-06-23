@@ -16,12 +16,8 @@ public struct NotesView: View {
     self.store = store
   }
 
-  private struct ViewState: Equatable {
-    init(state: Notes.State) {}
-  }
-
   public var body: some View {
-    WithViewStore(store, observe: ViewState.init) { viewStore in
+    WithViewStore(store, observe: { $0 }) { viewStore in
       ZStack {
         ResourcesAsset.Colors.background.swiftUIColor
           .ignoresSafeArea()
