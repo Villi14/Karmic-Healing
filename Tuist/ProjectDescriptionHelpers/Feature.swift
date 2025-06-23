@@ -5,13 +5,14 @@ public let iosDeploymentTargets = DeploymentTargets.iOS("17.4")
 
 public enum Feature: String {
   case common
-  case home
+  case resources
   case onboarding
-  case appSettings
-  case requests
+  case home
   case balancingEnergyList
   case balancingEnergy
-  case resources
+  case requests
+  case notes
+  case appSettings
   case testingUtilities
 }
 

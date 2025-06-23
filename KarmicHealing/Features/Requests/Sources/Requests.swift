@@ -2,8 +2,8 @@
 //   Karmic Healing 2025
 //
 
-import ComposableArchitecture
 import Foundation
+import ComposableArchitecture
 import Common
 
 @Reducer
@@ -13,12 +13,10 @@ public struct Requests {
   
   @ObservableState
   public struct State: Equatable {
-    public let title: String
     public var requests: [RequestItem]
     public var isLoading: Bool
     
-    public init(title: String, requests: [RequestItem] = [], isLoading: Bool = false) {
-      self.title = title
+    public init(requests: [RequestItem] = [], isLoading: Bool = false) {
       self.requests = requests
       self.isLoading = isLoading
     }

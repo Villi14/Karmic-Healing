@@ -3,28 +3,25 @@
 //
 
 import ComposableArchitecture
-import BalancingEnergy
 
 @Reducer
-public struct BalancingEnergyList {
+public struct Notes {
   public init() {}
 
   @ObservableState
   public struct State: Equatable {
     public init() {}
-  }
 
+  }
+  
   public enum Action: Equatable {
-    case initialProcess
-    case essentialSelf
-    case divineSelf
+    
   }
-
+  
   public var body: some ReducerOf<Self> {
     Reduce { state, action in
       switch action {
-      case .initialProcess, .essentialSelf, .divineSelf:
-        return .none
+        
       }
     }
   }

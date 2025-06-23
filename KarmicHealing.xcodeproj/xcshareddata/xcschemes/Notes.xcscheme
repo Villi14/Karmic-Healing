@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3D9E21BF9E22F63C4A0178D2"
-               BuildableName = "TestingUtilities.framework"
-               BlueprintName = "TestingUtilities"
+               BlueprintIdentifier = "EACE25C6BC44C7B967540F56"
+               BuildableName = "Notes.framework"
+               BlueprintName = "Notes"
                ReferencedContainer = "container:KarmicHealing.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,9 +44,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3D9E21BF9E22F63C4A0178D2"
-            BuildableName = "TestingUtilities.framework"
-            BlueprintName = "TestingUtilities"
+            BlueprintIdentifier = "EACE25C6BC44C7B967540F56"
+            BuildableName = "Notes.framework"
+            BlueprintName = "Notes"
             ReferencedContainer = "container:KarmicHealing.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -60,9 +60,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3D9E21BF9E22F63C4A0178D2"
-            BuildableName = "TestingUtilities.framework"
-            BlueprintName = "TestingUtilities"
+            BlueprintIdentifier = "EACE25C6BC44C7B967540F56"
+            BuildableName = "Notes.framework"
+            BlueprintName = "Notes"
             ReferencedContainer = "container:KarmicHealing.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

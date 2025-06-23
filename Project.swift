@@ -17,12 +17,14 @@ let mainTarget = Target.target(
     "KarmicHealing/MainTarget/Resources/**",
   ],
   dependencies: [
-    .target(home.implementationTarget),
     .target(common.implementationTarget),
     .target(onboarding.implementationTarget),
+    .target(home.implementationTarget),
     .target(requests.implementationTarget),
     .target(balancingEnergyList.implementationTarget),
     .target(balancingEnergy.implementationTarget),
+    .target(notes.implementationTarget),
+    .target(appSettings.implementationTarget),
     .external(name: "ComposableArchitecture")
   ],
   settings: .settings(
@@ -44,13 +46,14 @@ let project = Project(
   targets: .all(
     [mainTarget],
     common.targets,
-    home.targets,
-    appSettings.targets,
+    resources.targets,
     onboarding.targets,
-    requests.targets,
+    home.targets,
     balancingEnergyList.targets,
     balancingEnergy.targets,
-    resources.targets,
+    requests.targets,
+    notes.targets,
+    appSettings.targets,
     testingUtilities.targets
   ),
   fileHeaderTemplate: .string("Karmic Healing ___YEAR___"),

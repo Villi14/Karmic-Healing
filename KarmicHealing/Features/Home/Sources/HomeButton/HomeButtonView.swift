@@ -68,7 +68,7 @@ public struct HomeButtonView: View {
       .ignoresSafeArea()
 
     HomeButtonView(
-      size: CGSize(width: 200, height: 200 * 0.615384615),
+      size: CGSize(width: 393 / 2, height: 393 / 2 * 0.615384615),
       homeButton: .init(
         color: ResourcesAsset.Colors.clam.swiftUIColor,
         icon: Image(systemName: "info.circle"),

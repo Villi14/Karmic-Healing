@@ -11,25 +11,17 @@ public let common = Module(
   resources: .notPresent
 )
 
-// MARK: - Home module
+// MARK: - Shared Resources (colors)
 
-public let home = Module(
-  feature: .home,
-  dependencies: [
-    .target(resources.implementationTarget),
-    .target(appSettings.implementationTarget),
-    .target(requests.implementationTarget),
-    .target(balancingEnergyList.implementationTarget),
-    .target(common.implementationTarget),
-    .external(name: "ComposableArchitecture")
-  ],
-  resources: .notPresent,
-  unitTests: .present(
-    dependencies: [
-      .target(testingUtilities.implementationTarget),
-      .external(name: "ComposableArchitecture")
+public let resources = Module(
+  feature: .resources,
+  dependencies: [],
+  resources: .custom(
+    [
+      "KarmicHealing/Features/Resources/Assets/**",
     ]
-  )
+  ),
+  hasSources: false
 )
 
 // MARK: - Onboarding module
@@ -44,29 +36,26 @@ public let onboarding = Module(
   resources: .notPresent
 )
 
-// MARK: - App Settings module
+// MARK: - Home module
 
-public let appSettings = Module(
-  feature: .appSettings,
+public let home = Module(
+  feature: .home,
   dependencies: [
     .target(common.implementationTarget),
     .target(resources.implementationTarget),
+    .target(balancingEnergyList.implementationTarget),
+    .target(requests.implementationTarget),
+    .target(notes.implementationTarget),
+    .target(appSettings.implementationTarget),
     .external(name: "ComposableArchitecture")
   ],
-  resources: .notPresent
-)
-
-// MARK: - Initialization module
-
-public let requests = Module(
-  feature: .requests,
-  dependencies: [
-    .target(common.implementationTarget),
-    .target(resources.implementationTarget),
-    .external(name: "ComposableArchitecture"),
-    .external(name: "SharingGRDB")
-  ],
-  resources: .notPresent
+  resources: .notPresent,
+  unitTests: .present(
+    dependencies: [
+      .target(testingUtilities.implementationTarget),
+      .external(name: "ComposableArchitecture")
+    ]
+  )
 )
 
 // MARK: - Balancing Energy List module
@@ -94,19 +83,43 @@ public let balancingEnergy = Module(
   resources: .notPresent
 )
 
-// MARK: - Shared Resources (colors, strings)
+// MARK: - Requests module
 
-public let resources = Module(
-  feature: .resources,
-  dependencies: [],
-  resources: .custom(
-    [
-      "KarmicHealing/Features/Resources/Assets/**",
-    ]
-  ),
-  hasSources: false
+public let requests = Module(
+  feature: .requests,
+  dependencies: [
+    .target(common.implementationTarget),
+    .target(resources.implementationTarget),
+    .external(name: "ComposableArchitecture"),
+    .external(name: "SharingGRDB")
+  ],
+  resources: .notPresent
 )
 
+// MARK: - Notes module
+
+public let notes = Module(
+  feature: .notes,
+  dependencies: [
+    .target(common.implementationTarget),
+    .target(resources.implementationTarget),
+    .external(name: "ComposableArchitecture"),
+    .external(name: "SharingGRDB")
+  ],
+  resources: .notPresent
+)
+
+// MARK: - App Settings module
+
+public let appSettings = Module(
+  feature: .appSettings,
+  dependencies: [
+    .target(common.implementationTarget),
+    .target(resources.implementationTarget),
+    .external(name: "ComposableArchitecture")
+  ],
+  resources: .notPresent
+)
 
 // MARK: - Testing Utilities (links XCTest so don't depend on it in app modules)
 

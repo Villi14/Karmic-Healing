@@ -6,10 +6,11 @@ import SwiftUI
 import ComposableArchitecture
 import Resources
 import Common
-import AppSettings
-import Requests
 import BalancingEnergyList
 import BalancingEnergy
+import Requests
+import Notes
+import AppSettings
 
 public struct HomeView: View {
   @Bindable var store: StoreOf<Home>
@@ -63,14 +64,18 @@ public struct HomeView: View {
         .navigationBarTitleDisplayMode(.inline)
       } destination: { store in
         switch store.case {
-        case .appSettings(let store):
-          AppSettingsView(store: store)
-        case .requests(let store):
-          RequestsView(store: store)
         case .balancingEnergyList(let store):
           BalancingEnergyListView(store: store)
         case .balancingEnergy(let store):
           BalancingEnergyView(store: store)
+        case .requests(let store):
+          RequestsView(store: store)
+        case .notes(let store):
+          NotesView(store: store)
+        case .appSettings(let store):
+          AppSettingsView(store: store)
+
+
         }
       }
     }

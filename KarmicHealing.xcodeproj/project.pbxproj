@@ -14,16 +14,19 @@
 		0ADB44E8F3B95291076244FF /* HomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3EC67BA24302FC3E49017B /* HomeTests.swift */; };
 		0EE111A13C77BC14C0E75E86 /* SharingGRDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DBA41DC6C1578B253D0E342 /* SharingGRDB.framework */; };
 		0F3E0E3CB3372C2D63041CD5 /* RequestItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388A2A91BB0E3694C6F9B509 /* RequestItem.swift */; };
+		12CC869A92909794AC5B7344 /* Notes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C7C1D5165F233A2725F0F2 /* Notes.framework */; };
 		13C8192BF9EFE574F4C52932 /* CombineSchedulers.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B8AF5B014AFB978DEF214451 /* CombineSchedulers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1442618D3217E119659A9193 /* HomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23889BE6F1834CCA8B1645F /* HomeButton.swift */; };
 		146BA7D07028CA56217E1A94 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; };
 		155EBEC9AA9DC80773DC028F /* BalancingEnergyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB359F3DF25939A4087B6164 /* BalancingEnergyList.swift */; };
 		1822734C08E5DCA53D98F9DD /* IdentifiedCollections.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F4583744CB6A1E0C424027D8 /* IdentifiedCollections.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1B0C9A8AD54ADF49C4D282FA /* Common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1D8485D4404D2B4CD8B2E3C3 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D2B547DA20E9C623B1859D /* NotesView.swift */; };
 		1EFA852222DA02C0D073A9FE /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
 		201452629B69CE4015BF6CB0 /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEEB72F2DF1834AFF235E16 /* Schema.swift */; };
 		2211952DE50D29D02CB08B5C /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; };
 		282B3F2F283A936E19EBD9ED /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
+		292E12F42E36DC8352924CD5 /* Notes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C7C1D5165F233A2725F0F2 /* Notes.framework */; };
 		2A7F809E8715B4D3D5AF7E63 /* KarmicHealingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B601C97CD8A2356AD07CBEF8 /* KarmicHealingView.swift */; };
 		2D063D2135124A9249DA3C1E /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
 		3283B7AFC3E2F0B7306CDEDA /* BalancingEnergy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DCCD6F2EEA1EFE1B0C75AD59 /* BalancingEnergy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -39,6 +42,8 @@
 		5A5603796097B4AC78E96D1E /* Requests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AFFEAB7951F1AB5D591E8C /* Requests.framework */; };
 		5B799EC8C9AF360961E244FC /* KarmicHealingAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF5AC93973189BA300A0954 /* KarmicHealingAlertView.swift */; };
 		5C46A2B9B61966C3A51E0C0E /* TuistBundle+Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18DBDF5630C1EA9E7AE7DCE /* TuistBundle+Resources.swift */; };
+		5EC4BD0376FB23A13477916A /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
+		5ED9337E6001E534C25E17D1 /* AppSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B8D2F9EDCFE04EF7D9E500 /* AppSettings.framework */; };
 		603C13D01413EBF9EF68149D /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
 		611495A73C8E242612B73BCF /* GRDB_GRDB.bundle in Dependencies */ = {isa = PBXBuildFile; fileRef = 2D0A0F1BA4DCAC41C8A420BB /* GRDB_GRDB.bundle */; };
 		659A9EC77FFAA74B3CBC0517 /* FullScreenCoverBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400056EC77ECD6BA7E3B731B /* FullScreenCoverBackgroundView.swift */; };
@@ -55,6 +60,7 @@
 		78937BD4CCE48AAB88D80162 /* PerceptionCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 290CA8030B15A0AA5C2CCFFB /* PerceptionCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7B324E6B7D4F59A548C936D4 /* BalancingEnergyList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937951BDE4A7DF3DE0227873 /* BalancingEnergyList.framework */; };
 		7BC08B2770614B64B167F7A3 /* XCTest+withTrackedCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF29FDB478366F2E7225B38 /* XCTest+withTrackedCalls.swift */; };
+		7EA491B9D1F6C238555FA0F5 /* Notes.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C5C7C1D5165F233A2725F0F2 /* Notes.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7F5626B0611F053EABB3718E /* Home.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04F8E16E9A85D842C27D7B75 /* Home.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		80418E4FD398616DE7CDB088 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 061863713A55E985902E3263 /* Icons.xcassets */; };
 		83BDF02A56751191BE80F116 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; };
@@ -62,6 +68,7 @@
 		8A2C8FC1DEC63DC6A3BE2C30 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135D35F200CBF453C042ADEE /* HomeView.swift */; };
 		8A459562993DF44C41548E46 /* Sharing1.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3614AA82FB39C74A8B9D6E /* Sharing1.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A58E78BA85D192543FDB196 /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
+		8ACC1847E5DA04DEE1023B50 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896B4987E73910284B7EE55C /* Notes.swift */; };
 		904A96FE6F4FBD1B3EBD19BE /* BalancingEnergy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A350AA2DADC5C8EA3D278D /* BalancingEnergy.swift */; };
 		9433F7E6732212EBE2439BEF /* TuistAssets+Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8FD516CA44D211DF048D7 /* TuistAssets+Resources.swift */; };
 		9C8C914EDF8CA4A9C71DBB98 /* Dependencies.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 521A308467BDA5B20A8073FB /* Dependencies.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -77,8 +84,10 @@
 		AE71F75F68DFC6DCCDF60EAE /* KarmicHealingAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B19F508923B07979CC702E8 /* KarmicHealingAlert.swift */; };
 		AEDDAF74DD332F9D09C184D4 /* AppSettings.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10B8D2F9EDCFE04EF7D9E500 /* AppSettings.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B504A12C457FFC0D809BEE0F /* BalancingEnergyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035250898164081970D4C3AE /* BalancingEnergyListView.swift */; };
+		B50A266E815782B1F06229DA /* SharingGRDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DBA41DC6C1578B253D0E342 /* SharingGRDB.framework */; };
 		B5383194545B21ADD25ABE5C /* BalancingEnergyList.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 937951BDE4A7DF3DE0227873 /* BalancingEnergyList.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B667BA1AA9F679C2208F3AAB /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; };
+		B89DE1C4D31B11D6C626F304 /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; };
 		B989D888AC268EB514247247 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE0B0C32B9B575FF3ADF75D /* Onboarding.swift */; };
 		BBF5D94FA26053CCD727D221 /* ConcurrencyExtras.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1169C48DEE11FEB08AE83FBA /* ConcurrencyExtras.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BFCCE3CCD39973F7A25C235C /* BalancingEnergy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCD6F2EEA1EFE1B0C75AD59 /* BalancingEnergy.framework */; };
@@ -92,6 +101,7 @@
 		DCF1A53AC09361A0506CE50B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8713013181939438F04B4BB9 /* LaunchScreen.storyboard */; };
 		DD16ED6809DBFF3F0EE92709 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; };
 		DE3593631E9ECD8F6F8130DF /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
+		DEA3825C3887EBB4C988D357 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; };
 		E080209B7FE4E310A61C96E4 /* TestingUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC78A05FC6DB55E86D8DCCF5 /* TestingUtilities.framework */; };
 		E14DDA5A61724C3253E18EF5 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AA4BB66567BBDD9C9B4C20 /* Steps.swift */; };
 		E8E2C208EAA0F21233E9680F /* RequestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F8597B465E949011A03FA /* RequestsView.swift */; };
@@ -180,6 +190,13 @@
 			remoteGlobalIDString = 6B071305EC98B7EE2D7AC866;
 			remoteInfo = BalancingEnergyList;
 		};
+		5450DA2B15FA96F36A3604CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EACE25C6BC44C7B967540F56;
+			remoteInfo = Notes;
+		};
 		585754C12D0DE6FEDC92F919 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
@@ -208,6 +225,20 @@
 			remoteGlobalIDString = 5478B72F927EF41FAAD1A812;
 			remoteInfo = Common;
 		};
+		82504BD6D6F61B6ED8912509 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EACE25C6BC44C7B967540F56;
+			remoteInfo = Notes;
+		};
+		8B839E4831B1EC0867D9F1E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED7F6540CBCAEA0A1A2871E9;
+			remoteInfo = Resources;
+		};
 		9B76B2268D2756DFD1CCC12E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
@@ -230,6 +261,13 @@
 			remoteInfo = Resources;
 		};
 		A808A27771827252B69BEEF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5478B72F927EF41FAAD1A812;
+			remoteInfo = Common;
+		};
+		B008384D64BFBD15F0A4B01F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
 			proxyType = 1;
@@ -271,6 +309,13 @@
 			remoteGlobalIDString = F1F0DB3FD5F4DD1B938C14EB;
 			remoteInfo = BalancingEnergy;
 		};
+		DEE1B4999DC0FA593D959674 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 488451BFB78E2B2E8E24F0D0;
+			remoteInfo = AppSettings;
+		};
 		F6CE96CFBCAFD974AE7AF1B7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
@@ -307,6 +352,7 @@
 				1822734C08E5DCA53D98F9DD /* IdentifiedCollections.framework in Embed Frameworks */,
 				DB8ED1567B4FBA780BD5D482 /* InternalCollectionsUtilities.framework in Embed Frameworks */,
 				58C0B482EFB1A571D13E0F38 /* IssueReporting.framework in Embed Frameworks */,
+				7EA491B9D1F6C238555FA0F5 /* Notes.framework in Embed Frameworks */,
 				02750D7F43D6C3EDB43DA25F /* Onboarding.framework in Embed Frameworks */,
 				461C0B38F62D26D3F7493E13 /* OrderedCollections.framework in Embed Frameworks */,
 				78937BD4CCE48AAB88D80162 /* PerceptionCore.framework in Embed Frameworks */,
@@ -421,6 +467,16 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AE744455334DF7488AA8D7D0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C45AC0308B6FEB65B348EDA7 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -465,6 +521,7 @@
 		2D0A0F1BA4DCAC41C8A420BB /* GRDB_GRDB.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GRDB_GRDB.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E2D45E590A86AAE3640BB92 /* SwiftDataExplorations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataExplorations.swift; sourceTree = "<group>"; };
 		2E3614AA82FB39C74A8B9D6E /* Sharing1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sharing1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ED380C7125A39039EF031FC /* Notes-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Notes-Info.plist"; sourceTree = "<group>"; };
 		3687F91BBB526CC60FC4DD8A /* CMTime+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime+Ext.swift"; sourceTree = "<group>"; };
 		377F8597B465E949011A03FA /* RequestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsView.swift; sourceTree = "<group>"; };
 		388A2A91BB0E3694C6F9B509 /* RequestItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestItem.swift; sourceTree = "<group>"; };
@@ -498,6 +555,8 @@
 		8713013181939438F04B4BB9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87179576D83D01449EED8B00 /* HomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		881F8A734FFF7D8372D06ED8 /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88D2B547DA20E9C623B1859D /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
+		896B4987E73910284B7EE55C /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
 		937951BDE4A7DF3DE0227873 /* BalancingEnergyList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BalancingEnergyList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A283FF0AAE64A1782229F900 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		AB359F3DF25939A4087B6164 /* BalancingEnergyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancingEnergyList.swift; sourceTree = "<group>"; };
@@ -511,6 +570,7 @@
 		C000C78A1E665D1B1E7F85DD /* TabView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabView+Ext.swift"; sourceTree = "<group>"; };
 		C0B59758EFA10BA8AA6DA0D1 /* Sharing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sharing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C18DBDF5630C1EA9E7AE7DCE /* TuistBundle+Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+Resources.swift"; sourceTree = "<group>"; };
+		C5C7C1D5165F233A2725F0F2 /* Notes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Notes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6C90AC6419664A553E5DA30 /* Common-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Common-Info.plist"; sourceTree = "<group>"; };
 		C87D4296571F0460A46D013E /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		CAEEB72F2DF1834AFF235E16 /* Schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
@@ -565,11 +625,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ED9337E6001E534C25E17D1 /* AppSettings.framework in Frameworks */,
 				BFCCE3CCD39973F7A25C235C /* BalancingEnergy.framework in Frameworks */,
 				7B324E6B7D4F59A548C936D4 /* BalancingEnergyList.framework in Frameworks */,
 				83BDF02A56751191BE80F116 /* Common.framework in Frameworks */,
 				DE3593631E9ECD8F6F8130DF /* ComposableArchitecture.framework in Frameworks */,
 				9EDAAA7133C130EEB8BA0AFE /* Home.framework in Frameworks */,
+				292E12F42E36DC8352924CD5 /* Notes.framework in Frameworks */,
 				FFF4CDD513E9C228BD87176A /* Onboarding.framework in Frameworks */,
 				5A5603796097B4AC78E96D1E /* Requests.framework in Frameworks */,
 			);
@@ -596,6 +658,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B29B82EF433D3592EBB4B56E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEA3825C3887EBB4C988D357 /* Common.framework in Frameworks */,
+				5EC4BD0376FB23A13477916A /* ComposableArchitecture.framework in Frameworks */,
+				B89DE1C4D31B11D6C626F304 /* Resources.framework in Frameworks */,
+				B50A266E815782B1F06229DA /* SharingGRDB.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BBEF51B2004B30F6C2577817 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -611,6 +684,7 @@
 				4E5D3CB08D3281554F64720C /* BalancingEnergyList.framework in Frameworks */,
 				146BA7D07028CA56217E1A94 /* Common.framework in Frameworks */,
 				F7F812586C62078996EC5B37 /* ComposableArchitecture.framework in Frameworks */,
+				12CC869A92909794AC5B7344 /* Notes.framework in Frameworks */,
 				EB5AD4D488DAACA52CE68F24 /* Requests.framework in Frameworks */,
 				6B327F406573E7D4A1200907 /* Resources.framework in Frameworks */,
 			);
@@ -675,6 +749,15 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		0CF6C990DD4A29257DE43EE6 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				896B4987E73910284B7EE55C /* Notes.swift */,
+				88D2B547DA20E9C623B1859D /* NotesView.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
 		115E97671A9CB1DB56BF5431 /* HomeButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -692,6 +775,7 @@
 				B60854C2B4FD92D14B8F96C9 /* BalancingEnergyList */,
 				E5F940091CF3974ACE58187A /* Common */,
 				A040ADF93221F67D31462ABB /* Home */,
+				1BE7A7675048DBC9CEAB7BD6 /* Notes */,
 				7BAA77828A13539B0FF3A1FB /* Onboarding */,
 				5031000F83F04A20FF41DEA2 /* Requests */,
 				FBD5BEE7F204F154A2BE98F1 /* Resources */,
@@ -708,6 +792,14 @@
 				B601C97CD8A2356AD07CBEF8 /* KarmicHealingView.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		1BE7A7675048DBC9CEAB7BD6 /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				0CF6C990DD4A29257DE43EE6 /* Sources */,
+			);
+			path = Notes;
 			sourceTree = "<group>";
 		};
 		27E5E51626BE92EA53AFD4C0 /* Sources */ = {
@@ -935,6 +1027,7 @@
 				04C426E45AF0F18A74DF53D6 /* Home-Info.plist */,
 				437C255FD6B4927A3574DC7A /* HomeTests-Info.plist */,
 				48DC36A78958C5F735A322A5 /* KarmicHealing-Info.plist */,
+				2ED380C7125A39039EF031FC /* Notes-Info.plist */,
 				601EB9BCB25828503CE5B0B1 /* Onboarding-Info.plist */,
 				80DC255D38450C9D907A5140 /* Requests-Info.plist */,
 				42B4794F9892895099628422 /* Resources-Info.plist */,
@@ -992,6 +1085,7 @@
 				39B4C42BD50A7E19ED4EDD17 /* InternalCollectionsUtilities.framework */,
 				029923781F6C803C25C065FD /* IssueReporting.framework */,
 				E408783B2AAA3C06DBB33B5A /* KarmicHealing.app */,
+				C5C7C1D5165F233A2725F0F2 /* Notes.framework */,
 				AFCC57A0EE1A747FC6D514C6 /* Onboarding.framework */,
 				00E7681AF5A25E6A938F5F1F /* OrderedCollections.framework */,
 				290CA8030B15A0AA5C2CCFFB /* PerceptionCore.framework */,
@@ -1184,6 +1278,7 @@
 				3CB941761D2268C7B9D09155 /* PBXTargetDependency */,
 				D323053EE4B912D3812F65A6 /* PBXTargetDependency */,
 				862DDAE914DC64339A49C8C5 /* PBXTargetDependency */,
+				8D61AF8EEAA7C38B0AA36275 /* PBXTargetDependency */,
 				5FAC5F09AF51E82DF45771B7 /* PBXTargetDependency */,
 				885C150AAB481BCE5C8B7662 /* PBXTargetDependency */,
 			);
@@ -1225,10 +1320,12 @@
 			buildRules = (
 			);
 			dependencies = (
+				2EDAD88FDF95D6EF3B833A33 /* PBXTargetDependency */,
 				F9CEC3B4E19D1FF90C41B34E /* PBXTargetDependency */,
 				F7F5B06322D3CA9983A93F05 /* PBXTargetDependency */,
 				A19F97AA75941D8E5D534E69 /* PBXTargetDependency */,
 				0B63311D327765F90301FD9D /* PBXTargetDependency */,
+				BDAEE652D0AD20EC81D63A3A /* PBXTargetDependency */,
 				9FAFAFD26F07273147CB2C87 /* PBXTargetDependency */,
 				1EA0799F6F9FEEA7588EB227 /* PBXTargetDependency */,
 			);
@@ -1236,6 +1333,26 @@
 			productName = KarmicHealing;
 			productReference = E408783B2AAA3C06DBB33B5A /* KarmicHealing.app */;
 			productType = "com.apple.product-type.application";
+		};
+		EACE25C6BC44C7B967540F56 /* Notes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E33F813E316FD85153CD663 /* Build configuration list for PBXNativeTarget "Notes" */;
+			buildPhases = (
+				344A57615C8D5D9F1BF06B1D /* Sources */,
+				556CF798DA847F51D7668D91 /* Resources */,
+				AE744455334DF7488AA8D7D0 /* Embed Frameworks */,
+				B29B82EF433D3592EBB4B56E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C138E074145F78EBEE9DCA50 /* PBXTargetDependency */,
+				9B54A78120512B3794CC621A /* PBXTargetDependency */,
+			);
+			name = Notes;
+			productName = Notes;
+			productReference = C5C7C1D5165F233A2725F0F2 /* Notes.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 		ED7F6540CBCAEA0A1A2871E9 /* Resources */ = {
 			isa = PBXNativeTarget;
@@ -1282,6 +1399,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1640;
 				ORGANIZATIONNAME = home;
 			};
 			buildConfigurationList = 7859095E2874F5559794556D /* Build configuration list for PBXProject "KarmicHealing" */;
@@ -1304,6 +1422,7 @@
 				850C2836C562EF4C53B3C6C1 /* Home */,
 				0B23355E064D27591EBFD153 /* HomeTests */,
 				D5734659E17303697C587D84 /* KarmicHealing */,
+				EACE25C6BC44C7B967540F56 /* Notes */,
 				2E9B8F1705F579CDF62AF8E7 /* Onboarding */,
 				92B8152D790C553ABCB8FCF0 /* Requests */,
 				ED7F6540CBCAEA0A1A2871E9 /* Resources */,
@@ -1323,6 +1442,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		18FA0CD5CD4238B8A687B9C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		556CF798DA847F51D7668D91 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1440,6 +1566,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		344A57615C8D5D9F1BF06B1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8ACC1847E5DA04DEE1023B50 /* Notes.swift in Sources */,
+				1D8485D4404D2B4CD8B2E3C3 /* NotesView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5AE0257803E05262B2ABCE0C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1542,6 +1677,12 @@
 			target = ED7F6540CBCAEA0A1A2871E9 /* Resources */;
 			targetProxy = C2A6F729F7DE0255BA8A7666 /* PBXContainerItemProxy */;
 		};
+		2EDAD88FDF95D6EF3B833A33 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AppSettings;
+			target = 488451BFB78E2B2E8E24F0D0 /* AppSettings */;
+			targetProxy = DEE1B4999DC0FA593D959674 /* PBXContainerItemProxy */;
+		};
 		2FAD5E22431B23620545A6A8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Home;
@@ -1602,11 +1743,23 @@
 			target = ED7F6540CBCAEA0A1A2871E9 /* Resources */;
 			targetProxy = C6DE0AC4951F2ED033FFB419 /* PBXContainerItemProxy */;
 		};
+		8D61AF8EEAA7C38B0AA36275 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Notes;
+			target = EACE25C6BC44C7B967540F56 /* Notes */;
+			targetProxy = 82504BD6D6F61B6ED8912509 /* PBXContainerItemProxy */;
+		};
 		8FBA205012569AE069ECCBFC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Resources;
 			target = ED7F6540CBCAEA0A1A2871E9 /* Resources */;
 			targetProxy = A1405104BEBD9B8F2DD07F39 /* PBXContainerItemProxy */;
+		};
+		9B54A78120512B3794CC621A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Resources;
+			target = ED7F6540CBCAEA0A1A2871E9 /* Resources */;
+			targetProxy = 8B839E4831B1EC0867D9F1E1 /* PBXContainerItemProxy */;
 		};
 		9E4903CAF65DCDD41B9FF348 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1631,6 +1784,18 @@
 			name = Common;
 			target = 5478B72F927EF41FAAD1A812 /* Common */;
 			targetProxy = 2BE01E520760BFD3BACEDAA3 /* PBXContainerItemProxy */;
+		};
+		BDAEE652D0AD20EC81D63A3A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Notes;
+			target = EACE25C6BC44C7B967540F56 /* Notes */;
+			targetProxy = 5450DA2B15FA96F36A3604CD /* PBXContainerItemProxy */;
+		};
+		C138E074145F78EBEE9DCA50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Common;
+			target = 5478B72F927EF41FAAD1A812 /* Common */;
+			targetProxy = B008384D64BFBD15F0A4B01F /* PBXContainerItemProxy */;
 		};
 		CCA9C46A843C0B0A59986926 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1674,6 +1839,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -1688,6 +1854,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
@@ -1711,6 +1878,54 @@
 			};
 			name = Debug;
 		};
+		039DC7761CB67BE3CEABBC65 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(inherited)",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-navigation/Sources/UIKitNavigationShim/include",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include",
+				);
+				INFOPLIST_FILE = "Derived/InfoPlists/Notes-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros";
+				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.notes;
+				PRODUCT_NAME = Notes;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		11D829DBF897D86603806BEB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1720,6 +1935,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -1734,6 +1950,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
@@ -1767,6 +1984,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -1781,6 +1999,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
@@ -1812,6 +2031,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -1826,6 +2046,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
@@ -1901,6 +2122,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -1915,6 +2137,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
@@ -1947,6 +2170,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -1961,6 +2185,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
@@ -1993,6 +2218,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -2007,6 +2233,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
@@ -2068,6 +2295,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2097,6 +2325,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -2111,6 +2340,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
@@ -2181,6 +2411,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -2199,6 +2430,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
@@ -2231,6 +2463,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -2245,6 +2478,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
@@ -2276,6 +2510,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -2290,6 +2525,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
@@ -2321,6 +2557,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = "Derived/InfoPlists/Resources-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
@@ -2329,6 +2566,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.resources;
 				PRODUCT_NAME = Resources;
 				SDKROOT = iphoneos;
@@ -2345,6 +2583,55 @@
 			};
 			name = Release;
 		};
+		AC46462DA4C8047C34393031 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(inherited)",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-navigation/Sources/UIKitNavigationShim/include",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include",
+				);
+				INFOPLIST_FILE = "Derived/InfoPlists/Notes-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros";
+				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.notes;
+				PRODUCT_NAME = Notes;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		B8B792687164B713ABE93A58 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2354,6 +2641,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -2372,6 +2660,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
@@ -2403,6 +2692,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -2417,6 +2707,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
@@ -2449,6 +2740,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -2463,6 +2755,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
@@ -2525,6 +2818,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -2585,6 +2879,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -2599,6 +2894,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
@@ -2675,6 +2971,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -2689,6 +2986,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
@@ -2721,6 +3019,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = "Derived/InfoPlists/Resources-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
@@ -2729,6 +3028,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.resources;
 				PRODUCT_NAME = Resources;
 				SDKROOT = iphoneos;
@@ -2781,6 +3081,15 @@
 			buildConfigurations = (
 				156BFB7DD4633197058C2C83 /* Debug */,
 				EFC15D9E5860B5EEC4DF15DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2E33F813E316FD85153CD663 /* Build configuration list for PBXNativeTarget "Notes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC46462DA4C8047C34393031 /* Debug */,
+				039DC7761CB67BE3CEABBC65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

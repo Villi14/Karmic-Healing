@@ -1,6 +1,5 @@
 // Karmic Healing 2025
 
-import Foundation
 import SwiftData
 import SwiftUI
 

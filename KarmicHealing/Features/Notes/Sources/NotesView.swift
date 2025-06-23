@@ -7,17 +7,17 @@ import SwiftUI
 import Resources
 import Common
 
-public struct RequestsView: View {
+public struct NotesView: View {
   @SwiftUI.Environment(\.dismiss) var dismiss
 
-  public let store: StoreOf<Requests>
+  public let store: StoreOf<Notes>
 
-  public init(store: StoreOf<Requests>) {
+  public init(store: StoreOf<Notes>) {
     self.store = store
   }
 
   private struct ViewState: Equatable {
-    init(state: Requests.State) {}
+    init(state: Notes.State) {}
   }
 
   public var body: some View {
@@ -28,7 +28,7 @@ public struct RequestsView: View {
         VStack {
           Spacer()
         }
-        .navigationTitle(String(localized: "requests", bundle: .main))
+        .navigationTitle(String(localized: "notes", bundle: .main))
         .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.automatic)
         .navigationBarBackgroundColor(ResourcesAsset.Colors.background.swiftUIColor)
@@ -48,10 +48,10 @@ public struct RequestsView: View {
 }
 
 #Preview {
-  RequestsView(store: .init(
+  NotesView(store: .init(
     initialState: .init(),
     reducer: {
-      Requests()
+      Notes()
     }
   ))
 }

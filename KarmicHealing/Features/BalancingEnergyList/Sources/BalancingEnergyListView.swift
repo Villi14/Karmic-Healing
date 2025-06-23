@@ -2,7 +2,6 @@
 //   Karmic Healing 2025
 //
 
-import Foundation
 import ComposableArchitecture
 import SwiftUI
 import Common
@@ -29,22 +28,23 @@ public struct BalancingEnergyListView: View {
       ZStack {
         ResourcesAsset.Colors.background.swiftUIColor
           .ignoresSafeArea()
-        ScrollView {
-          VStack {
-            KarmicHealingDisclosureGroup {
-              KarmicHealingDisclosureCell(String(localized: "initial_process", bundle: .main)) {
-                self.store.send(.initialProcess)
-              }
 
-              KarmicHealingDisclosureCell(String(localized: "essential_self", bundle: .main)) {
-                self.store.send(.essentialSelf)
-              }
+        VStack {
+          KarmicHealingDisclosureGroup {
+            KarmicHealingDisclosureCell(String(localized: "initial_process", bundle: .main)) {
+              self.store.send(.initialProcess)
+            }
 
-              KarmicHealingDisclosureCell(String(localized: "divine_self", bundle: .main)) {
-                self.store.send(.divineSelf)
-              }
+            KarmicHealingDisclosureCell(String(localized: "essential_self", bundle: .main)) {
+              self.store.send(.essentialSelf)
+            }
+
+            KarmicHealingDisclosureCell(String(localized: "divine_self", bundle: .main)) {
+              self.store.send(.divineSelf)
             }
           }
+
+          Spacer()
         }
         .font(.system(size: 18))
         .padding(.horizontal)

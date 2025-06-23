@@ -2,15 +2,14 @@
 // Karmic Healing 2025
 //
 
-import Foundation
 import ComposableArchitecture
 import Resources
 import Common
-import SwiftUICore
 import AppSettings
 import Requests
 import BalancingEnergyList
 import BalancingEnergy
+import Notes
 
 @Reducer
 public struct Home {
@@ -40,16 +39,17 @@ public struct Home {
       switch action {
       case let .didTap(button):
         switch button {
-        case .settingsButton:
-          state.path.append(.appSettings(.init()))
-          return .none
-        case .requestsButton:
-          state.path.append(.requests(.init(title: String(localized: "requests", bundle: .main))))
-          return .none
         case .balancingEnуergyButton:
           state.path.append(.balancingEnergyList(.init()))
           return .none
+        case .requestsButton:
+          state.path.append(.requests(.init()))
+          return .none
         case .notesButton:
+          state.path.append(.notes(.init()))
+          return .none
+        case .settingsButton:
+          state.path.append(.appSettings(.init()))
           return .none
         default:
           return .none
@@ -100,8 +100,9 @@ public struct Home {
 
 @Reducer(state: .equatable, action: .equatable)
 public enum Path {
-  case appSettings(AppSettings)
-  case requests(Requests)
   case balancingEnergyList(BalancingEnergyList)
   case balancingEnergy(BalancingEnergy)
+  case requests(Requests)
+  case notes(Notes)
+  case appSettings(AppSettings)
 }

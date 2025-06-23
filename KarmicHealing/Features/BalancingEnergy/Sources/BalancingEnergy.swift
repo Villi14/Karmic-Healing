@@ -2,7 +2,6 @@
 // Karmic Healing 2025
 //
 
-import Foundation
 import ComposableArchitecture
 
 @Reducer
