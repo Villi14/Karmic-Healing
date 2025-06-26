@@ -10,10 +10,19 @@ import Common
 public struct NotesView: View {
   @SwiftUI.Environment(\.dismiss) var dismiss
 
+  @Dependency(\.context) var context
+  static let model = NotesListsModel()
+
   public let store: StoreOf<Notes>
 
   public init(store: StoreOf<Notes>) {
     self.store = store
+
+    if context == .live {
+      try! prepareDependencies {
+        $0.defaultDatabase = try appDatabase()
+      }
+    }
   }
 
   public var body: some View {
@@ -22,7 +31,7 @@ public struct NotesView: View {
         ResourcesAsset.Colors.background.swiftUIColor
           .ignoresSafeArea()
         VStack {
-          Spacer()
+          NotesListsView(model: Self.model)
         }
         .navigationTitle(String(localized: "notes", bundle: .main))
         .navigationBarBackButtonHidden(true)

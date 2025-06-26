@@ -1,7 +1,7 @@
 import Foundation
 @preconcurrency import ProjectDescription
 
-public let iosDeploymentTargets = DeploymentTargets.iOS("17.4")
+public let iosDeploymentTargets = DeploymentTargets.iOS("18.0")
 
 public enum Feature: String {
   case common

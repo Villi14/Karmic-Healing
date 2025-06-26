@@ -161,7 +161,7 @@ public struct BalancingEnergyView: View {
 #Preview {
   BalancingEnergyView(store: .init(
     initialState: .init(
-      title: "Energy Balancing",
+      title: String(localized: "initial_process", bundle: .main),
       currentStep: 0,
       isCompleted: false,
       steps: Step.part1

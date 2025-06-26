@@ -20,7 +20,7 @@ struct Tag: Identifiable {
 @Table
 struct Request: Identifiable {
   let id: Int
-  @Column(as: Date.ISO8601Representation?.self)
+ // @Column(as: Date.ISO8601Representation?.self)
   var dueDate: Date?
   var isCompleted = false
   var isFlagged = false

@@ -6,6 +6,7 @@ public let common = Module(
   feature: .common,
   dependencies: [
     .external(name: "ComposableArchitecture"),
+    .external(name: "SharingGRDB"),
     .external(name: "XCTestDynamicOverlay")
   ],
   resources: .notPresent
