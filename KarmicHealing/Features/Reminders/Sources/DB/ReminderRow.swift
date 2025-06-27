@@ -8,7 +8,6 @@ struct ReminderRow: View {
   let reminder: Reminder
   let remindersList: RemindersList
   let showCompleted: Bool
-  let tags: [String]
 
   @State var editReminder: Reminder.Draft?
   @State var isCompleted: Bool
@@ -22,7 +21,6 @@ struct ReminderRow: View {
     reminder: Reminder,
     remindersList: RemindersList,
     showCompleted: Bool,
-    tags: [String]
   ) {
     self.color = color
     self.isPastDue = isPastDue
@@ -30,7 +28,6 @@ struct ReminderRow: View {
     self.reminder = reminder
     self.remindersList = remindersList
     self.showCompleted = showCompleted
-    self.tags = tags
     self.isCompleted = reminder.isCompleted
   }
 
@@ -52,7 +49,6 @@ struct ReminderRow: View {
               .foregroundStyle(.gray)
               .lineLimit(2)
           }
-          subtitleText
         }
       }
       Spacer()
@@ -144,18 +140,6 @@ struct ReminderRow: View {
     }
   }
 
-  private var subtitleText: Text {
-    let tagsText = tags.reduce(Text(reminder.dueDate == nil ? "" : "  ")) { result, tag in
-      result + Text("#\(tag) ")
-    }
-    return
-      (dueText
-      + tagsText
-      .foregroundStyle(.gray)
-      .bold())
-      .font(.callout)
-  }
-
   private func title(for reminder: Reminder) -> some View {
     return HStack(alignment: .firstTextBaseline) {
       if let priority = reminder.priority {
@@ -189,8 +173,7 @@ struct ReminderRowPreview: PreviewProvider {
           notes: reminder.notes.replacingOccurrences(of: "\n", with: " "),
           reminder: reminder,
           remindersList: remindersList,
-          showCompleted: true,
-          tags: ["point-free", "adulting"]
+          showCompleted: true
         )
       }
     }

@@ -17,12 +17,6 @@ public struct RemindersView: View {
 
   public init(store: StoreOf<Reminders>) {
     self.store = store
-
-    if context == .live {
-      try! prepareDependencies {
-        $0.defaultDatabase = try appDatabase()
-      }
-    }
   }
 
   public var body: some View {
@@ -31,9 +25,11 @@ public struct RemindersView: View {
         ResourcesAsset.Colors.background.swiftUIColor
           .ignoresSafeArea()
         VStack {
-          RemindersListsView(model: Self.model)
+          if context == .live {
+            RemindersListsView(model: Self.model)
+          }
         }
-        .navigationTitle(String(localized: "notes", bundle: .main))
+        .navigationTitle(String(localized: "reminders", bundle: .main))
         .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.automatic)
         .navigationBarBackgroundColor(ResourcesAsset.Colors.background.swiftUIColor)

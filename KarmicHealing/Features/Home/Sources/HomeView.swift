@@ -28,30 +28,29 @@ public struct HomeView: View {
 
           GeometryReader { proxy in
             let previewSize = previewSize(in: proxy.size)
-            ScrollView {
-              LazyVGrid(columns: [
-                GridItem(.fixed(previewSize.width)),
-                GridItem(.fixed(previewSize.width))
-              ], spacing: 0) {
-                ForEach(0 ..< store.homeButtons.count, id: \.self) { index in
-                  let homeButton = store.homeButtons[index]
-                  VStack {
-                    Button(action: { store.send(.didTap(homeButton)) }) {
-                      HomeButtonView(
-                        size: previewSize,
-                        homeButton: homeButton
-                      )
-                    }
+
+            LazyVGrid(columns: [
+              GridItem(.fixed(previewSize.width)),
+              GridItem(.fixed(previewSize.width))
+            ], spacing: 0) {
+              ForEach(0 ..< store.homeButtons.count, id: \.self) { index in
+                let homeButton = store.homeButtons[index]
+                VStack {
+                  Button(action: { store.send(.didTap(homeButton)) }) {
+                    HomeButtonView(
+                      size: previewSize,
+                      homeButton: homeButton
+                    )
                   }
                 }
-                .frame(
-                  width: abs(previewSize.width),
-                  height: abs(previewSize.height + 8)
-                )
               }
-              .padding(.top, 44)
-              .padding(.bottom, 44)
+              .frame(
+                width: abs(previewSize.width),
+                height: abs(previewSize.height + 8)
+              )
             }
+            .padding(.top, 44)
+            .padding(.bottom, 44)
           }
         }
         .navigationBarBackgroundColor(ResourcesAsset.Colors.background.swiftUIColor)
@@ -70,8 +69,6 @@ public struct HomeView: View {
           RemindersView(store: store)
         case .appSettings(let store):
           AppSettingsView(store: store)
-
-
         }
       }
     }

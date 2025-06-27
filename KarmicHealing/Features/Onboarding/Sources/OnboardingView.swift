@@ -44,19 +44,19 @@ public struct OnboardingView: View {
               VStack(spacing: 20) {
                 Image(systemName: step.imageName)
                   .font(.system(size: 80))
-                  .foregroundColor(ResourcesAsset.Colors.friendly.swiftUIColor)
+                  .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
                   .padding()
 
                 Text(step.title)
                   .font(.system(size: 24, weight: .medium))
                   .bold()
                   .multilineTextAlignment(.center)
-                  .foregroundColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+                  .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
 
                 Text(step.description)
                   .font(.system(size: 16, weight: .medium))
                   .multilineTextAlignment(.center)
-                  .foregroundColor(ResourcesAsset.Colors.textSecondary.swiftUIColor)
+                  .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
                   .padding(.horizontal)
               }
               .tag(index)
@@ -85,7 +85,7 @@ public struct OnboardingView: View {
               Button(String(localized: "back", bundle: .main)) {
                 viewStore.send(.previousStep)
               }
-              .foregroundColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+              .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
               .padding()
             }
 
@@ -98,7 +98,7 @@ public struct OnboardingView: View {
             }
             .padding()
             .background(ResourcesAsset.Colors.clam.swiftUIColor)
-            .foregroundColor(ResourcesAsset.Colors.textInvert.swiftUIColor)
+            .foregroundStyle(ResourcesAsset.Colors.textInvert.swiftUIColor)
             .cornerRadius(12)
           }
           .padding()

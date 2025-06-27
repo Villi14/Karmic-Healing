@@ -59,15 +59,13 @@ class SearchRemindersModel {
             }
           }
           .order { ($0.isCompleted, $0.dueDate) }
-          .withTags
-          .join(RemindersList.all) { $0.remindersListID.eq($3.id) }
+          .join(RemindersList.all) { $0.remindersListID.eq($1.id) }
           .select {
             Row.Columns(
               isPastDue: $0.isPastDue,
               notes: $0.inlineNotes,
               reminder: $0,
-              remindersList: $3,
-              tags: #sql("\($2.jsonNames)")
+              remindersList: $1
             )
           },
         animation: .default
@@ -82,8 +80,6 @@ class SearchRemindersModel {
     let notes: String
     let reminder: Reminder
     let remindersList: RemindersList
-    @Column(as: [String].JSONRepresentation.self)
-    let tags: [String]
   }
 }
 
@@ -133,8 +129,7 @@ struct SearchRemindersView: View {
         notes: reminder.notes,
         reminder: reminder.reminder,
         remindersList: reminder.remindersList,
-        showCompleted: model.showCompletedInSearchResults,
-        tags: reminder.tags
+        showCompleted: model.showCompletedInSearchResults
       )
     }
   }

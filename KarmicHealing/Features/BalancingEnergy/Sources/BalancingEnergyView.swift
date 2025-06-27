@@ -36,7 +36,7 @@ public struct BalancingEnergyView: View {
         VStack {
           Image(systemName: "exclamationmark.circle")
             .resizable()
-            .foregroundColor(ResourcesAsset.Colors.friendly.swiftUIColor)
+            .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
             .aspectRatio(contentMode: .fit)
             .frame(height: 36)
             .padding(.top, 16)
@@ -44,7 +44,7 @@ public struct BalancingEnergyView: View {
           Text(String(localized: "attention_before_proceeding", bundle: .main))
             .font(.system(size: 16))
             .multilineTextAlignment(.center)
-            .foregroundColor(ResourcesAsset.Colors.textSecondary.swiftUIColor)
+            .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
             .padding()
 
           TabView(selection: Binding(
@@ -62,7 +62,7 @@ public struct BalancingEnergyView: View {
                 Text(step.title)
                   .font(.system(size: 20, weight: .medium))
                   .multilineTextAlignment(.center)
-                  .foregroundColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+                  .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
                   .padding(.top, 24)
                   .padding(.horizontal)
 
@@ -70,7 +70,7 @@ public struct BalancingEnergyView: View {
                   Text(step.description)
                     .font(.system(size: 16, weight: .medium))
                     .multilineTextAlignment(.leading)
-                    .foregroundColor(ResourcesAsset.Colors.textSecondary.swiftUIColor)
+                    .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
                     .padding(.horizontal)
 
                   Spacer()
@@ -116,7 +116,7 @@ public struct BalancingEnergyView: View {
               Button(String(localized: "back", bundle: .main)) {
                 viewStore.send(.previousStep)
               }
-              .foregroundColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+              .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
               .padding()
             }
 
@@ -134,7 +134,7 @@ public struct BalancingEnergyView: View {
             }
             .padding()
             .background(ResourcesAsset.Colors.clam.swiftUIColor)
-            .foregroundColor(ResourcesAsset.Colors.textInvert.swiftUIColor)
+            .foregroundStyle(ResourcesAsset.Colors.textInvert.swiftUIColor)
             .cornerRadius(12)
           }
           .padding()

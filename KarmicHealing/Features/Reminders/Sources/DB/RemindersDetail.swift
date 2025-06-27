@@ -58,7 +58,7 @@ class RemindersDetailModel: HashableObject {
     $ordering.withLock { $0 = .manual }
     await updateQuery()
   }
-  
+
   private func updateQuery() async {
     await withErrorReporting {
       try await $reminderRows.load(remindersQuery, animation: .default)
@@ -82,26 +82,23 @@ class RemindersDetailModel: HashableObject {
         case .title: $0.title
         }
       }
-      .withTags
-      .where { reminder, _, tag in
+      .where { reminder in
         switch detailType {
         case .all: !reminder.isCompleted
         case .completed: reminder.isCompleted
         case .flagged: reminder.isFlagged
         case .remindersList(let list): reminder.remindersListID.eq(list.id)
         case .scheduled: reminder.isScheduled
-        case .tags(let tags): tag.id.ifnull(UUID(0)).in(tags.map(\.id))
         case .today: reminder.isToday
         }
       }
-      .join(RemindersList.all) { $0.remindersListID.eq($3.id) }
+      .join(RemindersList.all) { $0.remindersListID.eq($1.id) }
       .select {
         Row.Columns(
           reminder: $0,
-          remindersList: $3,
+          remindersList: $1,
           isPastDue: $0.isPastDue,
-          notes: $0.inlineNotes.substr(0, 200),
-          tags: #sql("\($2.jsonNames)")
+          notes: $0.inlineNotes.substr(0, 200)
         )
       }
     return query
@@ -130,7 +127,6 @@ class RemindersDetailModel: HashableObject {
     case flagged
     case remindersList(RemindersList)
     case scheduled
-    case tags([Tag])
     case today
   }
 
@@ -141,8 +137,6 @@ class RemindersDetailModel: HashableObject {
     let remindersList: RemindersList
     let isPastDue: Bool
     let notes: String
-    @Column(as: [String].JSONRepresentation.self)
-    let tags: [String]
   }
 }
 
@@ -170,8 +164,7 @@ struct RemindersDetailView: View {
           notes: row.notes,
           reminder: row.reminder,
           remindersList: row.remindersList,
-          showCompleted: model.showCompleted,
-          tags: row.tags
+          showCompleted: model.showCompleted
         )
       }
       .onMove { source, destination in
@@ -191,7 +184,7 @@ struct RemindersDetailView: View {
             reminder: Reminder.Draft(remindersListID: remindersList.id),
             remindersList: remindersList
           )
-            .navigationTitle("New Reminder")
+          .navigationTitle("New Reminder")
         }
       }
     }
@@ -262,7 +255,6 @@ extension RemindersDetailModel.DetailType {
     case .flagged: "flagged"
     case .remindersList(let list): "list_\(list.id)"
     case .scheduled: "scheduled"
-    case .tags: "tags"
     case .today: "today"
     }
   }
@@ -273,12 +265,6 @@ extension RemindersDetailModel.DetailType {
     case .flagged: "Flagged"
     case .remindersList(let list): list.title
     case .scheduled: "Scheduled"
-    case .tags(let tags):
-      switch tags.count {
-      case 0: "Tags"
-      case 1: "#\(tags[0].title)"
-      default: "\(tags.count) tags"
-      }
     case .today: "Today"
     }
   }
@@ -289,7 +275,6 @@ extension RemindersDetailModel.DetailType {
     case .flagged: .orange
     case .remindersList(let list): list.color
     case .scheduled: .red
-    case .tags: .blue
     case .today: .blue
     }
   }
@@ -297,19 +282,17 @@ extension RemindersDetailModel.DetailType {
 
 struct RemindersDetailPreview: PreviewProvider {
   static var previews: some View {
-    let (remindersList, tag) = try! prepareDependencies {
+    let remindersList = try! prepareDependencies {
       $0.defaultDatabase = try appDatabase()
       return try $0.defaultDatabase.read { db in
         (
           try RemindersList.all.fetchOne(db)!,
-          try Tag.all.fetchOne(db)!
         )
       }
     }
     let detailTypes: [RemindersDetailModel.DetailType] = [
       .all,
-      .remindersList(remindersList),
-      .tags([tag]),
+      .remindersList(remindersList)
     ]
     ForEach(detailTypes, id: \.self) { detailType in
       NavigationStack {

@@ -277,29 +277,6 @@
         }
       }
     },
-    "notes" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Notes"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Заметки"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Нотатки"
-          }
-        }
-      }
-    },
     "part_1_step_4" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -802,6 +779,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Попросіть, щоб процес, який лише завершився, став постійним."
+          }
+        }
+      }
+    },
+    "reminders" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reminders"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Напоминание"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нагадування"
           }
         }
       }

@@ -2,6 +2,8 @@ import SharingGRDB
 import SwiftUI
 import SwiftUINavigation
 import TipKit
+import Common
+import Resources
 
 @MainActor
 @Observable
@@ -18,17 +20,6 @@ class RemindersListsModel {
     animation: .default
   )
   var remindersLists
-
-  @ObservationIgnored
-  @FetchAll(
-    Tag
-      .order(by: \.title)
-      .withReminders
-      .having { $2.count().gt(0) }
-      .select { tag, _, _ in tag },
-    animation: .default
-  )
-  var tags
 
   @ObservationIgnored
   @FetchOne(
@@ -60,14 +51,6 @@ class RemindersListsModel {
         detailType: .remindersList(
           remindersList
         )
-      )
-    )
-  }
-
-  func tagButtonTapped(tag: Tag) {
-    destination = .detail(
-      RemindersDetailModel(
-        detailType: .tags([tag])
       )
     )
   }
@@ -175,48 +158,52 @@ struct RemindersListsView: View {
     List {
       if model.searchRemindersModel.searchText.isEmpty {
         Section {
-          Grid(alignment: .leading, horizontalSpacing: 16, verticalSpacing: 16) {
+          Grid(alignment: .leading, horizontalSpacing: 8, verticalSpacing: 8) {
             GridRow {
-              ReminderGridCell(
-                color: .blue,
+              KarmicHealingGridCell(
+                color: ResourcesAsset.Colors.clam.swiftUIColor,
                 count: model.stats.todayCount,
-                iconName: "calendar.circle.fill",
+                iconName: "calendar",
                 title: "Today"
               ) {
                 model.statTapped(.today)
               }
-              ReminderGridCell(
-                color: .red,
+
+              KarmicHealingGridCell(
+                color: ResourcesAsset.Colors.energy.swiftUIColor,
                 count: model.stats.scheduledCount,
-                iconName: "calendar.circle.fill",
+                iconName: "calendar",
                 title: "Scheduled"
               ) {
                 model.statTapped(.scheduled)
               }
             }
+
             GridRow {
-              ReminderGridCell(
-                color: .gray,
+              KarmicHealingGridCell(
+                color: ResourcesAsset.Colors.textSecondary.swiftUIColor,
                 count: model.stats.allCount,
-                iconName: "tray.circle.fill",
+                iconName: "tray",
                 title: "All"
               ) {
                 model.statTapped(.all)
               }
-              ReminderGridCell(
-                color: .orange,
+
+              KarmicHealingGridCell(
+                color: ResourcesAsset.Colors.friendly.swiftUIColor,
                 count: model.stats.flaggedCount,
-                iconName: "flag.circle.fill",
+                iconName: "flag",
                 title: "Flagged"
               ) {
                 model.statTapped(.flagged)
               }
             }
+
             GridRow {
-              ReminderGridCell(
-                color: .gray,
+              KarmicHealingGridCell(
+                color: ResourcesAsset.Colors.health.swiftUIColor,
                 count: nil,
-                iconName: "checkmark.circle.fill",
+                iconName: "checkmark",
                 title: "Completed"
               ) {
                 model.statTapped(.completed)
@@ -224,8 +211,8 @@ struct RemindersListsView: View {
             }
           }
           .buttonStyle(.plain)
-          .listRowBackground(Color.clear)
-          .padding([.leading, .trailing], -20)
+         // .listRowBackground(Color.clear)
+          .padding([.leading, .trailing], -16)
         }
 
         Section {
@@ -238,32 +225,13 @@ struct RemindersListsView: View {
                 remindersList: state.remindersList
               )
             }
-            .foregroundStyle(.primary)
+            //.foregroundStyle(.primary)
           }
           .onMove(perform: model.move(from:to:))
         } header: {
           Text("My Lists")
             .font(.system(.title2, design: .rounded, weight: .bold))
-            .foregroundStyle(Color(.label))
-            .textCase(nil)
-            .padding(.top, -16)
-            .padding([.leading, .trailing], 4)
-        }
-        .listRowInsets(EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12))
-
-        Section {
-          ForEach(model.tags) { tag in
-            Button {
-              model.tagButtonTapped(tag: tag)
-            } label: {
-              TagRow(tag: tag)
-            }
-            .foregroundStyle(.primary)
-          }
-        } header: {
-          Text("Tags")
-            .font(.system(.title2, design: .rounded, weight: .bold))
-            .foregroundStyle(Color(.label))
+            .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
             .textCase(nil)
             .padding(.top, -16)
             .padding([.leading, .trailing], 4)
@@ -285,10 +253,14 @@ struct RemindersListsView: View {
               model.seedDatabaseButtonTapped()
             } label: {
               Text("Seed data")
+                .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
+
               Image(systemName: "leaf")
+                .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
             }
           } label: {
-            Image(systemName: "ellipsis.circle")
+            Image(systemName: "ellipsis")
+              .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
           }
           .popoverTip(model.seedDatabaseTip)
         }
@@ -299,18 +271,24 @@ struct RemindersListsView: View {
             model.newReminderButtonTapped()
           } label: {
             HStack {
-              Image(systemName: "plus.circle.fill")
+              Image(systemName: "plus")
+                .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
+
               Text("New Reminder")
+                .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
             }
             .bold()
             .font(.title3)
           }
+
           Spacer()
+
           Button {
             model.addListButtonTapped()
           } label: {
             Text("Add List")
               .font(.title3)
+              .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
           }
         }
       }
@@ -331,46 +309,6 @@ struct RemindersListsView: View {
     .searchable(text: $model.searchRemindersModel.searchText)
     .navigationDestination(item: $model.destination.detail) { detailModel in
       RemindersDetailView(model: detailModel)
-    }
-  }
-}
-
-private struct ReminderGridCell: View {
-  let color: Color
-  let count: Int?
-  let iconName: String
-  let title: String
-  let action: () -> Void
-
-  var body: some View {
-    Button(action: action) {
-      HStack(alignment: .firstTextBaseline) {
-        VStack(alignment: .leading, spacing: 8) {
-          Image(systemName: iconName)
-            .font(.largeTitle)
-            .bold()
-            .foregroundStyle(color)
-            .background(
-              Color.white.clipShape(Circle()).padding(4)
-            )
-          Text(title)
-            .font(.headline)
-            .foregroundStyle(.gray)
-            .bold()
-            .padding(.leading, 4)
-        }
-        Spacer()
-        if let count {
-          Text("\(count)")
-            .font(.largeTitle)
-            .fontDesign(.rounded)
-            .bold()
-            .foregroundStyle(Color(.label))
-        }
-      }
-      .padding(EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12))
-      .background(Color(.secondarySystemGroupedBackground))
-      .cornerRadius(10)
     }
   }
 }

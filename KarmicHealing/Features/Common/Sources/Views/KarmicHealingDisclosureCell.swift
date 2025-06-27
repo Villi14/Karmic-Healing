@@ -18,7 +18,7 @@ public struct KarmicHealingDisclosureCell<Content: View>: View {
     Button(action: onTap, label: {
       ZStack {
         HStack {
-          self.content().foregroundColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+          self.content().foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
 
           Spacer()
 
@@ -42,7 +42,7 @@ public struct KarmicHealingDisclosureGroup<Content: View>: View {
 
   public init(
     @ViewBuilder content: @escaping () -> Content,
-    cornerRadius: Double = 16,
+    cornerRadius: Double = 12,
     backgroundColor: SwiftUI.Color = ResourcesAsset.Colors.cellBackground.swiftUIColor
   ) {
     self.content = content

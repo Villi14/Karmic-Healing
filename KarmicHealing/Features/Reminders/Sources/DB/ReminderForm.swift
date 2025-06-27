@@ -5,63 +5,33 @@ import SwiftUI
 struct ReminderFormView: View {
   @FetchAll(RemindersList.order(by: \.title)) var remindersLists
   @FetchOne var remindersList: RemindersList
-
-  @State var isPresentingTagsPopover = false
+  
   @State var reminder: Reminder.Draft
-  @State var selectedTags: [Tag] = []
-
+  
   @Dependency(\.defaultDatabase) private var database
   @Environment(\.dismiss) var dismiss
-
+  
   init(reminder: Reminder.Draft, remindersList: RemindersList) {
     _remindersList = FetchOne(wrappedValue: remindersList, RemindersList.find(remindersList.id))
     self.reminder = reminder
   }
-
+  
   var body: some View {
     Form {
       TextField("Title", text: $reminder.title)
-
+      
       ZStack {
         if reminder.notes.isEmpty {
           TextEditor(text: .constant("Notes"))
             .foregroundStyle(.placeholder)
             .accessibilityHidden(true, isEnabled: false)
         }
-
+        
         TextEditor(text: $reminder.notes)
       }
       .lineLimit(4)
       .padding([.leading, .trailing], -5)
-
-      Section {
-        Button {
-          isPresentingTagsPopover = true
-        } label: {
-          HStack {
-            Image(systemName: "number.square.fill")
-              .font(.title)
-              .foregroundStyle(.gray)
-            Text("Tags")
-              .foregroundStyle(Color(.label))
-            Spacer()
-            if let tagsDetail {
-              tagsDetail
-                .lineLimit(1)
-                .truncationMode(.tail)
-                .font(.callout)
-                .foregroundStyle(.gray)
-            }
-            Image(systemName: "chevron.right")
-          }
-        }
-      }
-      .popover(isPresented: $isPresentingTagsPopover) {
-        NavigationStack {
-          TagsView(selectedTags: $selectedTags)
-        }
-      }
-
+      
       Section {
         Toggle(isOn: $reminder.isDateSet.animation()) {
           HStack {
@@ -80,7 +50,7 @@ struct ReminderFormView: View {
           .padding([.top, .bottom], 2)
         }
       }
-
+      
       Section {
         Toggle(isOn: $reminder.isFlagged) {
           HStack {
@@ -104,7 +74,7 @@ struct ReminderFormView: View {
             Text("Priority")
           }
         }
-
+        
         Picker(selection: $reminder.remindersListID) {
           ForEach(remindersLists) { remindersList in
             Text(remindersList.title)
@@ -128,23 +98,6 @@ struct ReminderFormView: View {
       }
     }
     .padding(.top, -28)
-    .task {
-      guard let reminderID = reminder.id
-      else { return }
-      do {
-        selectedTags = try await database.read { db in
-          try Tag
-            .order(by: \.title)
-            .join(ReminderTag.all) { $0.id.eq($1.tagID) }
-            .where { $1.reminderID.eq(reminderID) }
-            .select { tag, _ in tag }
-            .fetchAll(db)
-        }
-      } catch {
-        selectedTags = []
-        reportIssue(error)
-      }
-    }
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
       ToolbarItem {
@@ -159,29 +112,12 @@ struct ReminderFormView: View {
       }
     }
   }
-
-  private var tagsDetail: Text? {
-    guard let tag = selectedTags.first else { return nil }
-    return selectedTags.dropFirst().reduce(Text("#\(tag.title)")) { result, tag in
-      result + Text(" #\(tag.title) ")
-    }
-  }
-
+  
   private func saveButtonTapped() {
     withErrorReporting {
       try database.write { db in
         var reminder = reminder
         let reminderID = try Reminder.upsert(reminder).returning(\.id).fetchOne(db)!
-        try ReminderTag
-          .where { $0.reminderID.eq(reminderID) }
-          .delete()
-          .execute(db)
-        try ReminderTag.insert(
-          selectedTags.map { tag in
-            ReminderTag.Draft(reminderID: reminderID, tagID: tag.id)
-          }
-        )
-        .execute(db)
       }
     }
     dismiss()

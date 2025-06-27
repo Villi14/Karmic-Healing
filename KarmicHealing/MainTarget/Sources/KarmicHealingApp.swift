@@ -4,11 +4,21 @@
 
 import SwiftUI
 import ComposableArchitecture
+import Reminders
 
 @main
 struct KarmicHealingApp: App {
   @UIApplicationDelegateAdaptor(AppDelegate.self) private var delegate
-  
+  @Dependency(\.context) var context
+
+  init() {
+    if context == .live {
+      try! prepareDependencies {
+        $0.defaultDatabase = try appDatabase()
+      }
+    }
+  }
+
   var body: some Scene {
     WindowGroup {
       KarmicHealingView(store: delegate.store)

@@ -1,5 +1,6 @@
 import SharingGRDB
 import SwiftUI
+import Resources
 
 struct RemindersListRow: View {
   let remindersCount: Int
@@ -11,17 +12,32 @@ struct RemindersListRow: View {
 
   var body: some View {
     HStack {
-      Image(systemName: "list.bullet.circle.fill")
-        .font(.largeTitle)
-        .foregroundStyle(remindersList.color)
-        .background(
-          Color.white.clipShape(Circle()).padding(4)
-        )
+      Image(systemName: "list.bullet")
+        .resizable()
+        .aspectRatio(contentMode: .fit)
+        .frame(height: 16)
+        .foregroundColor(remindersList.color)
+        .padding(.leading, 16)
+
       Text(remindersList.title)
+        .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+
       Spacer()
+
       Text("\(remindersCount)")
-        .foregroundStyle(.gray)
+        .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+        .padding(.trailing, 16)
     }
+    .frame(height: 48)
+    .background {
+      RoundedRectangle(cornerRadius: 12)
+        .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
+
+      RoundedRectangle(cornerRadius: 12)
+        .inset(by: 0.5)
+        .stroke(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(0.5), lineWidth: 0.5)
+    }
+
     .swipeActions {
       Button {
         withErrorReporting {
@@ -33,7 +49,8 @@ struct RemindersListRow: View {
       } label: {
         Image(systemName: "trash")
       }
-      .tint(.red)
+      .tint(ResourcesAsset.Colors.energy.swiftUIColor)
+
       Button {
         editList = remindersList
       } label: {
@@ -57,6 +74,7 @@ struct RemindersListRow: View {
         remindersCount: 10,
         remindersList: RemindersList(
           id: UUID(),
+          color: ResourcesAsset.Colors.clam.swiftUIColor,
           title: "Personal"
         )
       )

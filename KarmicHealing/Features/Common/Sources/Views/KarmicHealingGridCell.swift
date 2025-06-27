@@ -30,33 +30,41 @@ public struct KarmicHealingGridCell: View {
         VStack(alignment: .leading, spacing: 8) {
 
           Image(systemName: iconName)
-            .font(.largeTitle)
-            .bold()
-            .foregroundStyle(color)
-            .background(
-              Color.white.clipShape(Circle()).padding(4)
-            )
+            .resizable()
+            .foregroundColor(color)
+            .aspectRatio(contentMode: .fit)
+            .frame(height: 16)
+            .padding(.leading, 4)
+            .padding(.top, 4)
 
           Text(title)
             .font(.headline)
             .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
             .bold()
             .padding(.leading, 4)
+            .padding(.top, 4)
         }
 
         Spacer()
 
         if let count {
           Text("\(count)")
-            .font(.title)
+            .font(.title3)
             .fontDesign(.rounded)
             .bold()
             .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
         }
       }
-      .padding(EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12))
-      .background(ResourcesAsset.Colors.cellBackground.swiftUIColor)
-      .cornerRadius(16)
+      .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+      .background{
+        RoundedRectangle(cornerRadius: 12)
+          .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
+
+        RoundedRectangle(cornerRadius: 16)
+          .inset(by: 0.5)
+          .stroke(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(0.5), lineWidth: 0.5)
+      }
+      .cornerRadius(12)
     }
   }
 }

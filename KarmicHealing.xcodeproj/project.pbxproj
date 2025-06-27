@@ -43,7 +43,6 @@
 		555B00282C08E60EB84B08D4 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; };
 		55E78F5FEA3833CDE1286D69 /* Sharing.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C0B59758EFA10BA8AA6DA0D1 /* Sharing.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		58C0B482EFB1A571D13E0F38 /* IssueReporting.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 029923781F6C803C25C065FD /* IssueReporting.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5925D215C020110A64B56856 /* RemindersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA4F04E5AF8278AA99B9659 /* RemindersApp.swift */; };
 		597E4C427F06E8303131B7AB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD886FBCE4DE4450B9B2CFC /* XCTest.framework */; };
 		5A5603796097B4AC78E96D1E /* Requests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AFFEAB7951F1AB5D591E8C /* Requests.framework */; };
 		5B63C8E3398DA66180A6B0CD /* Reminders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9844611137297AF752A4EB61 /* Reminders.framework */; };
@@ -101,13 +100,11 @@
 		BD55E7077BD2219C8C3C4A36 /* RemindersDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C2996F70BC0D05FCBED53 /* RemindersDetail.swift */; };
 		BFCCE3CCD39973F7A25C235C /* BalancingEnergy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCD6F2EEA1EFE1B0C75AD59 /* BalancingEnergy.framework */; };
 		C7EDD47524AC300488535AA4 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462084A1E74237E95A83266B /* AppSettings.swift */; };
-		CD1F9B7DD933BE8FBFBD13A6 /* TagsForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98E3BC3FFDAE4433D95D82A /* TagsForm.swift */; };
 		CDEA95E544D51AE1AB282F50 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; };
 		D3D1C4E3F02DC037451E2495 /* Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F8E16E9A85D842C27D7B75 /* Home.framework */; };
 		D5E94556B773B21BB70512FD /* TuistAssets+KarmicHealing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D41708495D3BE707CEE866 /* TuistAssets+KarmicHealing.swift */; };
 		D6D837548A2DE60B838BB52A /* SharingGRDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DBA41DC6C1578B253D0E342 /* SharingGRDB.framework */; };
 		D80382F83DAAE4E5366F9204 /* ReminderForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90F5F787F8F5FC5C729C016 /* ReminderForm.swift */; };
-		DA4AC211EC31F531454313FF /* TagRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACC0ED5BC88D84808367709 /* TagRow.swift */; };
 		DB300BCCADF57F8B2B8BD631 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE11386EDB68E796E01D3B1 /* Requests.swift */; };
 		DB8ED1567B4FBA780BD5D482 /* InternalCollectionsUtilities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39B4C42BD50A7E19ED4EDD17 /* InternalCollectionsUtilities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DBD9DBE8FBA452E97FE55D9C /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF69DADA3FE361892D9A9B9 /* Home.swift */; };
@@ -567,7 +564,6 @@
 		7B1A3F74D9A0F7E059908D2A /* TestingUtilities-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "TestingUtilities-Info.plist"; sourceTree = "<group>"; };
 		7B8E247924B97BE74F980EE2 /* KarmicHealing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarmicHealing.swift; sourceTree = "<group>"; };
 		7BC3E01675AA2571947993BA /* AppSettings-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "AppSettings-Info.plist"; sourceTree = "<group>"; };
-		7DA4F04E5AF8278AA99B9659 /* RemindersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersApp.swift; sourceTree = "<group>"; };
 		7FE58283C3A274F5F92A7FD1 /* KarmicHealingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarmicHealingApp.swift; sourceTree = "<group>"; };
 		80D93201106153BC9279C770 /* TuistBundle+KarmicHealing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+KarmicHealing.swift"; sourceTree = "<group>"; };
 		80DC255D38450C9D907A5140 /* Requests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Requests-Info.plist"; sourceTree = "<group>"; };
@@ -578,8 +574,6 @@
 		937951BDE4A7DF3DE0227873 /* BalancingEnergyList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BalancingEnergyList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9844611137297AF752A4EB61 /* Reminders.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Reminders.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A283FF0AAE64A1782229F900 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
-		A98E3BC3FFDAE4433D95D82A /* TagsForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsForm.swift; sourceTree = "<group>"; };
-		AACC0ED5BC88D84808367709 /* TagRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagRow.swift; sourceTree = "<group>"; };
 		AB359F3DF25939A4087B6164 /* BalancingEnergyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancingEnergyList.swift; sourceTree = "<group>"; };
 		AFCC57A0EE1A747FC6D514C6 /* Onboarding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Onboarding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1AB95A017359AC83F42C1A6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -851,15 +845,12 @@
 			children = (
 				E90F5F787F8F5FC5C729C016 /* ReminderForm.swift */,
 				0E5F8F64709F792F7FFC9BB1 /* ReminderRow.swift */,
-				7DA4F04E5AF8278AA99B9659 /* RemindersApp.swift */,
 				4F9C2996F70BC0D05FCBED53 /* RemindersDetail.swift */,
 				D906E064FEF95E194F68D7FA /* RemindersListForm.swift */,
 				EFB82E581C95596F0F862D92 /* RemindersListRow.swift */,
 				06D39E3ABAC96EA1FD8CF84C /* RemindersLists.swift */,
 				5C3952F539F01F3C04D27038 /* Schema.swift */,
 				6C97DFEC74737DC93DC1D1F6 /* SearchReminders.swift */,
-				AACC0ED5BC88D84808367709 /* TagRow.swift */,
-				A98E3BC3FFDAE4433D95D82A /* TagsForm.swift */,
 			);
 			path = DB;
 			sourceTree = "<group>";
@@ -1690,15 +1681,12 @@
 			files = (
 				D80382F83DAAE4E5366F9204 /* ReminderForm.swift in Sources */,
 				192A8EB24C95CF2592C7A57E /* ReminderRow.swift in Sources */,
-				5925D215C020110A64B56856 /* RemindersApp.swift in Sources */,
 				BD55E7077BD2219C8C3C4A36 /* RemindersDetail.swift in Sources */,
 				BCE87D5AC885328718893F33 /* RemindersListForm.swift in Sources */,
 				5E2883C49599FAF4D140DD34 /* RemindersListRow.swift in Sources */,
 				1B7D195B530DE634662287E5 /* RemindersLists.swift in Sources */,
 				BA3034D262DB85AAF4E14570 /* Schema.swift in Sources */,
 				1901B3F8AFCB41A09F489CA7 /* SearchReminders.swift in Sources */,
-				DA4AC211EC31F531454313FF /* TagRow.swift in Sources */,
-				CD1F9B7DD933BE8FBFBD13A6 /* TagsForm.swift in Sources */,
 				0DF31BBC91BAF682C4FF9716 /* Reminders.swift in Sources */,
 				604FB39E46FB35A47EC0D6F3 /* RemindersView.swift in Sources */,
 			);
@@ -2319,7 +2307,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -2848,7 +2835,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;

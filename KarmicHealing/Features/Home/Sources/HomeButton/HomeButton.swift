@@ -32,7 +32,7 @@ extension HomeButton {
     .init(
       color: ResourcesAsset.Colors.friendly.swiftUIColor,
       icon: Image(systemName: "pencil.and.list.clipboard"),
-      title: String(localized: "notes", bundle: .main).uppercased()
+      title: String(localized: "reminders", bundle: .main).uppercased()
     )
   }
 

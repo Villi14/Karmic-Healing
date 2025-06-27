@@ -18,17 +18,15 @@ public struct HomeButtonView: View {
   }
 
   public var body: some View {
-    ZStack {
-      homeButton.color
-
+    VStack {
       VStack(alignment: .leading) {
         HStack {
           homeButton.icon
             .resizable()
-            .foregroundColor(ResourcesAsset.Colors.textInvert.swiftUIColor)
+            .foregroundColor(homeButton.color)
             .aspectRatio(contentMode: .fit)
             .frame(maxWidth: 24)
-            .padding(.leading, 16)
+            .padding(.leading, 24)
             .padding(.top, 16)
 
           Spacer()
@@ -36,7 +34,7 @@ public struct HomeButtonView: View {
           Rectangle()
             .frame(width: 8, height: 8)
             .cornerRadius(4)
-            .foregroundColor(ResourcesAsset.Colors.textInvert.swiftUIColor)
+            .foregroundColor(homeButton.color)
             .padding(.trailing, 16)
         }
 
@@ -44,21 +42,27 @@ public struct HomeButtonView: View {
 
         Text(homeButton.title)
           .font(.system(size: 12, weight: .medium))
-          .foregroundColor(ResourcesAsset.Colors.textInvert.swiftUIColor)
+          .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
           .multilineTextAlignment(.leading)
-          .padding(.horizontal, 16)
+          .padding(.horizontal, 24)
 
         Rectangle()
           .frame(width: 80, height: 2)
-          .foregroundColor(ResourcesAsset.Colors.textInvert.swiftUIColor)
-          .padding(.horizontal, 16)
+          .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
+          .padding(.horizontal, 24)
 
         Spacer()
       }
     }
     .frame(width: size.width, height: size.height)
+    .background{
+      ResourcesAsset.Colors.cellBackground.swiftUIColor
+
+      RoundedRectangle(cornerRadius: 12)
+        .inset(by: 0.5)
+        .stroke(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(0.5), lineWidth: 0.5)
+    }
     .cornerRadius(12)
-    .shadow(radius: 4)
   }
 }
 

@@ -31,12 +31,6 @@ struct Reminder: Codable, Equatable, Identifiable {
 
 extension Reminder.Draft: Identifiable {}
 
-@Table
-struct Tag: Hashable, Identifiable {
-  let id: UUID
-  var title = ""
-}
-
 enum Priority: Int, Codable, QueryBindable {
   case low = 1
   case medium
@@ -51,9 +45,6 @@ extension Reminder {
         || $0.notes.collate(.nocase).contains(text)
     }
   }
-  static let withTags = group(by: \.id)
-    .leftJoin(ReminderTag.all) { $0.id.eq($1.reminderID) }
-    .leftJoin(Tag.all) { $1.tagID.eq($2.id) }
 }
 
 extension Reminder.TableColumns {
@@ -73,26 +64,7 @@ extension Reminder.TableColumns {
   }
 }
 
-extension Tag {
-  static let withReminders = group(by: \.id)
-    .leftJoin(ReminderTag.all) { $0.id.eq($1.tagID) }
-    .leftJoin(Reminder.all) { $1.reminderID.eq($2.id) }
-}
-
-extension Tag.TableColumns {
-  var jsonNames: some QueryExpression<[String].JSONRepresentation> {
-    self.title.jsonGroupArray(filter: self.title.isNot(nil))
-  }
-}
-
-@Table("remindersTags")
-struct ReminderTag: Hashable, Identifiable {
-  let id: UUID
-  var reminderID: Reminder.ID
-  var tagID: Tag.ID
-}
-
-func appDatabase() throws -> any DatabaseWriter {
+public func appDatabase() throws -> any DatabaseWriter {
   @Dependency(\.context) var context
   let database: any DatabaseWriter
   var configuration = Configuration()
@@ -234,7 +206,7 @@ private let logger = Logger(subsystem: "Reminders", category: "Database")
     func seedSampleData() throws {
       let remindersListIDs = (0...2).map { _ in UUID() }
       let reminderIDs = (0...10).map { _ in UUID() }
-      let tagIDs = (0...6).map { _ in UUID() }
+
       try seed {
         RemindersList(
           id: remindersListIDs[0],
@@ -335,25 +307,6 @@ private let logger = Logger(subsystem: "Reminders", category: "Database")
           remindersListID: remindersListIDs[2],
           title: "Prepare for WWDC"
         )
-        Tag(id: tagIDs[0], title: "car")
-        Tag(id: tagIDs[1], title: "kids")
-        Tag(id: tagIDs[2], title: "someday")
-        Tag(id: tagIDs[3], title: "optional")
-        Tag(id: tagIDs[4], title: "social")
-        Tag(id: tagIDs[5], title: "night")
-        Tag(id: tagIDs[6], title: "adulting")
-        ReminderTag.Draft(reminderID: reminderIDs[0], tagID: tagIDs[2])
-        ReminderTag.Draft(reminderID: reminderIDs[0], tagID: tagIDs[3])
-        ReminderTag.Draft(reminderID: reminderIDs[0], tagID: tagIDs[6])
-        ReminderTag.Draft(reminderID: reminderIDs[1], tagID: tagIDs[2])
-        ReminderTag.Draft(reminderID: reminderIDs[1], tagID: tagIDs[3])
-        ReminderTag.Draft(reminderID: reminderIDs[2], tagID: tagIDs[6])
-        ReminderTag.Draft(reminderID: reminderIDs[3], tagID: tagIDs[0])
-        ReminderTag.Draft(reminderID: reminderIDs[3], tagID: tagIDs[1])
-        ReminderTag.Draft(reminderID: reminderIDs[4], tagID: tagIDs[4])
-        ReminderTag.Draft(reminderID: reminderIDs[3], tagID: tagIDs[4])
-        ReminderTag.Draft(reminderID: reminderIDs[10], tagID: tagIDs[4])
-        ReminderTag.Draft(reminderID: reminderIDs[4], tagID: tagIDs[5])
       }
     }
   }

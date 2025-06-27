@@ -21,19 +21,19 @@ public struct KarmicHealingAlertView<Action: Equatable>: View {
             image
               .resizable()
               .aspectRatio(contentMode: .fit)
-              .foregroundColor(ResourcesAsset.Colors.friendly.swiftUIColor)
+              .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
               .frame(height: 36)
           }
           VStack(spacing: 8) {
             Text(viewStore.title)
-              .foregroundColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+              .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
               .font(.system(size: 16, weight: .medium))
               .multilineTextAlignment(.center)
               .padding(.horizontal, 16)
             
             if let message = viewStore.message {
               Text(message)
-                .foregroundColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+                .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
                 .font(.system(size: 14, weight: .regular))
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 16)
@@ -79,14 +79,14 @@ public struct KarmicHealingAlertView<Action: Equatable>: View {
           switch button.role {
           case .cancel:
             Text(button.label)
-              .foregroundColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+              .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
               .frame(height: 48)
               .frame(maxWidth: .infinity)
               .background(ResourcesAsset.Colors.background.swiftUIColor)
             
           default:
             Text(button.label)
-              .foregroundColor(ResourcesAsset.Colors.textInvert.swiftUIColor)
+              .foregroundStyle(ResourcesAsset.Colors.textInvert.swiftUIColor)
               .frame(height: 48)
               .frame(maxWidth: .infinity)
               .background(ResourcesAsset.Colors.clam.swiftUIColor)
