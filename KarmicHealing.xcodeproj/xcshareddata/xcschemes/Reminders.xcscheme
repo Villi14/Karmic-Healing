@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1010"
+   LastUpgradeVersion = "1640"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EACE25C6BC44C7B967540F56"
-               BuildableName = "Notes.framework"
-               BlueprintName = "Notes"
+               BlueprintIdentifier = "596B043D4D87C6FFD382929D"
+               BuildableName = "Reminders.framework"
+               BlueprintName = "Reminders"
                ReferencedContainer = "container:KarmicHealing.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,9 +44,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EACE25C6BC44C7B967540F56"
-            BuildableName = "Notes.framework"
-            BlueprintName = "Notes"
+            BlueprintIdentifier = "596B043D4D87C6FFD382929D"
+            BuildableName = "Reminders.framework"
+            BlueprintName = "Reminders"
             ReferencedContainer = "container:KarmicHealing.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -60,9 +60,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EACE25C6BC44C7B967540F56"
-            BuildableName = "Notes.framework"
-            BlueprintName = "Notes"
+            BlueprintIdentifier = "596B043D4D87C6FFD382929D"
+            BuildableName = "Reminders.framework"
+            BlueprintName = "Reminders"
             ReferencedContainer = "container:KarmicHealing.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

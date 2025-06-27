@@ -46,7 +46,7 @@ public let home = Module(
     .target(resources.implementationTarget),
     .target(balancingEnergyList.implementationTarget),
     .target(requests.implementationTarget),
-    .target(notes.implementationTarget),
+    .target(reminders.implementationTarget),
     .target(appSettings.implementationTarget),
     .external(name: "ComposableArchitecture")
   ],
@@ -97,10 +97,10 @@ public let requests = Module(
   resources: .notPresent
 )
 
-// MARK: - Notes module
+// MARK: - Remainders module
 
-public let notes = Module(
-  feature: .notes,
+public let reminders = Module(
+  feature: .reminders,
   dependencies: [
     .target(common.implementationTarget),
     .target(resources.implementationTarget),

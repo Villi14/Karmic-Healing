@@ -11,7 +11,7 @@ public enum Feature: String {
   case balancingEnergyList
   case balancingEnergy
   case requests
-  case notes
+  case reminders
   case appSettings
   case testingUtilities
 }

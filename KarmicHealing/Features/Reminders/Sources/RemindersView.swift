@@ -7,15 +7,15 @@ import SwiftUI
 import Resources
 import Common
 
-public struct NotesView: View {
+public struct RemindersView: View {
   @SwiftUI.Environment(\.dismiss) var dismiss
-
   @Dependency(\.context) var context
-  static let model = NotesListsModel()
 
-  public let store: StoreOf<Notes>
+  static let model = RemindersListsModel()
 
-  public init(store: StoreOf<Notes>) {
+  public let store: StoreOf<Reminders>
+
+  public init(store: StoreOf<Reminders>) {
     self.store = store
 
     if context == .live {
@@ -31,7 +31,7 @@ public struct NotesView: View {
         ResourcesAsset.Colors.background.swiftUIColor
           .ignoresSafeArea()
         VStack {
-          NotesListsView(model: Self.model)
+          RemindersListsView(model: Self.model)
         }
         .navigationTitle(String(localized: "notes", bundle: .main))
         .navigationBarBackButtonHidden(true)
@@ -53,10 +53,10 @@ public struct NotesView: View {
 }
 
 #Preview {
-  NotesView(store: .init(
+  RemindersView(store: .init(
     initialState: .init(),
     reducer: {
-      Notes()
+      Reminders()
     }
   ))
 }

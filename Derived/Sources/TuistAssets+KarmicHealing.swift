@@ -22,7 +22,6 @@
 public enum KarmicHealingAsset: Sendable {
   public static let bgLaunchScreen = KarmicHealingColors(name: "bg_launch_screen")
   public static let icon = KarmicHealingImages(name: "icon")
-  public static let textColorLaunchScreen = KarmicHealingColors(name: "text_color_launch_screen")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 

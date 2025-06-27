@@ -9,7 +9,7 @@ import Common
 import BalancingEnergyList
 import BalancingEnergy
 import Requests
-import Notes
+import Reminders
 import AppSettings
 
 public struct HomeView: View {
@@ -66,8 +66,8 @@ public struct HomeView: View {
           BalancingEnergyView(store: store)
         case .requests(let store):
           RequestsView(store: store)
-        case .notes(let store):
-          NotesView(store: store)
+        case .reminders(let store):
+          RemindersView(store: store)
         case .appSettings(let store):
           AppSettingsView(store: store)
 

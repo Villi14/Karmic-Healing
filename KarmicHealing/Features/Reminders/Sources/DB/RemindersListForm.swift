@@ -1,26 +1,24 @@
-// Karmic Healing 2025
-
 import IssueReporting
 import SharingGRDB
 import SwiftUI
 
-struct NotesListForm: View {
+struct RemindersListForm: View {
   @Dependency(\.defaultDatabase) private var database
 
-  @State var notesList: NotesList.Draft
+  @State var remindersList: RemindersList.Draft
   @Environment(\.dismiss) var dismiss
 
-  init(notesList: NotesList.Draft) {
-    self.notesList = notesList
+  init(remindersList: RemindersList.Draft) {
+    self.remindersList = remindersList
   }
 
   var body: some View {
     Form {
       Section {
         VStack {
-          TextField("List Name", text: $notesList.title)
+          TextField("List Name", text: $remindersList.title)
             .font(.system(.title2, design: .rounded, weight: .bold))
-            .foregroundStyle(notesList.color)
+            .foregroundStyle(remindersList.color)
             .multilineTextAlignment(.center)
             .padding()
             .textFieldStyle(.plain)
@@ -28,7 +26,7 @@ struct NotesListForm: View {
         .background(Color(.secondarySystemBackground))
         .clipShape(.buttonBorder)
       }
-      ColorPicker("Color", selection: $notesList.color)
+      ColorPicker("Color", selection: $remindersList.color)
     }
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
@@ -36,7 +34,7 @@ struct NotesListForm: View {
         Button("Save") {
           withErrorReporting {
             try database.write { db in
-              try NotesList.upsert(notesList)
+              try RemindersList.upsert(remindersList)
                 .execute(db)
             }
           }
@@ -52,15 +50,14 @@ struct NotesListForm: View {
   }
 }
 
-struct NotesListFormPreviews: PreviewProvider {
+struct RemindersListFormPreviews: PreviewProvider {
   static var previews: some View {
     let _ = try! prepareDependencies {
       $0.defaultDatabase = try appDatabase()
     }
     NavigationStack {
-      NotesListForm(notesList: NotesList.Draft())
+      RemindersListForm(remindersList: RemindersList.Draft())
         .navigationTitle("New List")
     }
   }
 }
-

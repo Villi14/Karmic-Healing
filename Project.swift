@@ -23,7 +23,7 @@ let mainTarget = Target.target(
     .target(requests.implementationTarget),
     .target(balancingEnergyList.implementationTarget),
     .target(balancingEnergy.implementationTarget),
-    .target(notes.implementationTarget),
+    .target(reminders.implementationTarget),
     .target(appSettings.implementationTarget),
     .external(name: "ComposableArchitecture")
   ],
@@ -52,7 +52,7 @@ let project = Project(
     balancingEnergyList.targets,
     balancingEnergy.targets,
     requests.targets,
-    notes.targets,
+    reminders.targets,
     appSettings.targets,
     testingUtilities.targets
   ),

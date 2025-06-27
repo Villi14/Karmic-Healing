@@ -1,13 +1,11 @@
-// Karmic Healing 2025
-
 import SharingGRDB
 import SwiftUI
 
-struct NotesListRow: View {
-  let notesCount: Int
-  let notesList: NotesList
+struct RemindersListRow: View {
+  let remindersCount: Int
+  let remindersList: RemindersList
 
-  @State var editList: NotesList?
+  @State var editList: RemindersList?
 
   @Dependency(\.defaultDatabase) private var database
 
@@ -15,20 +13,20 @@ struct NotesListRow: View {
     HStack {
       Image(systemName: "list.bullet.circle.fill")
         .font(.largeTitle)
-        .foregroundStyle(notesList.color)
+        .foregroundStyle(remindersList.color)
         .background(
           Color.white.clipShape(Circle()).padding(4)
         )
-      Text(notesList.title)
+      Text(remindersList.title)
       Spacer()
-      Text("\(notesCount)")
+      Text("\(remindersCount)")
         .foregroundStyle(.gray)
     }
     .swipeActions {
       Button {
         withErrorReporting {
           try database.write { db in
-            try NotesList.delete(notesList)
+            try RemindersList.delete(remindersList)
               .execute(db)
           }
         }
@@ -37,14 +35,14 @@ struct NotesListRow: View {
       }
       .tint(.red)
       Button {
-        editList = notesList
+        editList = remindersList
       } label: {
         Image(systemName: "info.circle")
       }
     }
     .sheet(item: $editList) { list in
       NavigationStack {
-        NotesListForm(notesList: NotesList.Draft(list))
+        RemindersListForm(remindersList: RemindersList.Draft(list))
           .navigationTitle("Edit list")
       }
       .presentationDetents([.medium])
@@ -55,9 +53,9 @@ struct NotesListRow: View {
 #Preview {
   NavigationStack {
     List {
-      NotesListRow(
-        notesCount: 10,
-        notesList: NotesList(
+      RemindersListRow(
+        remindersCount: 10,
+        remindersList: RemindersList(
           id: UUID(),
           title: "Personal"
         )
@@ -65,4 +63,3 @@ struct NotesListRow: View {
     }
   }
 }
-

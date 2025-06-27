@@ -1,5 +1,3 @@
-// Karmic Healing 2025
-
 import SharingGRDB
 import SwiftUI
 import SwiftUINavigation
@@ -7,25 +5,36 @@ import TipKit
 
 @MainActor
 @Observable
-class NotesListsModel {
+class RemindersListsModel {
   @ObservationIgnored
   @FetchAll(
-    NotesList
+    RemindersList
       .group(by: \.id)
       .order(by: \.position)
-      .leftJoin(Note.all) { $0.id.eq($1.notesListID) }
+      .leftJoin(Reminder.all) { $0.id.eq($1.remindersListID) && !$1.isCompleted }
       .select {
-        NoteListState.Columns(notesCount: $1.id.count(), notesList: $0)
+        ReminderListState.Columns(remindersCount: $1.id.count(), remindersList: $0)
       },
     animation: .default
   )
-  var notesLists
+  var remindersLists
+
+  @ObservationIgnored
+  @FetchAll(
+    Tag
+      .order(by: \.title)
+      .withReminders
+      .having { $2.count().gt(0) }
+      .select { tag, _, _ in tag },
+    animation: .default
+  )
+  var tags
 
   @ObservationIgnored
   @FetchOne(
-    Note.select {
+    Reminder.select {
       Stats.Columns(
-        allCount: $0.count(filter: true),
+        allCount: $0.count(filter: !$0.isCompleted),
         flaggedCount: $0.count(filter: $0.isFlagged),
         scheduledCount: $0.count(filter: $0.isScheduled),
         todayCount: $0.count(filter: $0.isToday)
@@ -35,22 +44,30 @@ class NotesListsModel {
   var stats = Stats()
 
   var destination: Destination?
-  var searchNotesModel = SearchNotesModel()
+  var searchRemindersModel = SearchRemindersModel()
   var seedDatabaseTip: SeedDatabaseTip?
 
   @ObservationIgnored
   @Dependency(\.defaultDatabase) private var database
 
-  func statTapped(_ detailType: NotesDetailModel.DetailType) {
-    destination = .detail(NotesDetailModel(detailType: detailType))
+  func statTapped(_ detailType: RemindersDetailModel.DetailType) {
+    destination = .detail(RemindersDetailModel(detailType: detailType))
   }
 
-  func notesListTapped(notesList: NotesList) {
+  func remindersListTapped(remindersList: RemindersList) {
     destination = .detail(
-      NotesDetailModel(
-        detailType: .notesList(
-          notesList
+      RemindersDetailModel(
+        detailType: .remindersList(
+          remindersList
         )
+      )
+    )
+  }
+
+  func tagButtonTapped(tag: Tag) {
+    destination = .detail(
+      RemindersDetailModel(
+        detailType: .tags([tag])
       )
     )
   }
@@ -59,37 +76,37 @@ class NotesListsModel {
     withErrorReporting {
       try Tips.configure()
     }
-    if notesLists.isEmpty {
+    if remindersLists.isEmpty {
       seedDatabaseTip = SeedDatabaseTip()
     }
   }
 
-  func newNoteButtonTapped() {
-    guard let notesList = notesLists.first?.notesList
+  func newReminderButtonTapped() {
+    guard let remindersList = remindersLists.first?.remindersList
     else {
       reportIssue("There must be at least one list.")
       return
     }
-    destination = .noteForm(
-      Note.Draft(notesListID: notesList.id),
-      notesList: notesList
+    destination = .reminderForm(
+      Reminder.Draft(remindersListID: remindersList.id),
+      remindersList: remindersList
     )
   }
 
   func addListButtonTapped() {
-    destination = .notesListForm(NotesList.Draft())
+    destination = .remindersListForm(RemindersList.Draft())
   }
 
-  func listDetailsButtonTapped(notesList: NotesList) {
-    destination = .notesListForm(NotesList.Draft(notesList))
+  func listDetailsButtonTapped(remindersList: RemindersList) {
+    destination = .remindersListForm(RemindersList.Draft(remindersList))
   }
 
   func move(from source: IndexSet, to destination: Int) {
     withErrorReporting {
       try database.write { db in
-        var ids = notesLists.map(\.notesList.id)
+        var ids = remindersLists.map(\.remindersList.id)
         ids.move(fromOffsets: source, toOffset: destination)
-        try NotesList
+        try RemindersList
           .where { $0.id.in(ids) }
           .update {
             let ids = Array(ids.enumerated())
@@ -118,16 +135,16 @@ class NotesListsModel {
 
   @CasePathable
   enum Destination {
-    case detail(NotesDetailModel)
-    case noteForm(Note.Draft, notesList: NotesList)
-    case notesListForm(NotesList.Draft)
+    case detail(RemindersDetailModel)
+    case reminderForm(Reminder.Draft, remindersList: RemindersList)
+    case remindersListForm(RemindersList.Draft)
   }
 
   @Selection
-  struct NoteListState: Identifiable {
-    var id: NotesList.ID { notesList.id }
-    var notesCount: Int
-    var notesList: NotesList
+  struct ReminderListState: Identifiable {
+    var id: RemindersList.ID { remindersList.id }
+    var remindersCount: Int
+    var remindersList: RemindersList
   }
 
   @Selection
@@ -151,16 +168,16 @@ class NotesListsModel {
   }
 }
 
-struct NotesListsView: View {
-  @Bindable var model: NotesListsModel
+struct RemindersListsView: View {
+  @Bindable var model: RemindersListsModel
 
   var body: some View {
     List {
-      if model.searchNotesModel.searchText.isEmpty {
+      if model.searchRemindersModel.searchText.isEmpty {
         Section {
           Grid(alignment: .leading, horizontalSpacing: 16, verticalSpacing: 16) {
             GridRow {
-              NoteGridCell(
+              ReminderGridCell(
                 color: .blue,
                 count: model.stats.todayCount,
                 iconName: "calendar.circle.fill",
@@ -168,7 +185,7 @@ struct NotesListsView: View {
               ) {
                 model.statTapped(.today)
               }
-              NoteGridCell(
+              ReminderGridCell(
                 color: .red,
                 count: model.stats.scheduledCount,
                 iconName: "calendar.circle.fill",
@@ -178,7 +195,7 @@ struct NotesListsView: View {
               }
             }
             GridRow {
-              NoteGridCell(
+              ReminderGridCell(
                 color: .gray,
                 count: model.stats.allCount,
                 iconName: "tray.circle.fill",
@@ -186,13 +203,23 @@ struct NotesListsView: View {
               ) {
                 model.statTapped(.all)
               }
-              NoteGridCell(
+              ReminderGridCell(
                 color: .orange,
                 count: model.stats.flaggedCount,
                 iconName: "flag.circle.fill",
                 title: "Flagged"
               ) {
                 model.statTapped(.flagged)
+              }
+            }
+            GridRow {
+              ReminderGridCell(
+                color: .gray,
+                count: nil,
+                iconName: "checkmark.circle.fill",
+                title: "Completed"
+              ) {
+                model.statTapped(.completed)
               }
             }
           }
@@ -202,13 +229,13 @@ struct NotesListsView: View {
         }
 
         Section {
-          ForEach(model.notesLists) { state in
+          ForEach(model.remindersLists) { state in
             Button {
-              model.notesListTapped(notesList: state.notesList)
+              model.remindersListTapped(remindersList: state.remindersList)
             } label: {
-              NotesListRow(
-                notesCount: state.notesCount,
-                notesList: state.notesList
+              RemindersListRow(
+                remindersCount: state.remindersCount,
+                remindersList: state.remindersList
               )
             }
             .foregroundStyle(.primary)
@@ -223,8 +250,27 @@ struct NotesListsView: View {
             .padding([.leading, .trailing], 4)
         }
         .listRowInsets(EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12))
+
+        Section {
+          ForEach(model.tags) { tag in
+            Button {
+              model.tagButtonTapped(tag: tag)
+            } label: {
+              TagRow(tag: tag)
+            }
+            .foregroundStyle(.primary)
+          }
+        } header: {
+          Text("Tags")
+            .font(.system(.title2, design: .rounded, weight: .bold))
+            .foregroundStyle(Color(.label))
+            .textCase(nil)
+            .padding(.top, -16)
+            .padding([.leading, .trailing], 4)
+        }
+        .listRowInsets(EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12))
       } else {
-        SearchNotesView(model: model.searchNotesModel)
+        SearchRemindersView(model: model.searchRemindersModel)
       }
     }
     .onAppear {
@@ -250,11 +296,11 @@ struct NotesListsView: View {
       ToolbarItem(placement: .bottomBar) {
         HStack {
           Button {
-            model.newNoteButtonTapped()
+            model.newReminderButtonTapped()
           } label: {
             HStack {
               Image(systemName: "plus.circle.fill")
-              Text("New Note")
+              Text("New Reminder")
             }
             .bold()
             .font(.title3)
@@ -269,27 +315,27 @@ struct NotesListsView: View {
         }
       }
     }
-    .sheet(item: $model.destination.noteForm, id: \.0.id) { note, notesList in
+    .sheet(item: $model.destination.reminderForm, id: \.0.id) { reminder, remindersList in
       NavigationStack {
-        NoteFormView(note: note, notesList: notesList)
-          .navigationTitle("New Note")
+        ReminderFormView(reminder: reminder, remindersList: remindersList)
+          .navigationTitle("New Reminder")
       }
     }
-    .sheet(item: $model.destination.notesListForm) { notesList in
+    .sheet(item: $model.destination.remindersListForm) { remindersList in
       NavigationStack {
-        NotesListForm(notesList: notesList)
+        RemindersListForm(remindersList: remindersList)
           .navigationTitle("New List")
       }
       .presentationDetents([.medium])
     }
-    .searchable(text: $model.searchNotesModel.searchText)
+    .searchable(text: $model.searchRemindersModel.searchText)
     .navigationDestination(item: $model.destination.detail) { detailModel in
-      NotesDetailView(model: detailModel)
+      RemindersDetailView(model: detailModel)
     }
   }
 }
 
-private struct NoteGridCell: View {
+private struct ReminderGridCell: View {
   let color: Color
   let count: Int?
   let iconName: String
@@ -334,7 +380,6 @@ private struct NoteGridCell: View {
     $0.defaultDatabase = try appDatabase()
   }
   NavigationStack {
-    NotesListsView(model: NotesListsModel())
+    RemindersListsView(model: RemindersListsModel())
   }
 }
-

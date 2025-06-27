@@ -9,7 +9,7 @@ import AppSettings
 import Requests
 import BalancingEnergyList
 import BalancingEnergy
-import Notes
+import Reminders
 
 @Reducer
 public struct Home {
@@ -46,7 +46,7 @@ public struct Home {
           state.path.append(.requests(.init()))
           return .none
         case .notesButton:
-          state.path.append(.notes(.init()))
+          state.path.append(.reminders(.init()))
           return .none
         case .settingsButton:
           state.path.append(.appSettings(.init()))
@@ -103,6 +103,6 @@ public enum Path {
   case balancingEnergyList(BalancingEnergyList)
   case balancingEnergy(BalancingEnergy)
   case requests(Requests)
-  case notes(Notes)
+  case reminders(Reminders)
   case appSettings(AppSettings)
 }

@@ -3,57 +3,62 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01654FEDFBCB27AD46F34E48 /* NoteLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC52FEBA74C6E6A6EFC84D1 /* NoteLists.swift */; };
 		02750D7F43D6C3EDB43DA25F /* Onboarding.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AFCC57A0EE1A747FC6D514C6 /* Onboarding.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		032E7590EA4DCD35A70C9995 /* GRDB_GRDB.bundle in Dependencies */ = {isa = PBXBuildFile; fileRef = 2D0A0F1BA4DCAC41C8A420BB /* GRDB_GRDB.bundle */; };
 		03FEB9BAE71DF9ABC5EC6DC4 /* Sharing2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE0FA26C105521D619C50708 /* Sharing2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		076B1961B6A6106CCEA1D520 /* AppSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC00B74A445108E2BCA382 /* AppSettingsView.swift */; };
 		0ADB44E8F3B95291076244FF /* HomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3EC67BA24302FC3E49017B /* HomeTests.swift */; };
+		0DF31BBC91BAF682C4FF9716 /* Reminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55454C414F6E65B52AC2DE36 /* Reminders.swift */; };
+		0E93DC204B86D158BCBA14A3 /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
 		0EE111A13C77BC14C0E75E86 /* SharingGRDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DBA41DC6C1578B253D0E342 /* SharingGRDB.framework */; };
 		0F3E0E3CB3372C2D63041CD5 /* RequestItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388A2A91BB0E3694C6F9B509 /* RequestItem.swift */; };
-		12CC869A92909794AC5B7344 /* Notes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C7C1D5165F233A2725F0F2 /* Notes.framework */; };
 		13C8192BF9EFE574F4C52932 /* CombineSchedulers.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B8AF5B014AFB978DEF214451 /* CombineSchedulers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1442618D3217E119659A9193 /* HomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23889BE6F1834CCA8B1645F /* HomeButton.swift */; };
 		146BA7D07028CA56217E1A94 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; };
 		155EBEC9AA9DC80773DC028F /* BalancingEnergyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB359F3DF25939A4087B6164 /* BalancingEnergyList.swift */; };
 		1822734C08E5DCA53D98F9DD /* IdentifiedCollections.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F4583744CB6A1E0C424027D8 /* IdentifiedCollections.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1901B3F8AFCB41A09F489CA7 /* SearchReminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C97DFEC74737DC93DC1D1F6 /* SearchReminders.swift */; };
+		192A8EB24C95CF2592C7A57E /* ReminderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F8F64709F792F7FFC9BB1 /* ReminderRow.swift */; };
 		1B0C9A8AD54ADF49C4D282FA /* Common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1D8485D4404D2B4CD8B2E3C3 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D2B547DA20E9C623B1859D /* NotesView.swift */; };
+		1B7D195B530DE634662287E5 /* RemindersLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D39E3ABAC96EA1FD8CF84C /* RemindersLists.swift */; };
+		1DE4AF4B15110861455B3071 /* Reminders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9844611137297AF752A4EB61 /* Reminders.framework */; };
 		1EFA852222DA02C0D073A9FE /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
 		201452629B69CE4015BF6CB0 /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEEB72F2DF1834AFF235E16 /* Schema.swift */; };
 		2211952DE50D29D02CB08B5C /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; };
 		282B3F2F283A936E19EBD9ED /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
-		292E12F42E36DC8352924CD5 /* Notes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C7C1D5165F233A2725F0F2 /* Notes.framework */; };
 		2A7F809E8715B4D3D5AF7E63 /* KarmicHealingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B601C97CD8A2356AD07CBEF8 /* KarmicHealingView.swift */; };
+		2B0878D9B48C8800E5082A07 /* SharingGRDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DBA41DC6C1578B253D0E342 /* SharingGRDB.framework */; };
 		2D063D2135124A9249DA3C1E /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
 		3283B7AFC3E2F0B7306CDEDA /* BalancingEnergy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DCCD6F2EEA1EFE1B0C75AD59 /* BalancingEnergy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		379B6D2ED5DB581DEEC1F895 /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
-		3957FABE6DBDFB9062960DAE /* SearchNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEE67CD7968D47081D7250C /* SearchNotes.swift */; };
 		3D7370B4C965FCF49533C8DC /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; };
 		431241F6831DEC99FB1E4FCF /* BalancingEnergy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCD6F2EEA1EFE1B0C75AD59 /* BalancingEnergy.framework */; };
 		461C0B38F62D26D3F7493E13 /* OrderedCollections.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00E7681AF5A25E6A938F5F1F /* OrderedCollections.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4E5D3CB08D3281554F64720C /* BalancingEnergyList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937951BDE4A7DF3DE0227873 /* BalancingEnergyList.framework */; };
 		54CF84DD3F45CB6BAEA4CB9B /* MailComposerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9F72DC2A14CE3B17B6A9B0 /* MailComposerView.swift */; };
+		555B00282C08E60EB84B08D4 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; };
 		55E78F5FEA3833CDE1286D69 /* Sharing.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C0B59758EFA10BA8AA6DA0D1 /* Sharing.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		58C0B482EFB1A571D13E0F38 /* IssueReporting.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 029923781F6C803C25C065FD /* IssueReporting.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5925D215C020110A64B56856 /* RemindersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA4F04E5AF8278AA99B9659 /* RemindersApp.swift */; };
 		597E4C427F06E8303131B7AB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD886FBCE4DE4450B9B2CFC /* XCTest.framework */; };
 		5A5603796097B4AC78E96D1E /* Requests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AFFEAB7951F1AB5D591E8C /* Requests.framework */; };
+		5B63C8E3398DA66180A6B0CD /* Reminders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9844611137297AF752A4EB61 /* Reminders.framework */; };
 		5B799EC8C9AF360961E244FC /* KarmicHealingAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF5AC93973189BA300A0954 /* KarmicHealingAlertView.swift */; };
 		5C46A2B9B61966C3A51E0C0E /* TuistBundle+Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18DBDF5630C1EA9E7AE7DCE /* TuistBundle+Resources.swift */; };
-		5EC4BD0376FB23A13477916A /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
+		5D6BEEF921AA67BB02666D02 /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; };
+		5E2883C49599FAF4D140DD34 /* RemindersListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB82E581C95596F0F862D92 /* RemindersListRow.swift */; };
 		5ED9337E6001E534C25E17D1 /* AppSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B8D2F9EDCFE04EF7D9E500 /* AppSettings.framework */; };
 		603C13D01413EBF9EF68149D /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
+		604FB39E46FB35A47EC0D6F3 /* RemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EBFF1307913F076732EEB /* RemindersView.swift */; };
 		611495A73C8E242612B73BCF /* GRDB_GRDB.bundle in Dependencies */ = {isa = PBXBuildFile; fileRef = 2D0A0F1BA4DCAC41C8A420BB /* GRDB_GRDB.bundle */; };
-		659A9EC77FFAA74B3CBC0517 /* FullScreenCoverBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400056EC77ECD6BA7E3B731B /* FullScreenCoverBackgroundView.swift */; };
 		666B2D0467C48D9F7D35F0F3 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1AB95A017359AC83F42C1A6 /* Colors.xcassets */; };
 		66CA89E5916FBD0D2C912809 /* XCTestDynamicOverlay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E122681E7BC43CA057476B60 /* XCTestDynamicOverlay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6935C57B7B8B3F79FE3BFCCA /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; };
 		6B327F406573E7D4A1200907 /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; };
-		6E5D86950C0F4593D3188DBF /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF7BDBB4F92AC0BACFB7104 /* Schema.swift */; };
 		6EAB365A9BBBE66618C346F3 /* TuistBundle+KarmicHealing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D93201106153BC9279C770 /* TuistBundle+KarmicHealing.swift */; };
 		701ED31157BD8602EA46DAE2 /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
 		709D71937CE4FAF1D6D10429 /* BalancingEnergyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2620BE86A788A5976BA13BFA /* BalancingEnergyView.swift */; };
@@ -63,7 +68,6 @@
 		78937BD4CCE48AAB88D80162 /* PerceptionCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 290CA8030B15A0AA5C2CCFFB /* PerceptionCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7B324E6B7D4F59A548C936D4 /* BalancingEnergyList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937951BDE4A7DF3DE0227873 /* BalancingEnergyList.framework */; };
 		7BC08B2770614B64B167F7A3 /* XCTest+withTrackedCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF29FDB478366F2E7225B38 /* XCTest+withTrackedCalls.swift */; };
-		7EA491B9D1F6C238555FA0F5 /* Notes.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C5C7C1D5165F233A2725F0F2 /* Notes.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7F5626B0611F053EABB3718E /* Home.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04F8E16E9A85D842C27D7B75 /* Home.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		80418E4FD398616DE7CDB088 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 061863713A55E985902E3263 /* Icons.xcassets */; };
 		83BDF02A56751191BE80F116 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; };
@@ -71,45 +75,46 @@
 		8A2C8FC1DEC63DC6A3BE2C30 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135D35F200CBF453C042ADEE /* HomeView.swift */; };
 		8A459562993DF44C41548E46 /* Sharing1.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3614AA82FB39C74A8B9D6E /* Sharing1.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A58E78BA85D192543FDB196 /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
-		8ACC1847E5DA04DEE1023B50 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896B4987E73910284B7EE55C /* Notes.swift */; };
+		8FD8EB4E227702185B94FCC9 /* KarmicHealingGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15F7379A946B22FF731FAB7 /* KarmicHealingGridCell.swift */; };
 		904A96FE6F4FBD1B3EBD19BE /* BalancingEnergy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A350AA2DADC5C8EA3D278D /* BalancingEnergy.swift */; };
 		9433F7E6732212EBE2439BEF /* TuistAssets+Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8FD516CA44D211DF048D7 /* TuistAssets+Resources.swift */; };
 		9C8C914EDF8CA4A9C71DBB98 /* Dependencies.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 521A308467BDA5B20A8073FB /* Dependencies.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9CE970894F21072CC11E52D6 /* TabView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C000C78A1E665D1B1E7F85DD /* TabView+Ext.swift */; };
+		9DD661CE0A6C63B9885BF67E /* Reminders.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9844611137297AF752A4EB61 /* Reminders.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9EDAAA7133C130EEB8BA0AFE /* Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F8E16E9A85D842C27D7B75 /* Home.framework */; };
 		A0DEDE8581CA144A3D155FF0 /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
-		A24A6856FA79340E9954DA62 /* NoteListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFE47A223A4DA71B4F1CD4 /* NoteListRow.swift */; };
-		A46B7E76AEEC439EEF444984 /* KarmicHealingDisclosureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD72813AC78FA3378C43BC7 /* KarmicHealingDisclosureCell.swift */; };
 		A558C3D62DA36492D4ABB014 /* KarmicHealing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8E247924B97BE74F980EE2 /* KarmicHealing.swift */; };
+		A588BD89AE4E1975729DA12B /* FullScreenCoverBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A0825EC1769E0E174B3EA /* FullScreenCoverBackgroundView.swift */; };
 		A59CE832DC08E246A0101E7F /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; };
 		A5CCC648F2DE494C84F58E11 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EC5F1A20AB7DE04590F636 /* OnboardingView.swift */; };
 		AAEC02716638E7886CBF6B91 /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; };
 		AC91711A46744B42B746FE1F /* GRDB_GRDB.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2D0A0F1BA4DCAC41C8A420BB /* GRDB_GRDB.bundle */; };
 		AE71F75F68DFC6DCCDF60EAE /* KarmicHealingAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B19F508923B07979CC702E8 /* KarmicHealingAlert.swift */; };
 		AEDDAF74DD332F9D09C184D4 /* AppSettings.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10B8D2F9EDCFE04EF7D9E500 /* AppSettings.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B275103AFAF6DEB93496EEAE /* NoteListForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C43DC2151261C97A0473C1 /* NoteListForm.swift */; };
-		B3AE4E9BB0756E1F352BE1EF /* NoteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10435617E8A2E06F337E7A4E /* NoteRow.swift */; };
 		B504A12C457FFC0D809BEE0F /* BalancingEnergyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035250898164081970D4C3AE /* BalancingEnergyListView.swift */; };
-		B50A266E815782B1F06229DA /* SharingGRDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DBA41DC6C1578B253D0E342 /* SharingGRDB.framework */; };
 		B5383194545B21ADD25ABE5C /* BalancingEnergyList.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 937951BDE4A7DF3DE0227873 /* BalancingEnergyList.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B667BA1AA9F679C2208F3AAB /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; };
-		B89DE1C4D31B11D6C626F304 /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; };
 		B989D888AC268EB514247247 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE0B0C32B9B575FF3ADF75D /* Onboarding.swift */; };
+		BA3034D262DB85AAF4E14570 /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3952F539F01F3C04D27038 /* Schema.swift */; };
 		BBF5D94FA26053CCD727D221 /* ConcurrencyExtras.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1169C48DEE11FEB08AE83FBA /* ConcurrencyExtras.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BCE87D5AC885328718893F33 /* RemindersListForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D906E064FEF95E194F68D7FA /* RemindersListForm.swift */; };
+		BD55E7077BD2219C8C3C4A36 /* RemindersDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C2996F70BC0D05FCBED53 /* RemindersDetail.swift */; };
 		BFCCE3CCD39973F7A25C235C /* BalancingEnergy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCD6F2EEA1EFE1B0C75AD59 /* BalancingEnergy.framework */; };
 		C7EDD47524AC300488535AA4 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462084A1E74237E95A83266B /* AppSettings.swift */; };
-		CBE9885B6C5676865DC2E39C /* NoteDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BCF6B8BA579B655937CAF2 /* NoteDetail.swift */; };
+		CD1F9B7DD933BE8FBFBD13A6 /* TagsForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98E3BC3FFDAE4433D95D82A /* TagsForm.swift */; };
 		CDEA95E544D51AE1AB282F50 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; };
 		D3D1C4E3F02DC037451E2495 /* Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F8E16E9A85D842C27D7B75 /* Home.framework */; };
 		D5E94556B773B21BB70512FD /* TuistAssets+KarmicHealing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D41708495D3BE707CEE866 /* TuistAssets+KarmicHealing.swift */; };
 		D6D837548A2DE60B838BB52A /* SharingGRDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DBA41DC6C1578B253D0E342 /* SharingGRDB.framework */; };
+		D80382F83DAAE4E5366F9204 /* ReminderForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90F5F787F8F5FC5C729C016 /* ReminderForm.swift */; };
+		DA4AC211EC31F531454313FF /* TagRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACC0ED5BC88D84808367709 /* TagRow.swift */; };
 		DB300BCCADF57F8B2B8BD631 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE11386EDB68E796E01D3B1 /* Requests.swift */; };
 		DB8ED1567B4FBA780BD5D482 /* InternalCollectionsUtilities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39B4C42BD50A7E19ED4EDD17 /* InternalCollectionsUtilities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DBD9DBE8FBA452E97FE55D9C /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF69DADA3FE361892D9A9B9 /* Home.swift */; };
 		DCF1A53AC09361A0506CE50B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8713013181939438F04B4BB9 /* LaunchScreen.storyboard */; };
 		DD16ED6809DBFF3F0EE92709 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; };
 		DE3593631E9ECD8F6F8130DF /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
-		DEA3825C3887EBB4C988D357 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; };
+		DF632D63DD0D5D1E43CF0FEE /* KarmicHealingDisclosureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3B34389171753C775D53DD /* KarmicHealingDisclosureCell.swift */; };
 		E080209B7FE4E310A61C96E4 /* TestingUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC78A05FC6DB55E86D8DCCF5 /* TestingUtilities.framework */; };
 		E14DDA5A61724C3253E18EF5 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AA4BB66567BBDD9C9B4C20 /* Steps.swift */; };
 		E8E2C208EAA0F21233E9680F /* RequestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F8597B465E949011A03FA /* RequestsView.swift */; };
@@ -130,7 +135,6 @@
 		F8BC971420AAF634BF615CB4 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8ACBD6AD043F6C2C59AB279 /* Color+Ext.swift */; };
 		F8EF6AF25A1F76F03DE4D129 /* CustomDump.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB9747434FBD49D9267F979 /* CustomDump.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F9B79DEE9EF81F492F9C9119 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A283FF0AAE64A1782229F900 /* Localizable.xcstrings */; };
-		FCA691F25D6562B839A84678 /* NoteForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CE63F798ADC6ECC078244D /* NoteForm.swift */; };
 		FCBE30FA1F9AFB187248411A /* ComposableArchitecture.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD86161E32D478D1014AF73A /* HomeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F0E42B795DFC188453D03 /* HomeButtonView.swift */; };
 		FFF4CDD513E9C228BD87176A /* Onboarding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFCC57A0EE1A747FC6D514C6 /* Onboarding.framework */; };
@@ -179,6 +183,13 @@
 			remoteGlobalIDString = ED7F6540CBCAEA0A1A2871E9;
 			remoteInfo = Resources;
 		};
+		2B9C4D25EEC539D631E09833 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5478B72F927EF41FAAD1A812;
+			remoteInfo = Common;
+		};
 		2BE01E520760BFD3BACEDAA3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
@@ -200,19 +211,19 @@
 			remoteGlobalIDString = 6B071305EC98B7EE2D7AC866;
 			remoteInfo = BalancingEnergyList;
 		};
-		5450DA2B15FA96F36A3604CD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EACE25C6BC44C7B967540F56;
-			remoteInfo = Notes;
-		};
 		585754C12D0DE6FEDC92F919 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3D9E21BF9E22F63C4A0178D2;
 			remoteInfo = TestingUtilities;
+		};
+		64D18AF85A68B61FD1146050 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 596B043D4D87C6FFD382929D;
+			remoteInfo = Reminders;
 		};
 		705214F4D07D4D6658FE41AA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -235,14 +246,14 @@
 			remoteGlobalIDString = 5478B72F927EF41FAAD1A812;
 			remoteInfo = Common;
 		};
-		82504BD6D6F61B6ED8912509 /* PBXContainerItemProxy */ = {
+		7E94BC1C76549B57EFB11771 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = EACE25C6BC44C7B967540F56;
-			remoteInfo = Notes;
+			remoteGlobalIDString = 596B043D4D87C6FFD382929D;
+			remoteInfo = Reminders;
 		};
-		8B839E4831B1EC0867D9F1E1 /* PBXContainerItemProxy */ = {
+		85993BB7D7CF9158FC29021D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
 			proxyType = 1;
@@ -271,13 +282,6 @@
 			remoteInfo = Resources;
 		};
 		A808A27771827252B69BEEF4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5478B72F927EF41FAAD1A812;
-			remoteInfo = Common;
-		};
-		B008384D64BFBD15F0A4B01F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
 			proxyType = 1;
@@ -362,10 +366,10 @@
 				1822734C08E5DCA53D98F9DD /* IdentifiedCollections.framework in Embed Frameworks */,
 				DB8ED1567B4FBA780BD5D482 /* InternalCollectionsUtilities.framework in Embed Frameworks */,
 				58C0B482EFB1A571D13E0F38 /* IssueReporting.framework in Embed Frameworks */,
-				7EA491B9D1F6C238555FA0F5 /* Notes.framework in Embed Frameworks */,
 				02750D7F43D6C3EDB43DA25F /* Onboarding.framework in Embed Frameworks */,
 				461C0B38F62D26D3F7493E13 /* OrderedCollections.framework in Embed Frameworks */,
 				78937BD4CCE48AAB88D80162 /* PerceptionCore.framework in Embed Frameworks */,
+				9DD661CE0A6C63B9885BF67E /* Reminders.framework in Embed Frameworks */,
 				F7DF2422EC712E844DBA5132 /* Requests.framework in Embed Frameworks */,
 				EFA8D73FC778CAA85696288B /* Resources.framework in Embed Frameworks */,
 				55E78F5FEA3833CDE1286D69 /* Sharing.framework in Embed Frameworks */,
@@ -373,6 +377,16 @@
 				03FEB9BAE71DF9ABC5EC6DC4 /* Sharing2.framework in Embed Frameworks */,
 				EEAD2DF36F46D59095E00F9B /* SharingGRDB.framework in Embed Frameworks */,
 				66CA89E5916FBD0D2C912809 /* XCTestDynamicOverlay.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B1C025A10B2D2CA1B9743D7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -477,16 +491,6 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AE744455334DF7488AA8D7D0 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C45AC0308B6FEB65B348EDA7 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -517,9 +521,10 @@
 		04C426E45AF0F18A74DF53D6 /* Home-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Home-Info.plist"; sourceTree = "<group>"; };
 		04F8E16E9A85D842C27D7B75 /* Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		061863713A55E985902E3263 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
+		06D39E3ABAC96EA1FD8CF84C /* RemindersLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersLists.swift; sourceTree = "<group>"; };
 		0A331D9AAAC17C23F9FEB388 /* UserDefaultClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultClient.swift; sourceTree = "<group>"; };
 		0AF69DADA3FE361892D9A9B9 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		10435617E8A2E06F337E7A4E /* NoteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRow.swift; sourceTree = "<group>"; };
+		0E5F8F64709F792F7FFC9BB1 /* ReminderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderRow.swift; sourceTree = "<group>"; };
 		10B8D2F9EDCFE04EF7D9E500 /* AppSettings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppSettings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1169C48DEE11FEB08AE83FBA /* ConcurrencyExtras.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ConcurrencyExtras.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		135D35F200CBF453C042ADEE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -532,50 +537,50 @@
 		2D0A0F1BA4DCAC41C8A420BB /* GRDB_GRDB.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GRDB_GRDB.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E2D45E590A86AAE3640BB92 /* SwiftDataExplorations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataExplorations.swift; sourceTree = "<group>"; };
 		2E3614AA82FB39C74A8B9D6E /* Sharing1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sharing1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2ED380C7125A39039EF031FC /* Notes-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Notes-Info.plist"; sourceTree = "<group>"; };
-		2FF7BDBB4F92AC0BACFB7104 /* Schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
 		3687F91BBB526CC60FC4DD8A /* CMTime+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime+Ext.swift"; sourceTree = "<group>"; };
 		377F8597B465E949011A03FA /* RequestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsView.swift; sourceTree = "<group>"; };
 		388A2A91BB0E3694C6F9B509 /* RequestItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestItem.swift; sourceTree = "<group>"; };
 		38A350AA2DADC5C8EA3D278D /* BalancingEnergy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancingEnergy.swift; sourceTree = "<group>"; };
 		39B4C42BD50A7E19ED4EDD17 /* InternalCollectionsUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InternalCollectionsUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3DE6F8724694B2C80388579D /* Preview Content */ = {isa = PBXFileReference; path = "Preview Content"; sourceTree = "<group>"; };
-		400056EC77ECD6BA7E3B731B /* FullScreenCoverBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenCoverBackgroundView.swift; sourceTree = "<group>"; };
+		3DE6F8724694B2C80388579D /* Preview Content */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Preview Content"; sourceTree = "<group>"; };
 		42B4794F9892895099628422 /* Resources-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Resources-Info.plist"; sourceTree = "<group>"; };
 		437C255FD6B4927A3574DC7A /* HomeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "HomeTests-Info.plist"; sourceTree = "<group>"; };
 		462084A1E74237E95A83266B /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		48DC36A78958C5F735A322A5 /* KarmicHealing-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "KarmicHealing-Info.plist"; sourceTree = "<group>"; };
+		4B3B34389171753C775D53DD /* KarmicHealingDisclosureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarmicHealingDisclosureCell.swift; sourceTree = "<group>"; };
+		4F9C2996F70BC0D05FCBED53 /* RemindersDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersDetail.swift; sourceTree = "<group>"; };
 		507E3BACDFA1B623FFF0085C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		521A308467BDA5B20A8073FB /* Dependencies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Dependencies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		521C60B6112B40DCB8C32F02 /* BalancingEnergyList-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BalancingEnergyList-Info.plist"; sourceTree = "<group>"; };
 		521F0E42B795DFC188453D03 /* HomeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButtonView.swift; sourceTree = "<group>"; };
 		52D41708495D3BE707CEE866 /* TuistAssets+KarmicHealing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+KarmicHealing.swift"; sourceTree = "<group>"; };
+		55454C414F6E65B52AC2DE36 /* Reminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminders.swift; sourceTree = "<group>"; };
+		5C3952F539F01F3C04D27038 /* Schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
 		5D3EC67BA24302FC3E49017B /* HomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTests.swift; sourceTree = "<group>"; };
 		5DF29FDB478366F2E7225B38 /* XCTest+withTrackedCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+withTrackedCalls.swift"; sourceTree = "<group>"; };
 		601EB9BCB25828503CE5B0B1 /* Onboarding-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Onboarding-Info.plist"; sourceTree = "<group>"; };
 		692DFBD0BC5FEB41A37F7996 /* NavigationBar+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationBar+Ext.swift"; sourceTree = "<group>"; };
 		6B19F508923B07979CC702E8 /* KarmicHealingAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarmicHealingAlert.swift; sourceTree = "<group>"; };
+		6C97DFEC74737DC93DC1D1F6 /* SearchReminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchReminders.swift; sourceTree = "<group>"; };
 		6CD886FBCE4DE4450B9B2CFC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		73AA4BB66567BBDD9C9B4C20 /* Steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
-		77CE63F798ADC6ECC078244D /* NoteForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteForm.swift; sourceTree = "<group>"; };
 		7B1A3F74D9A0F7E059908D2A /* TestingUtilities-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "TestingUtilities-Info.plist"; sourceTree = "<group>"; };
 		7B8E247924B97BE74F980EE2 /* KarmicHealing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarmicHealing.swift; sourceTree = "<group>"; };
 		7BC3E01675AA2571947993BA /* AppSettings-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "AppSettings-Info.plist"; sourceTree = "<group>"; };
+		7DA4F04E5AF8278AA99B9659 /* RemindersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersApp.swift; sourceTree = "<group>"; };
 		7FE58283C3A274F5F92A7FD1 /* KarmicHealingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarmicHealingApp.swift; sourceTree = "<group>"; };
 		80D93201106153BC9279C770 /* TuistBundle+KarmicHealing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+KarmicHealing.swift"; sourceTree = "<group>"; };
 		80DC255D38450C9D907A5140 /* Requests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Requests-Info.plist"; sourceTree = "<group>"; };
 		84C8FD516CA44D211DF048D7 /* TuistAssets+Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+Resources.swift"; sourceTree = "<group>"; };
 		8713013181939438F04B4BB9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87179576D83D01449EED8B00 /* HomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		87C43DC2151261C97A0473C1 /* NoteListForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListForm.swift; sourceTree = "<group>"; };
 		881F8A734FFF7D8372D06ED8 /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		88D2B547DA20E9C623B1859D /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
-		896B4987E73910284B7EE55C /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
 		937951BDE4A7DF3DE0227873 /* BalancingEnergyList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BalancingEnergyList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		99BCF6B8BA579B655937CAF2 /* NoteDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetail.swift; sourceTree = "<group>"; };
-		A283FF0AAE64A1782229F900 /* Localizable.xcstrings */ = {isa = PBXFileReference; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		9844611137297AF752A4EB61 /* Reminders.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Reminders.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A283FF0AAE64A1782229F900 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		A98E3BC3FFDAE4433D95D82A /* TagsForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsForm.swift; sourceTree = "<group>"; };
+		AACC0ED5BC88D84808367709 /* TagRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagRow.swift; sourceTree = "<group>"; };
 		AB359F3DF25939A4087B6164 /* BalancingEnergyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancingEnergyList.swift; sourceTree = "<group>"; };
-		ABC52FEBA74C6E6A6EFC84D1 /* NoteLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteLists.swift; sourceTree = "<group>"; };
 		AFCC57A0EE1A747FC6D514C6 /* Onboarding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Onboarding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1AB95A017359AC83F42C1A6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		B23889BE6F1834CCA8B1645F /* HomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButton.swift; sourceTree = "<group>"; };
@@ -583,27 +588,30 @@
 		B85762BF97E9D27C30C53840 /* Resources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Resources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8ACBD6AD043F6C2C59AB279 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
 		B8AF5B014AFB978DEF214451 /* CombineSchedulers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CombineSchedulers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB7A0825EC1769E0E174B3EA /* FullScreenCoverBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenCoverBackgroundView.swift; sourceTree = "<group>"; };
 		BC78A05FC6DB55E86D8DCCF5 /* TestingUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TestingUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C000C78A1E665D1B1E7F85DD /* TabView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabView+Ext.swift"; sourceTree = "<group>"; };
 		C0B59758EFA10BA8AA6DA0D1 /* Sharing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sharing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C18DBDF5630C1EA9E7AE7DCE /* TuistBundle+Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+Resources.swift"; sourceTree = "<group>"; };
-		C5C7C1D5165F233A2725F0F2 /* Notes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Notes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6C90AC6419664A553E5DA30 /* Common-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Common-Info.plist"; sourceTree = "<group>"; };
 		C87D4296571F0460A46D013E /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		CAEEB72F2DF1834AFF235E16 /* Schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
-		CBD72813AC78FA3378C43BC7 /* KarmicHealingDisclosureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarmicHealingDisclosureCell.swift; sourceTree = "<group>"; };
 		CD9F72DC2A14CE3B17B6A9B0 /* MailComposerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposerView.swift; sourceTree = "<group>"; };
 		CFE0B0C32B9B575FF3ADF75D /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		D15F7379A946B22FF731FAB7 /* KarmicHealingGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarmicHealingGridCell.swift; sourceTree = "<group>"; };
 		D1EC5F1A20AB7DE04590F636 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		D4D467CF8916CF9A51CDDD7E /* BalancingEnergy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BalancingEnergy-Info.plist"; sourceTree = "<group>"; };
+		D906E064FEF95E194F68D7FA /* RemindersListForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListForm.swift; sourceTree = "<group>"; };
 		DCCD6F2EEA1EFE1B0C75AD59 /* BalancingEnergy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BalancingEnergy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCDAC96EA79D8D0D062C6341 /* XCTest+expectParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+expectParameter.swift"; sourceTree = "<group>"; };
 		E122681E7BC43CA057476B60 /* XCTestDynamicOverlay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XCTestDynamicOverlay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E408783B2AAA3C06DBB33B5A /* KarmicHealing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KarmicHealing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5AFFEAB7951F1AB5D591E8C /* Requests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Requests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EFEE67CD7968D47081D7250C /* SearchNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNotes.swift; sourceTree = "<group>"; };
+		E90F5F787F8F5FC5C729C016 /* ReminderForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderForm.swift; sourceTree = "<group>"; };
+		EFB82E581C95596F0F862D92 /* RemindersListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListRow.swift; sourceTree = "<group>"; };
 		F4583744CB6A1E0C424027D8 /* IdentifiedCollections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IdentifiedCollections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F7BFE47A223A4DA71B4F1CD4 /* NoteListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListRow.swift; sourceTree = "<group>"; };
+		F90A0225152A841AE720345E /* Reminders-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Reminders-Info.plist"; sourceTree = "<group>"; };
+		F97EBFF1307913F076732EEB /* RemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersView.swift; sourceTree = "<group>"; };
 		FBBC00B74A445108E2BCA382 /* AppSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsView.swift; sourceTree = "<group>"; };
 		FE0FA26C105521D619C50708 /* Sharing2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sharing2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -640,6 +648,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		284152DCE1DE85E8F9C36093 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				555B00282C08E60EB84B08D4 /* Common.framework in Frameworks */,
+				0E93DC204B86D158BCBA14A3 /* ComposableArchitecture.framework in Frameworks */,
+				5D6BEEF921AA67BB02666D02 /* Resources.framework in Frameworks */,
+				2B0878D9B48C8800E5082A07 /* SharingGRDB.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2884AC4D3A6213165F983E72 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -650,8 +669,8 @@
 				83BDF02A56751191BE80F116 /* Common.framework in Frameworks */,
 				DE3593631E9ECD8F6F8130DF /* ComposableArchitecture.framework in Frameworks */,
 				9EDAAA7133C130EEB8BA0AFE /* Home.framework in Frameworks */,
-				292E12F42E36DC8352924CD5 /* Notes.framework in Frameworks */,
 				FFF4CDD513E9C228BD87176A /* Onboarding.framework in Frameworks */,
+				1DE4AF4B15110861455B3071 /* Reminders.framework in Frameworks */,
 				5A5603796097B4AC78E96D1E /* Requests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -677,17 +696,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B29B82EF433D3592EBB4B56E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DEA3825C3887EBB4C988D357 /* Common.framework in Frameworks */,
-				5EC4BD0376FB23A13477916A /* ComposableArchitecture.framework in Frameworks */,
-				B89DE1C4D31B11D6C626F304 /* Resources.framework in Frameworks */,
-				B50A266E815782B1F06229DA /* SharingGRDB.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		BBEF51B2004B30F6C2577817 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -703,7 +711,7 @@
 				4E5D3CB08D3281554F64720C /* BalancingEnergyList.framework in Frameworks */,
 				146BA7D07028CA56217E1A94 /* Common.framework in Frameworks */,
 				F7F812586C62078996EC5B37 /* ComposableArchitecture.framework in Frameworks */,
-				12CC869A92909794AC5B7344 /* Notes.framework in Frameworks */,
+				5B63C8E3398DA66180A6B0CD /* Reminders.framework in Frameworks */,
 				EB5AD4D488DAACA52CE68F24 /* Requests.framework in Frameworks */,
 				6B327F406573E7D4A1200907 /* Resources.framework in Frameworks */,
 			);
@@ -744,8 +752,11 @@
 		04CA190027D786149CB8AD53 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BB7A0825EC1769E0E174B3EA /* FullScreenCoverBackgroundView.swift */,
 				6B19F508923B07979CC702E8 /* KarmicHealingAlert.swift */,
 				1EF5AC93973189BA300A0954 /* KarmicHealingAlertView.swift */,
+				4B3B34389171753C775D53DD /* KarmicHealingDisclosureCell.swift */,
+				D15F7379A946B22FF731FAB7 /* KarmicHealingGridCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -769,16 +780,6 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		0CF6C990DD4A29257DE43EE6 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				15854CC3392ADFF3B1CF60EC /* DB */,
-				896B4987E73910284B7EE55C /* Notes.swift */,
-				88D2B547DA20E9C623B1859D /* NotesView.swift */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
 		115E97671A9CB1DB56BF5431 /* HomeButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -796,28 +797,13 @@
 				B60854C2B4FD92D14B8F96C9 /* BalancingEnergyList */,
 				E5F940091CF3974ACE58187A /* Common */,
 				A040ADF93221F67D31462ABB /* Home */,
-				1BE7A7675048DBC9CEAB7BD6 /* Notes */,
 				7BAA77828A13539B0FF3A1FB /* Onboarding */,
+				6E7739AE40162E421B57F66E /* Reminders */,
 				5031000F83F04A20FF41DEA2 /* Requests */,
 				FBD5BEE7F204F154A2BE98F1 /* Resources */,
 				95CFB6B5839BC48BFFEF0A3B /* TestingUtilities */,
 			);
 			path = Features;
-			sourceTree = "<group>";
-		};
-		15854CC3392ADFF3B1CF60EC /* DB */ = {
-			isa = PBXGroup;
-			children = (
-				99BCF6B8BA579B655937CAF2 /* NoteDetail.swift */,
-				77CE63F798ADC6ECC078244D /* NoteForm.swift */,
-				87C43DC2151261C97A0473C1 /* NoteListForm.swift */,
-				F7BFE47A223A4DA71B4F1CD4 /* NoteListRow.swift */,
-				ABC52FEBA74C6E6A6EFC84D1 /* NoteLists.swift */,
-				10435617E8A2E06F337E7A4E /* NoteRow.swift */,
-				2FF7BDBB4F92AC0BACFB7104 /* Schema.swift */,
-				EFEE67CD7968D47081D7250C /* SearchNotes.swift */,
-			);
-			path = DB;
 			sourceTree = "<group>";
 		};
 		1A113E4AC218122C07A089B5 /* Sources */ = {
@@ -828,14 +814,6 @@
 				B601C97CD8A2356AD07CBEF8 /* KarmicHealingView.swift */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		1BE7A7675048DBC9CEAB7BD6 /* Notes */ = {
-			isa = PBXGroup;
-			children = (
-				0CF6C990DD4A29257DE43EE6 /* Sources */,
-			);
-			path = Notes;
 			sourceTree = "<group>";
 		};
 		27E5E51626BE92EA53AFD4C0 /* Sources */ = {
@@ -866,6 +844,24 @@
 				C18DBDF5630C1EA9E7AE7DCE /* TuistBundle+Resources.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		2FF614056F1CB0CF500809E5 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				E90F5F787F8F5FC5C729C016 /* ReminderForm.swift */,
+				0E5F8F64709F792F7FFC9BB1 /* ReminderRow.swift */,
+				7DA4F04E5AF8278AA99B9659 /* RemindersApp.swift */,
+				4F9C2996F70BC0D05FCBED53 /* RemindersDetail.swift */,
+				D906E064FEF95E194F68D7FA /* RemindersListForm.swift */,
+				EFB82E581C95596F0F862D92 /* RemindersListRow.swift */,
+				06D39E3ABAC96EA1FD8CF84C /* RemindersLists.swift */,
+				5C3952F539F01F3C04D27038 /* Schema.swift */,
+				6C97DFEC74737DC93DC1D1F6 /* SearchReminders.swift */,
+				AACC0ED5BC88D84808367709 /* TagRow.swift */,
+				A98E3BC3FFDAE4433D95D82A /* TagsForm.swift */,
+			);
+			path = DB;
 			sourceTree = "<group>";
 		};
 		323162E8899197D7D31A40CC /* Tests */ = {
@@ -903,6 +899,14 @@
 			path = "SwifUI+Ext";
 			sourceTree = "<group>";
 		};
+		6E7739AE40162E421B57F66E /* Reminders */ = {
+			isa = PBXGroup;
+			children = (
+				806F6FB5B75F8AB110E6A54E /* Sources */,
+			);
+			path = Reminders;
+			sourceTree = "<group>";
+		};
 		70BF9DCE07829874EBDAB91C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -931,13 +935,14 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		8042DEACBF4299DDCF0981BF /* Components */ = {
+		806F6FB5B75F8AB110E6A54E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				400056EC77ECD6BA7E3B731B /* FullScreenCoverBackgroundView.swift */,
-				CBD72813AC78FA3378C43BC7 /* KarmicHealingDisclosureCell.swift */,
+				2FF614056F1CB0CF500809E5 /* DB */,
+				55454C414F6E65B52AC2DE36 /* Reminders.swift */,
+				F97EBFF1307913F076732EEB /* RemindersView.swift */,
 			);
-			path = Components;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		814E61149F38E409614C76B9 /* KarmicHealing */ = {
@@ -1064,8 +1069,8 @@
 				04C426E45AF0F18A74DF53D6 /* Home-Info.plist */,
 				437C255FD6B4927A3574DC7A /* HomeTests-Info.plist */,
 				48DC36A78958C5F735A322A5 /* KarmicHealing-Info.plist */,
-				2ED380C7125A39039EF031FC /* Notes-Info.plist */,
 				601EB9BCB25828503CE5B0B1 /* Onboarding-Info.plist */,
+				F90A0225152A841AE720345E /* Reminders-Info.plist */,
 				80DC255D38450C9D907A5140 /* Requests-Info.plist */,
 				42B4794F9892895099628422 /* Resources-Info.plist */,
 				7B1A3F74D9A0F7E059908D2A /* TestingUtilities-Info.plist */,
@@ -1086,7 +1091,6 @@
 			isa = PBXGroup;
 			children = (
 				B9E27FE7BD17BEF9A5933DE7 /* Clients */,
-				8042DEACBF4299DDCF0981BF /* Components */,
 				87F42D7DAA72625DA604D66E /* Models */,
 				6647A708D158A6E58A69AA22 /* SwifUI+Ext */,
 				04CA190027D786149CB8AD53 /* Views */,
@@ -1122,10 +1126,10 @@
 				39B4C42BD50A7E19ED4EDD17 /* InternalCollectionsUtilities.framework */,
 				029923781F6C803C25C065FD /* IssueReporting.framework */,
 				E408783B2AAA3C06DBB33B5A /* KarmicHealing.app */,
-				C5C7C1D5165F233A2725F0F2 /* Notes.framework */,
 				AFCC57A0EE1A747FC6D514C6 /* Onboarding.framework */,
 				00E7681AF5A25E6A938F5F1F /* OrderedCollections.framework */,
 				290CA8030B15A0AA5C2CCFFB /* PerceptionCore.framework */,
+				9844611137297AF752A4EB61 /* Reminders.framework */,
 				E5AFFEAB7951F1AB5D591E8C /* Requests.framework */,
 				B85762BF97E9D27C30C53840 /* Resources.framework */,
 				C0B59758EFA10BA8AA6DA0D1 /* Sharing.framework */,
@@ -1279,6 +1283,26 @@
 			productReference = 881F8A734FFF7D8372D06ED8 /* Common.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		596B043D4D87C6FFD382929D /* Reminders */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABBA7047D73032C3A2DCD4E9 /* Build configuration list for PBXNativeTarget "Reminders" */;
+			buildPhases = (
+				CF1B05F89F3C9E497C9FFA77 /* Sources */,
+				56D6757D85CF94BEE4562F28 /* Resources */,
+				0B1C025A10B2D2CA1B9743D7 /* Embed Frameworks */,
+				284152DCE1DE85E8F9C36093 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65134CB238173A7B713EB81C /* PBXTargetDependency */,
+				3D38123323F9C08B1504C3A5 /* PBXTargetDependency */,
+			);
+			name = Reminders;
+			productName = Reminders;
+			productReference = 9844611137297AF752A4EB61 /* Reminders.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		6B071305EC98B7EE2D7AC866 /* BalancingEnergyList */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 63D2AEF1B213C233D5F77E9B /* Build configuration list for PBXNativeTarget "BalancingEnergyList" */;
@@ -1315,7 +1339,7 @@
 				3CB941761D2268C7B9D09155 /* PBXTargetDependency */,
 				D323053EE4B912D3812F65A6 /* PBXTargetDependency */,
 				862DDAE914DC64339A49C8C5 /* PBXTargetDependency */,
-				8D61AF8EEAA7C38B0AA36275 /* PBXTargetDependency */,
+				354369E731754F1FAC511D4F /* PBXTargetDependency */,
 				5FAC5F09AF51E82DF45771B7 /* PBXTargetDependency */,
 				885C150AAB481BCE5C8B7662 /* PBXTargetDependency */,
 			);
@@ -1362,34 +1386,14 @@
 				F7F5B06322D3CA9983A93F05 /* PBXTargetDependency */,
 				A19F97AA75941D8E5D534E69 /* PBXTargetDependency */,
 				0B63311D327765F90301FD9D /* PBXTargetDependency */,
-				BDAEE652D0AD20EC81D63A3A /* PBXTargetDependency */,
 				9FAFAFD26F07273147CB2C87 /* PBXTargetDependency */,
+				B595FDC461980F84E3936053 /* PBXTargetDependency */,
 				1EA0799F6F9FEEA7588EB227 /* PBXTargetDependency */,
 			);
 			name = KarmicHealing;
 			productName = KarmicHealing;
 			productReference = E408783B2AAA3C06DBB33B5A /* KarmicHealing.app */;
 			productType = "com.apple.product-type.application";
-		};
-		EACE25C6BC44C7B967540F56 /* Notes */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2E33F813E316FD85153CD663 /* Build configuration list for PBXNativeTarget "Notes" */;
-			buildPhases = (
-				344A57615C8D5D9F1BF06B1D /* Sources */,
-				556CF798DA847F51D7668D91 /* Resources */,
-				AE744455334DF7488AA8D7D0 /* Embed Frameworks */,
-				B29B82EF433D3592EBB4B56E /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C138E074145F78EBEE9DCA50 /* PBXTargetDependency */,
-				9B54A78120512B3794CC621A /* PBXTargetDependency */,
-			);
-			name = Notes;
-			productName = Notes;
-			productReference = C5C7C1D5165F233A2725F0F2 /* Notes.framework */;
-			productType = "com.apple.product-type.framework";
 		};
 		ED7F6540CBCAEA0A1A2871E9 /* Resources */ = {
 			isa = PBXNativeTarget;
@@ -1436,9 +1440,8 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1640;
 				ORGANIZATIONNAME = home;
-				TargetAttributes = {
-				};
 			};
 			buildConfigurationList = 7859095E2874F5559794556D /* Build configuration list for PBXProject "KarmicHealing" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -1460,8 +1463,8 @@
 				850C2836C562EF4C53B3C6C1 /* Home */,
 				0B23355E064D27591EBFD153 /* HomeTests */,
 				D5734659E17303697C587D84 /* KarmicHealing */,
-				EACE25C6BC44C7B967540F56 /* Notes */,
 				2E9B8F1705F579CDF62AF8E7 /* Onboarding */,
+				596B043D4D87C6FFD382929D /* Reminders */,
 				92B8152D790C553ABCB8FCF0 /* Requests */,
 				ED7F6540CBCAEA0A1A2871E9 /* Resources */,
 				3D9E21BF9E22F63C4A0178D2 /* TestingUtilities */,
@@ -1486,7 +1489,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		556CF798DA847F51D7668D91 /* Resources */ = {
+		56D6757D85CF94BEE4562F28 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1604,23 +1607,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		344A57615C8D5D9F1BF06B1D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CBE9885B6C5676865DC2E39C /* NoteDetail.swift in Sources */,
-				FCA691F25D6562B839A84678 /* NoteForm.swift in Sources */,
-				B275103AFAF6DEB93496EEAE /* NoteListForm.swift in Sources */,
-				A24A6856FA79340E9954DA62 /* NoteListRow.swift in Sources */,
-				01654FEDFBCB27AD46F34E48 /* NoteLists.swift in Sources */,
-				B3AE4E9BB0756E1F352BE1EF /* NoteRow.swift in Sources */,
-				6E5D86950C0F4593D3188DBF /* Schema.swift in Sources */,
-				3957FABE6DBDFB9062960DAE /* SearchNotes.swift in Sources */,
-				8ACC1847E5DA04DEE1023B50 /* Notes.swift in Sources */,
-				1D8485D4404D2B4CD8B2E3C3 /* NotesView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5AE0257803E05262B2ABCE0C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1657,14 +1643,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				734059DAC275038C63A0BD4D /* UserDefaultClient.swift in Sources */,
-				659A9EC77FFAA74B3CBC0517 /* FullScreenCoverBackgroundView.swift in Sources */,
-				A46B7E76AEEC439EEF444984 /* KarmicHealingDisclosureCell.swift in Sources */,
 				0F3E0E3CB3372C2D63041CD5 /* RequestItem.swift in Sources */,
 				F8BC971420AAF634BF615CB4 /* Color+Ext.swift in Sources */,
 				EECF0DC3D74D30761AA1A8E9 /* NavigationBar+Ext.swift in Sources */,
 				9CE970894F21072CC11E52D6 /* TabView+Ext.swift in Sources */,
+				A588BD89AE4E1975729DA12B /* FullScreenCoverBackgroundView.swift in Sources */,
 				AE71F75F68DFC6DCCDF60EAE /* KarmicHealingAlert.swift in Sources */,
 				5B799EC8C9AF360961E244FC /* KarmicHealingAlertView.swift in Sources */,
+				DF632D63DD0D5D1E43CF0FEE /* KarmicHealingDisclosureCell.swift in Sources */,
+				8FD8EB4E227702185B94FCC9 /* KarmicHealingGridCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1694,6 +1681,26 @@
 				C7EDD47524AC300488535AA4 /* AppSettings.swift in Sources */,
 				076B1961B6A6106CCEA1D520 /* AppSettingsView.swift in Sources */,
 				54CF84DD3F45CB6BAEA4CB9B /* MailComposerView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF1B05F89F3C9E497C9FFA77 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D80382F83DAAE4E5366F9204 /* ReminderForm.swift in Sources */,
+				192A8EB24C95CF2592C7A57E /* ReminderRow.swift in Sources */,
+				5925D215C020110A64B56856 /* RemindersApp.swift in Sources */,
+				BD55E7077BD2219C8C3C4A36 /* RemindersDetail.swift in Sources */,
+				BCE87D5AC885328718893F33 /* RemindersListForm.swift in Sources */,
+				5E2883C49599FAF4D140DD34 /* RemindersListRow.swift in Sources */,
+				1B7D195B530DE634662287E5 /* RemindersLists.swift in Sources */,
+				BA3034D262DB85AAF4E14570 /* Schema.swift in Sources */,
+				1901B3F8AFCB41A09F489CA7 /* SearchReminders.swift in Sources */,
+				DA4AC211EC31F531454313FF /* TagRow.swift in Sources */,
+				CD1F9B7DD933BE8FBFBD13A6 /* TagsForm.swift in Sources */,
+				0DF31BBC91BAF682C4FF9716 /* Reminders.swift in Sources */,
+				604FB39E46FB35A47EC0D6F3 /* RemindersView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1736,11 +1743,23 @@
 			target = 850C2836C562EF4C53B3C6C1 /* Home */;
 			targetProxy = 37D4D0A7DDAAC8151764BBBA /* PBXContainerItemProxy */;
 		};
+		354369E731754F1FAC511D4F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Reminders;
+			target = 596B043D4D87C6FFD382929D /* Reminders */;
+			targetProxy = 7E94BC1C76549B57EFB11771 /* PBXContainerItemProxy */;
+		};
 		3CB941761D2268C7B9D09155 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = AppSettings;
 			target = 488451BFB78E2B2E8E24F0D0 /* AppSettings */;
 			targetProxy = B7B292DCC8AFB0FA4701858C /* PBXContainerItemProxy */;
+		};
+		3D38123323F9C08B1504C3A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Resources;
+			target = ED7F6540CBCAEA0A1A2871E9 /* Resources */;
+			targetProxy = 85993BB7D7CF9158FC29021D /* PBXContainerItemProxy */;
 		};
 		4657A5238E9FFE14D2102698 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1753,6 +1772,12 @@
 			name = Requests;
 			target = 92B8152D790C553ABCB8FCF0 /* Requests */;
 			targetProxy = 12D86E6F2F4AF0EE78611C63 /* PBXContainerItemProxy */;
+		};
+		65134CB238173A7B713EB81C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Common;
+			target = 5478B72F927EF41FAAD1A812 /* Common */;
+			targetProxy = 2B9C4D25EEC539D631E09833 /* PBXContainerItemProxy */;
 		};
 		7625EA060123028320F3182B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1790,23 +1815,11 @@
 			target = ED7F6540CBCAEA0A1A2871E9 /* Resources */;
 			targetProxy = C6DE0AC4951F2ED033FFB419 /* PBXContainerItemProxy */;
 		};
-		8D61AF8EEAA7C38B0AA36275 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Notes;
-			target = EACE25C6BC44C7B967540F56 /* Notes */;
-			targetProxy = 82504BD6D6F61B6ED8912509 /* PBXContainerItemProxy */;
-		};
 		8FBA205012569AE069ECCBFC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Resources;
 			target = ED7F6540CBCAEA0A1A2871E9 /* Resources */;
 			targetProxy = A1405104BEBD9B8F2DD07F39 /* PBXContainerItemProxy */;
-		};
-		9B54A78120512B3794CC621A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Resources;
-			target = ED7F6540CBCAEA0A1A2871E9 /* Resources */;
-			targetProxy = 8B839E4831B1EC0867D9F1E1 /* PBXContainerItemProxy */;
 		};
 		9E4903CAF65DCDD41B9FF348 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1832,17 +1845,11 @@
 			target = 5478B72F927EF41FAAD1A812 /* Common */;
 			targetProxy = 2BE01E520760BFD3BACEDAA3 /* PBXContainerItemProxy */;
 		};
-		BDAEE652D0AD20EC81D63A3A /* PBXTargetDependency */ = {
+		B595FDC461980F84E3936053 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = Notes;
-			target = EACE25C6BC44C7B967540F56 /* Notes */;
-			targetProxy = 5450DA2B15FA96F36A3604CD /* PBXContainerItemProxy */;
-		};
-		C138E074145F78EBEE9DCA50 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Common;
-			target = 5478B72F927EF41FAAD1A812 /* Common */;
-			targetProxy = B008384D64BFBD15F0A4B01F /* PBXContainerItemProxy */;
+			name = Reminders;
+			target = 596B043D4D87C6FFD382929D /* Reminders */;
+			targetProxy = 64D18AF85A68B61FD1146050 /* PBXContainerItemProxy */;
 		};
 		CCA9C46A843C0B0A59986926 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1886,6 +1893,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -1900,31 +1908,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.onboarding;
 				PRODUCT_NAME = Onboarding;
 				SDKROOT = iphoneos;
@@ -1932,10 +1923,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1945,7 +1933,7 @@
 			};
 			name = Debug;
 		};
-		039DC7761CB67BE3CEABBC65 /* Release */ = {
+		06C4BE25CE73C611C3A81839 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
@@ -1954,13 +1942,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
 					"$(SRCROOT)/Tuist/.build/checkouts/swift-navigation/Sources/UIKitNavigationShim/include",
 					"$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include",
 				);
-				INFOPLIST_FILE = "Derived/InfoPlists/Notes-Info.plist";
+				INFOPLIST_FILE = "Derived/InfoPlists/Reminders-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1968,33 +1957,16 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.notes;
-				PRODUCT_NAME = Notes;
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros";
+				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.reminders;
+				PRODUCT_NAME = Reminders;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -2018,6 +1990,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -2032,31 +2005,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.requests;
 				PRODUCT_NAME = Requests;
 				SDKROOT = iphoneos;
@@ -2064,10 +2020,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -2086,6 +2039,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -2100,31 +2054,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.onboarding;
 				PRODUCT_NAME = Onboarding;
 				SDKROOT = iphoneos;
@@ -2150,6 +2087,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -2164,31 +2102,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.balancingEnergy;
 				PRODUCT_NAME = BalancingEnergy;
 				SDKROOT = iphoneos;
@@ -2234,35 +2155,14 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing;
 				PRODUCT_NAME = KarmicHealing;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -2279,6 +2179,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -2293,31 +2194,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.home;
 				PRODUCT_NAME = Home;
 				SDKROOT = iphoneos;
@@ -2343,6 +2227,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -2357,31 +2242,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.common;
 				PRODUCT_NAME = Common;
 				SDKROOT = iphoneos;
@@ -2389,10 +2257,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -2411,6 +2276,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -2425,31 +2291,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.appSettings;
 				PRODUCT_NAME = AppSettings;
 				SDKROOT = iphoneos;
@@ -2470,6 +2319,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -2505,6 +2355,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2534,6 +2385,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -2548,31 +2400,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.balancingEnergy;
 				PRODUCT_NAME = BalancingEnergy;
 				SDKROOT = iphoneos;
@@ -2580,10 +2415,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -2616,35 +2448,14 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.home.tests;
 				PRODUCT_NAME = HomeTests;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -2661,6 +2472,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -2679,26 +2491,13 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.testingUtilities;
 				PRODUCT_NAME = TestingUtilities;
 				SDKROOT = iphoneos;
@@ -2706,10 +2505,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -2728,6 +2524,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -2742,31 +2539,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.balancingEnergyList;
 				PRODUCT_NAME = BalancingEnergyList;
 				SDKROOT = iphoneos;
@@ -2792,6 +2572,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -2806,31 +2587,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.common;
 				PRODUCT_NAME = Common;
 				SDKROOT = iphoneos;
@@ -2856,6 +2620,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = "Derived/InfoPlists/Resources-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
@@ -2864,6 +2629,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.resources;
 				PRODUCT_NAME = Resources;
 				SDKROOT = iphoneos;
@@ -2880,7 +2646,7 @@
 			};
 			name = Release;
 		};
-		AC46462DA4C8047C34393031 /* Debug */ = {
+		A3785BDD37D0F93FFAF6BEA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
@@ -2889,13 +2655,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
 					"$(SRCROOT)/Tuist/.build/checkouts/swift-navigation/Sources/UIKitNavigationShim/include",
 					"$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include",
 				);
-				INFOPLIST_FILE = "Derived/InfoPlists/Notes-Info.plist";
+				INFOPLIST_FILE = "Derived/InfoPlists/Reminders-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2903,42 +2670,22 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.notes;
-				PRODUCT_NAME = Notes;
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros";
+				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.reminders;
+				PRODUCT_NAME = Reminders;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -2957,6 +2704,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -2975,26 +2723,13 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.testingUtilities;
 				PRODUCT_NAME = TestingUtilities;
 				SDKROOT = iphoneos;
@@ -3020,6 +2755,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -3034,31 +2770,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.balancingEnergyList;
 				PRODUCT_NAME = BalancingEnergyList;
 				SDKROOT = iphoneos;
@@ -3066,10 +2785,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -3088,6 +2804,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -3102,31 +2819,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.appSettings;
 				PRODUCT_NAME = AppSettings;
 				SDKROOT = iphoneos;
@@ -3134,10 +2834,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -3151,6 +2848,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -3186,6 +2884,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -3223,25 +2922,7 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.home.tests;
 				PRODUCT_NAME = HomeTests;
 				SDKROOT = iphoneos;
@@ -3264,6 +2945,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -3278,31 +2960,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.home;
 				PRODUCT_NAME = Home;
 				SDKROOT = iphoneos;
@@ -3310,10 +2975,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -3352,25 +3014,7 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing;
 				PRODUCT_NAME = KarmicHealing;
 				SDKROOT = iphoneos;
@@ -3393,6 +3037,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -3407,31 +3052,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.requests;
 				PRODUCT_NAME = Requests;
 				SDKROOT = iphoneos;
@@ -3457,6 +3085,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = "Derived/InfoPlists/Resources-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
@@ -3465,6 +3094,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_BUNDLE_IDENTIFIER = home.KarmicHealing.resources;
 				PRODUCT_NAME = Resources;
 				SDKROOT = iphoneos;
@@ -3472,10 +3102,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -3520,15 +3147,6 @@
 			buildConfigurations = (
 				156BFB7DD4633197058C2C83 /* Debug */,
 				EFC15D9E5860B5EEC4DF15DE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2E33F813E316FD85153CD663 /* Build configuration list for PBXNativeTarget "Notes" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AC46462DA4C8047C34393031 /* Debug */,
-				039DC7761CB67BE3CEABBC65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3583,6 +3201,15 @@
 			buildConfigurations = (
 				24ADE1208DC0AA4FEF33723F /* Debug */,
 				8E476B032338128F33176902 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABBA7047D73032C3A2DCD4E9 /* Build configuration list for PBXNativeTarget "Reminders" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3785BDD37D0F93FFAF6BEA1 /* Debug */,
+				06C4BE25CE73C611C3A81839 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
