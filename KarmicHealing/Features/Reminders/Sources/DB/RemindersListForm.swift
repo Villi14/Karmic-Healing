@@ -1,6 +1,7 @@
 import IssueReporting
 import SharingGRDB
 import SwiftUI
+import Resources
 
 struct RemindersListForm: View {
   @Dependency(\.defaultDatabase) private var database
@@ -20,14 +21,17 @@ struct RemindersListForm: View {
             .font(.system(.title2, design: .rounded, weight: .bold))
             .foregroundStyle(remindersList.color)
             .multilineTextAlignment(.center)
-            .padding()
             .textFieldStyle(.plain)
+            .tint(ResourcesAsset.Colors.clam.swiftUIColor)
+            .padding(.horizontal, 32)
+            .padding(.vertical)
         }
-        .background(Color(.secondarySystemBackground))
-        .clipShape(.buttonBorder)
       }
+
       ColorPicker("Color", selection: $remindersList.color)
+        .tint(ResourcesAsset.Colors.clam.swiftUIColor)
     }
+    .background(ResourcesAsset.Colors.background.swiftUIColor)
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
       ToolbarItem {
@@ -40,11 +44,13 @@ struct RemindersListForm: View {
           }
           dismiss()
         }
+        .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
       }
       ToolbarItem(placement: .cancellationAction) {
         Button("Cancel") {
           dismiss()
         }
+        .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
       }
     }
   }

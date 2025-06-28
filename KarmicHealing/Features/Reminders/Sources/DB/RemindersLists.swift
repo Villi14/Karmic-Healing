@@ -20,7 +20,7 @@ class RemindersListsModel {
     animation: .default
   )
   var remindersLists
-
+  
   @ObservationIgnored
   @FetchOne(
     Reminder.select {
@@ -33,18 +33,18 @@ class RemindersListsModel {
     }
   )
   var stats = Stats()
-
+  
   var destination: Destination?
   var searchRemindersModel = SearchRemindersModel()
   var seedDatabaseTip: SeedDatabaseTip?
-
+  
   @ObservationIgnored
   @Dependency(\.defaultDatabase) private var database
-
+  
   func statTapped(_ detailType: RemindersDetailModel.DetailType) {
     destination = .detail(RemindersDetailModel(detailType: detailType))
   }
-
+  
   func remindersListTapped(remindersList: RemindersList) {
     destination = .detail(
       RemindersDetailModel(
@@ -54,7 +54,7 @@ class RemindersListsModel {
       )
     )
   }
-
+  
   func onAppear() {
     withErrorReporting {
       try Tips.configure()
@@ -63,7 +63,7 @@ class RemindersListsModel {
       seedDatabaseTip = SeedDatabaseTip()
     }
   }
-
+  
   func newReminderButtonTapped() {
     guard let remindersList = remindersLists.first?.remindersList
     else {
@@ -75,15 +75,15 @@ class RemindersListsModel {
       remindersList: remindersList
     )
   }
-
+  
   func addListButtonTapped() {
     destination = .remindersListForm(RemindersList.Draft())
   }
-
+  
   func listDetailsButtonTapped(remindersList: RemindersList) {
     destination = .remindersListForm(RemindersList.Draft(remindersList))
   }
-
+  
   func move(from source: IndexSet, to destination: Int) {
     withErrorReporting {
       try database.write { db in
@@ -105,8 +105,8 @@ class RemindersListsModel {
       }
     }
   }
-
-  #if DEBUG
+  
+#if DEBUG
   func seedDatabaseButtonTapped() {
     withErrorReporting {
       try database.write { db in
@@ -114,22 +114,22 @@ class RemindersListsModel {
       }
     }
   }
-  #endif
-
+#endif
+  
   @CasePathable
   enum Destination {
     case detail(RemindersDetailModel)
     case reminderForm(Reminder.Draft, remindersList: RemindersList)
     case remindersListForm(RemindersList.Draft)
   }
-
+  
   @Selection
   struct ReminderListState: Identifiable {
     var id: RemindersList.ID { remindersList.id }
     var remindersCount: Int
     var remindersList: RemindersList
   }
-
+  
   @Selection
   struct Stats {
     var allCount = 0
@@ -137,7 +137,7 @@ class RemindersListsModel {
     var scheduledCount = 0
     var todayCount = 0
   }
-
+  
   struct SeedDatabaseTip: Tip {
     var title: Text {
       Text("Seed Sample Data")
@@ -153,7 +153,7 @@ class RemindersListsModel {
 
 struct RemindersListsView: View {
   @Bindable var model: RemindersListsModel
-
+  
   var body: some View {
     List {
       if model.searchRemindersModel.searchText.isEmpty {
@@ -168,7 +168,7 @@ struct RemindersListsView: View {
               ) {
                 model.statTapped(.today)
               }
-
+              
               KarmicHealingGridCell(
                 color: ResourcesAsset.Colors.energy.swiftUIColor,
                 count: model.stats.scheduledCount,
@@ -178,7 +178,7 @@ struct RemindersListsView: View {
                 model.statTapped(.scheduled)
               }
             }
-
+            
             GridRow {
               KarmicHealingGridCell(
                 color: ResourcesAsset.Colors.textSecondary.swiftUIColor,
@@ -188,7 +188,7 @@ struct RemindersListsView: View {
               ) {
                 model.statTapped(.all)
               }
-
+              
               KarmicHealingGridCell(
                 color: ResourcesAsset.Colors.friendly.swiftUIColor,
                 count: model.stats.flaggedCount,
@@ -198,7 +198,7 @@ struct RemindersListsView: View {
                 model.statTapped(.flagged)
               }
             }
-
+            
             GridRow {
               KarmicHealingGridCell(
                 color: ResourcesAsset.Colors.health.swiftUIColor,
@@ -211,10 +211,10 @@ struct RemindersListsView: View {
             }
           }
           .buttonStyle(.plain)
-         // .listRowBackground(Color.clear)
-          .padding([.leading, .trailing], -16)
+          .listRowBackground(Color.clear)
+          .padding(.horizontal, -8)
         }
-
+        
         Section {
           ForEach(model.remindersLists) { state in
             Button {
@@ -225,7 +225,6 @@ struct RemindersListsView: View {
                 remindersList: state.remindersList
               )
             }
-            //.foregroundStyle(.primary)
           }
           .onMove(perform: model.move(from:to:))
         } header: {
@@ -236,7 +235,9 @@ struct RemindersListsView: View {
             .padding(.top, -16)
             .padding([.leading, .trailing], 4)
         }
-        .listRowInsets(EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12))
+        .listRowBackground(Color.clear)
+        .listRowSeparator(.hidden)
+        .listRowInsets(EdgeInsets(top: 2, leading: 12, bottom: 2, trailing: 12))
       } else {
         SearchRemindersView(model: model.searchRemindersModel)
       }
@@ -244,27 +245,28 @@ struct RemindersListsView: View {
     .onAppear {
       model.onAppear()
     }
-    .listStyle(.insetGrouped)
+    .scrollContentBackground(.hidden)
+    .background(ResourcesAsset.Colors.background.swiftUIColor)
     .toolbar {
-      #if DEBUG
+#if DEBUG
       ToolbarItem(placement: .automatic) {
-          Menu {
-            Button {
-              model.seedDatabaseButtonTapped()
-            } label: {
-              Text("Seed data")
-                .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
-
-              Image(systemName: "leaf")
-                .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
-            }
+        Menu {
+          Button {
+            model.seedDatabaseButtonTapped()
           } label: {
-            Image(systemName: "ellipsis")
+            Text("Seed data")
+              .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
+            
+            Image(systemName: "leaf")
               .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
           }
-          .popoverTip(model.seedDatabaseTip)
+        } label: {
+          Image(systemName: "ellipsis")
+            .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
         }
-      #endif
+        .popoverTip(model.seedDatabaseTip)
+      }
+#endif
       ToolbarItem(placement: .bottomBar) {
         HStack {
           Button {
@@ -273,16 +275,16 @@ struct RemindersListsView: View {
             HStack {
               Image(systemName: "plus")
                 .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
-
+              
               Text("New Reminder")
                 .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
             }
             .bold()
             .font(.title3)
           }
-
+          
           Spacer()
-
+          
           Button {
             model.addListButtonTapped()
           } label: {

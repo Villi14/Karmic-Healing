@@ -2,6 +2,8 @@ import CasePaths
 import SharingGRDB
 import SwiftUI
 import SwiftUINavigation
+import Resources
+import Common
 
 @MainActor
 @Observable
@@ -113,7 +115,7 @@ class RemindersDetailModel: HashableObject {
       switch self {
       case .dueDate: Image(systemName: "calendar")
       case .manual: Image(systemName: "hand.draw")
-      case .priority: Image(systemName: "chart.bar.fill")
+      case .priority: Image(systemName: "chart.bar")
       case .title: Image(systemName: "textformat.characters")
       }
     }
@@ -141,6 +143,7 @@ class RemindersDetailModel: HashableObject {
 }
 
 struct RemindersDetailView: View {
+  @SwiftUI.Environment(\.dismiss) var dismiss
   @Bindable var model: RemindersDetailModel
 
   @State var isNavigationTitleVisible = false
@@ -157,6 +160,8 @@ struct RemindersDetailView: View {
         }
       }
       .listRowSeparator(.hidden)
+      .padding(.bottom, 16)
+
       ForEach(model.reminderRows) { row in
         ReminderRow(
           color: model.detailType.color,
@@ -169,6 +174,19 @@ struct RemindersDetailView: View {
       }
       .onMove { source, destination in
         Task { await model.move(from: source, to: destination) }
+      }
+    }
+    .navigationBarBackButtonHidden(true)
+    .navigationBarTitleDisplayMode(.automatic)
+    .navigationBarBackgroundColor(ResourcesAsset.Colors.background.swiftUIColor)
+    .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+    .toolbar {
+      ToolbarItem(placement: .topBarLeading) {
+        Button(action: { dismiss() }) {
+          Image(systemName: "chevron.left")
+            .renderingMode(.template)
+            .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+        }
       }
     }
     .onScrollGeometryChange(for: Bool.self) { geometry in
@@ -202,7 +220,7 @@ struct RemindersDetailView: View {
               model.isNewReminderSheetPresented = true
             } label: {
               HStack {
-                Image(systemName: "plus.circle.fill")
+                Image(systemName: "plus")
                 Text("New Reminder")
               }
               .bold()
@@ -234,12 +252,12 @@ struct RemindersDetailView: View {
               Task { await model.showCompletedButtonTapped() }
             } label: {
               Text(model.showCompleted ? "Hide Completed" : "Show Completed")
-              Image(systemName: model.showCompleted ? "eye.slash.fill" : "eye")
+              Image(systemName: model.showCompleted ? "eye" : "eye")
             }
           }
           .tint(model.detailType.color)
         } label: {
-          Image(systemName: "ellipsis.circle")
+          Image(systemName: "ellipsis")
         }
       }
     }
@@ -258,6 +276,7 @@ extension RemindersDetailModel.DetailType {
     case .today: "today"
     }
   }
+
   fileprivate var navigationTitle: String {
     switch self {
     case .all: "All"
@@ -268,6 +287,7 @@ extension RemindersDetailModel.DetailType {
     case .today: "Today"
     }
   }
+
   fileprivate var color: Color {
     switch self {
     case .all: .black
@@ -290,10 +310,12 @@ struct RemindersDetailPreview: PreviewProvider {
         )
       }
     }
+
     let detailTypes: [RemindersDetailModel.DetailType] = [
       .all,
       .remindersList(remindersList)
     ]
+
     ForEach(detailTypes, id: \.self) { detailType in
       NavigationStack {
         RemindersDetailView(model: RemindersDetailModel(detailType: detailType))

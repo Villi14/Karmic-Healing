@@ -8,12 +8,12 @@ struct ReminderRow: View {
   let reminder: Reminder
   let remindersList: RemindersList
   let showCompleted: Bool
-
+  
   @State var editReminder: Reminder.Draft?
   @State var isCompleted: Bool
-
+  
   @Dependency(\.defaultDatabase) private var database
-
+  
   init(
     color: Color,
     isPastDue: Bool,
@@ -30,7 +30,7 @@ struct ReminderRow: View {
     self.showCompleted = showCompleted
     self.isCompleted = reminder.isCompleted
   }
-
+  
   var body: some View {
     HStack {
       HStack(alignment: .firstTextBaseline) {
@@ -42,7 +42,7 @@ struct ReminderRow: View {
         }
         VStack(alignment: .leading) {
           title(for: reminder)
-
+          
           if !notes.isEmpty {
             Text(notes)
               .font(.subheadline)
@@ -76,6 +76,7 @@ struct ReminderRow: View {
           }
         }
       }
+      
       Button(reminder.isFlagged ? "Unflag" : "Flag") {
         withErrorReporting {
           try database.write { db in
@@ -87,6 +88,7 @@ struct ReminderRow: View {
         }
       }
       .tint(.orange)
+      
       Button("Details") {
         editReminder = Reminder.Draft(reminder)
       }
@@ -109,7 +111,7 @@ struct ReminderRow: View {
       } catch {}
     }
   }
-
+  
   private func completeButtonTapped() {
     if showCompleted {
       toggleCompletion()
@@ -117,12 +119,12 @@ struct ReminderRow: View {
       isCompleted.toggle()
     }
   }
-
+  
   private func toggleCompletion() {
     withErrorReporting {
       try database.write { db in
         isCompleted =
-          try Reminder
+        try Reminder
           .find(reminder.id)
           .update { $0.isCompleted.toggle() }
           .returning(\.isCompleted)
@@ -130,7 +132,7 @@ struct ReminderRow: View {
       }
     }
   }
-
+  
   private var dueText: Text {
     if let date = reminder.dueDate {
       Text(date.formatted(date: .numeric, time: .shortened))
@@ -139,7 +141,7 @@ struct ReminderRow: View {
       Text("")
     }
   }
-
+  
   private func title(for reminder: Reminder) -> some View {
     return HStack(alignment: .firstTextBaseline) {
       if let priority = reminder.priority {
@@ -164,7 +166,7 @@ struct ReminderRowPreview: PreviewProvider {
         remindersList = try RemindersList.all.fetchOne(db)!
       }
     }
-
+    
     NavigationStack {
       List {
         ReminderRow(

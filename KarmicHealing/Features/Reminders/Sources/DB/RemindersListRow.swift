@@ -15,8 +15,8 @@ struct RemindersListRow: View {
       Image(systemName: "list.bullet")
         .resizable()
         .aspectRatio(contentMode: .fit)
-        .frame(height: 16)
-        .foregroundColor(remindersList.color)
+        .frame(height: 18)
+        .foregroundStyle(remindersList.color)
         .padding(.leading, 16)
 
       Text(remindersList.title)
@@ -28,7 +28,7 @@ struct RemindersListRow: View {
         .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
         .padding(.trailing, 16)
     }
-    .frame(height: 48)
+    .frame(height: 56)
     .background {
       RoundedRectangle(cornerRadius: 12)
         .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
@@ -37,7 +37,6 @@ struct RemindersListRow: View {
         .inset(by: 0.5)
         .stroke(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(0.5), lineWidth: 0.5)
     }
-
     .swipeActions {
       Button {
         withErrorReporting {

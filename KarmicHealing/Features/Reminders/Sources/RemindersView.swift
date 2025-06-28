@@ -24,6 +24,7 @@ public struct RemindersView: View {
       ZStack {
         ResourcesAsset.Colors.background.swiftUIColor
           .ignoresSafeArea()
+        
         VStack {
           if context == .live {
             RemindersListsView(model: Self.model)

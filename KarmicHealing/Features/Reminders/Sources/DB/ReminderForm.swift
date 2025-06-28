@@ -1,65 +1,77 @@
 import IssueReporting
 import SharingGRDB
 import SwiftUI
+import Resources
 
 struct ReminderFormView: View {
   @FetchAll(RemindersList.order(by: \.title)) var remindersLists
   @FetchOne var remindersList: RemindersList
-  
+
   @State var reminder: Reminder.Draft
-  
+
   @Dependency(\.defaultDatabase) private var database
   @Environment(\.dismiss) var dismiss
-  
+
   init(reminder: Reminder.Draft, remindersList: RemindersList) {
     _remindersList = FetchOne(wrappedValue: remindersList, RemindersList.find(remindersList.id))
     self.reminder = reminder
   }
-  
+
   var body: some View {
     Form {
       TextField("Title", text: $reminder.title)
-      
+
       ZStack {
         if reminder.notes.isEmpty {
           TextEditor(text: .constant("Notes"))
             .foregroundStyle(.placeholder)
             .accessibilityHidden(true, isEnabled: false)
         }
-        
+
         TextEditor(text: $reminder.notes)
       }
+      .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
+      .tint(ResourcesAsset.Colors.clam.swiftUIColor)
       .lineLimit(4)
-      .padding([.leading, .trailing], -5)
-      
+      .padding(.horizontal, -5)
+
       Section {
         Toggle(isOn: $reminder.isDateSet.animation()) {
           HStack {
-            Image(systemName: "calendar.circle.fill")
-              .font(.title)
-              .foregroundStyle(.red)
+            Image(systemName: "calendar")
+              .resizable()
+              .aspectRatio(contentMode: .fit)
+              .frame(width: 18, height: 18)
+              .foregroundStyle(ResourcesAsset.Colors.energy.swiftUIColor)
             Text("Date")
           }
         }
+        .tint(ResourcesAsset.Colors.health.swiftUIColor)
+
         if let dueDate = reminder.dueDate {
           DatePicker(
             "",
             selection: $reminder.dueDate[coalesce: dueDate],
             displayedComponents: [.date, .hourAndMinute]
           )
-          .padding([.top, .bottom], 2)
+          .tint(ResourcesAsset.Colors.clam.swiftUIColor)
+          .padding(.vertical, 2)
         }
       }
-      
+
       Section {
         Toggle(isOn: $reminder.isFlagged) {
           HStack {
-            Image(systemName: "flag.circle.fill")
-              .font(.title)
-              .foregroundStyle(.red)
+            Image(systemName: "flag")
+              .resizable()
+              .aspectRatio(contentMode: .fit)
+              .frame(width: 18, height: 18)
+              .foregroundStyle(ResourcesAsset.Colors.energy.swiftUIColor)
             Text("Flag")
           }
         }
+        .tint(ResourcesAsset.Colors.health.swiftUIColor)
+
         Picker(selection: $reminder.priority) {
           Text("None").tag(Priority?.none)
           Divider()
@@ -68,13 +80,15 @@ struct ReminderFormView: View {
           Text("Low").tag(Priority.low)
         } label: {
           HStack {
-            Image(systemName: "exclamationmark.circle.fill")
-              .font(.title)
-              .foregroundStyle(.red)
+            Image(systemName: "exclamationmark")
+              .resizable()
+              .aspectRatio(contentMode: .fit)
+              .frame(width: 18, height: 18)
+              .foregroundStyle(ResourcesAsset.Colors.energy.swiftUIColor)
             Text("Priority")
           }
         }
-        
+
         Picker(selection: $reminder.remindersListID) {
           ForEach(remindersLists) { remindersList in
             Text(remindersList.title)
@@ -84,8 +98,10 @@ struct ReminderFormView: View {
           }
         } label: {
           HStack {
-            Image(systemName: "list.bullet.circle.fill")
-              .font(.title)
+            Image(systemName: "list.bullet")
+              .resizable()
+              .aspectRatio(contentMode: .fit)
+              .frame(width: 18, height: 18)
               .foregroundStyle(remindersList.color)
             Text("List")
           }
@@ -104,15 +120,17 @@ struct ReminderFormView: View {
         Button(action: saveButtonTapped) {
           Text("Save")
         }
+        .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
       }
       ToolbarItem(placement: .cancellationAction) {
         Button("Cancel") {
           dismiss()
         }
+        .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
       }
     }
   }
-  
+
   private func saveButtonTapped() {
     withErrorReporting {
       try database.write { db in
