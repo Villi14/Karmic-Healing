@@ -61,6 +61,7 @@ struct RemindersListFormPreviews: PreviewProvider {
     let _ = try! prepareDependencies {
       $0.defaultDatabase = try appDatabase()
     }
+    
     NavigationStack {
       RemindersListForm(remindersList: RemindersList.Draft())
         .navigationTitle("New List")

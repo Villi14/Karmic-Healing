@@ -135,8 +135,8 @@ struct ReminderFormView: View {
   private func saveButtonTapped() {
     withErrorReporting {
       try database.write { db in
-        var reminder = reminder
-        let reminderID = try Reminder.upsert(reminder).returning(\.id).fetchOne(db)!
+        let reminder = reminder
+        try Reminder.upsert(reminder).returning(\.id).fetchOne(db)!
       }
     }
     dismiss()
@@ -169,6 +169,7 @@ struct ReminderFormPreview: PreviewProvider {
         )
       }
     }
+    
     NavigationStack {
       ReminderFormView(reminder: Reminder.Draft(reminder), remindersList: remindersList)
         .navigationTitle("Detail")
