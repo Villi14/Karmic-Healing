@@ -233,7 +233,7 @@ struct RemindersListsView: View {
             .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
             .textCase(nil)
             .padding(.top, -16)
-            .padding([.leading, .trailing], 4)
+            .padding(.horizontal, 4)
         }
         .listRowBackground(Color.clear)
         .listRowSeparator(.hidden)
@@ -312,6 +312,7 @@ struct RemindersListsView: View {
     .navigationDestination(item: $model.destination.detail) { detailModel in
       RemindersDetailView(model: detailModel)
     }
+    .padding(.horizontal, -16)
   }
 }
 

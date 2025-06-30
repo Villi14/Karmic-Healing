@@ -1,5 +1,6 @@
 import SharingGRDB
 import SwiftUI
+import Resources
 
 struct ReminderRow: View {
   let color: Color
@@ -8,12 +9,12 @@ struct ReminderRow: View {
   let reminder: Reminder
   let remindersList: RemindersList
   let showCompleted: Bool
-  
+
   @State var editReminder: Reminder.Draft?
   @State var isCompleted: Bool
-  
+
   @Dependency(\.defaultDatabase) private var database
-  
+
   init(
     color: Color,
     isPastDue: Bool,
@@ -30,38 +31,43 @@ struct ReminderRow: View {
     self.showCompleted = showCompleted
     self.isCompleted = reminder.isCompleted
   }
-  
+
   var body: some View {
     HStack {
       HStack(alignment: .firstTextBaseline) {
         Button(action: completeButtonTapped) {
           Image(systemName: isCompleted ? "circle.inset.filled" : "circle")
-            .foregroundStyle(.gray)
+            .foregroundStyle(ResourcesAsset.Colors.health.swiftUIColor)
             .font(.title2)
             .padding([.trailing], 5)
         }
+
         VStack(alignment: .leading) {
           title(for: reminder)
-          
+
           if !notes.isEmpty {
             Text(notes)
               .font(.subheadline)
-              .foregroundStyle(.gray)
+              .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
               .lineLimit(2)
           }
         }
       }
+
       Spacer()
+
       if !isCompleted {
         HStack {
           if reminder.isFlagged {
-            Image(systemName: "flag.fill")
-              .foregroundStyle(.orange)
+            Image(systemName: "flag")
+              .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
           }
+          
           Button {
             editReminder = Reminder.Draft(reminder)
           } label: {
             Image(systemName: "info.circle")
+              .foregroundStyle(ResourcesAsset.Colors.clarity.swiftUIColor)
           }
           .tint(color)
         }
@@ -76,7 +82,8 @@ struct ReminderRow: View {
           }
         }
       }
-      
+      .tint(ResourcesAsset.Colors.energy.swiftUIColor)
+
       Button(reminder.isFlagged ? "Unflag" : "Flag") {
         withErrorReporting {
           try database.write { db in
@@ -87,11 +94,12 @@ struct ReminderRow: View {
           }
         }
       }
-      .tint(.orange)
-      
+      .tint(ResourcesAsset.Colors.friendly.swiftUIColor)
+
       Button("Details") {
         editReminder = Reminder.Draft(reminder)
       }
+      .tint(ResourcesAsset.Colors.clarity.swiftUIColor)
     }
     .sheet(item: $editReminder) { reminder in
       NavigationStack {
@@ -110,8 +118,9 @@ struct ReminderRow: View {
         toggleCompletion()
       } catch {}
     }
+    .background(ResourcesAsset.Colors.background.swiftUIColor)
   }
-  
+
   private func completeButtonTapped() {
     if showCompleted {
       toggleCompletion()
@@ -119,7 +128,7 @@ struct ReminderRow: View {
       isCompleted.toggle()
     }
   }
-  
+
   private func toggleCompletion() {
     withErrorReporting {
       try database.write { db in
@@ -132,7 +141,7 @@ struct ReminderRow: View {
       }
     }
   }
-  
+
   private var dueText: Text {
     if let date = reminder.dueDate {
       Text(date.formatted(date: .numeric, time: .shortened))
@@ -141,15 +150,17 @@ struct ReminderRow: View {
       Text("")
     }
   }
-  
+
   private func title(for reminder: Reminder) -> some View {
     return HStack(alignment: .firstTextBaseline) {
       if let priority = reminder.priority {
         Text(String(repeating: "!", count: priority.rawValue))
-          .foregroundStyle(isCompleted ? .gray : remindersList.color)
+          .foregroundStyle(isCompleted ? ResourcesAsset.Colors.textSecondary.swiftUIColor : remindersList.color)
       }
       Text(reminder.title)
-        .foregroundStyle(isCompleted ? .gray : .primary)
+        .foregroundStyle(
+          isCompleted ? ResourcesAsset.Colors.textSecondary.swiftUIColor : ResourcesAsset.Colors.textPrimary.swiftUIColor
+        )
     }
     .font(.title3)
   }
@@ -166,7 +177,7 @@ struct ReminderRowPreview: PreviewProvider {
         remindersList = try RemindersList.all.fetchOne(db)!
       }
     }
-    
+
     NavigationStack {
       List {
         ReminderRow(

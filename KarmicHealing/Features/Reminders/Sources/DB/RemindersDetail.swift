@@ -160,6 +160,7 @@ struct RemindersDetailView: View {
         }
       }
       .listRowSeparator(.hidden)
+      .listRowBackground(Color.clear)
       .padding(.bottom, 16)
 
       ForEach(model.reminderRows) { row in
@@ -175,6 +176,7 @@ struct RemindersDetailView: View {
       .onMove { source, destination in
         Task { await model.move(from: source, to: destination) }
       }
+      .listRowBackground(Color.clear)
     }
     .navigationBarBackButtonHidden(true)
     .navigationBarTitleDisplayMode(.automatic)
@@ -261,7 +263,9 @@ struct RemindersDetailView: View {
         }
       }
     }
+    .background(ResourcesAsset.Colors.background.swiftUIColor)
     .toolbarTitleDisplayMode(.inline)
+    .tint(ResourcesAsset.Colors.clam.swiftUIColor)
   }
 }
 
@@ -290,12 +294,12 @@ extension RemindersDetailModel.DetailType {
 
   fileprivate var color: Color {
     switch self {
-    case .all: .black
-    case .completed: .gray
-    case .flagged: .orange
+    case .all: ResourcesAsset.Colors.textPrimary.swiftUIColor
+    case .completed: ResourcesAsset.Colors.health.swiftUIColor
+    case .flagged: ResourcesAsset.Colors.friendly.swiftUIColor
     case .remindersList(let list): list.color
-    case .scheduled: .red
-    case .today: .blue
+    case .scheduled: ResourcesAsset.Colors.error.swiftUIColor
+    case .today: ResourcesAsset.Colors.clam.swiftUIColor
     }
   }
 }

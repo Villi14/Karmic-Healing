@@ -66,7 +66,7 @@ struct ReminderFormView: View {
               .resizable()
               .aspectRatio(contentMode: .fit)
               .frame(width: 18, height: 18)
-              .foregroundStyle(ResourcesAsset.Colors.energy.swiftUIColor)
+              .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
             Text("Flag")
           }
         }
@@ -122,6 +122,7 @@ struct ReminderFormView: View {
         }
         .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
       }
+      
       ToolbarItem(placement: .cancellationAction) {
         Button("Cancel") {
           dismiss()
