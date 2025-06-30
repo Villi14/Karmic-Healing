@@ -37,8 +37,10 @@ struct ReminderRow: View {
       HStack(alignment: .firstTextBaseline) {
         Button(action: completeButtonTapped) {
           Image(systemName: isCompleted ? "circle.inset.filled" : "circle")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(height: 18)
             .foregroundStyle(ResourcesAsset.Colors.health.swiftUIColor)
-            .font(.title2)
             .padding([.trailing], 5)
         }
 
@@ -60,6 +62,9 @@ struct ReminderRow: View {
         HStack {
           if reminder.isFlagged {
             Image(systemName: "flag")
+              .resizable()
+              .aspectRatio(contentMode: .fit)
+              .frame(height: 18)
               .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
           }
           
@@ -67,6 +72,9 @@ struct ReminderRow: View {
             editReminder = Reminder.Draft(reminder)
           } label: {
             Image(systemName: "info.circle")
+              .resizable()
+              .aspectRatio(contentMode: .fit)
+              .frame(height: 18)
               .foregroundStyle(ResourcesAsset.Colors.clarity.swiftUIColor)
           }
           .tint(color)
@@ -75,7 +83,7 @@ struct ReminderRow: View {
     }
     .buttonStyle(.borderless)
     .swipeActions {
-      Button("Delete", role: .destructive) {
+      Button(String(localized: "delete", bundle: .main), role: .destructive) {
         withErrorReporting {
           try database.write { db in
             try Reminder.delete(reminder).execute(db)
@@ -84,7 +92,7 @@ struct ReminderRow: View {
       }
       .tint(ResourcesAsset.Colors.energy.swiftUIColor)
 
-      Button(reminder.isFlagged ? "Unflag" : "Flag") {
+      Button(reminder.isFlagged ? String(localized: "unflag", bundle: .main) : String(localized: "flag", bundle: .main)) {
         withErrorReporting {
           try database.write { db in
             try Reminder
@@ -96,7 +104,7 @@ struct ReminderRow: View {
       }
       .tint(ResourcesAsset.Colors.friendly.swiftUIColor)
 
-      Button("Details") {
+      Button(String(localized: "details", bundle: .main)) {
         editReminder = Reminder.Draft(reminder)
       }
       .tint(ResourcesAsset.Colors.clarity.swiftUIColor)
@@ -104,7 +112,7 @@ struct ReminderRow: View {
     .sheet(item: $editReminder) { reminder in
       NavigationStack {
         ReminderFormView(reminder: reminder, remindersList: remindersList)
-          .navigationTitle("Details")
+          .navigationTitle(String(localized: "details", bundle: .main))
       }
     }
     .task(id: isCompleted) {

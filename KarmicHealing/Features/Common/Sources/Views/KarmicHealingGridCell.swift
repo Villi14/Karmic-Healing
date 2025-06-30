@@ -37,9 +37,8 @@ public struct KarmicHealingGridCell: View {
             .padding(.top, 4)
           
           Text(title)
-            .font(.headline)
+            .font(.system(size: 14, weight: .medium))
             .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-            .bold()
             .padding(.top, 4)
         }
         
@@ -62,7 +61,6 @@ public struct KarmicHealingGridCell: View {
           .inset(by: 0.5)
           .stroke(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(0.5), lineWidth: 0.5)
       }
-      .cornerRadius(12)
     }
   }
 }

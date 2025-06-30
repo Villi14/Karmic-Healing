@@ -17,7 +17,7 @@ struct RemindersListForm: View {
     Form {
       Section {
         VStack {
-          TextField("List Name", text: $remindersList.title)
+          TextField(String(localized: "list_name", bundle: .main), text: $remindersList.title)
             .font(.system(.title2, design: .rounded, weight: .bold))
             .foregroundStyle(remindersList.color)
             .multilineTextAlignment(.center)
@@ -28,14 +28,14 @@ struct RemindersListForm: View {
         }
       }
 
-      ColorPicker("Color", selection: $remindersList.color)
+      ColorPicker(String(localized: "color", bundle: .main), selection: $remindersList.color)
         .tint(ResourcesAsset.Colors.clam.swiftUIColor)
     }
     .background(ResourcesAsset.Colors.background.swiftUIColor)
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
       ToolbarItem {
-        Button("Save") {
+        Button(String(localized: "save", bundle: .main)) {
           withErrorReporting {
             try database.write { db in
               try RemindersList.upsert(remindersList)
@@ -46,8 +46,9 @@ struct RemindersListForm: View {
         }
         .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
       }
+      
       ToolbarItem(placement: .cancellationAction) {
-        Button("Cancel") {
+        Button(String(localized: "cancel", bundle: .main)) {
           dismiss()
         }
         .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
@@ -64,7 +65,7 @@ struct RemindersListFormPreviews: PreviewProvider {
     
     NavigationStack {
       RemindersListForm(remindersList: RemindersList.Draft())
-        .navigationTitle("New List")
+        .navigationTitle(String(localized: "new_list", bundle: .main))
     }
   }
 }

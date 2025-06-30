@@ -59,24 +59,26 @@ struct RemindersListRow: View {
     .sheet(item: $editList) { list in
       NavigationStack {
         RemindersListForm(remindersList: RemindersList.Draft(list))
-          .navigationTitle("Edit list")
+          .navigationTitle(String(localized: "edit_list", bundle: .main))
       }
       .presentationDetents([.medium])
     }
   }
 }
 
-#Preview {
-  NavigationStack {
-    List {
-      RemindersListRow(
-        remindersCount: 10,
-        remindersList: RemindersList(
-          id: UUID(),
-          color: ResourcesAsset.Colors.clam.swiftUIColor,
-          title: "Personal"
+struct RemindersListRowPreview: PreviewProvider {
+  static var previews: some View {
+    NavigationStack {
+      List {
+        RemindersListRow(
+          remindersCount: 10,
+          remindersList: RemindersList(
+            id: UUID(),
+            color: ResourcesAsset.Colors.clam.swiftUIColor,
+            title: String(localized: "personal", bundle: .main)
+          )
         )
-      )
+      }
     }
   }
 }

@@ -112,6 +112,20 @@ class RemindersDetailModel: HashableObject {
     case manual = "Manual"
     case priority = "Priority"
     case title = "Title"
+
+    var localizedTitle: String {
+      switch self {
+      case .dueDate:
+        return String(localized: "due_date", bundle: .main)
+      case .manual:
+        return String(localized: "manual", bundle: .main)
+      case .priority:
+        return String(localized: "priority", bundle: .main)
+      case .title:
+        return String(localized: "title", bundle: .main)
+      }
+    }
+
     var icon: Image {
       switch self {
       case .dueDate: Image(systemName: "calendar")
@@ -178,6 +192,7 @@ struct RemindersDetailView: View {
         Task { await model.move(from: source, to: destination) }
       }
       .listRowBackground(Color.clear)
+      .scrollContentBackground(.hidden)
     }
     .navigationBarBackButtonHidden(true)
     .navigationBarTitleDisplayMode(.automatic)
@@ -205,7 +220,7 @@ struct RemindersDetailView: View {
             reminder: Reminder.Draft(remindersListID: remindersList.id),
             remindersList: remindersList
           )
-          .navigationTitle("New Reminder")
+          .navigationTitle(String(localized: "new_reminder", bundle: .main))
         }
       }
     }
@@ -224,7 +239,7 @@ struct RemindersDetailView: View {
             } label: {
               HStack {
                 Image(systemName: "plus")
-                Text("New Reminder")
+                Text(String(localized: "new_reminder", bundle: .main))
               }
               .bold()
               .font(.title3)
@@ -234,6 +249,7 @@ struct RemindersDetailView: View {
           .tint(model.detailType.color)
         }
       }
+
       ToolbarItem(placement: .primaryAction) {
         Menu {
           Group {
@@ -242,20 +258,20 @@ struct RemindersDetailView: View {
                 Button {
                   Task { await model.orderingButtonTapped(ordering) }
                 } label: {
-                  Text(ordering.rawValue)
+                  Text(ordering.localizedTitle)
                   ordering.icon
                 }
               }
             } label: {
-              Text("Sort By")
-              Text(model.ordering.rawValue)
+              Text(String(localized: "sort_by", bundle: .main))
+              Text(model.ordering.localizedTitle)
               Image(systemName: "arrow.up.arrow.down")
             }
-            
+
             Button {
               Task { await model.showCompletedButtonTapped() }
             } label: {
-              Text(model.showCompleted ? "Hide Completed" : "Show Completed")
+              Text(model.showCompleted ? String(localized: "hide_completed", bundle: .main) : String(localized: "show_completed", bundle: .main))
               Image(systemName: model.showCompleted ? "eye" : "eye")
             }
           }
@@ -285,12 +301,12 @@ extension RemindersDetailModel.DetailType {
 
   fileprivate var navigationTitle: String {
     switch self {
-    case .all: "All"
-    case .completed: "Completed"
-    case .flagged: "Flagged"
+    case .all: String(localized: "all", bundle: .main)
+    case .completed: String(localized: "completed", bundle: .main)
+    case .flagged: String(localized: "flagged", bundle: .main)
     case .remindersList(let list): list.title
-    case .scheduled: "Scheduled"
-    case .today: "Today"
+    case .scheduled: String(localized: "scheduled", bundle: .main)
+    case .today: String(localized: "today", bundle: .main)
     }
   }
 

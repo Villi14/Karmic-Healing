@@ -94,35 +94,35 @@ struct SearchRemindersView: View {
 
   var body: some View {
     HStack {
-      Text("\(model.completedCount) Completed")
+      Text("\(model.completedCount) " + String(localized: "completed", bundle: .main))
         .monospacedDigit()
         .contentTransition(.numericText())
       if model.completedCount > 0 {
         Text("•")
         Menu {
-          Text("Clear Completed Reminders")
-          Button("Older Than 1 Month") {
+          Text(String(localized: "clear_completed_reminders", bundle: .main))
+          Button(String(localized: "older_than_1_month", bundle: .main)) {
             model.deleteCompletedReminders(monthsAgo: 1)
           }
 
-          Button("Older Than 6 Months") {
+          Button(String(localized: "older_than_6_months", bundle: .main)) {
             model.deleteCompletedReminders(monthsAgo: 6)
           }
 
-          Button("Older Than 1 year") {
+          Button(String(localized: "older_than_1_year", bundle: .main)) {
             model.deleteCompletedReminders(monthsAgo: 12)
           }
 
-          Button("All Completed") {
+          Button(String(localized: "all_completed", bundle: .main)) {
             model.deleteCompletedReminders()
           }
         } label: {
-          Text("Clear")
+          Text(String(localized: "clear", bundle: .main))
         }
 
         Spacer()
 
-        Button(model.showCompletedInSearchResults ? "Hide" : "Show") {
+        Button(model.showCompletedInSearchResults ? String(localized: "hide", bundle: .main) : String(localized: "show", bundle: .main)) {
           Task { await model.showCompletedButtonTapped() }
         }
       }
@@ -153,7 +153,7 @@ struct SearchRemindersView: View {
       if !searchText.isEmpty {
         SearchRemindersView(model: SearchRemindersModel())
       } else {
-        Text(#"Tap "Search"..."#)
+        Text(String(localized: "tap_search", bundle: .main))
       }
     }
     .searchable(text: $searchText)

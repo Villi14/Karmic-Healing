@@ -166,7 +166,7 @@ struct RemindersListsView: View {
                 color: ResourcesAsset.Colors.clam.swiftUIColor,
                 count: model.stats.todayCount,
                 iconName: "calendar",
-                title: "Today"
+                title: String(localized: "today", bundle: .main)
               ) {
                 model.statTapped(.today)
               }
@@ -175,7 +175,7 @@ struct RemindersListsView: View {
                 color: ResourcesAsset.Colors.energy.swiftUIColor,
                 count: model.stats.scheduledCount,
                 iconName: "calendar",
-                title: "Scheduled"
+                title: String(localized: "scheduled", bundle: .main)
               ) {
                 model.statTapped(.scheduled)
               }
@@ -186,7 +186,7 @@ struct RemindersListsView: View {
                 color: ResourcesAsset.Colors.textSecondary.swiftUIColor,
                 count: model.stats.allCount,
                 iconName: "tray",
-                title: "All"
+                title: String(localized: "all", bundle: .main)
               ) {
                 model.statTapped(.all)
               }
@@ -195,7 +195,7 @@ struct RemindersListsView: View {
                 color: ResourcesAsset.Colors.friendly.swiftUIColor,
                 count: model.stats.flaggedCount,
                 iconName: "flag",
-                title: "Flagged"
+                title: String(localized: "flagged", bundle: .main)
               ) {
                 model.statTapped(.flagged)
               }
@@ -206,7 +206,7 @@ struct RemindersListsView: View {
                 color: ResourcesAsset.Colors.health.swiftUIColor,
                 count: nil,
                 iconName: "checkmark",
-                title: "Completed"
+                title: String(localized: "completed", bundle: .main)
               ) {
                 model.statTapped(.completed)
               }
@@ -230,7 +230,7 @@ struct RemindersListsView: View {
           }
           .onMove(perform: model.move(from:to:))
         } header: {
-          Text("My Lists")
+          Text(String(localized: "my_lists", bundle: .main))
             .font(.system(.title2, design: .rounded, weight: .bold))
             .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
             .textCase(nil)
@@ -256,7 +256,7 @@ struct RemindersListsView: View {
           Button {
             model.seedDatabaseButtonTapped()
           } label: {
-            Text("Seed data")
+            Text(String(localized: "seed_data", bundle: .main))
               .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
 
             Image(systemName: "leaf")
@@ -278,11 +278,10 @@ struct RemindersListsView: View {
               Image(systemName: "plus")
                 .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
 
-              Text("New Reminder")
+              Text(String(localized: "reminder", bundle: .main))
+                .font(.title3)
                 .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
             }
-            .bold()
-            .font(.title3)
           }
 
           Spacer()
@@ -290,7 +289,10 @@ struct RemindersListsView: View {
           Button {
             model.addListButtonTapped()
           } label: {
-            Text("Add List")
+            Image(systemName: "plus")
+              .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
+
+            Text(String(localized: "list", bundle: .main))
               .font(.title3)
               .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
           }
@@ -300,13 +302,13 @@ struct RemindersListsView: View {
     .sheet(item: $model.destination.reminderForm, id: \.0.id) { reminder, remindersList in
       NavigationStack {
         ReminderFormView(reminder: reminder, remindersList: remindersList)
-          .navigationTitle("New Reminder")
+          .navigationTitle(String(localized: "new_reminder", bundle: .main))
       }
     }
     .sheet(item: $model.destination.remindersListForm) { remindersList in
       NavigationStack {
         RemindersListForm(remindersList: remindersList)
-          .navigationTitle("New List")
+          .navigationTitle(String(localized: "new_list", bundle: .main))
       }
       .presentationDetents([.medium])
     }
