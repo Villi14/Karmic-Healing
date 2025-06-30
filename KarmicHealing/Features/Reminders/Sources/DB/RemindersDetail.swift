@@ -42,6 +42,7 @@ class RemindersDetailModel: HashableObject {
       try database.write { db in
         var ids = reminderRows.map(\.reminder.id)
         ids.move(fromOffsets: source, toOffset: destination)
+
         try Reminder
           .where { $0.id.in(ids) }
           .update {
@@ -250,6 +251,7 @@ struct RemindersDetailView: View {
               Text(model.ordering.rawValue)
               Image(systemName: "arrow.up.arrow.down")
             }
+            
             Button {
               Task { await model.showCompletedButtonTapped() }
             } label: {

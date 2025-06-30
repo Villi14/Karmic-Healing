@@ -109,10 +109,12 @@ struct ReminderRow: View {
     }
     .task(id: isCompleted) {
       guard !showCompleted else { return }
+
       guard
         isCompleted,
         isCompleted != reminder.isCompleted
       else { return }
+
       do {
         try await Task.sleep(for: .seconds(2))
         toggleCompletion()
@@ -157,6 +159,7 @@ struct ReminderRow: View {
         Text(String(repeating: "!", count: priority.rawValue))
           .foregroundStyle(isCompleted ? ResourcesAsset.Colors.textSecondary.swiftUIColor : remindersList.color)
       }
+      
       Text(reminder.title)
         .foregroundStyle(
           isCompleted ? ResourcesAsset.Colors.textSecondary.swiftUIColor : ResourcesAsset.Colors.textPrimary.swiftUIColor

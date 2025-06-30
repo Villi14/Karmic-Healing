@@ -52,13 +52,16 @@ extension Reminder.TableColumns {
     @Dependency(\.date.now) var now
     return !isCompleted && #sql("coalesce(date(\(dueDate)) < date(\(now)), 0)")
   }
+
   var isToday: some QueryExpression<Bool> {
     @Dependency(\.date.now) var now
     return !isCompleted && #sql("coalesce(date(\(dueDate)) = date(\(now)), 0)")
   }
+
   var isScheduled: some QueryExpression<Bool> {
     !isCompleted && dueDate.isNot(nil)
   }
+
   var inlineNotes: some QueryExpression<String> {
     notes.replace("\n", " ")
   }
@@ -80,6 +83,7 @@ public func appDatabase() throws -> any DatabaseWriter {
       }
     #endif
   }
+
   if context == .preview {
     database = try DatabaseQueue(configuration: configuration)
   } else {
@@ -90,6 +94,7 @@ public func appDatabase() throws -> any DatabaseWriter {
     logger.info("open \(path)")
     database = try DatabasePool(path: path, configuration: configuration)
   }
+
   var migrator = DatabaseMigrator()
   #if DEBUG
     migrator.eraseDatabaseOnSchemaChange = true
@@ -106,6 +111,7 @@ public func appDatabase() throws -> any DatabaseWriter {
       """
     )
     .execute(db)
+
     try #sql(
       """
       CREATE TABLE "reminders" (
@@ -124,6 +130,7 @@ public func appDatabase() throws -> any DatabaseWriter {
       """
     )
     .execute(db)
+
     try #sql(
       """
       CREATE TABLE "tags" (
@@ -133,6 +140,7 @@ public func appDatabase() throws -> any DatabaseWriter {
       """
     )
     .execute(db)
+    
     try #sql(
       """
       CREATE TABLE "remindersTags" (
@@ -169,6 +177,7 @@ public func appDatabase() throws -> any DatabaseWriter {
       """
     )
     .execute(db)
+
     try #sql(
       """
       CREATE TEMPORARY TRIGGER "default_position_reminders" 
@@ -213,22 +222,26 @@ private let logger = Logger(subsystem: "Reminders", category: "Database")
           color: Color(red: 0x4a / 255, green: 0x99 / 255, blue: 0xef / 255),
           title: "Personal"
         )
+
         RemindersList(
           id: remindersListIDs[1],
           color: Color(red: 0xed / 255, green: 0x89 / 255, blue: 0x35 / 255),
           title: "Family"
         )
+
         RemindersList(
           id: remindersListIDs[2],
           color: Color(red: 0xb2 / 255, green: 0x5d / 255, blue: 0xd3 / 255),
           title: "Business"
         )
+
         Reminder(
           id: reminderIDs[0],
           notes: "Milk\nEggs\nApples\nOatmeal\nSpinach",
           remindersListID: remindersListIDs[0],
           title: "Groceries"
         )
+
         Reminder(
           id: reminderIDs[1],
           dueDate: Date().addingTimeInterval(-60 * 60 * 24 * 2),
@@ -236,6 +249,7 @@ private let logger = Logger(subsystem: "Reminders", category: "Database")
           remindersListID: remindersListIDs[0],
           title: "Haircut"
         )
+
         Reminder(
           id: reminderIDs[2],
           dueDate: Date(),
@@ -244,6 +258,7 @@ private let logger = Logger(subsystem: "Reminders", category: "Database")
           remindersListID: remindersListIDs[0],
           title: "Doctor appointment"
         )
+
         Reminder(
           id: reminderIDs[3],
           dueDate: Date().addingTimeInterval(-60 * 60 * 24 * 190),
@@ -251,12 +266,14 @@ private let logger = Logger(subsystem: "Reminders", category: "Database")
           remindersListID: remindersListIDs[0],
           title: "Take a walk"
         )
+
         Reminder(
           id: reminderIDs[4],
           dueDate: Date(),
           remindersListID: remindersListIDs[0],
           title: "Buy concert tickets"
         )
+
         Reminder(
           id: reminderIDs[5],
           dueDate: Date().addingTimeInterval(60 * 60 * 24 * 2),
@@ -265,6 +282,7 @@ private let logger = Logger(subsystem: "Reminders", category: "Database")
           remindersListID: remindersListIDs[1],
           title: "Pick up kids from school"
         )
+
         Reminder(
           id: reminderIDs[6],
           dueDate: Date().addingTimeInterval(-60 * 60 * 24 * 2),
@@ -273,6 +291,7 @@ private let logger = Logger(subsystem: "Reminders", category: "Database")
           remindersListID: remindersListIDs[1],
           title: "Get laundry"
         )
+
         Reminder(
           id: reminderIDs[7],
           dueDate: Date().addingTimeInterval(60 * 60 * 24 * 4),
@@ -281,6 +300,7 @@ private let logger = Logger(subsystem: "Reminders", category: "Database")
           remindersListID: remindersListIDs[1],
           title: "Take out trash"
         )
+
         Reminder(
           id: reminderIDs[8],
           dueDate: Date().addingTimeInterval(60 * 60 * 24 * 2),
@@ -292,6 +312,7 @@ private let logger = Logger(subsystem: "Reminders", category: "Database")
           remindersListID: remindersListIDs[2],
           title: "Call accountant"
         )
+
         Reminder(
           id: reminderIDs[9],
           dueDate: Date().addingTimeInterval(-60 * 60 * 24 * 2),
@@ -300,6 +321,7 @@ private let logger = Logger(subsystem: "Reminders", category: "Database")
           remindersListID: remindersListIDs[2],
           title: "Send weekly emails"
         )
+
         Reminder(
           id: reminderIDs[10],
           dueDate: Date().addingTimeInterval(60 * 60 * 24 * 2),

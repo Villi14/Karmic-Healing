@@ -44,12 +44,14 @@ class SearchRemindersModel {
       if searchText.isEmpty {
         showCompletedInSearchResults = false
       }
+
       try await $completedCount.load(
         Reminder.searching(searchText)
           .where(\.isCompleted)
           .count(),
         animation: .default
       )
+
       try await $reminders.load(
         Reminder
           .searching(searchText)
@@ -102,19 +104,24 @@ struct SearchRemindersView: View {
           Button("Older Than 1 Month") {
             model.deleteCompletedReminders(monthsAgo: 1)
           }
+
           Button("Older Than 6 Months") {
             model.deleteCompletedReminders(monthsAgo: 6)
           }
+
           Button("Older Than 1 year") {
             model.deleteCompletedReminders(monthsAgo: 12)
           }
+
           Button("All Completed") {
             model.deleteCompletedReminders()
           }
         } label: {
           Text("Clear")
         }
+
         Spacer()
+
         Button(model.showCompletedInSearchResults ? "Hide" : "Show") {
           Task { await model.showCompletedButtonTapped() }
         }
