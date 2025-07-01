@@ -21,27 +21,22 @@ public struct RemindersView: View {
 
   public var body: some View {
     WithViewStore(store, observe: { $0 }) { viewStore in
-      ZStack {
-        ResourcesAsset.Colors.background.swiftUIColor
-          .ignoresSafeArea()
-        
-        VStack {
-          if context == .live {
-            RemindersListsView(model: Self.model)
-          }
+
+      VStack {
+        if context == .live {
+          RemindersListsView(model: Self.model)
         }
-        .navigationTitle(String(localized: "reminders", bundle: .main))
-        .navigationBarBackButtonHidden(true)
-        .navigationBarTitleDisplayMode(.automatic)
-        .navigationBarBackgroundColor(ResourcesAsset.Colors.background.swiftUIColor)
-        .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-        .toolbar {
-          ToolbarItem(placement: .topBarLeading) {
-            Button(action: { dismiss() }) {
-              Image(systemName: "chevron.left")
-                .renderingMode(.template)
-                .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-            }
+      }
+      .navigationTitle(String(localized: "reminders", bundle: .main))
+      .navigationBarBackButtonHidden(true)
+      .navigationBarTitleDisplayMode(.automatic)
+      .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+      .toolbar {
+        ToolbarItem(placement: .topBarLeading) {
+          Button(action: { dismiss() }) {
+            Image(systemName: "chevron.left")
+              .renderingMode(.template)
+              .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
           }
         }
       }

@@ -5,6 +5,7 @@ import Resources
 struct RemindersListRow: View {
   let remindersCount: Int
   let remindersList: RemindersList
+  var onTap: (() -> Void)? = nil
 
   @State var editList: RemindersList?
 
@@ -55,6 +56,7 @@ struct RemindersListRow: View {
       } label: {
         Image(systemName: "info.circle")
       }
+      .tint(ResourcesAsset.Colors.clarity.swiftUIColor)
     }
     .sheet(item: $editList) { list in
       NavigationStack {
@@ -62,6 +64,10 @@ struct RemindersListRow: View {
           .navigationTitle(String(localized: "edit_list", bundle: .main))
       }
       .presentationDetents([.medium])
+    }
+    .contentShape(Rectangle())
+    .onTapGesture {
+      onTap?()
     }
   }
 }

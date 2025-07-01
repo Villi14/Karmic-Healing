@@ -27,8 +27,16 @@ public struct OnboardingView: View {
   public var body: some View {
     WithViewStore(store, observe: ViewState.init) { viewStore in
       ZStack {
-        ResourcesAsset.Colors.background.swiftUIColor
-          .ignoresSafeArea()
+        LinearGradient(
+          gradient: Gradient(colors: [
+            ResourcesAsset.Colors.clam.swiftUIColor.opacity(0.1),
+            ResourcesAsset.Colors.background.swiftUIColor
+          ]),
+          startPoint: .topLeading,
+          endPoint: .bottomTrailing
+        )
+        .ignoresSafeArea()
+        
         VStack {
           TabView(selection: Binding(
             get: { viewStore.currentStep },

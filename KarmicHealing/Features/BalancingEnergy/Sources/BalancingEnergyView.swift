@@ -31,8 +31,16 @@ public struct BalancingEnergyView: View {
   public var body: some View {
     WithViewStore(store, observe: ViewState.init) { viewStore in
       ZStack {
-        ResourcesAsset.Colors.background.swiftUIColor
-          .ignoresSafeArea()
+        LinearGradient(
+          gradient: Gradient(colors: [
+            ResourcesAsset.Colors.clam.swiftUIColor.opacity(0.1),
+            ResourcesAsset.Colors.background.swiftUIColor
+          ]),
+          startPoint: .topLeading,
+          endPoint: .bottomTrailing
+        )
+        .ignoresSafeArea()
+
         VStack {
           Image(systemName: "exclamationmark.circle")
             .resizable()
@@ -143,7 +151,6 @@ public struct BalancingEnergyView: View {
       .navigationTitle(viewStore.title)
       .navigationBarBackButtonHidden(true)
       .navigationBarTitleDisplayMode(.inline)
-      .navigationBarBackgroundColor(ResourcesAsset.Colors.background.swiftUIColor)
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
       .toolbar {
         ToolbarItem(placement: .topBarLeading) {

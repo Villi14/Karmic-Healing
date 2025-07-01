@@ -760,29 +760,6 @@
         }
       }
     },
-    "manual" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Manual"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Вручную"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Вручну"
-          }
-        }
-      }
-    },
     "medium" : {
       "extractionState" : "manual",
       "localizations" : {

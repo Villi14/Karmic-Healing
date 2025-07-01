@@ -119,8 +119,7 @@ struct ReminderRow: View {
       guard !showCompleted else { return }
 
       guard
-        isCompleted,
-        isCompleted != reminder.isCompleted
+        isCompleted, isCompleted != reminder.isCompleted
       else { return }
 
       do {
@@ -128,7 +127,6 @@ struct ReminderRow: View {
         toggleCompletion()
       } catch {}
     }
-    .background(ResourcesAsset.Colors.background.swiftUIColor)
   }
 
   private func completeButtonTapped() {

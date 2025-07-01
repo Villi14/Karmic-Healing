@@ -20,8 +20,15 @@ public struct BalancingEnergyListView: View {
   public var body: some View {
     WithViewStore(store, observe: { $0 }) { viewStore in
       ZStack {
-        ResourcesAsset.Colors.background.swiftUIColor
-          .ignoresSafeArea()
+        LinearGradient(
+          gradient: Gradient(colors: [
+            ResourcesAsset.Colors.clam.swiftUIColor.opacity(0.1),
+            ResourcesAsset.Colors.background.swiftUIColor
+          ]),
+          startPoint: .topLeading,
+          endPoint: .bottomTrailing
+        )
+        .ignoresSafeArea()
 
         VStack {
           KarmicHealingDisclosureGroup {
@@ -46,7 +53,6 @@ public struct BalancingEnergyListView: View {
       }
       .navigationTitle(String(localized: "energy_balancing", bundle: .main))
       .navigationBarBackButtonHidden(true)
-      .navigationBarBackgroundColor(ResourcesAsset.Colors.background.swiftUIColor)
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
       .toolbar {
         ToolbarItem(placement: .topBarLeading) {

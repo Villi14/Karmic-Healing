@@ -58,7 +58,6 @@ class RemindersDetailModel: HashableObject {
           .execute(db)
       }
     }
-    $ordering.withLock { $0 = .manual }
     await updateQuery()
   }
 
@@ -80,7 +79,6 @@ class RemindersDetailModel: HashableObject {
       .order {
         switch ordering {
         case .dueDate: $0.dueDate.asc(nulls: .last)
-        case .manual: $0.position
         case .priority: ($0.priority.desc(), $0.isFlagged.desc())
         case .title: $0.title
         }
@@ -109,7 +107,6 @@ class RemindersDetailModel: HashableObject {
 
   enum Ordering: String, CaseIterable {
     case dueDate = "Due Date"
-    case manual = "Manual"
     case priority = "Priority"
     case title = "Title"
 
@@ -117,8 +114,6 @@ class RemindersDetailModel: HashableObject {
       switch self {
       case .dueDate:
         return String(localized: "due_date", bundle: .main)
-      case .manual:
-        return String(localized: "manual", bundle: .main)
       case .priority:
         return String(localized: "priority", bundle: .main)
       case .title:
@@ -129,7 +124,6 @@ class RemindersDetailModel: HashableObject {
     var icon: Image {
       switch self {
       case .dueDate: Image(systemName: "calendar")
-      case .manual: Image(systemName: "hand.draw")
       case .priority: Image(systemName: "chart.bar")
       case .title: Image(systemName: "textformat.characters")
       }
@@ -165,125 +159,129 @@ struct RemindersDetailView: View {
   @State var navigationTitleHeight: CGFloat = 36
 
   var body: some View {
-    List {
-      VStack(alignment: .leading) {
-        GeometryReader { proxy in
-          Text(model.detailType.navigationTitle)
-            .font(.system(.largeTitle, design: .rounded, weight: .bold))
-            .foregroundStyle(model.detailType.color)
-            .onAppear { navigationTitleHeight = proxy.size.height }
-        }
-      }
-      .listRowSeparator(.hidden)
-      .listRowBackground(Color.clear)
-      .padding(.bottom, 16)
+    ZStack {
+      LinearGradient(
+        gradient: Gradient(colors: [
+          ResourcesAsset.Colors.clam.swiftUIColor.opacity(0.1),
+          ResourcesAsset.Colors.background.swiftUIColor
+        ]),
+        startPoint: .topLeading,
+        endPoint: .bottomTrailing
+      )
+      .ignoresSafeArea()
 
-      ForEach(model.reminderRows) { row in
-        ReminderRow(
-          color: model.detailType.color,
-          isPastDue: row.isPastDue,
-          notes: row.notes,
-          reminder: row.reminder,
-          remindersList: row.remindersList,
-          showCompleted: model.showCompleted
-        )
-      }
-      .onMove { source, destination in
-        Task { await model.move(from: source, to: destination) }
-      }
-      .listRowBackground(Color.clear)
-      .scrollContentBackground(.hidden)
-    }
-    .navigationBarBackButtonHidden(true)
-    .navigationBarTitleDisplayMode(.automatic)
-    .navigationBarBackgroundColor(ResourcesAsset.Colors.background.swiftUIColor)
-    .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-    .toolbar {
-      ToolbarItem(placement: .topBarLeading) {
-        Button(action: { dismiss() }) {
-          Image(systemName: "chevron.left")
-            .renderingMode(.template)
-            .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+      List {
+        VStack(alignment: .leading) {
+          GeometryReader { proxy in
+            Text(model.detailType.navigationTitle)
+              .font(.system(.largeTitle, design: .rounded, weight: .bold))
+              .foregroundStyle(model.detailType.color)
+              .onAppear { navigationTitleHeight = proxy.size.height }
+          }
         }
-      }
-    }
-    .onScrollGeometryChange(for: Bool.self) { geometry in
-      geometry.contentOffset.y + geometry.contentInsets.top > navigationTitleHeight
-    } action: {
-      isNavigationTitleVisible = $1
-    }
-    .listStyle(.plain)
-    .sheet(isPresented: $model.isNewReminderSheetPresented) {
-      if let remindersList = model.detailType.remindersList {
-        NavigationStack {
-          ReminderFormView(
-            reminder: Reminder.Draft(remindersListID: remindersList.id),
-            remindersList: remindersList
+        .listRowSeparator(.hidden)
+        .listRowBackground(Color.clear)
+        .padding(.bottom, 16)
+
+        ForEach(model.reminderRows) { row in
+          ReminderRow(
+            color: model.detailType.color,
+            isPastDue: row.isPastDue,
+            notes: row.notes,
+            reminder: row.reminder,
+            remindersList: row.remindersList,
+            showCompleted: model.showCompleted
           )
-          .navigationTitle(String(localized: "new_reminder", bundle: .main))
         }
+       .listRowBackground(Color.clear)
       }
-    }
-    .toolbar {
-      ToolbarItem(placement: .principal) {
-        Text(model.detailType.navigationTitle)
-          .font(.headline)
-          .opacity(isNavigationTitleVisible ? 1 : 0)
-          .animation(.default.speed(2), value: isNavigationTitleVisible)
-      }
-      if model.detailType.is(\.remindersList) {
-        ToolbarItem(placement: .bottomBar) {
-          HStack {
-            Button {
-              model.isNewReminderSheetPresented = true
-            } label: {
-              HStack {
-                Image(systemName: "plus")
-                Text(String(localized: "reminder", bundle: .main))
-              }
-              .bold()
-              .font(.title3)
-            }
-            Spacer()
+      .navigationBarBackButtonHidden(true)
+      .navigationBarTitleDisplayMode(.automatic)
+      .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+      .toolbar {
+        ToolbarItem(placement: .topBarLeading) {
+          Button(action: { dismiss() }) {
+            Image(systemName: "chevron.left")
+              .renderingMode(.template)
+              .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
           }
-          .tint(model.detailType.color)
         }
       }
-
-      ToolbarItem(placement: .primaryAction) {
-        Menu {
-          Group {
-            Menu {
-              ForEach(RemindersDetailModel.Ordering.allCases, id: \.self) { ordering in
-                Button {
-                  Task { await model.orderingButtonTapped(ordering) }
-                } label: {
-                  Text(ordering.localizedTitle)
-                  ordering.icon
+      .onScrollGeometryChange(for: Bool.self) { geometry in
+        geometry.contentOffset.y + geometry.contentInsets.top > navigationTitleHeight
+      } action: {
+        isNavigationTitleVisible = $1
+      }
+      .listStyle(.plain)
+      .sheet(isPresented: $model.isNewReminderSheetPresented) {
+        if let remindersList = model.detailType.remindersList {
+          NavigationStack {
+            ReminderFormView(
+              reminder: Reminder.Draft(remindersListID: remindersList.id),
+              remindersList: remindersList
+            )
+            .navigationTitle(String(localized: "new_reminder", bundle: .main))
+          }
+        }
+      }
+      .toolbar {
+        ToolbarItem(placement: .principal) {
+          Text(model.detailType.navigationTitle)
+            .font(.headline)
+            .opacity(isNavigationTitleVisible ? 1 : 0)
+            .animation(.default.speed(2), value: isNavigationTitleVisible)
+        }
+        if model.detailType.is(\.remindersList) {
+          ToolbarItem(placement: .bottomBar) {
+            HStack {
+              Button {
+                model.isNewReminderSheetPresented = true
+              } label: {
+                HStack {
+                  Image(systemName: "plus")
+                  Text(String(localized: "reminder", bundle: .main))
                 }
+                .font(.title3)
               }
-            } label: {
-              Text(String(localized: "sort_by", bundle: .main))
-              Text(model.ordering.localizedTitle)
-              Image(systemName: "arrow.up.arrow.down")
+              Spacer()
             }
-
-            Button {
-              Task { await model.showCompletedButtonTapped() }
-            } label: {
-              Text(model.showCompleted ? String(localized: "hide_completed", bundle: .main) : String(localized: "show_completed", bundle: .main))
-              Image(systemName: model.showCompleted ? "eye" : "eye")
-            }
+            .tint(model.detailType.color)
           }
-          .tint(model.detailType.color)
-        } label: {
-          Image(systemName: "ellipsis")
+        }
+
+        ToolbarItem(placement: .primaryAction) {
+          Menu {
+            Group {
+              Menu {
+                ForEach(RemindersDetailModel.Ordering.allCases, id: \.self) { ordering in
+                  Button {
+                    Task { await model.orderingButtonTapped(ordering) }
+                  } label: {
+                    Text(ordering.localizedTitle)
+                    ordering.icon
+                  }
+                }
+              } label: {
+                Text(String(localized: "sort_by", bundle: .main))
+                Text(model.ordering.localizedTitle)
+                Image(systemName: "arrow.up.arrow.down")
+              }
+
+              Button {
+                Task { await model.showCompletedButtonTapped() }
+              } label: {
+                Text(model.showCompleted ? String(localized: "hide_completed", bundle: .main) : String(localized: "show_completed", bundle: .main))
+                Image(systemName: model.showCompleted ? "eye" : "eye")
+              }
+            }
+            .tint(model.detailType.color)
+          } label: {
+            Image(systemName: "ellipsis")
+          }
         }
       }
+      .tint(ResourcesAsset.Colors.clam.swiftUIColor)
     }
-    .background(ResourcesAsset.Colors.background.swiftUIColor)
-    .toolbarTitleDisplayMode(.inline)
-    .tint(ResourcesAsset.Colors.clam.swiftUIColor)
   }
 }
 
