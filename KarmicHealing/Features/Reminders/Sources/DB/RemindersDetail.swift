@@ -239,7 +239,7 @@ struct RemindersDetailView: View {
             } label: {
               HStack {
                 Image(systemName: "plus")
-                Text(String(localized: "new_reminder", bundle: .main))
+                Text(String(localized: "reminder", bundle: .main))
               }
               .bold()
               .font(.title3)
