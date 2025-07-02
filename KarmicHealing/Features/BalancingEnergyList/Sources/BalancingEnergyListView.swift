@@ -52,7 +52,7 @@ public struct BalancingEnergyListView: View {
         .padding(.top)
       }
       .navigationTitle(String(localized: "energy_balancing", bundle: .main))
-      .navigationBarBackButtonHidden(true)
+      .navigationBarBackButtonHidden()
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
       .toolbar {
         ToolbarItem(placement: .topBarLeading) {

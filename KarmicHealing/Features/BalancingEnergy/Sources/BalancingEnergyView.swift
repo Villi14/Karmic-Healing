@@ -149,7 +149,7 @@ public struct BalancingEnergyView: View {
         }
       }
       .navigationTitle(viewStore.title)
-      .navigationBarBackButtonHidden(true)
+      .navigationBarBackButtonHidden()
       .navigationBarTitleDisplayMode(.inline)
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
       .toolbar {

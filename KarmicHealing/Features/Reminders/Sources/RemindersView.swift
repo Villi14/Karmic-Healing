@@ -28,8 +28,9 @@ public struct RemindersView: View {
         }
       }
       .navigationTitle(String(localized: "reminders", bundle: .main))
-      .navigationBarBackButtonHidden(true)
+      .navigationBarBackButtonHidden()
       .navigationBarTitleDisplayMode(.automatic)
+      .navigationBarBackgroundColor(ResourcesAsset.Colors.clarity.swiftUIColor)
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
       .toolbar {
         ToolbarItem(placement: .topBarLeading) {

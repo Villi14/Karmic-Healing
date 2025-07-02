@@ -51,7 +51,7 @@ public struct AppSettingsView: View {
         .padding(.top)
       }
       .navigationTitle(String(localized: "settings", bundle: .main))
-      .navigationBarBackButtonHidden(true)
+      .navigationBarBackButtonHidden()
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
       .toolbar {
         ToolbarItem(placement: .topBarLeading) {

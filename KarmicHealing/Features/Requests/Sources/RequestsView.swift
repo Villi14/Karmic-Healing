@@ -33,7 +33,7 @@ public struct RequestsView: View {
           Spacer()
         }
         .navigationTitle(String(localized: "requests", bundle: .main))
-        .navigationBarBackButtonHidden(true)
+        .navigationBarBackButtonHidden()
         .navigationBarTitleDisplayMode(.automatic)
         .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
         .toolbar {

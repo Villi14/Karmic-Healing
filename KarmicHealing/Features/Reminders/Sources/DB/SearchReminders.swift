@@ -1,6 +1,7 @@
 import IssueReporting
 import SharingGRDB
 import SwiftUI
+import Resources
 
 @MainActor
 @Observable
@@ -97,10 +98,13 @@ struct SearchRemindersView: View {
       Text("\(model.completedCount) " + String(localized: "completed", bundle: .main))
         .monospacedDigit()
         .contentTransition(.numericText())
+
       if model.completedCount > 0 {
         Text("•")
+
         Menu {
           Text(String(localized: "clear_completed_reminders", bundle: .main))
+
           Button(String(localized: "older_than_1_month", bundle: .main)) {
             model.deleteCompletedReminders(monthsAgo: 1)
           }
@@ -127,6 +131,7 @@ struct SearchRemindersView: View {
         }
       }
     }
+    .tint(ResourcesAsset.Colors.clam.swiftUIColor)
     .buttonStyle(.borderless)
 
     ForEach(model.reminders) { reminder in
