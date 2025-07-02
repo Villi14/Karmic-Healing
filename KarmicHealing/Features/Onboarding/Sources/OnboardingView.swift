@@ -32,8 +32,8 @@ public struct OnboardingView: View {
             ResourcesAsset.Colors.clam.swiftUIColor.opacity(0.1),
             ResourcesAsset.Colors.background.swiftUIColor
           ]),
-          startPoint: .topLeading,
-          endPoint: .bottomTrailing
+          startPoint: .top,
+          endPoint: .bottom
         )
         .ignoresSafeArea()
         

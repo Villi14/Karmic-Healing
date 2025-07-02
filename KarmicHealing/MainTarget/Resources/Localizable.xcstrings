@@ -450,13 +450,13 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Редактировать список"
+            "value" : "Редактировать"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Редагувати список"
+            "value" : "Редагувати"
           }
         }
       }

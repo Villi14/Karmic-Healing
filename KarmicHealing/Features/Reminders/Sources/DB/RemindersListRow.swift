@@ -48,6 +48,9 @@ struct RemindersListRow: View {
         }
       } label: {
         Image(systemName: "trash")
+          .resizable()
+          .aspectRatio(contentMode: .fit)
+          .frame(height: 18)
       }
       .tint(ResourcesAsset.Colors.energy.swiftUIColor)
 
@@ -55,6 +58,9 @@ struct RemindersListRow: View {
         editList = remindersList
       } label: {
         Image(systemName: "info.circle")
+          .resizable()
+          .aspectRatio(contentMode: .fit)
+          .frame(height: 18)
       }
       .tint(ResourcesAsset.Colors.clarity.swiftUIColor)
     }

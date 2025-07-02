@@ -5,14 +5,14 @@ import Resources
 
 struct RemindersListForm: View {
   @Dependency(\.defaultDatabase) private var database
-
+  
   @State var remindersList: RemindersList.Draft
   @Environment(\.dismiss) var dismiss
-
+  
   init(remindersList: RemindersList.Draft) {
     self.remindersList = remindersList
   }
-
+  
   var body: some View {
     Form {
       Section {
@@ -31,7 +31,6 @@ struct RemindersListForm: View {
       ColorPicker(String(localized: "color", bundle: .main), selection: $remindersList.color)
         .tint(ResourcesAsset.Colors.clam.swiftUIColor)
     }
-    .background(ResourcesAsset.Colors.background.swiftUIColor)
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
       ToolbarItem {
