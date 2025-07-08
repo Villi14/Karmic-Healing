@@ -783,25 +783,25 @@
         }
       }
     },
-    "my_lists" : {
+    "my_reminders" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "My Lists"
+            "value" : "My reminders"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Мои списки"
+            "value" : "Мои напоминания"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Мої списки"
+            "value" : "Мої нагадування"
           }
         }
       }

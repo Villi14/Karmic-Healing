@@ -146,7 +146,7 @@ class RemindersListsModel {
     var message: Text? {
       Text("Tap here to quickly populate the app with test data.")
     }
-    
+
     var image: Image? {
       Image(systemName: "leaf")
     }
@@ -226,7 +226,9 @@ struct RemindersListsView: View {
             .buttonStyle(.plain)
             .listRowBackground(Color.clear)
             .padding(.horizontal, -8)
+
           }
+          .listSectionSeparator(.hidden)
 
           Section {
             ForEach(model.remindersLists) { state in
@@ -239,7 +241,7 @@ struct RemindersListsView: View {
               )
             }
           } header: {
-            Text(String(localized: "my_lists", bundle: .main))
+            Text(String(localized: "my_reminders", bundle: .main))
               .font(.system(.title2, design: .rounded, weight: .bold))
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
               .textCase(nil)
@@ -256,7 +258,6 @@ struct RemindersListsView: View {
       .onAppear {
         model.onAppear()
       }
-      .scrollContentBackground(.hidden)
       .toolbar {
 #if DEBUG
         ToolbarItem(placement: .automatic) {
@@ -324,7 +325,10 @@ struct RemindersListsView: View {
       .navigationDestination(item: $model.destination.detail) { detailModel in
         RemindersDetailView(model: detailModel)
       }
-      .padding(.horizontal, -16)
+      .listStyle(.plain)
+      .scrollContentBackground(.hidden)
+      .padding(.horizontal, 8)
+      .padding(.top, 8)
     }
   }
 }

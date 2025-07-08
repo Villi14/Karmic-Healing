@@ -10,18 +10,24 @@ import Common
 public struct RemindersView: View {
   @SwiftUI.Environment(\.dismiss) var dismiss
   @Dependency(\.context) var context
-
+  
   static let model = RemindersListsModel()
-
+  
   public let store: StoreOf<Reminders>
-
+  
   public init(store: StoreOf<Reminders>) {
     self.store = store
-  }
 
+    if context == .live {
+      try! prepareDependencies {
+        $0.defaultDatabase = try appDatabase()
+      }
+    }
+  }
+  
   public var body: some View {
     WithViewStore(store, observe: { $0 }) { viewStore in
-
+      
       VStack {
         if context == .live {
           RemindersListsView(model: Self.model)
@@ -30,7 +36,7 @@ public struct RemindersView: View {
       .navigationTitle(String(localized: "reminders", bundle: .main))
       .navigationBarBackButtonHidden()
       .navigationBarTitleDisplayMode(.automatic)
-      .navigationBarBackgroundColor(ResourcesAsset.Colors.clarity.swiftUIColor)
+      .navigationBarBackgroundColor(ResourcesAsset.Colors.background.swiftUIColor)
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
       .toolbar {
         ToolbarItem(placement: .topBarLeading) {
