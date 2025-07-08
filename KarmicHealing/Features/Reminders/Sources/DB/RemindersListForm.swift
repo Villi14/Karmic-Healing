@@ -44,6 +44,7 @@ struct RemindersListForm: View {
           dismiss()
         }
         .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
+        .disabled(remindersList.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
       }
       
       ToolbarItem(placement: .cancellationAction) {

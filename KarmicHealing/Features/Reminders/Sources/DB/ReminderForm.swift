@@ -121,6 +121,7 @@ struct ReminderFormView: View {
           Text(String(localized: "save", bundle: .main))
         }
         .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
+        .disabled(reminder.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
       }
       
       ToolbarItem(placement: .cancellationAction) {
