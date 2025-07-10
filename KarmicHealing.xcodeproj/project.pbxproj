@@ -77,6 +77,7 @@
 		8FD8EB4E227702185B94FCC9 /* KarmicHealingGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15F7379A946B22FF731FAB7 /* KarmicHealingGridCell.swift */; };
 		904A96FE6F4FBD1B3EBD19BE /* BalancingEnergy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A350AA2DADC5C8EA3D278D /* BalancingEnergy.swift */; };
 		9433F7E6732212EBE2439BEF /* TuistAssets+Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8FD516CA44D211DF048D7 /* TuistAssets+Resources.swift */; };
+		9B2DC0E7391D444946F67F72 /* KarmicHealingSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D88E196EE553DC2DEE221C /* KarmicHealingSearchBar.swift */; };
 		9C8C914EDF8CA4A9C71DBB98 /* Dependencies.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 521A308467BDA5B20A8073FB /* Dependencies.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9CE970894F21072CC11E52D6 /* TabView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C000C78A1E665D1B1E7F85DD /* TabView+Ext.swift */; };
 		9DD661CE0A6C63B9885BF67E /* Reminders.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9844611137297AF752A4EB61 /* Reminders.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -603,6 +604,7 @@
 		E5AFFEAB7951F1AB5D591E8C /* Requests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Requests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E90F5F787F8F5FC5C729C016 /* ReminderForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderForm.swift; sourceTree = "<group>"; };
 		EFB82E581C95596F0F862D92 /* RemindersListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListRow.swift; sourceTree = "<group>"; };
+		F2D88E196EE553DC2DEE221C /* KarmicHealingSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarmicHealingSearchBar.swift; sourceTree = "<group>"; };
 		F4583744CB6A1E0C424027D8 /* IdentifiedCollections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IdentifiedCollections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F90A0225152A841AE720345E /* Reminders-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Reminders-Info.plist"; sourceTree = "<group>"; };
 		F97EBFF1307913F076732EEB /* RemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersView.swift; sourceTree = "<group>"; };
@@ -751,6 +753,7 @@
 				1EF5AC93973189BA300A0954 /* KarmicHealingAlertView.swift */,
 				4B3B34389171753C775D53DD /* KarmicHealingDisclosureCell.swift */,
 				D15F7379A946B22FF731FAB7 /* KarmicHealingGridCell.swift */,
+				F2D88E196EE553DC2DEE221C /* KarmicHealingSearchBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1644,6 +1647,7 @@
 				5B799EC8C9AF360961E244FC /* KarmicHealingAlertView.swift in Sources */,
 				DF632D63DD0D5D1E43CF0FEE /* KarmicHealingDisclosureCell.swift in Sources */,
 				8FD8EB4E227702185B94FCC9 /* KarmicHealingGridCell.swift in Sources */,
+				9B2DC0E7391D444946F67F72 /* KarmicHealingSearchBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
