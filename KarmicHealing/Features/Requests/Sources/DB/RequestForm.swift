@@ -1,6 +1,7 @@
 import IssueReporting
 import SharingGRDB
 import SwiftUI
+import Common
 import Resources
 
 struct RequestFormView: View {

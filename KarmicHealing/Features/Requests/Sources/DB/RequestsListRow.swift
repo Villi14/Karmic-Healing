@@ -1,5 +1,6 @@
 import SharingGRDB
 import SwiftUI
+import Common
 import Resources
 
 struct RequestsListRow: View {
@@ -74,23 +75,6 @@ struct RequestsListRow: View {
     .contentShape(Rectangle())
     .onTapGesture {
       onTap?()
-    }
-  }
-}
-
-struct RequestsListRowPreview: PreviewProvider {
-  static var previews: some View {
-    NavigationStack {
-      List {
-        RequestsListRow(
-          requestsCount: 10,
-          requestsList: RequestsList(
-            id: UUID(),
-            color: ResourcesAsset.Colors.clam.swiftUIColor,
-            title: String(localized: "personal", bundle: .main)
-          )
-        )
-      }
     }
   }
 }

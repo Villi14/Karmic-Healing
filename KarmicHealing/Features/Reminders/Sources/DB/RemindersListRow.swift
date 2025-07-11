@@ -1,5 +1,6 @@
 import SharingGRDB
 import SwiftUI
+import Common
 import Resources
 
 struct RemindersListRow: View {
@@ -74,23 +75,6 @@ struct RemindersListRow: View {
     .contentShape(Rectangle())
     .onTapGesture {
       onTap?()
-    }
-  }
-}
-
-struct RemindersListRowPreview: PreviewProvider {
-  static var previews: some View {
-    NavigationStack {
-      List {
-        RemindersListRow(
-          remindersCount: 10,
-          remindersList: RemindersList(
-            id: UUID(),
-            color: ResourcesAsset.Colors.clam.swiftUIColor,
-            title: String(localized: "personal", bundle: .main)
-          )
-        )
-      }
     }
   }
 }

@@ -29,7 +29,6 @@
 		1B7D195B530DE634662287E5 /* RemindersLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D39E3ABAC96EA1FD8CF84C /* RemindersLists.swift */; };
 		1DE4AF4B15110861455B3071 /* Reminders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9844611137297AF752A4EB61 /* Reminders.framework */; };
 		1EFA852222DA02C0D073A9FE /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
-		201452629B69CE4015BF6CB0 /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEEB72F2DF1834AFF235E16 /* Schema.swift */; };
 		2211952DE50D29D02CB08B5C /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; };
 		282B3F2F283A936E19EBD9ED /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
 		2A7F809E8715B4D3D5AF7E63 /* KarmicHealingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B601C97CD8A2356AD07CBEF8 /* KarmicHealingView.swift */; };
@@ -99,8 +98,8 @@
 		B504A12C457FFC0D809BEE0F /* BalancingEnergyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035250898164081970D4C3AE /* BalancingEnergyListView.swift */; };
 		B5383194545B21ADD25ABE5C /* BalancingEnergyList.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 937951BDE4A7DF3DE0227873 /* BalancingEnergyList.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B667BA1AA9F679C2208F3AAB /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; };
+		B8A5449D6CF78A9ACC88A333 /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B46155A37077E3D8ABDFE /* Schema.swift */; };
 		B989D888AC268EB514247247 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE0B0C32B9B575FF3ADF75D /* Onboarding.swift */; };
-		BA3034D262DB85AAF4E14570 /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3952F539F01F3C04D27038 /* Schema.swift */; };
 		BBF5D94FA26053CCD727D221 /* ConcurrencyExtras.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1169C48DEE11FEB08AE83FBA /* ConcurrencyExtras.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BCE87D5AC885328718893F33 /* RemindersListForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D906E064FEF95E194F68D7FA /* RemindersListForm.swift */; };
 		BD55E7077BD2219C8C3C4A36 /* RemindersDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C2996F70BC0D05FCBED53 /* RemindersDetail.swift */; };
@@ -560,7 +559,6 @@
 		521F0E42B795DFC188453D03 /* HomeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButtonView.swift; sourceTree = "<group>"; };
 		52D41708495D3BE707CEE866 /* TuistAssets+KarmicHealing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+KarmicHealing.swift"; sourceTree = "<group>"; };
 		55454C414F6E65B52AC2DE36 /* Reminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminders.swift; sourceTree = "<group>"; };
-		5C3952F539F01F3C04D27038 /* Schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
 		5D3EC67BA24302FC3E49017B /* HomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTests.swift; sourceTree = "<group>"; };
 		5DEE9C838611B6126CD8C091 /* RequestsListForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsListForm.swift; sourceTree = "<group>"; };
 		5DF29FDB478366F2E7225B38 /* XCTest+withTrackedCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+withTrackedCalls.swift"; sourceTree = "<group>"; };
@@ -594,6 +592,7 @@
 		B85762BF97E9D27C30C53840 /* Resources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Resources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8ACBD6AD043F6C2C59AB279 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
 		B8AF5B014AFB978DEF214451 /* CombineSchedulers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CombineSchedulers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA0B46155A37077E3D8ABDFE /* Schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
 		BB7A0825EC1769E0E174B3EA /* FullScreenCoverBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenCoverBackgroundView.swift; sourceTree = "<group>"; };
 		BC78A05FC6DB55E86D8DCCF5 /* TestingUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TestingUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C000C78A1E665D1B1E7F85DD /* TabView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabView+Ext.swift"; sourceTree = "<group>"; };
@@ -602,7 +601,6 @@
 		C64497E0D36C1744E15F96F7 /* SearchRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequests.swift; sourceTree = "<group>"; };
 		C6C90AC6419664A553E5DA30 /* Common-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Common-Info.plist"; sourceTree = "<group>"; };
 		C87D4296571F0460A46D013E /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
-		CAEEB72F2DF1834AFF235E16 /* Schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
 		CD9F72DC2A14CE3B17B6A9B0 /* MailComposerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposerView.swift; sourceTree = "<group>"; };
 		CFE0B0C32B9B575FF3ADF75D /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		D15F7379A946B22FF731FAB7 /* KarmicHealingGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarmicHealingGridCell.swift; sourceTree = "<group>"; };
@@ -864,7 +862,6 @@
 				D906E064FEF95E194F68D7FA /* RemindersListForm.swift */,
 				EFB82E581C95596F0F862D92 /* RemindersListRow.swift */,
 				06D39E3ABAC96EA1FD8CF84C /* RemindersLists.swift */,
-				5C3952F539F01F3C04D27038 /* Schema.swift */,
 				6C97DFEC74737DC93DC1D1F6 /* SearchReminders.swift */,
 			);
 			path = DB;
@@ -968,6 +965,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		9073A522EBC8A6F12C65600A /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				BA0B46155A37077E3D8ABDFE /* Schema.swift */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
 		90F62AC1180CC64B4ABB8AA8 /* DB */ = {
 			isa = PBXGroup;
 			children = (
@@ -977,7 +982,6 @@
 				5DEE9C838611B6126CD8C091 /* RequestsListForm.swift */,
 				478411CFA80C2715A2FA91CF /* RequestsListRow.swift */,
 				938001ADDEB1341741EC0367 /* RequestsLists.swift */,
-				CAEEB72F2DF1834AFF235E16 /* Schema.swift */,
 				C64497E0D36C1744E15F96F7 /* SearchRequests.swift */,
 			);
 			path = DB;
@@ -1103,6 +1107,7 @@
 			isa = PBXGroup;
 			children = (
 				B9E27FE7BD17BEF9A5933DE7 /* Clients */,
+				9073A522EBC8A6F12C65600A /* DB */,
 				87F42D7DAA72625DA604D66E /* Models */,
 				6647A708D158A6E58A69AA22 /* SwifUI+Ext */,
 				04CA190027D786149CB8AD53 /* Views */,
@@ -1619,7 +1624,6 @@
 				7869C409C0B5DE174882B4DA /* RequestsListForm.swift in Sources */,
 				1AB6DB2A5B38B1251FFC0E52 /* RequestsListRow.swift in Sources */,
 				D4F7829A6AF0690B28B420E8 /* RequestsLists.swift in Sources */,
-				201452629B69CE4015BF6CB0 /* Schema.swift in Sources */,
 				4E6789736BF4EC8DDDB48C69 /* SearchRequests.swift in Sources */,
 				DB300BCCADF57F8B2B8BD631 /* Requests.swift in Sources */,
 				E8E2C208EAA0F21233E9680F /* RequestsView.swift in Sources */,
@@ -1662,6 +1666,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				734059DAC275038C63A0BD4D /* UserDefaultClient.swift in Sources */,
+				B8A5449D6CF78A9ACC88A333 /* Schema.swift in Sources */,
 				0F3E0E3CB3372C2D63041CD5 /* RequestItem.swift in Sources */,
 				F8BC971420AAF634BF615CB4 /* Color+Ext.swift in Sources */,
 				EECF0DC3D74D30761AA1A8E9 /* NavigationBar+Ext.swift in Sources */,
@@ -1714,7 +1719,6 @@
 				BCE87D5AC885328718893F33 /* RemindersListForm.swift in Sources */,
 				5E2883C49599FAF4D140DD34 /* RemindersListRow.swift in Sources */,
 				1B7D195B530DE634662287E5 /* RemindersLists.swift in Sources */,
-				BA3034D262DB85AAF4E14570 /* Schema.swift in Sources */,
 				1901B3F8AFCB41A09F489CA7 /* SearchReminders.swift in Sources */,
 				0DF31BBC91BAF682C4FF9716 /* Reminders.swift in Sources */,
 				604FB39E46FB35A47EC0D6F3 /* RemindersView.swift in Sources */,

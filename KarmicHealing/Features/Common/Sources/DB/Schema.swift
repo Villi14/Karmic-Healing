@@ -6,40 +6,96 @@ import SharingGRDB
 import SwiftUI
 
 @Table
-struct RemindersList: Hashable, Identifiable {
-  let id: UUID
+public struct RemindersList: Hashable, Identifiable {
+  public let id: UUID
   @Column(as: Color.HexRepresentation.self)
-  var color = Color(red: 0x4a / 255, green: 0x99 / 255, blue: 0xef / 255)
-  var position = 0
-  var title = ""
+  public var color = Color(red: 0x4a / 255, green: 0x99 / 255, blue: 0xef / 255)
+  public var position = 0
+  public var title = ""
 }
 
 extension RemindersList.Draft: Identifiable {}
 
 @Table
-struct Reminder: Codable, Equatable, Identifiable {
-  let id: UUID
-  var dueDate: Date?
-  var isCompleted = false
-  var isFlagged = false
-  var notes = ""
-  var position = 0
-  var priority: Priority?
-  var remindersListID: RemindersList.ID
-  var title = ""
+public struct Reminder: Codable, Equatable, Identifiable {
+  public let id: UUID
+  public var dueDate: Date?
+  public var isCompleted = false
+  public var isFlagged = false
+  public var notes = ""
+  public var position = 0
+  public var priority: Priority?
+  public var remindersListID: RemindersList.ID
+  public var title = ""
 }
 
 extension Reminder.Draft: Identifiable {}
 
-enum Priority: Int, Codable, QueryBindable {
+@Table
+public struct RequestsList: Hashable, Identifiable {
+  public let id: UUID
+  @Column(as: Color.HexRepresentation.self)
+  public var color = Color(red: 0x4a / 255, green: 0x99 / 255, blue: 0xef / 255)
+  public var position = 0
+  public var title = ""
+}
+
+extension RequestsList.Draft: Identifiable {}
+
+@Table
+public struct Request: Codable, Equatable, Identifiable {
+  public let id: UUID
+  public var dueDate: Date?
+  public var isCompleted = false
+  public var isFlagged = false
+  public var notes = ""
+  public var position = 0
+  public var priority: Priority?
+  public var requestsListID: RequestsList.ID
+  public var title = ""
+}
+
+extension Request.Draft: Identifiable {}
+
+extension Request {
+  public static let incomplete = Self.where { !$0.isCompleted }
+  public static func searching(_ text: String) -> Where<Request> {
+    Self.where {
+      $0.title.collate(.nocase).contains(text)
+        || $0.notes.collate(.nocase).contains(text)
+    }
+  }
+}
+
+extension Request.TableColumns {
+  public var isPastDue: some QueryExpression<Bool> {
+    @Dependency(\.date.now) var now
+    return !isCompleted && #sql("coalesce(date(\(dueDate)) < date(\(now)), 0)")
+  }
+
+  public var isToday: some QueryExpression<Bool> {
+    @Dependency(\.date.now) var now
+    return !isCompleted && #sql("coalesce(date(\(dueDate)) = date(\(now)), 0)")
+  }
+
+  public var isScheduled: some QueryExpression<Bool> {
+    !isCompleted && dueDate.isNot(nil)
+  }
+
+  public var inlineNotes: some QueryExpression<String> {
+    notes.replace("\n", " ")
+  }
+}
+
+public enum Priority: Int, Codable, QueryBindable {
   case low = 1
   case medium
   case high
 }
 
 extension Reminder {
-  static let incomplete = Self.where { !$0.isCompleted }
-  static func searching(_ text: String) -> Where<Reminder> {
+  public static let incomplete = Self.where { !$0.isCompleted }
+  public static func searching(_ text: String) -> Where<Reminder> {
     Self.where {
       $0.title.collate(.nocase).contains(text)
         || $0.notes.collate(.nocase).contains(text)
@@ -48,21 +104,21 @@ extension Reminder {
 }
 
 extension Reminder.TableColumns {
-  var isPastDue: some QueryExpression<Bool> {
+  public var isPastDue: some QueryExpression<Bool> {
     @Dependency(\.date.now) var now
     return !isCompleted && #sql("coalesce(date(\(dueDate)) < date(\(now)), 0)")
   }
 
-  var isToday: some QueryExpression<Bool> {
+  public var isToday: some QueryExpression<Bool> {
     @Dependency(\.date.now) var now
     return !isCompleted && #sql("coalesce(date(\(dueDate)) = date(\(now)), 0)")
   }
 
-  var isScheduled: some QueryExpression<Bool> {
+  public var isScheduled: some QueryExpression<Bool> {
     !isCompleted && dueDate.isNot(nil)
   }
 
-  var inlineNotes: some QueryExpression<String> {
+  public var inlineNotes: some QueryExpression<String> {
     notes.replace("\n", " ")
   }
 }
@@ -133,23 +189,30 @@ public func appDatabase() throws -> any DatabaseWriter {
 
     try #sql(
       """
-      CREATE TABLE "tags" (
+      CREATE TABLE "requestsLists" (
         "id" TEXT PRIMARY KEY NOT NULL ON CONFLICT REPLACE DEFAULT (uuid()),
-        "title" TEXT NOT NULL COLLATE NOCASE
+        "color" INTEGER NOT NULL DEFAULT \(raw: 0x4a99_ef00),
+        "position" INTEGER NOT NULL DEFAULT 0,
+        "title" TEXT NOT NULL
       ) STRICT
       """
     )
     .execute(db)
-    
+
     try #sql(
       """
-      CREATE TABLE "remindersTags" (
+      CREATE TABLE "requests" (
         "id" TEXT PRIMARY KEY NOT NULL ON CONFLICT REPLACE DEFAULT (uuid()),
-        "reminderID" TEXT NOT NULL,
-        "tagID" TEXT NOT NULL,
+        "dueDate" TEXT,
+        "isCompleted" INTEGER NOT NULL DEFAULT 0,
+        "isFlagged" INTEGER NOT NULL DEFAULT 0,
+        "notes" TEXT,
+        "position" INTEGER NOT NULL DEFAULT 0,
+        "priority" INTEGER,
+        "requestsListID" TEXT NOT NULL,
+        "title" TEXT NOT NULL,
 
-        FOREIGN KEY("reminderID") REFERENCES "reminders"("id") ON DELETE CASCADE,
-        FOREIGN KEY("tagID") REFERENCES "tags"("id") ON DELETE CASCADE
+        FOREIGN KEY("requestsListID") REFERENCES "requestsLists"("id") ON DELETE CASCADE
       ) STRICT
       """
     )
@@ -203,6 +266,45 @@ public func appDatabase() throws -> any DatabaseWriter {
       """
     )
     .execute(db)
+
+    try #sql(
+      """
+      CREATE TEMPORARY TRIGGER "default_position_requests_lists" 
+      AFTER INSERT ON "requestsLists"
+      FOR EACH ROW BEGIN
+        UPDATE "requestsLists"
+        SET "position" = (SELECT max("position") + 1 FROM "requestsLists")
+        WHERE "id" = NEW."id";
+      END
+      """
+    )
+    .execute(db)
+
+    try #sql(
+      """
+      CREATE TEMPORARY TRIGGER "default_position_requests" 
+      AFTER INSERT ON "requests"
+      FOR EACH ROW BEGIN
+        UPDATE "requests"
+        SET "position" = (SELECT max("position") + 1 FROM "requests")
+        WHERE "id" = NEW."id";
+      END
+      """
+    )
+    .execute(db)
+    try #sql(
+      """
+      CREATE TEMPORARY TRIGGER "non_empty_requests_lists" 
+      AFTER DELETE ON "requestsLists"
+      FOR EACH ROW BEGIN
+        INSERT INTO "requestsLists"
+        ("title", "color")
+        SELECT 'Personal', \(raw: 0x4a99ef)
+        WHERE (SELECT count(*) FROM "requestsLists") = 0;
+      END
+      """
+    )
+    .execute(db)
   }
 
   return database
@@ -212,27 +314,29 @@ private let logger = Logger(subsystem: "Reminders", category: "Database")
 
 #if DEBUG
   extension Database {
-    func seedSampleData() throws {
+    public func seedSampleData() throws {
       let remindersListIDs = (0...2).map { _ in UUID() }
       let reminderIDs = (0...10).map { _ in UUID() }
+      let requestsListIDs = (0...2).map { _ in UUID() }
+      let requestIDs = (0...10).map { _ in UUID() }
 
       try seed {
         RemindersList(
           id: remindersListIDs[0],
           color: Color(red: 0x4a / 255, green: 0x99 / 255, blue: 0xef / 255),
-          title: "Personal"
+          title: "Personal Reminder"
         )
 
         RemindersList(
           id: remindersListIDs[1],
           color: Color(red: 0xed / 255, green: 0x89 / 255, blue: 0x35 / 255),
-          title: "Family"
+          title: "Family Reminder"
         )
 
         RemindersList(
           id: remindersListIDs[2],
           color: Color(red: 0xb2 / 255, green: 0x5d / 255, blue: 0xd3 / 255),
-          title: "Business"
+          title: "Business Reminder"
         )
 
         Reminder(
@@ -327,6 +431,119 @@ private let logger = Logger(subsystem: "Reminders", category: "Database")
           dueDate: Date().addingTimeInterval(60 * 60 * 24 * 2),
           isCompleted: false,
           remindersListID: remindersListIDs[2],
+          title: "Prepare for WWDC"
+        )
+
+        RequestsList(
+          id: requestsListIDs[0],
+          color: Color(red: 0x4a / 255, green: 0x99 / 255, blue: 0xef / 255),
+          title: "Personal Request"
+        )
+
+        RequestsList(
+          id: requestsListIDs[1],
+          color: Color(red: 0xed / 255, green: 0x89 / 255, blue: 0x35 / 255),
+          title: "Family Request"
+        )
+
+        RequestsList(
+          id: requestsListIDs[2],
+          color: Color(red: 0xb2 / 255, green: 0x5d / 255, blue: 0xd3 / 255),
+          title: "Business Request"
+        )
+
+        Request(
+          id: requestIDs[0],
+          notes: "Milk\nEggs\nApples\nOatmeal\nSpinach",
+          requestsListID: requestsListIDs[0],
+          title: "Groceries"
+        )
+
+        Request(
+          id: requestIDs[1],
+          dueDate: Date().addingTimeInterval(-60 * 60 * 24 * 2),
+          isFlagged: true,
+          requestsListID: requestsListIDs[0],
+          title: "Haircut"
+        )
+
+        Request(
+          id: requestIDs[2],
+          dueDate: Date(),
+          notes: "Ask about diet",
+          priority: .high,
+          requestsListID: requestsListIDs[0],
+          title: "Doctor appointment"
+        )
+
+        Request(
+          id: requestIDs[3],
+          dueDate: Date().addingTimeInterval(-60 * 60 * 24 * 190),
+          isCompleted: true,
+          requestsListID: requestsListIDs[0],
+          title: "Take a walk"
+        )
+
+        Request(
+          id: requestIDs[4],
+          dueDate: Date(),
+          requestsListID: requestsListIDs[0],
+          title: "Buy concert tickets"
+        )
+
+        Request(
+          id: requestIDs[5],
+          dueDate: Date().addingTimeInterval(60 * 60 * 24 * 2),
+          isFlagged: true,
+          priority: .high,
+          requestsListID: requestsListIDs[1],
+          title: "Pick up kids from school"
+        )
+
+        Request(
+          id: requestIDs[6],
+          dueDate: Date().addingTimeInterval(-60 * 60 * 24 * 2),
+          isCompleted: true,
+          priority: .low,
+          requestsListID: requestsListIDs[1],
+          title: "Get laundry"
+        )
+
+        Request(
+          id: requestIDs[7],
+          dueDate: Date().addingTimeInterval(60 * 60 * 24 * 4),
+          isCompleted: false,
+          priority: .high,
+          requestsListID: requestsListIDs[1],
+          title: "Take out trash"
+        )
+
+        Request(
+          id: requestIDs[8],
+          dueDate: Date().addingTimeInterval(60 * 60 * 24 * 2),
+          notes: """
+            Status of tax return
+            Expenses for next year
+            Changing payroll company
+            """,
+          requestsListID: requestsListIDs[2],
+          title: "Call accountant"
+        )
+
+        Request(
+          id: requestIDs[9],
+          dueDate: Date().addingTimeInterval(-60 * 60 * 24 * 2),
+          isCompleted: true,
+          priority: .medium,
+          requestsListID: requestsListIDs[2],
+          title: "Send weekly emails"
+        )
+
+        Request(
+          id: requestIDs[10],
+          dueDate: Date().addingTimeInterval(60 * 60 * 24 * 2),
+          isCompleted: false,
+          requestsListID: requestsListIDs[2],
           title: "Prepare for WWDC"
         )
       }
