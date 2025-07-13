@@ -17,12 +17,6 @@ public struct RequestsView: View {
 
   public init(store: StoreOf<Requests>) {
     self.store = store
-
-    if context == .live {
-      try! prepareDependencies {
-        $0.defaultDatabase = try appDatabase()
-      }
-    }
   }
 
   public var body: some View {
@@ -35,6 +29,7 @@ public struct RequestsView: View {
       .navigationTitle(String(localized: "requests", bundle: .main))
       .navigationBarBackButtonHidden()
       .navigationBarTitleDisplayMode(.automatic)
+      .navigationBarBackgroundColor(ResourcesAsset.Colors.background.swiftUIColor)
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
       .toolbar {
         ToolbarItem(placement: .topBarLeading) {
@@ -48,7 +43,6 @@ public struct RequestsView: View {
     }
   }
 }
-
 
 #Preview {
   RequestsView(store: .init(

@@ -49,9 +49,9 @@ let project = Project(
     resources.targets,
     onboarding.targets,
     home.targets,
+    requests.targets,
     balancingEnergyList.targets,
     balancingEnergy.targets,
-    requests.targets,
     reminders.targets,
     appSettings.targets,
     testingUtilities.targets

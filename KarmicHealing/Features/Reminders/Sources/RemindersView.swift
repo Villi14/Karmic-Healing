@@ -17,17 +17,10 @@ public struct RemindersView: View {
   
   public init(store: StoreOf<Reminders>) {
     self.store = store
-
-    if context == .live {
-      try! prepareDependencies {
-        $0.defaultDatabase = try appDatabase()
-      }
-    }
   }
   
   public var body: some View {
     WithViewStore(store, observe: { $0 }) { viewStore in
-      
       VStack {
         if context == .live {
           RemindersListsView(model: Self.model)

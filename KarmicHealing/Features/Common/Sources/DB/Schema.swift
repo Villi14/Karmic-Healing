@@ -6,32 +6,6 @@ import SharingGRDB
 import SwiftUI
 
 @Table
-public struct RemindersList: Hashable, Identifiable {
-  public let id: UUID
-  @Column(as: Color.HexRepresentation.self)
-  public var color = Color(red: 0x4a / 255, green: 0x99 / 255, blue: 0xef / 255)
-  public var position = 0
-  public var title = ""
-}
-
-extension RemindersList.Draft: Identifiable {}
-
-@Table
-public struct Reminder: Codable, Equatable, Identifiable {
-  public let id: UUID
-  public var dueDate: Date?
-  public var isCompleted = false
-  public var isFlagged = false
-  public var notes = ""
-  public var position = 0
-  public var priority: Priority?
-  public var remindersListID: RemindersList.ID
-  public var title = ""
-}
-
-extension Reminder.Draft: Identifiable {}
-
-@Table
 public struct RequestsList: Hashable, Identifiable {
   public let id: UUID
   @Column(as: Color.HexRepresentation.self)
@@ -87,11 +61,32 @@ extension Request.TableColumns {
   }
 }
 
-public enum Priority: Int, Codable, QueryBindable {
-  case low = 1
-  case medium
-  case high
+
+@Table
+public struct Reminder: Codable, Equatable, Identifiable {
+  public let id: UUID
+  public var dueDate: Date?
+  public var isCompleted = false
+  public var isFlagged = false
+  public var notes = ""
+  public var position = 0
+  public var priority: Priority?
+  public var remindersListID: RemindersList.ID
+  public var title = ""
 }
+
+extension Reminder.Draft: Identifiable {}
+
+@Table
+public struct RemindersList: Hashable, Identifiable {
+  public let id: UUID
+  @Column(as: Color.HexRepresentation.self)
+  public var color = Color(red: 0x4a / 255, green: 0x99 / 255, blue: 0xef / 255)
+  public var position = 0
+  public var title = ""
+}
+
+extension RemindersList.Draft: Identifiable {}
 
 extension Reminder {
   public static let incomplete = Self.where { !$0.isCompleted }
@@ -121,6 +116,12 @@ extension Reminder.TableColumns {
   public var inlineNotes: some QueryExpression<String> {
     notes.replace("\n", " ")
   }
+}
+
+public enum Priority: Int, Codable, QueryBindable {
+  case low = 1
+  case medium
+  case high
 }
 
 public func appDatabase() throws -> any DatabaseWriter {
@@ -158,6 +159,37 @@ public func appDatabase() throws -> any DatabaseWriter {
   migrator.registerMigration("Create initial tables") { db in
     try #sql(
       """
+      CREATE TABLE "requestsLists" (
+        "id" TEXT PRIMARY KEY NOT NULL ON CONFLICT REPLACE DEFAULT (uuid()),
+        "color" INTEGER NOT NULL DEFAULT \(raw: 0x4a99_ef00),
+        "position" INTEGER NOT NULL DEFAULT 0,
+        "title" TEXT NOT NULL
+      ) STRICT
+      """
+    )
+    .execute(db)
+
+    try #sql(
+      """
+      CREATE TABLE "requests" (
+        "id" TEXT PRIMARY KEY NOT NULL ON CONFLICT REPLACE DEFAULT (uuid()),
+        "dueDate" TEXT,
+        "isCompleted" INTEGER NOT NULL DEFAULT 0,
+        "isFlagged" INTEGER NOT NULL DEFAULT 0,
+        "notes" TEXT,
+        "position" INTEGER NOT NULL DEFAULT 0,
+        "priority" INTEGER,
+        "requestsListID" TEXT NOT NULL,
+        "title" TEXT NOT NULL,
+
+        FOREIGN KEY("requestsListID") REFERENCES "requestsLists"("id") ON DELETE CASCADE
+      ) STRICT
+      """
+    )
+
+    .execute(db)
+    try #sql(
+      """
       CREATE TABLE "remindersLists" (
         "id" TEXT PRIMARY KEY NOT NULL ON CONFLICT REPLACE DEFAULT (uuid()),
         "color" INTEGER NOT NULL DEFAULT \(raw: 0x4a99_ef00),
@@ -186,37 +218,6 @@ public func appDatabase() throws -> any DatabaseWriter {
       """
     )
     .execute(db)
-
-    try #sql(
-      """
-      CREATE TABLE "requestsLists" (
-        "id" TEXT PRIMARY KEY NOT NULL ON CONFLICT REPLACE DEFAULT (uuid()),
-        "color" INTEGER NOT NULL DEFAULT \(raw: 0x4a99_ef00),
-        "position" INTEGER NOT NULL DEFAULT 0,
-        "title" TEXT NOT NULL
-      ) STRICT
-      """
-    )
-    .execute(db)
-
-    try #sql(
-      """
-      CREATE TABLE "requests" (
-        "id" TEXT PRIMARY KEY NOT NULL ON CONFLICT REPLACE DEFAULT (uuid()),
-        "dueDate" TEXT,
-        "isCompleted" INTEGER NOT NULL DEFAULT 0,
-        "isFlagged" INTEGER NOT NULL DEFAULT 0,
-        "notes" TEXT,
-        "position" INTEGER NOT NULL DEFAULT 0,
-        "priority" INTEGER,
-        "requestsListID" TEXT NOT NULL,
-        "title" TEXT NOT NULL,
-
-        FOREIGN KEY("requestsListID") REFERENCES "requestsLists"("id") ON DELETE CASCADE
-      ) STRICT
-      """
-    )
-    .execute(db)
   }
 
   try migrator.migrate(database)
@@ -228,6 +229,46 @@ public func appDatabase() throws -> any DatabaseWriter {
   }
 
   try database.write { db in
+    try #sql(
+      """
+      CREATE TEMPORARY TRIGGER "default_position_requests_lists" 
+      AFTER INSERT ON "requestsLists"
+      FOR EACH ROW BEGIN
+        UPDATE "requestsLists"
+        SET "position" = (SELECT max("position") + 1 FROM "requestsLists")
+        WHERE "id" = NEW."id";
+      END
+      """
+    )
+    .execute(db)
+
+    try #sql(
+      """
+      CREATE TEMPORARY TRIGGER "default_position_requests" 
+      AFTER INSERT ON "requests"
+      FOR EACH ROW BEGIN
+        UPDATE "requests"
+        SET "position" = (SELECT max("position") + 1 FROM "requests")
+        WHERE "id" = NEW."id";
+      END
+      """
+    )
+    .execute(db)
+
+    try #sql(
+      """
+      CREATE TEMPORARY TRIGGER "non_empty_requests_lists" 
+      AFTER DELETE ON "requestsLists"
+      FOR EACH ROW BEGIN
+        INSERT INTO "requestsLists"
+        ("title", "color")
+        SELECT 'Personal', \(raw: 0x4a99ef)
+        WHERE (SELECT count(*) FROM "requestsLists") = 0;
+      END
+      """
+    )
+    .execute(db)
+
     try #sql(
       """
       CREATE TEMPORARY TRIGGER "default_position_reminders_lists" 
@@ -266,51 +307,12 @@ public func appDatabase() throws -> any DatabaseWriter {
       """
     )
     .execute(db)
-
-    try #sql(
-      """
-      CREATE TEMPORARY TRIGGER "default_position_requests_lists" 
-      AFTER INSERT ON "requestsLists"
-      FOR EACH ROW BEGIN
-        UPDATE "requestsLists"
-        SET "position" = (SELECT max("position") + 1 FROM "requestsLists")
-        WHERE "id" = NEW."id";
-      END
-      """
-    )
-    .execute(db)
-
-    try #sql(
-      """
-      CREATE TEMPORARY TRIGGER "default_position_requests" 
-      AFTER INSERT ON "requests"
-      FOR EACH ROW BEGIN
-        UPDATE "requests"
-        SET "position" = (SELECT max("position") + 1 FROM "requests")
-        WHERE "id" = NEW."id";
-      END
-      """
-    )
-    .execute(db)
-    try #sql(
-      """
-      CREATE TEMPORARY TRIGGER "non_empty_requests_lists" 
-      AFTER DELETE ON "requestsLists"
-      FOR EACH ROW BEGIN
-        INSERT INTO "requestsLists"
-        ("title", "color")
-        SELECT 'Personal', \(raw: 0x4a99ef)
-        WHERE (SELECT count(*) FROM "requestsLists") = 0;
-      END
-      """
-    )
-    .execute(db)
   }
 
   return database
 }
 
-private let logger = Logger(subsystem: "Reminders", category: "Database")
+private let logger = Logger(subsystem: "KarmicHealing", category: "Database")
 
 #if DEBUG
   extension Database {
@@ -321,119 +323,6 @@ private let logger = Logger(subsystem: "Reminders", category: "Database")
       let requestIDs = (0...10).map { _ in UUID() }
 
       try seed {
-        RemindersList(
-          id: remindersListIDs[0],
-          color: Color(red: 0x4a / 255, green: 0x99 / 255, blue: 0xef / 255),
-          title: "Personal Reminder"
-        )
-
-        RemindersList(
-          id: remindersListIDs[1],
-          color: Color(red: 0xed / 255, green: 0x89 / 255, blue: 0x35 / 255),
-          title: "Family Reminder"
-        )
-
-        RemindersList(
-          id: remindersListIDs[2],
-          color: Color(red: 0xb2 / 255, green: 0x5d / 255, blue: 0xd3 / 255),
-          title: "Business Reminder"
-        )
-
-        Reminder(
-          id: reminderIDs[0],
-          notes: "Milk\nEggs\nApples\nOatmeal\nSpinach",
-          remindersListID: remindersListIDs[0],
-          title: "Groceries"
-        )
-
-        Reminder(
-          id: reminderIDs[1],
-          dueDate: Date().addingTimeInterval(-60 * 60 * 24 * 2),
-          isFlagged: true,
-          remindersListID: remindersListIDs[0],
-          title: "Haircut"
-        )
-
-        Reminder(
-          id: reminderIDs[2],
-          dueDate: Date(),
-          notes: "Ask about diet",
-          priority: .high,
-          remindersListID: remindersListIDs[0],
-          title: "Doctor appointment"
-        )
-
-        Reminder(
-          id: reminderIDs[3],
-          dueDate: Date().addingTimeInterval(-60 * 60 * 24 * 190),
-          isCompleted: true,
-          remindersListID: remindersListIDs[0],
-          title: "Take a walk"
-        )
-
-        Reminder(
-          id: reminderIDs[4],
-          dueDate: Date(),
-          remindersListID: remindersListIDs[0],
-          title: "Buy concert tickets"
-        )
-
-        Reminder(
-          id: reminderIDs[5],
-          dueDate: Date().addingTimeInterval(60 * 60 * 24 * 2),
-          isFlagged: true,
-          priority: .high,
-          remindersListID: remindersListIDs[1],
-          title: "Pick up kids from school"
-        )
-
-        Reminder(
-          id: reminderIDs[6],
-          dueDate: Date().addingTimeInterval(-60 * 60 * 24 * 2),
-          isCompleted: true,
-          priority: .low,
-          remindersListID: remindersListIDs[1],
-          title: "Get laundry"
-        )
-
-        Reminder(
-          id: reminderIDs[7],
-          dueDate: Date().addingTimeInterval(60 * 60 * 24 * 4),
-          isCompleted: false,
-          priority: .high,
-          remindersListID: remindersListIDs[1],
-          title: "Take out trash"
-        )
-
-        Reminder(
-          id: reminderIDs[8],
-          dueDate: Date().addingTimeInterval(60 * 60 * 24 * 2),
-          notes: """
-            Status of tax return
-            Expenses for next year
-            Changing payroll company
-            """,
-          remindersListID: remindersListIDs[2],
-          title: "Call accountant"
-        )
-
-        Reminder(
-          id: reminderIDs[9],
-          dueDate: Date().addingTimeInterval(-60 * 60 * 24 * 2),
-          isCompleted: true,
-          priority: .medium,
-          remindersListID: remindersListIDs[2],
-          title: "Send weekly emails"
-        )
-
-        Reminder(
-          id: reminderIDs[10],
-          dueDate: Date().addingTimeInterval(60 * 60 * 24 * 2),
-          isCompleted: false,
-          remindersListID: remindersListIDs[2],
-          title: "Prepare for WWDC"
-        )
-
         RequestsList(
           id: requestsListIDs[0],
           color: Color(red: 0x4a / 255, green: 0x99 / 255, blue: 0xef / 255),
@@ -544,6 +433,119 @@ private let logger = Logger(subsystem: "Reminders", category: "Database")
           dueDate: Date().addingTimeInterval(60 * 60 * 24 * 2),
           isCompleted: false,
           requestsListID: requestsListIDs[2],
+          title: "Prepare for WWDC"
+        )
+        
+        RemindersList(
+          id: remindersListIDs[0],
+          color: Color(red: 0x4a / 255, green: 0x99 / 255, blue: 0xef / 255),
+          title: "Personal Reminder"
+        )
+
+        RemindersList(
+          id: remindersListIDs[1],
+          color: Color(red: 0xed / 255, green: 0x89 / 255, blue: 0x35 / 255),
+          title: "Family Reminder"
+        )
+
+        RemindersList(
+          id: remindersListIDs[2],
+          color: Color(red: 0xb2 / 255, green: 0x5d / 255, blue: 0xd3 / 255),
+          title: "Business Reminder"
+        )
+
+        Reminder(
+          id: reminderIDs[0],
+          notes: "Milk\nEggs\nApples\nOatmeal\nSpinach",
+          remindersListID: remindersListIDs[0],
+          title: "Groceries"
+        )
+
+        Reminder(
+          id: reminderIDs[1],
+          dueDate: Date().addingTimeInterval(-60 * 60 * 24 * 2),
+          isFlagged: true,
+          remindersListID: remindersListIDs[0],
+          title: "Haircut"
+        )
+
+        Reminder(
+          id: reminderIDs[2],
+          dueDate: Date(),
+          notes: "Ask about diet",
+          priority: .high,
+          remindersListID: remindersListIDs[0],
+          title: "Doctor appointment"
+        )
+
+        Reminder(
+          id: reminderIDs[3],
+          dueDate: Date().addingTimeInterval(-60 * 60 * 24 * 190),
+          isCompleted: true,
+          remindersListID: remindersListIDs[0],
+          title: "Take a walk"
+        )
+
+        Reminder(
+          id: reminderIDs[4],
+          dueDate: Date(),
+          remindersListID: remindersListIDs[0],
+          title: "Buy concert tickets"
+        )
+
+        Reminder(
+          id: reminderIDs[5],
+          dueDate: Date().addingTimeInterval(60 * 60 * 24 * 2),
+          isFlagged: true,
+          priority: .high,
+          remindersListID: remindersListIDs[1],
+          title: "Pick up kids from school"
+        )
+
+        Reminder(
+          id: reminderIDs[6],
+          dueDate: Date().addingTimeInterval(-60 * 60 * 24 * 2),
+          isCompleted: true,
+          priority: .low,
+          remindersListID: remindersListIDs[1],
+          title: "Get laundry"
+        )
+
+        Reminder(
+          id: reminderIDs[7],
+          dueDate: Date().addingTimeInterval(60 * 60 * 24 * 4),
+          isCompleted: false,
+          priority: .high,
+          remindersListID: remindersListIDs[1],
+          title: "Take out trash"
+        )
+
+        Reminder(
+          id: reminderIDs[8],
+          dueDate: Date().addingTimeInterval(60 * 60 * 24 * 2),
+          notes: """
+            Status of tax return
+            Expenses for next year
+            Changing payroll company
+            """,
+          remindersListID: remindersListIDs[2],
+          title: "Call accountant"
+        )
+
+        Reminder(
+          id: reminderIDs[9],
+          dueDate: Date().addingTimeInterval(-60 * 60 * 24 * 2),
+          isCompleted: true,
+          priority: .medium,
+          remindersListID: remindersListIDs[2],
+          title: "Send weekly emails"
+        )
+
+        Reminder(
+          id: reminderIDs[10],
+          dueDate: Date().addingTimeInterval(60 * 60 * 24 * 2),
+          isCompleted: false,
+          remindersListID: remindersListIDs[2],
           title: "Prepare for WWDC"
         )
       }
