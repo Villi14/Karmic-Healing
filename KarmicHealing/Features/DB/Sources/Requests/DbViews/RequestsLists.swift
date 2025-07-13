@@ -161,7 +161,7 @@ struct RequestsListsView: View {
     ZStack {
       LinearGradient(
         gradient: Gradient(colors: [
-          ResourcesAsset.Colors.clam.swiftUIColor.opacity(0.1),
+          ResourcesAsset.Colors.clam.swiftUIColor.opacity(DesignConstants.opacityLow),
           ResourcesAsset.Colors.background.swiftUIColor
         ]),
         startPoint: .top,
@@ -174,7 +174,7 @@ struct RequestsListsView: View {
         List {
           if model.searchRequestsModel.searchText.isEmpty {
             Section {
-              Grid(alignment: .leading, horizontalSpacing: 8, verticalSpacing: 8) {
+              Grid(alignment: .leading, horizontalSpacing: DesignConstants.spacingSmall, verticalSpacing: DesignConstants.spacingSmall) {
                 GridRow {
                   KarmicHealingGridCell(
                     color: ResourcesAsset.Colors.clam.swiftUIColor,

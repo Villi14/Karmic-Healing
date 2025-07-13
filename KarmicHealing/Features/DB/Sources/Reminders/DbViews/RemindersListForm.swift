@@ -24,7 +24,7 @@ struct RemindersListForm: View {
             .multilineTextAlignment(.center)
             .textFieldStyle(.plain)
             .tint(ResourcesAsset.Colors.clam.swiftUIColor)
-            .padding(.horizontal, 32)
+            .padding(.horizontal, DesignConstants.spacingXLarge)
             .padding(.vertical)
         }
       }

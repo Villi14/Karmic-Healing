@@ -17,9 +17,9 @@ struct RemindersListRow: View {
       Image(systemName: "list.bullet")
         .resizable()
         .aspectRatio(contentMode: .fit)
-        .frame(height: 18)
+        .frame(height: DesignConstants.frameHeightSmall)
         .foregroundStyle(remindersList.color)
-        .padding(.leading, 16)
+        .padding(.leading, DesignConstants.paddingLarge)
 
       Text(remindersList.title)
         .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
@@ -28,16 +28,16 @@ struct RemindersListRow: View {
 
       Text("\(remindersCount)")
         .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-        .padding(.trailing, 16)
+        .padding(.trailing, DesignConstants.paddingLarge)
     }
-    .frame(height: 56)
+    .frame(height: DesignConstants.frameHeightXXLarge)
     .background {
-      RoundedRectangle(cornerRadius: 12)
+      RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
         .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
 
-      RoundedRectangle(cornerRadius: 12)
-        .inset(by: 0.5)
-        .stroke(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(0.5), lineWidth: 0.5)
+      RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
+        .inset(by: DesignConstants.lineWidthThin)
+        .stroke(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(DesignConstants.opacityMedium), lineWidth: DesignConstants.lineWidthThin)
     }
     .swipeActions {
       Button {
@@ -51,7 +51,7 @@ struct RemindersListRow: View {
         Image(systemName: "trash")
           .resizable()
           .aspectRatio(contentMode: .fit)
-          .frame(height: 18)
+          .frame(height: DesignConstants.frameHeightSmall)
       }
       .tint(ResourcesAsset.Colors.energy.swiftUIColor)
 
@@ -61,7 +61,7 @@ struct RemindersListRow: View {
         Image(systemName: "info.circle")
           .resizable()
           .aspectRatio(contentMode: .fit)
-          .frame(height: 18)
+          .frame(height: DesignConstants.frameHeightSmall)
       }
       .tint(ResourcesAsset.Colors.clarity.swiftUIColor)
     }

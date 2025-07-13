@@ -22,10 +22,9 @@ public struct HomeView: View {
     WithViewStore(store, observe: { $0 }) { viewStore in
       NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
         ZStack {
-          
           LinearGradient(
             gradient: Gradient(colors: [
-              ResourcesAsset.Colors.clam.swiftUIColor.opacity(0.1),
+              ResourcesAsset.Colors.clam.swiftUIColor.opacity(DesignConstants.opacityLow),
               ResourcesAsset.Colors.background.swiftUIColor
             ]),
             startPoint: .top,
@@ -53,11 +52,11 @@ public struct HomeView: View {
               }
               .frame(
                 width: abs(previewSize.width),
-                height: abs(previewSize.height + 8)
+                height: abs(previewSize.height + DesignConstants.padding)
               )
             }
-            .padding(.top, 44)
-            .padding(.bottom, 44)
+            .padding(.top, DesignConstants.paddingXLarge)
+            .padding(.bottom, DesignConstants.paddingXLarge)
           }
         }
         .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
@@ -81,7 +80,7 @@ public struct HomeView: View {
   }
 
   private func previewSize(in proxy: CGSize) -> CGSize {
-    let itemSpacing: CGFloat = 36
+    let itemSpacing: CGFloat = DesignConstants.itemSpacing
     let width = (proxy.width - itemSpacing) / 2
     let height = width * 0.615384615
     return .init(width: width, height: height)

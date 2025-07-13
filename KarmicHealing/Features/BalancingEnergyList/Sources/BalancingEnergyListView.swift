@@ -22,7 +22,7 @@ public struct BalancingEnergyListView: View {
       ZStack {
         LinearGradient(
           gradient: Gradient(colors: [
-            ResourcesAsset.Colors.clam.swiftUIColor.opacity(0.1),
+            ResourcesAsset.Colors.clam.swiftUIColor.opacity(DesignConstants.opacityLow),
             ResourcesAsset.Colors.background.swiftUIColor
           ]),
           startPoint: .top,
@@ -47,7 +47,7 @@ public struct BalancingEnergyListView: View {
 
           Spacer()
         }
-        .font(.system(size: 18))
+        .font(.subheadline.weight(.medium))
         .padding(.horizontal)
         .padding(.top)
       }

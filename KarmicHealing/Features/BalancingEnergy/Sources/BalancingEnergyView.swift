@@ -33,7 +33,7 @@ public struct BalancingEnergyView: View {
       ZStack {
         LinearGradient(
           gradient: Gradient(colors: [
-            ResourcesAsset.Colors.clam.swiftUIColor.opacity(0.1),
+            ResourcesAsset.Colors.clam.swiftUIColor.opacity(DesignConstants.opacityLow),
             ResourcesAsset.Colors.background.swiftUIColor
           ]),
           startPoint: .top,
@@ -46,11 +46,11 @@ public struct BalancingEnergyView: View {
             .resizable()
             .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
             .aspectRatio(contentMode: .fit)
-            .frame(height: 36)
-            .padding(.top, 16)
+            .frame(height: DesignConstants.frameHeightMedium)
+            .padding(.top, DesignConstants.paddingLarge)
 
           Text(String(localized: "attention_before_proceeding", bundle: .main))
-            .font(.system(size: 16))
+            .font(.subheadline.weight(.medium))
             .multilineTextAlignment(.center)
             .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
             .padding()
@@ -66,17 +66,17 @@ public struct BalancingEnergyView: View {
             }
           )) {
             ForEach(Array(viewStore.steps.enumerated()), id: \.offset) { index, step in
-              VStack(spacing: 20) {
+              VStack(spacing: DesignConstants.spacingLarge) {
                 Text(step.title)
-                  .font(.system(size: 20, weight: .medium))
+                  .font(.title3.weight(.medium))
                   .multilineTextAlignment(.center)
                   .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-                  .padding(.top, 24)
+                  .padding(.top, DesignConstants.paddingXLarge)
                   .padding(.horizontal)
 
                 HStack {
                   Text(step.description)
-                    .font(.system(size: 16, weight: .medium))
+                    .font(.callout.weight(.medium))
                     .multilineTextAlignment(.leading)
                     .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
                     .padding(.horizontal)
@@ -90,14 +90,14 @@ public struct BalancingEnergyView: View {
               .background {
                 Rectangle()
                   .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
-                  .clipShape(RoundedRectangle(cornerRadius: 12))
+                  .clipShape(RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium))
 
-                RoundedRectangle(cornerRadius: 12)
-                  .inset(by: 0.5)
-                  .stroke(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(0.5), lineWidth: 0.5)
+                RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
+                  .inset(by: DesignConstants.lineWidthThin)
+                  .stroke(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(DesignConstants.opacityMedium), lineWidth: DesignConstants.lineWidthThin)
               }
               .padding(.horizontal)
-              .padding(.bottom, 50)
+              .padding(.bottom, DesignConstants.bottomPaddingLarge)
             }
           }
           .setTabViewdIndicatorColor
@@ -105,7 +105,7 @@ public struct BalancingEnergyView: View {
           .gesture(
             DragGesture()
               .onEnded { gesture in
-                let threshold: CGFloat = 50
+                let threshold: CGFloat = DesignConstants.thresholdMedium
                 if gesture.translation.width > threshold {
                   if viewStore.currentStep > 0 {
                     viewStore.send(.previousStep)
@@ -143,7 +143,7 @@ public struct BalancingEnergyView: View {
             .padding()
             .background(ResourcesAsset.Colors.clam.swiftUIColor)
             .foregroundStyle(ResourcesAsset.Colors.textInvert.swiftUIColor)
-            .cornerRadius(12)
+            .cornerRadius(DesignConstants.cornerRadiusMedium)
           }
           .padding()
         }

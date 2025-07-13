@@ -26,16 +26,16 @@ public struct KarmicHealingSearchBar: View {
         }
       }
     }
-    .padding(8)
+            .padding(DesignConstants.padding)
     .background{
       RoundedRectangle(cornerRadius: 12)
         .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
 
       RoundedRectangle(cornerRadius: 12)
         .inset(by: 0.5)
-        .stroke(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(0.5), lineWidth: 0.5)
+        .stroke(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(DesignConstants.opacityMedium), lineWidth: DesignConstants.lineWidthThin)
     }
-    .cornerRadius(10)
+          .cornerRadius(DesignConstants.cornerRadius)
     .padding(.horizontal)
   }
 }

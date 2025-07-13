@@ -15,52 +15,52 @@ public struct KarmicHealingAlertView<Action: Equatable>: View {
   
   public var body: some View {
     WithViewStore(store, observe: { $0 }) { viewStore in
-      VStack(spacing: 32) {
-        VStack(spacing: 16) {
+      VStack(spacing: DesignConstants.spacingXLarge) {
+        VStack(spacing: DesignConstants.spacing) {
           if let image = viewStore.image {
             image
               .resizable()
               .aspectRatio(contentMode: .fit)
               .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
-              .frame(height: 36)
+              .frame(height: DesignConstants.frameHeightMedium)
           }
-          VStack(spacing: 8) {
+          VStack(spacing: DesignConstants.spacingSmall) {
             Text(viewStore.title)
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-              .font(.system(size: 16, weight: .medium))
+              .font(.subheadline.weight(.medium))
               .multilineTextAlignment(.center)
-              .padding(.horizontal, 16)
+              .padding(.horizontal, DesignConstants.paddingLarge)
             
             if let message = viewStore.message {
               Text(message)
                 .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-                .font(.system(size: 14, weight: .regular))
+                .font(.callout)
                 .multilineTextAlignment(.center)
-                .padding(.horizontal, 16)
+                .padding(.horizontal, DesignConstants.paddingLarge)
             }
           }
         }
-        HStack(spacing: 8) {
+        HStack(spacing: DesignConstants.spacingSmall) {
           self.buttonsView(viewStore.buttons)
         }
       }
-      .frame(maxHeight: 500)
+      .frame(maxHeight: DesignConstants.maxHeightLarge)
       .multilineTextAlignment(.center)
-      .padding(16)
+      .padding(DesignConstants.paddingLarge)
       .fixedSize(horizontal: false, vertical: true)
       .background {
         Rectangle()
           .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
           .clipShape(
-            RoundedRectangle(cornerRadius: 12)
+            RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
           )
-         .shadow(color: .black, radius: 200)
+         .shadow(color: .black, radius: DesignConstants.shadowRadiusLarge)
 
-        RoundedRectangle(cornerRadius: 12)
-          .inset(by: 0.5)
-          .stroke(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(0.5), lineWidth: 0.5)
+        RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
+          .inset(by: DesignConstants.lineWidthThin)
+          .stroke(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(DesignConstants.opacityMedium), lineWidth: DesignConstants.lineWidthThin)
       }
-      .padding(16)
+      .padding(DesignConstants.paddingLarge)
     }
     .background {
       FullScreenCoverBackgroundView(backgroundColor: .clear)
@@ -80,22 +80,22 @@ public struct KarmicHealingAlertView<Action: Equatable>: View {
           case .cancel:
             Text(button.label)
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-              .frame(height: 48)
+              .frame(height: DesignConstants.frameHeightXLarge)
               .frame(maxWidth: .infinity)
               .background(ResourcesAsset.Colors.background.swiftUIColor)
             
           default:
             Text(button.label)
               .foregroundStyle(ResourcesAsset.Colors.textInvert.swiftUIColor)
-              .frame(height: 48)
+              .frame(height: DesignConstants.frameHeightXLarge)
               .frame(maxWidth: .infinity)
               .background(ResourcesAsset.Colors.clam.swiftUIColor)
           }
         }
       }
-      .frame(maxWidth: 300)
-      .font(.system(size: 16, weight: .semibold))
-      .clipShape(RoundedRectangle(cornerRadius: 12))
+      .frame(maxWidth: DesignConstants.maxWidthMedium)
+      .font(.subheadline.weight(.semibold))
+      .clipShape(RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium))
     }
   }
 }

@@ -161,7 +161,7 @@ struct RemindersListsView: View {
     ZStack {
       LinearGradient(
         gradient: Gradient(colors: [
-          ResourcesAsset.Colors.clam.swiftUIColor.opacity(0.1),
+          ResourcesAsset.Colors.clam.swiftUIColor.opacity(DesignConstants.opacityLow),
           ResourcesAsset.Colors.background.swiftUIColor
         ]),
         startPoint: .top,

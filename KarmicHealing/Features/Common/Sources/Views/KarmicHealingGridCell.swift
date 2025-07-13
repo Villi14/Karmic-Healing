@@ -27,19 +27,19 @@ public struct KarmicHealingGridCell: View {
   public var body: some View {
     Button(action: action) {
       HStack(alignment: .firstTextBaseline) {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: DesignConstants.spacingSmall) {
           
           Image(systemName: iconName)
             .resizable()
             .foregroundStyle(color)
             .aspectRatio(contentMode: .fit)
-            .frame(height: 18)
-            .padding(.top, 4)
+            .frame(height: DesignConstants.frameHeightSmall)
+            .padding(.top, DesignConstants.paddingSmall)
           
           Text(title)
-            .font(.system(size: 14, weight: .medium))
+            .font(.caption.weight(.medium))
             .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-            .padding(.top, 4)
+            .padding(.top, DesignConstants.paddingSmall)
         }
         
         Spacer()
@@ -52,14 +52,14 @@ public struct KarmicHealingGridCell: View {
             .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
         }
       }
-      .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+      .padding(EdgeInsets(top: DesignConstants.padding, leading: DesignConstants.paddingLarge, bottom: DesignConstants.padding, trailing: DesignConstants.paddingLarge))
       .background{
-        RoundedRectangle(cornerRadius: 12)
+        RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
           .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
         
-        RoundedRectangle(cornerRadius: 12)
-          .inset(by: 0.5)
-          .stroke(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(0.5), lineWidth: 0.5)
+        RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
+          .inset(by: DesignConstants.lineWidthThin)
+          .stroke(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(DesignConstants.opacityMedium), lineWidth: DesignConstants.lineWidthThin)
       }
     }
   }

@@ -40,9 +40,9 @@ struct RequestRow: View {
           Image(systemName: isCompleted ? "circle.inset.filled" : "circle")
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .frame(height: 18)
+            .frame(height: DesignConstants.frameHeightSmall)
             .foregroundStyle(ResourcesAsset.Colors.health.swiftUIColor)
-            .padding([.trailing], 5)
+            .padding([.trailing], DesignConstants.paddingSmall)
         }
 
         VStack(alignment: .leading) {
@@ -65,7 +65,7 @@ struct RequestRow: View {
             Image(systemName: "flag")
               .resizable()
               .aspectRatio(contentMode: .fit)
-              .frame(height: 18)
+              .frame(height: DesignConstants.frameHeightSmall)
               .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
           }
           
@@ -75,7 +75,7 @@ struct RequestRow: View {
             Image(systemName: "info.circle")
               .resizable()
               .aspectRatio(contentMode: .fit)
-              .frame(height: 18)
+              .frame(height: DesignConstants.frameHeightSmall)
               .foregroundStyle(ResourcesAsset.Colors.clarity.swiftUIColor)
           }
           .tint(color)
