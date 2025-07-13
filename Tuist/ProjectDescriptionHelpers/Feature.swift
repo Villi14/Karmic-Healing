@@ -10,8 +10,7 @@ public enum Feature: String {
   case home
   case balancingEnergyList
   case balancingEnergy
-  case requests
-  case reminders
+  case db
   case appSettings
   case testingUtilities
 }

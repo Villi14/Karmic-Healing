@@ -11,6 +11,7 @@ import Onboarding
 @Reducer
 struct KarmicHealing {
   @Dependency(\.userDefaults) var userDefaults
+  @Dependency(\.context) var context
 
   @ObservableState
   struct State {
@@ -28,6 +29,12 @@ struct KarmicHealing {
       case .onDidFinishLaunching:
         if shouldShowOnboarding() {
           state.destination = .home(.init())
+        }
+
+        if context == .live {
+          try! prepareDependencies {
+            $0.defaultDatabase = try appDatabase()
+          }
         }
         return .none
                 

@@ -12,7 +12,7 @@ public struct RemindersView: View {
   @Dependency(\.context) var context
   
   static let model = RemindersListsModel()
-  
+
   public let store: StoreOf<Reminders>
   
   public init(store: StoreOf<Reminders>) {

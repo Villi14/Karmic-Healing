@@ -45,8 +45,7 @@ public let home = Module(
     .target(common.implementationTarget),
     .target(resources.implementationTarget),
     .target(balancingEnergyList.implementationTarget),
-    .target(requests.implementationTarget),
-    .target(reminders.implementationTarget),
+    .target(db.implementationTarget),
     .target(appSettings.implementationTarget),
     .external(name: "ComposableArchitecture")
   ],
@@ -86,21 +85,8 @@ public let balancingEnergy = Module(
 
 // MARK: - Requests module
 
-public let requests = Module(
-  feature: .requests,
-  dependencies: [
-    .target(common.implementationTarget),
-    .target(resources.implementationTarget),
-    .external(name: "ComposableArchitecture"),
-    .external(name: "SharingGRDB")
-  ],
-  resources: .notPresent
-)
-
-// MARK: - Remainders module
-
-public let reminders = Module(
-  feature: .reminders,
+public let db = Module(
+  feature: .db,
   dependencies: [
     .target(common.implementationTarget),
     .target(resources.implementationTarget),

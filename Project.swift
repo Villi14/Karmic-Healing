@@ -20,10 +20,9 @@ let mainTarget = Target.target(
     .target(common.implementationTarget),
     .target(onboarding.implementationTarget),
     .target(home.implementationTarget),
-    .target(requests.implementationTarget),
+    .target(db.implementationTarget),
     .target(balancingEnergyList.implementationTarget),
     .target(balancingEnergy.implementationTarget),
-    .target(reminders.implementationTarget),
     .target(appSettings.implementationTarget),
     .external(name: "ComposableArchitecture")
   ],
@@ -49,10 +48,9 @@ let project = Project(
     resources.targets,
     onboarding.targets,
     home.targets,
-    requests.targets,
+    db.targets,
     balancingEnergyList.targets,
     balancingEnergy.targets,
-    reminders.targets,
     appSettings.targets,
     testingUtilities.targets
   ),

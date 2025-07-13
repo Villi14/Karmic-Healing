@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "92B8152D790C553ABCB8FCF0"
-               BuildableName = "Requests.framework"
-               BlueprintName = "Requests"
+               BlueprintIdentifier = "0C1A1C8C498283C94E12E8FC"
+               BuildableName = "Db.framework"
+               BlueprintName = "Db"
                ReferencedContainer = "container:KarmicHealing.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,9 +44,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "92B8152D790C553ABCB8FCF0"
-            BuildableName = "Requests.framework"
-            BlueprintName = "Requests"
+            BlueprintIdentifier = "0C1A1C8C498283C94E12E8FC"
+            BuildableName = "Db.framework"
+            BlueprintName = "Db"
             ReferencedContainer = "container:KarmicHealing.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -60,9 +60,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "92B8152D790C553ABCB8FCF0"
-            BuildableName = "Requests.framework"
-            BlueprintName = "Requests"
+            BlueprintIdentifier = "0C1A1C8C498283C94E12E8FC"
+            BuildableName = "Db.framework"
+            BlueprintName = "Db"
             ReferencedContainer = "container:KarmicHealing.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

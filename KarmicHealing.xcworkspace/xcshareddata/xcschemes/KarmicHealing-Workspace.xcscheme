@@ -196,6 +196,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0C1A1C8C498283C94E12E8FC"
+               BuildableName = "Db.framework"
+               BlueprintName = "Db"
+               ReferencedContainer = "container:KarmicHealing.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "56E5E7D15D17320671D69B9C"
                BuildableName = "Dependencies.framework"
                BlueprintName = "Dependencies"
@@ -424,34 +438,6 @@
                BuildableName = "PerceptionMacros"
                BlueprintName = "PerceptionMacros"
                ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-perception/swift-perception.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "596B043D4D87C6FFD382929D"
-               BuildableName = "Reminders.framework"
-               BlueprintName = "Reminders"
-               ReferencedContainer = "container:KarmicHealing.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "92B8152D790C553ABCB8FCF0"
-               BuildableName = "Requests.framework"
-               BlueprintName = "Requests"
-               ReferencedContainer = "container:KarmicHealing.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry

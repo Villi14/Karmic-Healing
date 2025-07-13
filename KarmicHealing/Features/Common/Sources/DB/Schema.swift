@@ -186,8 +186,8 @@ public func appDatabase() throws -> any DatabaseWriter {
       ) STRICT
       """
     )
-
     .execute(db)
+   
     try #sql(
       """
       CREATE TABLE "remindersLists" (
