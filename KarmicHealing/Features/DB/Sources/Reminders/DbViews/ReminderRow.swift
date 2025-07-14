@@ -40,9 +40,9 @@ struct ReminderRow: View {
           Image(systemName: isCompleted ? "circle.inset.filled" : "circle")
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .frame(height: DesignConstants.frameHeightSmall)
+            .frame(height: 18)
             .foregroundStyle(ResourcesAsset.Colors.health.swiftUIColor)
-            .padding([.trailing], DesignConstants.paddingSmall)
+            .padding([.trailing], 5)
         }
 
         VStack(alignment: .leading) {
@@ -65,7 +65,7 @@ struct ReminderRow: View {
             Image(systemName: "flag")
               .resizable()
               .aspectRatio(contentMode: .fit)
-              .frame(height: DesignConstants.frameHeightSmall)
+              .frame(height: 18)
               .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
           }
           
@@ -75,7 +75,7 @@ struct ReminderRow: View {
             Image(systemName: "info.circle")
               .resizable()
               .aspectRatio(contentMode: .fit)
-              .frame(height: DesignConstants.frameHeightSmall)
+              .frame(height: 18)
               .foregroundStyle(ResourcesAsset.Colors.clarity.swiftUIColor)
           }
           .tint(color)
