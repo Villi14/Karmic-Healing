@@ -174,14 +174,14 @@ struct RequestsDetailView: View {
         VStack(alignment: .leading) {
           GeometryReader { proxy in
             Text(model.detailType.navigationTitle)
-              .font(.system(.largeTitle, design: .rounded, weight: .bold))
+              .font(.system(.title2, design: .rounded, weight: .bold))
               .foregroundStyle(model.detailType.color)
               .onAppear { navigationTitleHeight = proxy.size.height }
           }
         }
         .listRowSeparator(.hidden)
         .listRowBackground(Color.clear)
-        .padding(.bottom, 16)
+        .padding(.bottom, DesignConstants.paddingLarge)
 
         ForEach(model.requestRows) { row in
           RequestRow(
@@ -193,7 +193,7 @@ struct RequestsDetailView: View {
             showCompleted: model.showCompleted
           )
         }
-       .listRowBackground(Color.clear)
+        .listRowBackground(Color.clear)
       }
       .navigationBarBackButtonHidden()
       .navigationBarTitleDisplayMode(.automatic)
@@ -241,7 +241,7 @@ struct RequestsDetailView: View {
                   Image(systemName: "plus")
                   Text(String(localized: "request", bundle: .main))
                 }
-                .font(.title3)
+                .font(.body)
               }
               Spacer()
             }

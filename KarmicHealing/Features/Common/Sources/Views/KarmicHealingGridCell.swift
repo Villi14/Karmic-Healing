@@ -37,7 +37,7 @@ public struct KarmicHealingGridCell: View {
             .padding(.top, DesignConstants.paddingSmall)
           
           Text(title)
-            .font(.caption.weight(.medium))
+            .font(.footnote.weight(.medium))
             .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
             .padding(.top, DesignConstants.paddingSmall)
         }

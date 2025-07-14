@@ -2,13 +2,14 @@ import SwiftUI
 
 public enum DesignConstants {
     // Padding
+    public static let paddingTiny: CGFloat = 2
     public static let paddingSmall: CGFloat = 4
     public static let padding: CGFloat = 8
     public static let paddingMedium: CGFloat = 12
     public static let paddingLarge: CGFloat = 16
     public static let paddingXLarge: CGFloat = 24
     public static let paddingXXLarge: CGFloat = 32
-    public static let paddingNegativeSmall: CGFloat = -5
+    public static let paddingNegativeSmall: CGFloat = -6
     public static let paddingNegative: CGFloat = -8
     public static let paddingNegativeLarge: CGFloat = -16
     public static let paddingNegativeXLarge: CGFloat = -28

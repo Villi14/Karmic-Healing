@@ -25,8 +25,8 @@ public struct KarmicHealingDisclosureCell<Content: View>: View {
           Image(systemName: "chevron.right")
             .renderingMode(.template)
             .resizable()
-            .frame(width: 12, height: 18)
-            .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor.opacity(0.5))
+            .frame(width: DesignConstants.paddingMedium, height: DesignConstants.paddingLarge)
+            .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor.opacity(DesignConstants.opacityMedium))
         }
       }
     })
@@ -57,8 +57,11 @@ public struct KarmicHealingDisclosureGroup<Content: View>: View {
           .fill(self.backgroundColor)
         
         RoundedRectangle(cornerRadius: self.cornerRadius)
-          .inset(by: 0.5)
-          .stroke(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(0.5), lineWidth: 0.5)
+          .inset(by: DesignConstants.lineWidthThin)
+          .stroke(
+            ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(DesignConstants.opacityMedium),
+            lineWidth: DesignConstants.lineWidthThin
+          )
       }
   }
 }

@@ -174,7 +174,7 @@ struct RemindersListsView: View {
         List {
           if model.searchRemindersModel.searchText.isEmpty {
             Section {
-              Grid(alignment: .leading, horizontalSpacing: 8, verticalSpacing: 8) {
+              Grid(alignment: .leading, horizontalSpacing: DesignConstants.padding, verticalSpacing: DesignConstants.padding) {
                 GridRow {
                   KarmicHealingGridCell(
                     color: ResourcesAsset.Colors.clam.swiftUIColor,
@@ -228,7 +228,7 @@ struct RemindersListsView: View {
               }
               .buttonStyle(.plain)
               .listRowBackground(Color.clear)
-              .padding(.horizontal, -8)
+              .padding(.horizontal, DesignConstants.paddingNegative)
 
             }
             .listSectionSeparator(.hidden)
@@ -245,11 +245,11 @@ struct RemindersListsView: View {
               }
             } header: {
               Text(String(localized: "my_reminders", bundle: .main))
-                .font(.system(.title2, design: .rounded, weight: .bold))
+                .font(.system(.headline, design: .rounded, weight: .bold))
                 .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
                 .textCase(nil)
-                .padding(.top, -16)
-                .padding(.horizontal, 4)
+                .padding(.top, DesignConstants.paddingNegativeLarge)
+                .padding(.horizontal, DesignConstants.paddingSmall)
             }
             .listRowBackground(Color.clear)
             .listRowSeparator(.hidden)
@@ -292,7 +292,7 @@ struct RemindersListsView: View {
                     .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
 
                   Text(String(localized: "reminder", bundle: .main))
-                    .font(.title3)
+                    .font(.body)
                     .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
                 }
               }
@@ -306,7 +306,7 @@ struct RemindersListsView: View {
                   .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
 
                 Text(String(localized: "list", bundle: .main))
-                  .font(.title3)
+                  .font(.body)
                   .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
               }
             }
@@ -331,8 +331,8 @@ struct RemindersListsView: View {
         }
         .listStyle(.plain)
         .scrollContentBackground(.hidden)
-        .padding(.horizontal, 8)
-        .padding(.top, 8)
+        .padding(.horizontal, DesignConstants.padding)
+        .padding(.top, DesignConstants.padding)
       }
     }
   }

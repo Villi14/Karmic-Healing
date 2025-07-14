@@ -806,6 +806,29 @@
         }
       }
     },
+    "my_requests" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My requests"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мои просьбы"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мої прохання"
+          }
+        }
+      }
+    },
     "new_list" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1565,6 +1588,29 @@
         }
       }
     },
+    "request" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Request"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Просьбa"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Прохання"
+          }
+        }
+      }
+    },
     "requests" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1577,13 +1623,13 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Запросы"
+            "value" : "Просьбы"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Запити"
+            "value" : "Прохання"
           }
         }
       }

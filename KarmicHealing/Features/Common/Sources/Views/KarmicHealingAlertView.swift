@@ -27,7 +27,7 @@ public struct KarmicHealingAlertView<Action: Equatable>: View {
           VStack(spacing: DesignConstants.spacingSmall) {
             Text(viewStore.title)
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-              .font(.subheadline.weight(.medium))
+              .font(.callout.weight(.medium))
               .multilineTextAlignment(.center)
               .padding(.horizontal, DesignConstants.paddingLarge)
             

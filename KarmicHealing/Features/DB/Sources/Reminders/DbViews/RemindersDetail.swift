@@ -175,14 +175,14 @@ struct RemindersDetailView: View {
         VStack(alignment: .leading) {
           GeometryReader { proxy in
             Text(model.detailType.navigationTitle)
-              .font(.system(.largeTitle, design: .rounded, weight: .bold))
+              .font(.system(.title2, design: .rounded, weight: .bold))
               .foregroundStyle(model.detailType.color)
               .onAppear { navigationTitleHeight = proxy.size.height }
           }
         }
         .listRowSeparator(.hidden)
         .listRowBackground(Color.clear)
-        .padding(.bottom, 16)
+        .padding(.bottom, DesignConstants.paddingLarge)
 
         ForEach(model.reminderRows) { row in
           ReminderRow(
@@ -242,7 +242,7 @@ struct RemindersDetailView: View {
                   Image(systemName: "plus")
                   Text(String(localized: "reminder", bundle: .main))
                 }
-                .font(.title3)
+                .font(.body)
               }
               Spacer()
             }

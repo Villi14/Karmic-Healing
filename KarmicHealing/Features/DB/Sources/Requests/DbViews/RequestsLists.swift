@@ -228,8 +228,7 @@ struct RequestsListsView: View {
               }
               .buttonStyle(.plain)
               .listRowBackground(Color.clear)
-              .padding(.horizontal, -8)
-
+              .padding(.horizontal, DesignConstants.paddingNegative)
             }
             .listSectionSeparator(.hidden)
 
@@ -245,15 +244,15 @@ struct RequestsListsView: View {
               }
             } header: {
               Text(String(localized: "my_requests", bundle: .main))
-                .font(.system(.title2, design: .rounded, weight: .bold))
+                .font(.system(.headline, design: .rounded, weight: .bold))
                 .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
                 .textCase(nil)
-                .padding(.top, -16)
-                .padding(.horizontal, 4)
+                .padding(.top, DesignConstants.paddingNegativeLarge)
+                .padding(.horizontal, DesignConstants.paddingSmall)
             }
             .listRowBackground(Color.clear)
             .listRowSeparator(.hidden)
-            .listRowInsets(EdgeInsets(top: 2, leading: 12, bottom: 2, trailing: 12))
+            .listRowInsets(EdgeInsets(top:  DesignConstants.paddingTiny, leading: DesignConstants.paddingMedium, bottom:  DesignConstants.paddingTiny, trailing: DesignConstants.paddingMedium))
           } else {
             SearchRequestsView(model: model.searchRequestsModel)
               .listRowBackground(Color.clear)
@@ -292,7 +291,7 @@ struct RequestsListsView: View {
                     .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
 
                   Text(String(localized: "request", bundle: .main))
-                    .font(.title3)
+                    .font(.body)
                     .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
                 }
               }
@@ -306,7 +305,7 @@ struct RequestsListsView: View {
                   .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
 
                 Text(String(localized: "list", bundle: .main))
-                  .font(.title3)
+                  .font(.body)
                   .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
               }
             }
@@ -331,8 +330,8 @@ struct RequestsListsView: View {
         }
         .listStyle(.plain)
         .scrollContentBackground(.hidden)
-        .padding(.horizontal, 8)
-        .padding(.top, 8)
+        .padding(.horizontal, DesignConstants.padding)
+        .padding(.top, DesignConstants.padding)
       }
     }
   }

@@ -18,7 +18,7 @@ public struct KarmicHealingSearchBar: View {
       TextField(String(localized: "search", bundle: .main), text: $text)
         .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
         .accentColor(ResourcesAsset.Colors.clam.swiftUIColor)
-      
+
       if !text.isEmpty {
         Button(action: { text = "" }) {
           Image(systemName: "xmark.circle")
@@ -26,16 +26,16 @@ public struct KarmicHealingSearchBar: View {
         }
       }
     }
-            .padding(DesignConstants.padding)
+    .padding(DesignConstants.padding)
     .background{
-      RoundedRectangle(cornerRadius: 12)
+      RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
         .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
 
-      RoundedRectangle(cornerRadius: 12)
-        .inset(by: 0.5)
+      RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
+        .inset(by: DesignConstants.lineWidthThin)
         .stroke(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(DesignConstants.opacityMedium), lineWidth: DesignConstants.lineWidthThin)
     }
-          .cornerRadius(DesignConstants.cornerRadius)
+    .cornerRadius(DesignConstants.cornerRadius)
     .padding(.horizontal)
   }
 }

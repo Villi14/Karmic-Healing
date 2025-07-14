@@ -22,6 +22,7 @@ struct RequestsListRow: View {
         .padding(.leading, DesignConstants.paddingLarge)
 
       Text(requestsList.title)
+        .font(.subheadline.weight(.medium))
         .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
 
       Spacer()

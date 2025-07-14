@@ -22,6 +22,7 @@ struct RemindersListRow: View {
         .padding(.leading, DesignConstants.paddingLarge)
 
       Text(remindersList.title)
+        .font(.subheadline.weight(.medium))
         .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
 
       Spacer()
