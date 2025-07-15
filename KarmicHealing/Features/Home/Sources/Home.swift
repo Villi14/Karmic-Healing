@@ -23,7 +23,7 @@ public struct Home {
     let homeButtons: [HomeButton] = [
       .balancingEnуergyButton,
       .requestsButton,
-      .notesButton,
+      .remindersButton,
       .settingsButton
     ]
   }
@@ -44,7 +44,7 @@ public struct Home {
         case .requestsButton:
           state.path.append(.requests(.init()))
           return .none
-        case .notesButton:
+        case .remindersButton:
           state.path.append(.reminders(.init()))
           return .none
         case .settingsButton:

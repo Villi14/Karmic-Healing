@@ -28,7 +28,7 @@ extension HomeButton {
     )
   }
 
-  public static var notesButton: Self {
+  public static var remindersButton: Self {
     .init(
       color: ResourcesAsset.Colors.friendly.swiftUIColor,
       icon: Image(systemName: "pencil.and.list.clipboard"),
