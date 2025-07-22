@@ -142,7 +142,7 @@ public func appDatabase() throws -> any DatabaseWriter {
   }
 
   if context == .preview {
-    database = try DatabaseQueue(configuration: configuration)
+    database = try DatabaseQueue(path: ":memory:", configuration: configuration)
   } else {
     let path =
     context == .live
@@ -531,7 +531,7 @@ extension Database {
         remindersListID: remindersListIDs[2],
         title: "Call accountant"
       )
-
+      
       Reminder(
         id: reminderIDs[9],
         dueDate: Date().addingTimeInterval(-60 * 60 * 24 * 2),

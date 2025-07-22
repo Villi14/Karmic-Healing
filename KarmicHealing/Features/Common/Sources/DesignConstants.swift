@@ -13,6 +13,7 @@ public enum DesignConstants {
     public static let paddingNegative: CGFloat = -8
     public static let paddingNegativeLarge: CGFloat = -16
     public static let paddingNegativeXLarge: CGFloat = -28
+    public static let bottomPaddingLarge: CGFloat = 50
 
     // Corner radius
     public static let cornerRadiusSmall: CGFloat = 4
@@ -56,6 +57,6 @@ public enum DesignConstants {
     // Threshold
     public static let thresholdMedium: CGFloat = 50
 
-    // Bottom padding
-    public static let bottomPaddingLarge: CGFloat = 50
+    // Golden ratio (height/width)
+    public static let goldenRatio: CGFloat = 0.615384615
 } 

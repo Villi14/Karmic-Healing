@@ -30,7 +30,7 @@ public struct KarmicHealingDisclosureCell<Content: View>: View {
         }
       }
     })
-    .frame(height: 56)
+    .frame(height: DesignConstants.frameHeightXXLarge)
     .padding(.horizontal)
   }
 }
@@ -42,7 +42,7 @@ public struct KarmicHealingDisclosureGroup<Content: View>: View {
   
   public init(
     @ViewBuilder content: @escaping () -> Content,
-    cornerRadius: Double = 12,
+    cornerRadius: Double = DesignConstants.cornerRadiusMedium,
     backgroundColor: SwiftUI.Color = ResourcesAsset.Colors.cellBackground.swiftUIColor
   ) {
     self.content = content

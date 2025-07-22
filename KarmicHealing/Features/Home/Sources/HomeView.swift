@@ -80,9 +80,8 @@ public struct HomeView: View {
   }
 
   private func previewSize(in proxy: CGSize) -> CGSize {
-    let itemSpacing: CGFloat = DesignConstants.itemSpacing
-    let width = (proxy.width - itemSpacing) / 2
-    let height = width * 0.615384615
+    let width = (proxy.width - DesignConstants.itemSpacing) / 2
+    let height = width * DesignConstants.goldenRatio
     return .init(width: width, height: height)
   }
 }

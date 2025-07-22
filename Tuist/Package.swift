@@ -32,7 +32,7 @@ let package = Package(
   dependencies: [
     .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", from: "1.19.1"),
     .package(url: "https://github.com/pointfreeco/sharing-grdb.git", from: "0.4.1"),
-    .package(url: "https://github.com/pointfreeco/swift-dependencies", from: "1.0.0"),
+    .package(url: "https://github.com/pointfreeco/swift-dependencies", from: "1.9.0"),
     .package(url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.18.3")
   ]
 )

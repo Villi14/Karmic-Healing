@@ -32,7 +32,6 @@ public struct Onboarding {
     case nextStep
     case previousStep
     case completeOnboarding
-    case skipOnboarding
   }
 
   public var body: some ReducerOf<Self> {
@@ -56,10 +55,6 @@ public struct Onboarding {
       case .completeOnboarding:
         state.isCompleted = true
         return .none
-        
-      case .skipOnboarding:
-        saveDidShowOnboarding()
-        return .send(.completeOnboarding)
       }
     }
   }

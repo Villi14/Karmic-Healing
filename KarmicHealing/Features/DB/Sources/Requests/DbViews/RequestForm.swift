@@ -42,7 +42,7 @@ struct RequestFormView: View {
             Image(systemName: "calendar")
               .resizable()
               .aspectRatio(contentMode: .fit)
-              .frame(width: 18, height: 18)
+              .frame(width: DesignConstants.frameHeightSmall, height: DesignConstants.frameHeightSmall)
               .foregroundStyle(ResourcesAsset.Colors.energy.swiftUIColor)
             Text(String(localized: "date", bundle: .main))
           }
@@ -56,7 +56,7 @@ struct RequestFormView: View {
             displayedComponents: [.date, .hourAndMinute]
           )
           .tint(ResourcesAsset.Colors.clam.swiftUIColor)
-          .padding(.vertical, 2)
+          .padding(.vertical, DesignConstants.paddingTiny)
         }
       }
 
@@ -66,7 +66,7 @@ struct RequestFormView: View {
             Image(systemName: "flag")
               .resizable()
               .aspectRatio(contentMode: .fit)
-              .frame(width: 18, height: 18)
+              .frame(width: DesignConstants.frameHeightSmall, height: DesignConstants.frameHeightSmall)
               .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
             Text(String(localized: "flag", bundle: .main))
           }
@@ -84,7 +84,7 @@ struct RequestFormView: View {
             Image(systemName: "exclamationmark")
               .resizable()
               .aspectRatio(contentMode: .fit)
-              .frame(width: 18, height: 18)
+              .frame(width: DesignConstants.frameHeightSmall, height: DesignConstants.frameHeightSmall)
               .foregroundStyle(ResourcesAsset.Colors.energy.swiftUIColor)
             Text(String(localized: "priority", bundle: .main))
           }
@@ -93,7 +93,6 @@ struct RequestFormView: View {
         Picker(selection: $request.requestsListID) {
           ForEach(requestsLists) { requestsList in
             Text(requestsList.title)
-              .tag(requestsList)
               .buttonStyle(.plain)
               .tag(requestsList.id)
           }
@@ -102,7 +101,7 @@ struct RequestFormView: View {
             Image(systemName: "list.bullet")
               .resizable()
               .aspectRatio(contentMode: .fit)
-              .frame(width: 18, height: 18)
+              .frame(width: DesignConstants.frameHeightSmall, height: DesignConstants.frameHeightSmall)
               .foregroundStyle(requestsList.color)
             Text(String(localized: "list", bundle: .main))
           }
@@ -114,7 +113,7 @@ struct RequestFormView: View {
         }
       }
     }
-    .padding(.top, -28)
+    .padding(.top, DesignConstants.paddingNegativeXLarge)
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
       ToolbarItem {
