@@ -5,6 +5,8 @@ import Common
 import Resources
 
 struct ReminderFormView: View {
+  @Dependency(\.notifications) var notifications
+
   @FetchAll(RemindersList.order(by: \.title)) var remindersLists
   @FetchOne var remindersList: RemindersList
 
@@ -135,11 +137,13 @@ struct ReminderFormView: View {
 
   private func saveButtonTapped() {
     withErrorReporting {
-      try database.write { db in
-        let reminderID = try Reminder.upsert(reminder).returning(\.id).fetchOne(db)!
+      let reminderID = try database.write { db in
+        try Reminder.upsert(reminder).returning(\.id).fetchOne(db)!
+      }
 
-        if let dueDate = reminder.dueDate {
-          NotificationClient.shared.scheduleNotification(
+      if let dueDate = reminder.dueDate {
+        Task {
+          await notifications.scheduleNotification(
             id: "reminder_\(reminderID.uuidString)",
             title: reminder.title,
             body: reminder.notes.isEmpty ? "" : reminder.notes,
