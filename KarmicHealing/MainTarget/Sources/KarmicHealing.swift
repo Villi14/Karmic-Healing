@@ -15,11 +15,13 @@ struct KarmicHealing {
   @ObservableState
   struct State {
     var destination: Destination.State = .onboarding(.init())
+    var selectedReminderID: UUID? = nil
   }
 
   enum Action {
     case onDidFinishLaunching
     case destination(Destination.Action)
+    case setSelectedReminderID(UUID?)
   }
 
   var body: some ReducerOf<Self> {
@@ -36,6 +38,10 @@ struct KarmicHealing {
         return .none
 
       case .destination:
+        return .none
+        
+      case .setSelectedReminderID(let id):
+        state.selectedReminderID = id
         return .none
       }
     }

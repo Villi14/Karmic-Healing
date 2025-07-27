@@ -15,17 +15,25 @@ class RemindersDetailModel: HashableObject {
 
   let detailType: DetailType
   var isNewReminderSheetPresented = false
+  var selectedReminderID: UUID?
 
   @ObservationIgnored @Dependency(\.defaultDatabase) private var database
 
-  init(detailType: DetailType) {
+  init(detailType: DetailType, selectedReminderID: UUID? = nil) {
     self.detailType = detailType
+    self.selectedReminderID = selectedReminderID
     _ordering = Shared(wrappedValue: .dueDate, .appStorage("ordering_list_\(detailType.id)"))
     _showCompleted = Shared(
       wrappedValue: detailType == .completed,
       .appStorage("show_completed_list_\(detailType.id)")
     )
     _reminderRows = FetchAll(remindersQuery)
+    // Скролимо до потрібного Reminder, якщо selectedReminderID задано
+    if let id = selectedReminderID, let index = reminderRows.firstIndex(where: { $0.id == id }) {
+      DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        // TODO: Реалізувати скрол до index (потрібно додати ScrollViewReader у RemindersDetailView)
+      }
+    }
   }
 
   func orderingButtonTapped(_ ordering: Ordering) async {
@@ -158,6 +166,7 @@ struct RemindersDetailView: View {
 
   @State var isNavigationTitleVisible = false
   @State var navigationTitleHeight: CGFloat = 36
+  @State private var didScrollToReminder = false
 
   var body: some View {
     ZStack {
@@ -171,30 +180,45 @@ struct RemindersDetailView: View {
       )
       .ignoresSafeArea()
 
-      List {
-        VStack(alignment: .leading) {
-          GeometryReader { proxy in
-            Text(model.detailType.navigationTitle)
-              .font(.system(.title2, design: .rounded, weight: .bold))
-              .foregroundStyle(model.detailType.color)
-              .onAppear { navigationTitleHeight = proxy.size.height }
+      ScrollViewReader { proxy in
+        List {
+          VStack(alignment: .leading) {
+            GeometryReader { proxy in
+              Text(model.detailType.navigationTitle)
+                .font(.system(.title2, design: .rounded, weight: .bold))
+                .foregroundStyle(model.detailType.color)
+                .onAppear { navigationTitleHeight = proxy.size.height }
+            }
+          }
+          .listRowSeparator(.hidden)
+          .listRowBackground(Color.clear)
+          .padding(.bottom, DesignConstants.paddingLarge)
+
+          ForEach(model.reminderRows) { row in
+            ReminderRow(
+              color: model.detailType.color,
+              isPastDue: row.isPastDue,
+              notes: row.notes,
+              reminder: row.reminder,
+              remindersList: row.remindersList,
+              showCompleted: model.showCompleted
+            )
+            .id(row.id)
+          }
+          .listRowBackground(Color.clear)
+        }
+        .onAppear {
+          if let selectedID = model.selectedReminderID, !didScrollToReminder {
+            if model.reminderRows.contains(where: { $0.id == selectedID }) {
+              DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                withAnimation {
+                  proxy.scrollTo(selectedID, anchor: .center)
+                  didScrollToReminder = true
+                }
+              }
+            }
           }
         }
-        .listRowSeparator(.hidden)
-        .listRowBackground(Color.clear)
-        .padding(.bottom, DesignConstants.paddingLarge)
-
-        ForEach(model.reminderRows) { row in
-          ReminderRow(
-            color: model.detailType.color,
-            isPastDue: row.isPastDue,
-            notes: row.notes,
-            reminder: row.reminder,
-            remindersList: row.remindersList,
-            showCompleted: model.showCompleted
-          )
-        }
-       .listRowBackground(Color.clear)
       }
       .navigationBarBackButtonHidden()
       .navigationBarTitleDisplayMode(.automatic)

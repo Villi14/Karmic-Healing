@@ -34,7 +34,7 @@ struct ReminderFormView: View {
       .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
       .tint(ResourcesAsset.Colors.clam.swiftUIColor)
       .lineLimit(4)
-      .padding(.horizontal, -5)
+      .padding(.horizontal, DesignConstants.paddingNegativeSmall)
 
       Section {
         Toggle(isOn: $reminder.isDateSet.animation()) {
@@ -123,7 +123,7 @@ struct ReminderFormView: View {
         .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
         .disabled(reminder.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
       }
-      
+
       ToolbarItem(placement: .cancellationAction) {
         Button(String(localized: "cancel", bundle: .main)) {
           dismiss()
@@ -136,7 +136,18 @@ struct ReminderFormView: View {
   private func saveButtonTapped() {
     withErrorReporting {
       try database.write { db in
-        try Reminder.upsert(reminder).fetchOne(db)
+        let reminderID = try Reminder.upsert(reminder).returning(\.id).fetchOne(db)!
+
+        if let dueDate = reminder.dueDate {
+          NotificationClient.shared.scheduleNotification(
+            id: "reminder_\(reminderID.uuidString)",
+            title: reminder.title,
+            body: reminder.notes.isEmpty ? "" : reminder.notes,
+            date: dueDate,
+            reminderID: reminderID,
+            soundName: "ding.wav"
+          )
+        }
       }
     }
     dismiss()
@@ -169,7 +180,7 @@ struct ReminderFormPreview: PreviewProvider {
         )
       }
     }
-    
+
     NavigationStack {
       ReminderFormView(reminder: Reminder.Draft(reminder), remindersList: remindersList)
         .navigationTitle(String(localized: "detail", bundle: .main))

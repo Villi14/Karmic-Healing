@@ -2,6 +2,7 @@
 // Karmic Healing 2025
 //
 
+import Foundation
 import ComposableArchitecture
 import Resources
 import Common
@@ -19,6 +20,7 @@ public struct Home {
     public init() {}
 
     var path = StackState<Path.State>()
+    var selectedReminderID: UUID? = nil
 
     let homeButtons: [HomeButton] = [
       .balancingEnуergyButton,
@@ -31,6 +33,7 @@ public struct Home {
   public enum Action: Equatable {
     case didTap(HomeButton)
     case path(StackActionOf<Path>)
+    case setSelectedReminderID(UUID?)
   }
 
   public var body: some ReducerOf<Self> {
@@ -90,6 +93,16 @@ public struct Home {
         )
         return .none
       case .path:
+        return .none
+      case .setSelectedReminderID(let id):
+//        state.selectedReminderID = id
+//        // Прокидуємо в Reminders, якщо він є у path
+//        if let index = state.path.lastIndex(where: { if case .reminders = $0 { return true } else { return false } }) {
+//          if case .reminders(var remindersState) = state.path[index] {
+//            remindersState.selectedReminderID = id
+//              //state.path[index] = .reminders(remindersState)
+//          }
+//        }
         return .none
       }
     }

@@ -34,7 +34,7 @@ struct RequestFormView: View {
       .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
       .tint(ResourcesAsset.Colors.clam.swiftUIColor)
       .lineLimit(4)
-      .padding(.horizontal, -5)
+      .padding(.horizontal, DesignConstants.paddingNegativeSmall)
 
       Section {
         Toggle(isOn: $request.isDateSet.animation()) {

@@ -9,6 +9,8 @@ public let mainTargetPlist: InfoPlist = .extendingDefault(
     ],
     "UISupportedInterfaceOrientations~ipad": [
       .string("UIInterfaceOrientationPortrait"),
+      .string("UIInterfaceOrientationLandscapeLeft"),
+      .string("UIInterfaceOrientationLandscapeRight")
     ],
     "UIRequiresFullScreen": .boolean(true),
     "CFBundleName": .string("KarmicHealing"),

@@ -6,6 +6,8 @@ import SwiftUI
 import ComposableArchitecture
 import Common
 import Db
+import UserNotifications
+import Combine
 
 @main
 struct KarmicHealingApp: App {
@@ -29,8 +31,10 @@ struct KarmicHealingApp: App {
   }
 }
 
-private class AppDelegate: UIResponder, UIApplicationDelegate {
+private class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
   let store: StoreOf<KarmicHealing>
+  @Published var selectedReminderID: UUID?
+  private var cancellables = Set<AnyCancellable>()
   
   override init() {
     store = .init(
@@ -41,6 +45,13 @@ private class AppDelegate: UIResponder, UIApplicationDelegate {
       }
     )
     super.init()
+    UNUserNotificationCenter.current().delegate = self
+    $selectedReminderID
+      .compactMap { $0 }
+      .sink { [weak self] id in
+        self?.store.send(.setSelectedReminderID(id))
+      }
+      .store(in: &cancellables)
   }
   
   func application(
@@ -48,6 +59,24 @@ private class AppDelegate: UIResponder, UIApplicationDelegate {
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
   ) -> Bool {
     store.send(.onDidFinishLaunching)
+    // Запит дозволу на локальні сповіщення
+    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+      if let error = error {
+        print("Notification permission error: \(error)")
+      }
+      print("Notification permission granted: \(granted)")
+    }
     return true
+  }
+
+  // MARK: - Notification Delegate
+  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    if let reminderIDString = response.notification.request.content.userInfo["reminderID"] as? String,
+       let reminderID = UUID(uuidString: reminderIDString) {
+      DispatchQueue.main.async {
+        self.selectedReminderID = reminderID
+      }
+    }
+    completionHandler()
   }
 }

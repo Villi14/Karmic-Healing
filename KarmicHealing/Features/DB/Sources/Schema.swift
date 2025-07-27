@@ -61,7 +61,6 @@ extension Request.TableColumns {
   }
 }
 
-
 @Table
 struct Reminder: Codable, Equatable, Identifiable {
   let id: UUID
@@ -222,11 +221,13 @@ public func appDatabase() throws -> any DatabaseWriter {
 
   try migrator.migrate(database)
 
+#if DEBUG
   if context == .preview {
     try database.write { db in
       try db.seedSampleData()
     }
   }
+#endif
 
   try database.write { db in
     try #sql(

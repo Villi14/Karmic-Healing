@@ -24,6 +24,13 @@ public struct RemindersView: View {
       VStack {
         if context == .live {
           RemindersListsView(model: Self.model)
+//          .onChange(of: viewStore.selectedReminderID) { id, _ in
+//            guard let id else { return }
+//            if let reminder = try? Self.model.database.read({ db in try Reminder.fetchOne(db, id: id) }),
+//               let remindersList = try? Self.model.database.read({ db in try RemindersList.fetchOne(db, id: reminder.remindersListID) }) {
+//              Self.model.destination = .detail(RemindersDetailModel(detailType: .remindersList(remindersList), selectedReminderID: id))
+//            }
+//          }
         }
       }
       .navigationTitle(String(localized: "reminders", bundle: .main))

@@ -34,7 +34,7 @@ public struct Module: Sendable {
       name: feature.rawValue.firstLetterCapitalized,
       destinations: [.iPhone],
       product: .framework,
-      bundleId: "home.KarmicHealing.\(feature.rawValue)",
+      bundleId: "com.villi.karmichealing.\(feature.rawValue)",
       deploymentTargets: iosDeploymentTargets,
       infoPlist: .default,
       sources: hasSources
@@ -50,7 +50,7 @@ public struct Module: Sendable {
         name: "\(feature.rawValue.firstLetterCapitalized)Tests",
         destinations: [.iPhone],
         product: .unitTests,
-        bundleId: "home.KarmicHealing.\(feature.rawValue).tests",
+        bundleId: "com.villi.karmichealing.\(feature.rawValue).tests",
         deploymentTargets: iosDeploymentTargets,
         infoPlist: .default,
         sources: [

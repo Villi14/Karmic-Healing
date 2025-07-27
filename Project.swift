@@ -7,7 +7,7 @@ let mainTarget = Target.target(
   name: appName,
   destinations: [.iPhone, .iPad],
   product: .app,
-  bundleId: "home.KarmicHealing",
+  bundleId: "com.villi.karmichealing",
   deploymentTargets: iosDeploymentTargets,
   infoPlist: mainTargetPlist,
   sources: [
@@ -34,6 +34,14 @@ let mainTarget = Target.target(
       "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon",
       "ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES": .array(["AppIcon"]),
       "ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS": "YES"
+    ],
+    debug: [
+      "PROVISIONING_PROFILE_SPECIFIER": "karmic_dev",
+      "CODE_SIGN_IDENTITY": "Apple Development: Alexander  Velikotsky (R7UR2DF94C)",
+    ],
+    release: [
+      "PROVISIONING_PROFILE_SPECIFIER": "karmic_distr",
+      "CODE_SIGN_IDENTITY": "Apple Distribution: Alexander  Velikotsky (KG394T5RF5)",
     ]
   )
 )
