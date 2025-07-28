@@ -56,12 +56,12 @@ public struct KarmicHealingDisclosureGroup<Content: View>: View {
         RoundedRectangle(cornerRadius: self.cornerRadius)
           .fill(self.backgroundColor)
         
-//        RoundedRectangle(cornerRadius: self.cornerRadius)
-//          .inset(by: DesignConstants.lineWidthThin)
-//          .stroke(
-//            ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(DesignConstants.opacityMedium),
-//            lineWidth: DesignConstants.lineWidthThin
-//          )
+        RoundedRectangle(cornerRadius: self.cornerRadius)
+          .inset(by: DesignConstants.lineWidthThin)
+          .stroke(
+            ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(DesignConstants.opacityMedium),
+            lineWidth: DesignConstants.lineWidthThin
+          )
       }
   }
 }
