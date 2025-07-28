@@ -92,9 +92,9 @@ public struct BalancingEnergyView: View {
                   .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
                   .clipShape(RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium))
 
-                RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
-                  .inset(by: DesignConstants.lineWidthThin)
-                  .stroke(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(DesignConstants.opacityMedium), lineWidth: DesignConstants.lineWidthThin)
+//                RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
+//                  .inset(by: DesignConstants.lineWidthThin)
+//                  .stroke(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(DesignConstants.opacityMedium), lineWidth: DesignConstants.lineWidthThin)
               }
               .padding(.horizontal)
               .padding(.bottom, DesignConstants.bottomPaddingLarge)

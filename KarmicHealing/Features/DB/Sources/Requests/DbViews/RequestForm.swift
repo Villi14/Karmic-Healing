@@ -160,7 +160,7 @@ extension Optional {
 struct RequestFormPreview: PreviewProvider {
   static var previews: some View {
     let (requestsList, request) = try! prepareDependencies {
-      $0.defaultDatabase = try appDatabase()
+      $0.defaultDatabase = try Db.appDatabase()
       return try $0.defaultDatabase.write { db in
         let requestsList = try RequestsList.all.fetchOne(db)!
         return (

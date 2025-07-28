@@ -339,7 +339,7 @@ struct RequestsListsView: View {
 
 #Preview {
   let _ = try! prepareDependencies {
-    $0.defaultDatabase = try appDatabase()
+    $0.defaultDatabase = try Db.appDatabase()
   }
 
   NavigationStack {

@@ -35,9 +35,9 @@ struct RemindersListRow: View {
       RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
         .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
 
-      RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
-        .inset(by: DesignConstants.lineWidthThin)
-        .stroke(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(DesignConstants.opacityMedium), lineWidth: DesignConstants.lineWidthThin)
+//      RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
+//        .inset(by: DesignConstants.lineWidthThin)
+//        .stroke(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(DesignConstants.opacityMedium), lineWidth: DesignConstants.lineWidthThin)
     }
     .swipeActions {
       Button {
@@ -78,3 +78,18 @@ struct RemindersListRow: View {
     }
   }
 }
+
+#Preview {
+  NavigationStack {
+    List {
+      RemindersListRow(
+        remindersCount: 10,
+        remindersList: RemindersList(
+          id: UUID(),
+          title: "Personal"
+        )
+      )
+    }
+  }
+}
+

@@ -4,6 +4,7 @@
 
 import SwiftUI
 import ComposableArchitecture
+import SharingGRDB
 import Common
 import Db
 import UserNotifications
@@ -17,7 +18,7 @@ struct KarmicHealingApp: App {
   init() {
     if context == .live {
       try! prepareDependencies {
-        $0.defaultDatabase = try appDatabase()
+        $0.defaultDatabase = try Db.appDatabase()
       }
     }
   }

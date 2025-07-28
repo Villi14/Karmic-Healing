@@ -16,12 +16,10 @@ let packageSettings = PackageSettings(
     "CombineSchedulers": .framework,
     "IdentifiedCollections": .framework,
     "Sharing": .framework,
-    "Sharing2": .framework,
     "PerceptionCore": .framework,
     "CustomDump": .framework,
     "OrderedCollections": .framework,
     "InternalCollectionsUtilities": .framework,
-    "Sharing1": .framework
   ]
 )
 

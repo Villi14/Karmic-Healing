@@ -141,7 +141,7 @@ public func appDatabase() throws -> any DatabaseWriter {
   }
 
   if context == .preview {
-    database = try DatabaseQueue(path: ":memory:", configuration: configuration)
+    database = try DatabaseQueue(configuration: configuration)
   } else {
     let path =
     context == .live

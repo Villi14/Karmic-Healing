@@ -42,11 +42,10 @@ struct ReminderRow: View {
             .aspectRatio(contentMode: .fit)
             .frame(height: DesignConstants.frameHeightSmall)
             .foregroundStyle(ResourcesAsset.Colors.health.swiftUIColor)
-            .padding([.trailing], DesignConstants.paddingNegativeXLarge)
+            .padding([.trailing], DesignConstants.paddingSmall)
         }
 
         VStack(alignment: .leading) {
-          title(for: reminder)
 
           if !notes.isEmpty {
             Text(notes)
@@ -181,7 +180,7 @@ struct ReminderRowPreview: PreviewProvider {
     var reminder: Reminder!
     var remindersList: RemindersList!
     let _ = try! prepareDependencies {
-      $0.defaultDatabase = try appDatabase()
+      $0.defaultDatabase = try Db.appDatabase()
       try $0.defaultDatabase.read { db in
         reminder = try Reminder.all.fetchOne(db)
         remindersList = try RemindersList.all.fetchOne(db)!
