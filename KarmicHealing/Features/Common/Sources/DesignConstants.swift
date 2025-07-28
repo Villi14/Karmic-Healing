@@ -44,7 +44,7 @@ public enum DesignConstants {
     public static let maxHeightLarge: CGFloat = 500
 
     // Opacity
-    public static let opacityLow: Double = 0.01
+    public static let opacityLow: Double = 0.075
     public static let opacityMedium: Double = 0.5
 
     // Line width

@@ -36,10 +36,6 @@ struct ListRowView<ListType: Identifiable>: View {
     .background {
       RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
         .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
-
-      RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
-        .inset(by: DesignConstants.lineWidthThin)
-        .stroke(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(DesignConstants.opacityMedium), lineWidth: DesignConstants.lineWidthThin)
     }
     .swipeActions {
       if let onDelete = onDelete {

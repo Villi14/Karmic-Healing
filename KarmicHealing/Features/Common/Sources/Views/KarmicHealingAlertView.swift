@@ -50,15 +50,11 @@ public struct KarmicHealingAlertView<Action: Equatable>: View {
       .fixedSize(horizontal: false, vertical: true)
       .background {
         Rectangle()
-          .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
+          .fill(ResourcesAsset.Colors.background.swiftUIColor)
           .clipShape(
             RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
           )
          .shadow(color: .black, radius: DesignConstants.shadowRadiusLarge)
-
-        RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
-          .inset(by: DesignConstants.lineWidthThin)
-          .stroke(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(DesignConstants.opacityMedium), lineWidth: DesignConstants.lineWidthThin)
       }
       .padding(DesignConstants.paddingLarge)
     }

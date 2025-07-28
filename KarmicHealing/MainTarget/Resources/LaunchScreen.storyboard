@@ -24,7 +24,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" name="text_primary"/>
+                                <color key="backgroundColor" name="bg_launch_screen"/>
                                 <constraints>
                                     <constraint firstItem="ymE-Nn-2i6" firstAttribute="leading" secondItem="3hm-bN-fIi" secondAttribute="leading" id="WaO-Ax-lTy"/>
                                     <constraint firstItem="ymE-Nn-2i6" firstAttribute="top" secondItem="3hm-bN-fIi" secondAttribute="top" id="Zfe-M2-fgf"/>
@@ -49,8 +49,8 @@
     </scenes>
     <resources>
         <image name="icon" width="1024" height="1024"/>
-        <namedColor name="text_primary">
-            <color red="0.20392156862745098" green="0.20392156862745098" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="bg_launch_screen">
+            <color red="0.12156862745098039" green="0.12941176470588237" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
