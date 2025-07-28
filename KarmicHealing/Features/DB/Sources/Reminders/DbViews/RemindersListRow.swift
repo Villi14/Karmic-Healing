@@ -13,68 +13,30 @@ struct RemindersListRow: View {
   @Dependency(\.defaultDatabase) private var database
 
   var body: some View {
-    HStack {
-      Image(systemName: "list.bullet")
-        .resizable()
-        .aspectRatio(contentMode: .fit)
-        .frame(height: DesignConstants.frameHeightSmall)
-        .foregroundStyle(remindersList.color)
-        .padding(.leading, DesignConstants.paddingLarge)
-
-      Text(remindersList.title)
-        .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-
-      Spacer()
-
-      Text("\(remindersCount)")
-        .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-        .padding(.trailing, DesignConstants.paddingLarge)
-    }
-    .frame(height: DesignConstants.frameHeightXXLarge)
-    .background {
-      RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
-        .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
-
-//      RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
-//        .inset(by: DesignConstants.lineWidthThin)
-//        .stroke(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(DesignConstants.opacityMedium), lineWidth: DesignConstants.lineWidthThin)
-    }
-    .swipeActions {
-      Button {
+    ListRowView(
+      count: remindersCount,
+      list: remindersList,
+      color: remindersList.color,
+      title: remindersList.title,
+      onTap: onTap,
+      onDelete: {
         withErrorReporting {
           try database.write { db in
             try RemindersList.delete(remindersList)
               .execute(db)
           }
         }
-      } label: {
-        Image(systemName: "trash")
-          .resizable()
-          .aspectRatio(contentMode: .fit)
-          .frame(height: DesignConstants.frameHeightSmall)
-      }
-      .tint(ResourcesAsset.Colors.energy.swiftUIColor)
-
-      Button {
+      },
+      onEdit: {
         editList = remindersList
-      } label: {
-        Image(systemName: "info.circle")
-          .resizable()
-          .aspectRatio(contentMode: .fit)
-          .frame(height: DesignConstants.frameHeightSmall)
       }
-      .tint(ResourcesAsset.Colors.clarity.swiftUIColor)
-    }
+    )
     .sheet(item: $editList) { list in
       NavigationStack {
         RemindersListForm(remindersList: RemindersList.Draft(list))
           .navigationTitle(String(localized: "edit_list", bundle: .main))
       }
       .presentationDetents([.medium])
-    }
-    .contentShape(Rectangle())
-    .onTapGesture {
-      onTap?()
     }
   }
 }

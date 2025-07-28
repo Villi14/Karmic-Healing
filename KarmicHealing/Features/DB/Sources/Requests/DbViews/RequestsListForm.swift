@@ -15,44 +15,16 @@ struct RequestsListForm: View {
   }
   
   var body: some View {
-    Form {
-      Section {
-        VStack {
-          TextField(String(localized: "list_name", bundle: .main), text: $requestsList.title)
-            .font(.system(.title2, design: .rounded, weight: .bold))
-            .foregroundStyle(requestsList.color)
-            .multilineTextAlignment(.center)
-            .textFieldStyle(.plain)
-            .tint(ResourcesAsset.Colors.clam.swiftUIColor)
-            .padding(.horizontal, DesignConstants.spacingXLarge)
-            .padding(.vertical)
+    ListFormView(
+      list: $requestsList,
+      title: $requestsList.title,
+      color: $requestsList.color
+    ) { list in
+      withErrorReporting {
+        try database.write { db in
+          try RequestsList.upsert(list)
+            .execute(db)
         }
-      }
-
-      ColorPicker(String(localized: "color", bundle: .main), selection: $requestsList.color)
-        .tint(ResourcesAsset.Colors.clam.swiftUIColor)
-    }
-    .navigationBarTitleDisplayMode(.inline)
-    .toolbar {
-      ToolbarItem {
-        Button(String(localized: "save", bundle: .main)) {
-          withErrorReporting {
-            try database.write { db in
-              try RequestsList.upsert(requestsList)
-                .execute(db)
-            }
-          }
-          dismiss()
-        }
-        .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
-        .disabled(requestsList.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
-      }
-      
-      ToolbarItem(placement: .cancellationAction) {
-        Button(String(localized: "cancel", bundle: .main)) {
-          dismiss()
-        }
-        .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
       }
     }
   }

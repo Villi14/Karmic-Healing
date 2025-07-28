@@ -15,44 +15,16 @@ struct RemindersListForm: View {
   }
   
   var body: some View {
-    Form {
-      Section {
-        VStack {
-          TextField(String(localized: "list_name", bundle: .main), text: $remindersList.title)
-            .font(.system(.title2, design: .rounded, weight: .bold))
-            .foregroundStyle(remindersList.color)
-            .multilineTextAlignment(.center)
-            .textFieldStyle(.plain)
-            .tint(ResourcesAsset.Colors.clam.swiftUIColor)
-            .padding(.horizontal, DesignConstants.spacingXLarge)
-            .padding(.vertical)
+    ListFormView(
+      list: $remindersList,
+      title: $remindersList.title,
+      color: $remindersList.color
+    ) { list in
+      withErrorReporting {
+        try database.write { db in
+          try RemindersList.upsert(list)
+            .execute(db)
         }
-      }
-
-      ColorPicker(String(localized: "color", bundle: .main), selection: $remindersList.color)
-        .tint(ResourcesAsset.Colors.clam.swiftUIColor)
-    }
-    .navigationBarTitleDisplayMode(.inline)
-    .toolbar {
-      ToolbarItem {
-        Button(String(localized: "save", bundle: .main)) {
-          withErrorReporting {
-            try database.write { db in
-              try RemindersList.upsert(remindersList)
-                .execute(db)
-            }
-          }
-          dismiss()
-        }
-        .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
-        .disabled(remindersList.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
-      }
-      
-      ToolbarItem(placement: .cancellationAction) {
-        Button(String(localized: "cancel", bundle: .main)) {
-          dismiss()
-        }
-        .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
       }
     }
   }

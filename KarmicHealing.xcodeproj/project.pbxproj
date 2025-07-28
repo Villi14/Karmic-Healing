@@ -85,6 +85,7 @@
 		A23087F44814E58ED4FC6D61 /* Db.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD80CC0D078FA40E56A3E50 /* Db.framework */; };
 		A2428FD7BBB9D69CF5B1AF1B /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; };
 		A558C3D62DA36492D4ABB014 /* KarmicHealing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8E247924B97BE74F980EE2 /* KarmicHealing.swift */; };
+		A563E7F78E93FD1D4AB69D36 /* ListFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8F66F499481C71357FBD2F /* ListFormView.swift */; };
 		A588BD89AE4E1975729DA12B /* FullScreenCoverBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A0825EC1769E0E174B3EA /* FullScreenCoverBackgroundView.swift */; };
 		A59CE832DC08E246A0101E7F /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; };
 		A5CCC648F2DE494C84F58E11 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EC5F1A20AB7DE04590F636 /* OnboardingView.swift */; };
@@ -132,6 +133,7 @@
 		FCBE30FA1F9AFB187248411A /* ComposableArchitecture.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD796A0A63D9619B3762B2CA /* ReminderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EE01A1B3C25F1194CF72A6 /* ReminderRow.swift */; };
 		FD86161E32D478D1014AF73A /* HomeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F0E42B795DFC188453D03 /* HomeButtonView.swift */; };
+		FEB519927A28B70EF1692AC5 /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6F0D35A9E7B4E353BE56CF /* ListRowView.swift */; };
 		FFF4CDD513E9C228BD87176A /* Onboarding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFCC57A0EE1A747FC6D514C6 /* Onboarding.framework */; };
 /* End PBXBuildFile section */
 
@@ -528,6 +530,7 @@
 		8713013181939438F04B4BB9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87179576D83D01449EED8B00 /* HomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		881F8A734FFF7D8372D06ED8 /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A6F0D35A9E7B4E353BE56CF /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
 		8B96DDA6AEE4E22BC5569B83 /* RemindersListForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListForm.swift; sourceTree = "<group>"; };
 		937951BDE4A7DF3DE0227873 /* BalancingEnergyList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BalancingEnergyList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98273DF6B159069A4C9F5A52 /* SearchReminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchReminders.swift; sourceTree = "<group>"; };
@@ -545,6 +548,7 @@
 		B8AF5B014AFB978DEF214451 /* CombineSchedulers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CombineSchedulers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB7A0825EC1769E0E174B3EA /* FullScreenCoverBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenCoverBackgroundView.swift; sourceTree = "<group>"; };
 		BC78A05FC6DB55E86D8DCCF5 /* TestingUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TestingUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF8F66F499481C71357FBD2F /* ListFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFormView.swift; sourceTree = "<group>"; };
 		C000C78A1E665D1B1E7F85DD /* TabView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabView+Ext.swift"; sourceTree = "<group>"; };
 		C0B59758EFA10BA8AA6DA0D1 /* Sharing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sharing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C18DBDF5630C1EA9E7AE7DCE /* TuistBundle+Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+Resources.swift"; sourceTree = "<group>"; };
@@ -812,6 +816,15 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		64CA31B3F19F692DC501A1B5 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BF8F66F499481C71357FBD2F /* ListFormView.swift */,
+				8A6F0D35A9E7B4E353BE56CF /* ListRowView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		6647A708D158A6E58A69AA22 /* SwifUI+Ext */ = {
 			isa = PBXGroup;
 			children = (
@@ -826,6 +839,7 @@
 			children = (
 				6C27855DDDE713EA17EDC2C9 /* Reminders */,
 				1AF5566821717B5737A01842 /* Requests */,
+				CA0E8FB930917A637289A0D3 /* Views */,
 				74A56804765D5B10ABB3C1A7 /* Color+Ext.swift */,
 				DEB10D4AF3AE32DEC2FF63F3 /* Schema.swift */,
 			);
@@ -994,6 +1008,14 @@
 				73AA4BB66567BBDD9C9B4C20 /* Steps.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CA0E8FB930917A637289A0D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				64CA31B3F19F692DC501A1B5 /* Common */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		CB9F3E9F24DEB5B29F7934CF /* Sources */ = {
@@ -1594,6 +1616,8 @@
 				42E2CB9A2A45F0992B6C5BCD /* Requests.swift in Sources */,
 				2F772ABB1AEF531FA6EFC7D5 /* RequestsView.swift in Sources */,
 				A6EA1BBADF3523953ECA65E1 /* Schema.swift in Sources */,
+				A563E7F78E93FD1D4AB69D36 /* ListFormView.swift in Sources */,
+				FEB519927A28B70EF1692AC5 /* ListRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
