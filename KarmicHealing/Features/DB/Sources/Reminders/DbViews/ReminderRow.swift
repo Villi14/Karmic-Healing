@@ -34,65 +34,29 @@ struct ReminderRow: View {
   }
 
   var body: some View {
-    HStack {
-      HStack(alignment: .firstTextBaseline) {
-        Button(action: completeButtonTapped) {
-          Image(systemName: isCompleted ? "circle.inset.filled" : "circle")
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(height: DesignConstants.frameHeightSmall)
-            .foregroundStyle(ResourcesAsset.Colors.health.swiftUIColor)
-            .padding([.trailing], DesignConstants.paddingSmall)
-        }
-
-        VStack(alignment: .leading) {
-
-          if !notes.isEmpty {
-            Text(notes)
-              .font(.subheadline)
-              .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-              .lineLimit(2)
-          }
-        }
-      }
-
-      Spacer()
-
-      if !isCompleted {
-        HStack {
-          if reminder.isFlagged {
-            Image(systemName: "flag")
-              .resizable()
-              .aspectRatio(contentMode: .fit)
-              .frame(height: DesignConstants.frameHeightSmall)
-              .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
-          }
-          
-          Button {
-            editReminder = Reminder.Draft(reminder)
-          } label: {
-            Image(systemName: "info.circle")
-              .resizable()
-              .aspectRatio(contentMode: .fit)
-              .frame(height: DesignConstants.frameHeightSmall)
-              .foregroundStyle(ResourcesAsset.Colors.clarity.swiftUIColor)
-          }
-          .tint(color)
-        }
-      }
-    }
-    .buttonStyle(.borderless)
-    .swipeActions {
-      Button(String(localized: "delete", bundle: .main), role: .destructive) {
+    ItemRowView(
+      editItem: $editReminder,
+      color: color,
+      isPastDue: isPastDue,
+      notes: notes,
+      item: reminder,
+      list: remindersList,
+      showCompleted: showCompleted,
+      isCompleted: reminder.isCompleted,
+      isFlagged: reminder.isFlagged,
+      title: reminder.title,
+      priority: reminder.priority,
+      listColor: remindersList.color,
+      onComplete: completeButtonTapped,
+      onToggleCompletion: toggleCompletion,
+      onDelete: {
         withErrorReporting {
           try database.write { db in
             try Reminder.delete(reminder).execute(db)
           }
         }
-      }
-      .tint(ResourcesAsset.Colors.energy.swiftUIColor)
-
-      Button(reminder.isFlagged ? String(localized: "unflag", bundle: .main) : String(localized: "flag", bundle: .main)) {
+      },
+      onToggleFlag: {
         withErrorReporting {
           try database.write { db in
             try Reminder
@@ -101,32 +65,17 @@ struct ReminderRow: View {
               .execute(db)
           }
         }
-      }
-      .tint(ResourcesAsset.Colors.friendly.swiftUIColor)
-
-      Button(String(localized: "details", bundle: .main)) {
+      },
+      onEdit: {
         editReminder = Reminder.Draft(reminder)
+      },
+      onShowDetails: {
+        editReminder = Reminder.Draft(reminder)
+      },
+      formView: { reminder, remindersList in
+        AnyView(ReminderFormView(reminder: reminder, remindersList: remindersList))
       }
-      .tint(ResourcesAsset.Colors.clarity.swiftUIColor)
-    }
-    .sheet(item: $editReminder) { reminder in
-      NavigationStack {
-        ReminderFormView(reminder: reminder, remindersList: remindersList)
-          .navigationTitle(String(localized: "details", bundle: .main))
-      }
-    }
-    .task(id: isCompleted) {
-      guard !showCompleted else { return }
-
-      guard
-        isCompleted, isCompleted != reminder.isCompleted
-      else { return }
-
-      do {
-        try await Task.sleep(for: .seconds(2))
-        toggleCompletion()
-      } catch {}
-    }
+    )
   }
 
   private func completeButtonTapped() {
@@ -148,30 +97,6 @@ struct ReminderRow: View {
           .fetchOne(db) ?? isCompleted
       }
     }
-  }
-
-  private var dueText: Text {
-    if let date = reminder.dueDate {
-      Text(date.formatted(date: .numeric, time: .shortened))
-        .foregroundStyle(isPastDue ? .red : .gray)
-    } else {
-      Text("")
-    }
-  }
-
-  private func title(for reminder: Reminder) -> some View {
-    return HStack(alignment: .firstTextBaseline) {
-      if let priority = reminder.priority {
-        Text(String(repeating: "!", count: priority.rawValue))
-          .foregroundStyle(isCompleted ? ResourcesAsset.Colors.textSecondary.swiftUIColor : remindersList.color)
-      }
-      
-      Text(reminder.title)
-        .foregroundStyle(
-          isCompleted ? ResourcesAsset.Colors.textSecondary.swiftUIColor : ResourcesAsset.Colors.textPrimary.swiftUIColor
-        )
-    }
-    .font(.title3)
   }
 }
 

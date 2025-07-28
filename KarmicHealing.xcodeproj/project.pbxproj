@@ -60,6 +60,7 @@
 		709D71937CE4FAF1D6D10429 /* BalancingEnergyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2620BE86A788A5976BA13BFA /* BalancingEnergyView.swift */; };
 		734059DAC275038C63A0BD4D /* UserDefaultClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A331D9AAAC17C23F9FEB388 /* UserDefaultClient.swift */; };
 		748544E2BB8BF0F3FC1020EF /* KarmicHealingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE58283C3A274F5F92A7FD1 /* KarmicHealingApp.swift */; };
+		7579C5568AE5889168BC4BBF /* ItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5EDD513E804EE9750C3B1 /* ItemRowView.swift */; };
 		78937BD4CCE48AAB88D80162 /* PerceptionCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 290CA8030B15A0AA5C2CCFFB /* PerceptionCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7B324E6B7D4F59A548C936D4 /* BalancingEnergyList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937951BDE4A7DF3DE0227873 /* BalancingEnergyList.framework */; };
 		7BC08B2770614B64B167F7A3 /* XCTest+withTrackedCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF29FDB478366F2E7225B38 /* XCTest+withTrackedCalls.swift */; };
@@ -564,6 +565,7 @@
 		DCCD6F2EEA1EFE1B0C75AD59 /* BalancingEnergy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BalancingEnergy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCDAC96EA79D8D0D062C6341 /* XCTest+expectParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+expectParameter.swift"; sourceTree = "<group>"; };
 		DEB10D4AF3AE32DEC2FF63F3 /* Schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
+		E0D5EDD513E804EE9750C3B1 /* ItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowView.swift; sourceTree = "<group>"; };
 		E122681E7BC43CA057476B60 /* XCTestDynamicOverlay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XCTestDynamicOverlay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3D5C3F633DD6DCB26D2EB34 /* ding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ding.wav; sourceTree = "<group>"; };
 		E408783B2AAA3C06DBB33B5A /* KarmicHealing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KarmicHealing.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -819,6 +821,7 @@
 		64CA31B3F19F692DC501A1B5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E0D5EDD513E804EE9750C3B1 /* ItemRowView.swift */,
 				BF8F66F499481C71357FBD2F /* ListFormView.swift */,
 				8A6F0D35A9E7B4E353BE56CF /* ListRowView.swift */,
 			);
@@ -1616,6 +1619,7 @@
 				42E2CB9A2A45F0992B6C5BCD /* Requests.swift in Sources */,
 				2F772ABB1AEF531FA6EFC7D5 /* RequestsView.swift in Sources */,
 				A6EA1BBADF3523953ECA65E1 /* Schema.swift in Sources */,
+				7579C5568AE5889168BC4BBF /* ItemRowView.swift in Sources */,
 				A563E7F78E93FD1D4AB69D36 /* ListFormView.swift in Sources */,
 				FEB519927A28B70EF1692AC5 /* ListRowView.swift in Sources */,
 			);
