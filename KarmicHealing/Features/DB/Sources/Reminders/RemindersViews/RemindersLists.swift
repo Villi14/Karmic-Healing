@@ -159,15 +159,7 @@ struct RemindersListsView: View {
 
   var body: some View {
     ZStack {
-      LinearGradient(
-        gradient: Gradient(colors: [
-          ResourcesAsset.Colors.clam.swiftUIColor.opacity(DesignConstants.opacityLow),
-          ResourcesAsset.Colors.background.swiftUIColor
-        ]),
-        startPoint: .top,
-        endPoint: .bottom
-      )
-      .ignoresSafeArea()
+      GgWithGradientView()
 
       VStack(spacing: 0) {
         KarmicHealingSearchBar(text: $model.searchRemindersModel.searchText)
@@ -253,7 +245,12 @@ struct RemindersListsView: View {
             }
             .listRowBackground(Color.clear)
             .listRowSeparator(.hidden)
-            .listRowInsets(EdgeInsets(top: 2, leading: 12, bottom: 2, trailing: 12))
+            .listRowInsets(EdgeInsets(
+              top: DesignConstants.paddingSmall,
+              leading: DesignConstants.paddingMedium,
+              bottom: DesignConstants.paddingSmall,
+              trailing: DesignConstants.paddingMedium)
+            )
           } else {
             SearchRemindersView(model: model.searchRemindersModel)
               .listRowBackground(Color.clear)

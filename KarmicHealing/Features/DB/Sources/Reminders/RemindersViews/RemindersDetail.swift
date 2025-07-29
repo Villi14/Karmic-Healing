@@ -170,15 +170,7 @@ struct RemindersDetailView: View {
 
   var body: some View {
     ZStack {
-      LinearGradient(
-        gradient: Gradient(colors: [
-          ResourcesAsset.Colors.clam.swiftUIColor.opacity(DesignConstants.opacityLow),
-          ResourcesAsset.Colors.background.swiftUIColor
-        ]),
-        startPoint: .top,
-        endPoint: .bottom
-      )
-      .ignoresSafeArea()
+      GgWithGradientView()
 
       ScrollViewReader { proxy in
         List {

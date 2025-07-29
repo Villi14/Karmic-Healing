@@ -16,14 +16,14 @@ extension DependencyValues {
 
 public struct NotificationClient {
   public var requestAuthorization: @Sendable () async -> Bool
-  public var scheduleNotification: @Sendable (String, String, String, Date, UUID, Bool, String?) async -> Void
+  public var scheduleNotification: @Sendable (String, String, String, Date, UUID) async -> Void
   public var removeNotification: @Sendable (String) async -> Void
   public var removeAllNotifications: @Sendable () async -> Void
   public var getPendingNotifications: @Sendable () async -> [UNNotificationRequest]
 
   public init(
     requestAuthorization: @Sendable @escaping () async -> Bool,
-    scheduleNotification: @Sendable @escaping (String, String, String, Date, UUID, Bool, String?) async -> Void,
+    scheduleNotification: @Sendable @escaping (String, String, String, Date, UUID) async -> Void,
     removeNotification: @Sendable @escaping (String) async -> Void,
     removeAllNotifications: @Sendable @escaping () async -> Void,
     getPendingNotifications: @Sendable @escaping () async -> [UNNotificationRequest]
@@ -48,20 +48,15 @@ extension NotificationClient: DependencyKey {
           }
         }
       },
-      scheduleNotification: { id, title, body, date, reminderID, repeats, soundName in
+      scheduleNotification: { id, title, body, date, reminderID in
         let content = UNMutableNotificationContent()
         content.title = title
         content.body = body
         content.userInfo = ["reminderID": reminderID.uuidString]
-        
-        if let soundName = soundName {
-          content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: soundName))
-        } else {
-          content.sound = .default
-        }
+        content.sound = .default
         
         let triggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: repeats)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
         let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
         
         do {
@@ -89,7 +84,7 @@ extension NotificationClient: DependencyKey {
   public static let testValue: Self = {
     return Self(
       requestAuthorization: { true },
-      scheduleNotification: { _, _, _, _, _, _, _ in },
+      scheduleNotification: { _, _, _, _, _ in },
       removeNotification: { _ in },
       removeAllNotifications: { },
       getPendingNotifications: { [] }
@@ -104,21 +99,17 @@ extension NotificationClient {
     title: String,
     body: String,
     date: Date,
-    reminderID: UUID,
-    repeats: Bool = false,
-    soundName: String? = nil
+    reminderID: UUID
   ) async {
-    await scheduleNotification(id, title, body, date, reminderID, repeats, soundName)
+    await scheduleNotification(id, title, body, date, reminderID)
   }
   
   public func scheduleNotification(
     id: String,
     title: String,
     body: String,
-    date: Date,
-    repeats: Bool = false,
-    soundName: String? = nil
+    date: Date
   ) async {
-    await scheduleNotification(id, title, body, date, UUID(), repeats, soundName)
+    await scheduleNotification(id, title, body, date, UUID())
   }
 }

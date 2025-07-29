@@ -22,15 +22,7 @@ public struct HomeView: View {
     WithViewStore(store, observe: { $0 }) { viewStore in
       NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
         ZStack {
-          LinearGradient(
-            gradient: Gradient(colors: [
-              ResourcesAsset.Colors.clam.swiftUIColor.opacity(DesignConstants.opacityLow),
-              ResourcesAsset.Colors.background.swiftUIColor
-            ]),
-            startPoint: .top,
-            endPoint: .bottom
-          )
-          .ignoresSafeArea()
+          GgWithGradientView()
 
           GeometryReader { proxy in
             let previewSize = previewSize(in: proxy.size)

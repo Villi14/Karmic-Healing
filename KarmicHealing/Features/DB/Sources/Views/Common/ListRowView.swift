@@ -25,6 +25,7 @@ struct ListRowView<ListType: Identifiable>: View {
 
       Text(title)
         .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+        .font(.headline.weight(.medium))
 
       Spacer()
 

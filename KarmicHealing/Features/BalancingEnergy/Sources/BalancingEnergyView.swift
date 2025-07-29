@@ -31,15 +31,7 @@ public struct BalancingEnergyView: View {
   public var body: some View {
     WithViewStore(store, observe: ViewState.init) { viewStore in
       ZStack {
-        LinearGradient(
-          gradient: Gradient(colors: [
-            ResourcesAsset.Colors.clam.swiftUIColor.opacity(DesignConstants.opacityLow),
-            ResourcesAsset.Colors.background.swiftUIColor
-          ]),
-          startPoint: .top,
-          endPoint: .bottom
-        )
-        .ignoresSafeArea()
+        GgWithGradientView()
 
         VStack {
           Image(systemName: "exclamationmark.circle")
@@ -50,7 +42,7 @@ public struct BalancingEnergyView: View {
             .padding(.top, DesignConstants.paddingLarge)
 
           Text(String(localized: "attention_before_proceeding", bundle: .main))
-            .font(.subheadline.weight(.medium))
+            .font(.headline.weight(.medium))
             .multilineTextAlignment(.center)
             .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
             .padding()
@@ -76,7 +68,7 @@ public struct BalancingEnergyView: View {
 
                 HStack {
                   Text(step.description)
-                    .font(.callout.weight(.medium))
+                    .font(.body.weight(.medium))
                     .multilineTextAlignment(.leading)
                     .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
                     .padding(.horizontal)

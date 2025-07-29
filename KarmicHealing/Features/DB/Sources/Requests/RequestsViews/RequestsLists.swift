@@ -159,15 +159,7 @@ struct RequestsListsView: View {
 
   var body: some View {
     ZStack {
-      LinearGradient(
-        gradient: Gradient(colors: [
-          ResourcesAsset.Colors.clam.swiftUIColor.opacity(DesignConstants.opacityLow),
-          ResourcesAsset.Colors.background.swiftUIColor
-        ]),
-        startPoint: .top,
-        endPoint: .bottom
-      )
-      .ignoresSafeArea()
+      GgWithGradientView()
 
       VStack(spacing: 0) {
         KarmicHealingSearchBar(text: $model.searchRequestsModel.searchText)
@@ -252,7 +244,12 @@ struct RequestsListsView: View {
             }
             .listRowBackground(Color.clear)
             .listRowSeparator(.hidden)
-            .listRowInsets(EdgeInsets(top:  DesignConstants.paddingTiny, leading: DesignConstants.paddingMedium, bottom:  DesignConstants.paddingTiny, trailing: DesignConstants.paddingMedium))
+            .listRowInsets(EdgeInsets(
+              top: DesignConstants.paddingSmall,
+              leading: DesignConstants.paddingMedium,
+              bottom: DesignConstants.paddingSmall,
+              trailing: DesignConstants.paddingMedium)
+            )
           } else {
             SearchRequestsView(model: model.searchRequestsModel)
               .listRowBackground(Color.clear)

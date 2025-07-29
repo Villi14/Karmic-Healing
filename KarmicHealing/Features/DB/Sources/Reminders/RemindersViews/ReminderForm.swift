@@ -11,6 +11,7 @@ struct ReminderFormView: View {
   @FetchOne var remindersList: RemindersList
 
   @State var reminder: Reminder.Draft
+  @State private var selectedDate: Date = Date()
 
   @Dependency(\.defaultDatabase) private var database
   @Environment(\.dismiss) var dismiss
@@ -18,6 +19,10 @@ struct ReminderFormView: View {
   init(reminder: Reminder.Draft, remindersList: RemindersList) {
     _remindersList = FetchOne(wrappedValue: remindersList, RemindersList.find(remindersList.id))
     self.reminder = reminder
+    
+    if let dueDate = reminder.dueDate {
+      self._selectedDate = State(initialValue: dueDate)
+    }
   }
 
   var body: some View {
@@ -50,15 +55,25 @@ struct ReminderFormView: View {
           }
         }
         .tint(ResourcesAsset.Colors.health.swiftUIColor)
+        .onChange(of: reminder.isDateSet) { _, isSet in
+          if isSet {
+            reminder.dueDate = selectedDate
+          } else {
+            reminder.dueDate = nil
+          }
+        }
 
         if let dueDate = reminder.dueDate {
           DatePicker(
             "",
-            selection: $reminder.dueDate[coalesce: dueDate],
+            selection: $selectedDate,
             displayedComponents: [.date, .hourAndMinute]
           )
           .tint(ResourcesAsset.Colors.clam.swiftUIColor)
           .padding(.vertical, DesignConstants.paddingTiny)
+          .onChange(of: selectedDate) { _, newDate in
+            reminder.dueDate = newDate
+          }
         }
       }
 
@@ -148,8 +163,7 @@ struct ReminderFormView: View {
             title: reminder.title,
             body: reminder.notes.isEmpty ? "" : reminder.notes,
             date: dueDate,
-            reminderID: reminderID,
-            soundName: "ding.wav"
+            reminderID: reminderID
           )
         }
       }

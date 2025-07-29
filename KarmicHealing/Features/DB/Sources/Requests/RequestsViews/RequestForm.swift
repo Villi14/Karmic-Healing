@@ -9,6 +9,7 @@ struct RequestFormView: View {
   @FetchOne var requestsList: RequestsList
 
   @State var request: Request.Draft
+  @State private var selectedDate: Date = Date()
 
   @Dependency(\.defaultDatabase) private var database
   @Environment(\.dismiss) var dismiss
@@ -16,6 +17,10 @@ struct RequestFormView: View {
   init(request: Request.Draft, requestsList: RequestsList) {
     _requestsList = FetchOne(wrappedValue: requestsList, RequestsList.find(requestsList.id))
     self.request = request
+
+    if let dueDate = request.dueDate {
+      self._selectedDate = State(initialValue: dueDate)
+    }
   }
 
   var body: some View {
@@ -48,15 +53,25 @@ struct RequestFormView: View {
           }
         }
         .tint(ResourcesAsset.Colors.health.swiftUIColor)
+        .onChange(of: request.isDateSet) { _, isSet in
+          if isSet {
+            request.dueDate = selectedDate
+          } else {
+            request.dueDate = nil
+          }
+        }
 
         if let dueDate = request.dueDate {
           DatePicker(
             "",
-            selection: $request.dueDate[coalesce: dueDate],
+            selection: $selectedDate,
             displayedComponents: [.date, .hourAndMinute]
           )
           .tint(ResourcesAsset.Colors.clam.swiftUIColor)
           .padding(.vertical, DesignConstants.paddingTiny)
+          .onChange(of: selectedDate) { _, newDate in
+            request.dueDate = newDate
+          }
         }
       }
 

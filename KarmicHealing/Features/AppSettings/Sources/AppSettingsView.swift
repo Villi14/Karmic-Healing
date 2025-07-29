@@ -19,15 +19,7 @@ public struct AppSettingsView: View {
   public var body: some View {
     WithViewStore(store, observe: { $0 }) { viewStore in
       ZStack {
-        LinearGradient(
-          gradient: Gradient(colors: [
-            ResourcesAsset.Colors.clam.swiftUIColor.opacity(DesignConstants.opacityLow),
-            ResourcesAsset.Colors.background.swiftUIColor
-          ]),
-          startPoint: .top,
-          endPoint: .bottom
-        )
-        .ignoresSafeArea()
+        GgWithGradientView()
 
         ScrollView {
           VStack {
@@ -46,7 +38,7 @@ public struct AppSettingsView: View {
             }
           }
         }
-        .font(.subheadline.weight(.medium))
+        .font(.headline.weight(.medium))
         .padding(.horizontal)
         .padding(.top)
       }

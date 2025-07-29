@@ -30,10 +30,6 @@ public struct KarmicHealingSearchBar: View {
     .background{
       RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
         .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
-
-//      RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
-//        .inset(by: DesignConstants.lineWidthThin)
-//        .stroke(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(DesignConstants.opacityMedium), lineWidth: DesignConstants.lineWidthThin)
     }
     .cornerRadius(DesignConstants.cornerRadius)
     .padding(.horizontal)

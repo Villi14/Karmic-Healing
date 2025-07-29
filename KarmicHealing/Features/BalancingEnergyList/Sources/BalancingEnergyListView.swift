@@ -20,16 +20,8 @@ public struct BalancingEnergyListView: View {
   public var body: some View {
     WithViewStore(store, observe: { $0 }) { viewStore in
       ZStack {
-        LinearGradient(
-          gradient: Gradient(colors: [
-            ResourcesAsset.Colors.clam.swiftUIColor.opacity(DesignConstants.opacityLow),
-            ResourcesAsset.Colors.background.swiftUIColor
-          ]),
-          startPoint: .top,
-          endPoint: .bottom
-        )
-        .ignoresSafeArea()
-
+        GgWithGradientView()
+        
         VStack {
           KarmicHealingDisclosureGroup {
             KarmicHealingDisclosureCell(String(localized: "initial_process", bundle: .main)) {
@@ -47,7 +39,7 @@ public struct BalancingEnergyListView: View {
 
           Spacer()
         }
-        .font(.subheadline.weight(.medium))
+        .font(.headline.weight(.medium))
         .padding(.horizontal)
         .padding(.top)
       }
