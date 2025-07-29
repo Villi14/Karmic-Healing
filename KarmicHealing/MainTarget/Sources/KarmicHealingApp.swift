@@ -18,7 +18,7 @@ struct KarmicHealingApp: App {
   init() {
     if context == .live {
       try! prepareDependencies {
-        $0.defaultDatabase = try Db.appDatabase()
+        $0.defaultDatabase = try appDatabase()
       }
     }
   }
@@ -60,8 +60,7 @@ private class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificatio
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
   ) -> Bool {
     store.send(.onDidFinishLaunching)
-    
-    // Запит дозволу на локальні сповіщення
+
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
       if let error = error {
         print("Notification permission error: \(error)")

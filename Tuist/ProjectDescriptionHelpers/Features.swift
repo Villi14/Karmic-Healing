@@ -19,6 +19,7 @@ public let resources = Module(
   resources: .custom(
     [
       "KarmicHealing/Features/Resources/Assets/**",
+      "KarmicHealing/Features/Resources/**"
     ]
   ),
   hasSources: false

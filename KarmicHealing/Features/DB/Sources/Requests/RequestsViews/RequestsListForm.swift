@@ -33,7 +33,7 @@ struct RequestsListForm: View {
 struct RequestsListFormPreviews: PreviewProvider {
   static var previews: some View {
     let _ = try! prepareDependencies {
-      $0.defaultDatabase = try Db.appDatabase()
+      $0.defaultDatabase = try appDatabase()
     }
     
     NavigationStack {

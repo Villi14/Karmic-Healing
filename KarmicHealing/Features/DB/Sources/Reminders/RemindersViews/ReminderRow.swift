@@ -105,7 +105,7 @@ struct ReminderRowPreview: PreviewProvider {
     var reminder: Reminder!
     var remindersList: RemindersList!
     let _ = try! prepareDependencies {
-      $0.defaultDatabase = try Db.appDatabase()
+      $0.defaultDatabase = try appDatabase()
       try $0.defaultDatabase.read { db in
         reminder = try Reminder.all.fetchOne(db)
         remindersList = try RemindersList.all.fetchOne(db)!

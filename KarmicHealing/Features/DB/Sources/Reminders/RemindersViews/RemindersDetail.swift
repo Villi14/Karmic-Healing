@@ -340,7 +340,7 @@ extension RemindersDetailModel.DetailType {
 struct RemindersDetailPreview: PreviewProvider {
   static var previews: some View {
     let remindersList = try! prepareDependencies {
-      $0.defaultDatabase = try Db.appDatabase()
+      $0.defaultDatabase = try appDatabase()
       return try $0.defaultDatabase.read { db in
         (
           try RemindersList.all.fetchOne(db)!,

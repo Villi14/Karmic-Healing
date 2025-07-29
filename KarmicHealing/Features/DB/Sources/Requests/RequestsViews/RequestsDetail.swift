@@ -315,7 +315,7 @@ extension RequestsDetailModel.DetailType {
 struct RequestsDetailPreview: PreviewProvider {
   static var previews: some View {
     let requestsList = try! prepareDependencies {
-      $0.defaultDatabase = try Db.appDatabase()
+      $0.defaultDatabase = try appDatabase()
       return try $0.defaultDatabase.read { db in
         (
           try RequestsList.all.fetchOne(db)!,

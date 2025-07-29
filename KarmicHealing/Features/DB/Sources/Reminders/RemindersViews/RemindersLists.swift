@@ -337,7 +337,7 @@ struct RemindersListsView: View {
 
 #Preview {
   let _ = try! prepareDependencies {
-    $0.defaultDatabase = try Db.appDatabase()
+    $0.defaultDatabase = try appDatabase()
   }
 
   NavigationStack {

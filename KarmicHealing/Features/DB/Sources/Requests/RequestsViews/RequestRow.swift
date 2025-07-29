@@ -105,7 +105,7 @@ struct RequestRowPreview: PreviewProvider {
     var request: Request!
     var requestsList: RequestsList!
     let _ = try! prepareDependencies {
-      $0.defaultDatabase = try Db.appDatabase()
+      $0.defaultDatabase = try appDatabase()
       try $0.defaultDatabase.read { db in
         request = try Request.all.fetchOne(db)
         requestsList = try RequestsList.all.fetchOne(db)!
