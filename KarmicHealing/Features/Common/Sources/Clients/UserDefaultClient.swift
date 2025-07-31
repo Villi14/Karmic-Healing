@@ -94,6 +94,7 @@ extension UserDefaultsClient {
     public static let userLanguage = "user_language"
     public static let lastCompletedStep = "last_completed_step"
     public static let appLaunchCount = "app_launch_count"
+    public static let sessionDuration = "session_duration"
   }
 }
 
@@ -127,6 +128,7 @@ public struct IntKey {
   
   public static let lastCompletedStep = IntKey(UserDefaultsClient.Keys.lastCompletedStep)
   public static let appLaunchCount = IntKey(UserDefaultsClient.Keys.appLaunchCount)
+  public static let sessionDuration = IntKey(UserDefaultsClient.Keys.sessionDuration)
 }
 
 // MARK: - Convenience methods

@@ -52,8 +52,10 @@ public struct BalancingEnergyView: View {
             set: { newValue in
               if newValue > viewStore.currentStep {
                 viewStore.send(.nextStep)
+                viewStore.send(.userManuallyScrolled)
               } else if newValue < viewStore.currentStep {
                 viewStore.send(.previousStep)
+                viewStore.send(.userManuallyScrolled)
               }
             }
           )) {
@@ -97,10 +99,12 @@ public struct BalancingEnergyView: View {
                 if gesture.translation.width > threshold {
                   if viewStore.currentStep > 0 {
                     viewStore.send(.previousStep)
+                    viewStore.send(.userManuallyScrolled)
                   }
                 } else if gesture.translation.width < -threshold {
                   if viewStore.currentStep < viewStore.steps.count - 1 {
                     viewStore.send(.nextStep)
+                    viewStore.send(.userManuallyScrolled)
                   }
                 }
               }
@@ -109,9 +113,10 @@ public struct BalancingEnergyView: View {
 
           HStack {
             if viewStore.currentStep > 0 {
-              Button(String(localized: "back", bundle: .main)) {
-                viewStore.send(.previousStep)
-              }
+                          Button(String(localized: "back", bundle: .main)) {
+              viewStore.send(.previousStep)
+              viewStore.send(.userManuallyScrolled)
+            }
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
               .padding()
             }
@@ -126,6 +131,7 @@ public struct BalancingEnergyView: View {
                 dismiss()
               } else {
                 viewStore.send(.nextStep)
+                viewStore.send(.userManuallyScrolled)
               }
             }
             .padding()
@@ -140,6 +146,12 @@ public struct BalancingEnergyView: View {
       .navigationBarBackButtonHidden()
       .navigationBarTitleDisplayMode(.inline)
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+      .onAppear {
+        viewStore.send(.onAppear)
+      }
+      .onDisappear {
+        viewStore.send(.onDisappear)
+      }
       .toolbar {
         ToolbarItem(placement: .topBarLeading) {
           Button(action: { dismiss() }) {

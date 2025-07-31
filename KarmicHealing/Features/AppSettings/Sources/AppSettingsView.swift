@@ -20,12 +20,16 @@ public struct AppSettingsView: View {
     WithViewStore(store, observe: { $0 }) { viewStore in
       ZStack {
         GgWithGradientView()
-
+        
         ScrollView {
           VStack {
             KarmicHealingDisclosureGroup {
               KarmicHealingDisclosureCell(String(localized: "about", bundle: .main)) {
                 self.store.send(.didTapAbout)
+              }
+
+              KarmicHealingDisclosureCell(String(localized: "session_duration", bundle: .main)) {
+                self.store.send(.didTapSessionDuration)
               }
 
               KarmicHealingDisclosureCell(String(localized: "change_language", bundle: .main)) {
@@ -45,6 +49,9 @@ public struct AppSettingsView: View {
       .navigationTitle(String(localized: "settings", bundle: .main))
       .navigationBarBackButtonHidden()
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+      .onAppear {
+        self.store.send(.onAppear)
+      }
       .toolbar {
         ToolbarItem(placement: .topBarLeading) {
           Button(action: { dismiss() }) {
@@ -87,8 +94,19 @@ public struct AppSettingsView: View {
           )
         )
       }
+      .fullScreenCover(
+        store: store.scope(
+          state: \.$destination,
+          action: \.destination
+        ),
+        state: \.sessionDurationAlert,
+        action: Destination.Action.sessionDurationAlert
+      ) { _ in
+        EnergyBalansingSettingsAlertView(store: store)
+      }
     }
   }
+
 }
 
 #Preview {
