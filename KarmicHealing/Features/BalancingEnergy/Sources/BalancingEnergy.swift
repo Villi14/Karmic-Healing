@@ -13,6 +13,7 @@ public struct BalancingEnergy {
   @Dependency(\.userDefaults) var userDefaults
   @Dependency(\.mainQueue) var mainQueue
   @Dependency(\.continuousClock) var clock
+  @Dependency(\.audio) var audio
 
   private enum CancelID { case timer }
 
@@ -131,10 +132,8 @@ public struct BalancingEnergy {
   }
   
   private func playSoundAndVibrate(soundEnabled: Bool, vibrationEnabled: Bool) async {
-    let audioManager = AudioManager.shared
-
     if soundEnabled {
-      audioManager.playSound(named: "ding")
+      audio.playSound("ding", "wav")
     }
     
     // Trigger haptic feedback if enabled
