@@ -41,8 +41,10 @@ public struct EnergyBalansingSettingsAlertView: View {
         VStack(spacing: DesignConstants.spacingLarge) {
           titleView
           durationOptionsView(viewStore)
+          soundAndVibrationSection(viewStore)
           doneButton(viewStore)
         }
+        .frame(maxWidth: DesignConstants.maxWidthMedium)
         .padding(DesignConstants.paddingXLarge)
         .padding(.horizontal, DesignConstants.paddingXXLarge)
       }
@@ -98,6 +100,56 @@ public struct EnergyBalansingSettingsAlertView: View {
     }
   }
 
+  private func soundAndVibrationSection(_ viewStore: ViewStoreOf<AppSettings>) -> some View {
+    VStack(spacing: DesignConstants.paddingMedium) {
+      HStack {
+        Image(systemName: "speaker.wave.2.fill")
+          .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
+
+        Text(String(localized: "sound", bundle: .main))
+          .font(.body)
+          .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+        
+        Spacer()
+        
+        Toggle("", isOn: Binding(
+          get: { viewStore.soundEnabled },
+          set: { viewStore.send(.soundEnabledChanged($0)) }
+        ))
+        .toggleStyle(SwitchToggleStyle(tint: ResourcesAsset.Colors.health.swiftUIColor))
+      }
+      .padding(.horizontal, DesignConstants.paddingLarge)
+      .padding(.vertical, DesignConstants.paddingMedium)
+      .background(
+        RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
+          .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
+      )
+      
+      HStack {
+        Image(systemName: "iphone.radiowaves.left.and.right")
+          .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
+
+        Text(String(localized: "vibration", bundle: .main))
+          .font(.body)
+          .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+        
+        Spacer()
+        
+        Toggle("", isOn: Binding(
+          get: { viewStore.vibrationEnabled },
+          set: { viewStore.send(.vibrationEnabledChanged($0)) }
+        ))
+        .toggleStyle(SwitchToggleStyle(tint: ResourcesAsset.Colors.health.swiftUIColor))
+      }
+      .padding(.horizontal, DesignConstants.paddingLarge)
+      .padding(.vertical, DesignConstants.paddingMedium)
+      .background(
+        RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
+          .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
+      )
+    }
+  }
+
   private func doneButton(_ viewStore: ViewStoreOf<AppSettings>) -> some View {
     Button(action: {
       viewStore.send(.destination(.dismiss))
@@ -105,7 +157,8 @@ public struct EnergyBalansingSettingsAlertView: View {
       Text(String(localized: "done", bundle: .main))
         .font(.body.weight(.semibold))
         .foregroundStyle(ResourcesAsset.Colors.textInvert.swiftUIColor)
-        .frame(maxWidth: .infinity)
+        .frame(maxWidth: DesignConstants.maxWidthMedium)
+        .frame(maxHeight: DesignConstants.frameHeightLarge)
         .background(
           RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
             .fill(ResourcesAsset.Colors.clam.swiftUIColor)

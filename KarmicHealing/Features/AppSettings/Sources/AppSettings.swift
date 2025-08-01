@@ -18,6 +18,8 @@ public struct AppSettings {
   public struct State: Equatable {
     @Presents var destination: Destination.State?
     var sessionDuration: Int = 5
+    var soundEnabled: Bool = true
+    var vibrationEnabled: Bool = true
 
     public init() {}
   }
@@ -29,6 +31,8 @@ public struct AppSettings {
     case didTapContactEmail
     case didTapSessionDuration
     case sessionDurationChanged(Int)
+    case soundEnabledChanged(Bool)
+    case vibrationEnabledChanged(Bool)
     case onAppear
   }
 
@@ -36,7 +40,7 @@ public struct AppSettings {
     Reduce { state, action in
       switch action {
       case .didTapAbout:
-        state.destination = .aboutAlert(KarmicHealingAlert<Destination.Action.Alert>.State.showAbout())
+        state.destination = .aboutAlert(.showAbout())
         return .none
       case .didTapChangeLanguage:
         guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
@@ -58,14 +62,25 @@ public struct AppSettings {
       case let .sessionDurationChanged(duration):
         state.sessionDuration = duration
         return .run { [userDefaults] _ in
-          await userDefaults.setAsync(duration, for: .sessionDuration)
+          await userDefaults.setAsync(duration, for: IntKey.sessionDuration)
         }
-
+      case let .soundEnabledChanged(enabled):
+        state.soundEnabled = enabled
+        return .run { [userDefaults] _ in
+          await userDefaults.setAsync(enabled, for: BoolKey.soundEnabled)
+        }
+      case let .vibrationEnabledChanged(enabled):
+        state.vibrationEnabled = enabled
+        return .run { [userDefaults] _ in
+          await userDefaults.setAsync(enabled, for: BoolKey.vibrationEnabled)
+        }
       case .onAppear:
         let savedDuration = userDefaults.integer(for: .sessionDuration)
         if savedDuration > 0 {
           state.sessionDuration = savedDuration
         }
+        state.soundEnabled = userDefaults.bool(for: .soundEnabled)
+        state.vibrationEnabled = userDefaults.bool(for: .vibrationEnabled)
         return .none
       case .destination:
         return .none

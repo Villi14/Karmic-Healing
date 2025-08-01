@@ -95,6 +95,8 @@ extension UserDefaultsClient {
     public static let lastCompletedStep = "last_completed_step"
     public static let appLaunchCount = "app_launch_count"
     public static let sessionDuration = "session_duration"
+    public static let soundEnabled = "sound_enabled"
+    public static let vibrationEnabled = "vibration_enabled"
   }
 }
 
@@ -107,6 +109,8 @@ public struct BoolKey {
   }
   
   public static let showedOnboarding = BoolKey(UserDefaultsClient.Keys.showedOnboarding)
+  public static let soundEnabled = BoolKey(UserDefaultsClient.Keys.soundEnabled)
+  public static let vibrationEnabled = BoolKey(UserDefaultsClient.Keys.vibrationEnabled)
 }
 
 public struct StringKey {
