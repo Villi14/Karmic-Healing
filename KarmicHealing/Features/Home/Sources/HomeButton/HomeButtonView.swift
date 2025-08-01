@@ -56,10 +56,6 @@ public struct HomeButtonView: View {
     .frame(width: size.width, height: size.height)
     .background{
       ResourcesAsset.Colors.cellBackground.swiftUIColor
-
-//      RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
-//        .inset(by: DesignConstants.lineWidthThin)
-//        .stroke(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(DesignConstants.opacityMedium), lineWidth: DesignConstants.lineWidthThin)
     }
     .cornerRadius(DesignConstants.cornerRadiusMedium)
   }

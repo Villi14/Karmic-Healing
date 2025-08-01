@@ -195,7 +195,7 @@ struct RequestsDetailView: View {
           Button(action: { dismiss() }) {
             Image(systemName: "chevron.left")
               .renderingMode(.template)
-              .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+              .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
           }
         }
       }

@@ -26,7 +26,7 @@ public struct KarmicHealingDisclosureCell<Content: View>: View {
             .renderingMode(.template)
             .resizable()
             .frame(width: DesignConstants.paddingMedium, height: DesignConstants.paddingLarge)
-            .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor.opacity(DesignConstants.opacityMedium))
+            .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
         }
       }
     })

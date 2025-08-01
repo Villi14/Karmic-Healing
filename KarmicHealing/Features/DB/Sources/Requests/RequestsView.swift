@@ -29,14 +29,13 @@ public struct RequestsView: View {
       .navigationTitle(String(localized: "requests", bundle: .main))
       .navigationBarBackButtonHidden()
       .navigationBarTitleDisplayMode(.automatic)
-      .navigationBarBackgroundColor(ResourcesAsset.Colors.background.swiftUIColor)
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
       .toolbar {
         ToolbarItem(placement: .topBarLeading) {
           Button(action: { dismiss() }) {
             Image(systemName: "chevron.left")
               .renderingMode(.template)
-              .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+              .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
           }
         }
       }
