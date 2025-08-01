@@ -21,6 +21,7 @@ public struct BalancingEnergy {
 
   @ObservableState
   public struct State: Equatable {
+    @Presents var destination: Destination.State?
     let title: String
     var currentStep: Int
     var isCompleted: Bool
@@ -48,10 +49,12 @@ public struct BalancingEnergy {
     case nextStep
     case previousStep
     case completeSteps
+    case didTapSettings
     case onAppear
     case onDisappear
     case autoScrollTimer
     case userManuallyScrolled
+    case destination(PresentationAction<Destination.Action>)
   }
 
   public var body: some ReducerOf<Self> {
@@ -80,6 +83,10 @@ public struct BalancingEnergy {
 
       case .completeSteps:
         state.isCompleted = true
+        return .none
+        
+      case .didTapSettings:
+        state.destination = .settings(.init())
         return .none
         
       case .onAppear:
@@ -133,7 +140,13 @@ public struct BalancingEnergy {
         }
         .cancellable(id: CancelID.timer)
         .map { _ in .autoScrollTimer }
+        
+      case .destination:
+        return .none
       }
+    }
+    .ifLet(\.$destination, action: \.destination) {
+      Destination()
     }
   }
   
@@ -149,6 +162,24 @@ public struct BalancingEnergy {
         let impactFeedback = UIImpactFeedbackGenerator(style: .medium)
         impactFeedback.impactOccurred()
       }
+    }
+  }
+}
+
+@Reducer
+public struct Destination {
+  @ObservableState
+  public enum State: Equatable {
+    case settings(EnergyBalansingSettings.State)
+  }
+  
+  public enum Action: Equatable {
+    case settings(EnergyBalansingSettings.Action)
+  }
+  
+  public var body: some ReducerOf<Self> {
+    Scope(state: \.settings, action: \.settings) {
+      EnergyBalansingSettings()
     }
   }
 }

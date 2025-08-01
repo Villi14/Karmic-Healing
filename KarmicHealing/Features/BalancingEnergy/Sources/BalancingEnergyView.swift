@@ -160,6 +160,24 @@ public struct BalancingEnergyView: View {
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
           }
         }
+        
+        ToolbarItem(placement: .topBarTrailing) {
+          Button(action: { viewStore.send(.didTapSettings) }) {
+            Image(systemName: "gearshape.fill")
+              .renderingMode(.template)
+              .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+          }
+        }
+      }
+      .fullScreenCover(
+        store: store.scope(
+          state: \.$destination,
+          action: \.destination
+        ),
+        state: \.settings,
+        action: Destination.Action.settings
+      ) { settingsStore in
+        EnergyBalansingSettingsView(store: settingsStore)
       }
     }
   }

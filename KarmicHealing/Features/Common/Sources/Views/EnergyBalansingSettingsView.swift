@@ -1,64 +1,43 @@
+//
 // Karmic Healing 2025
+//
 
 import ComposableArchitecture
-import Common
-import UIKit
 import SwiftUI
 import Resources
 
-@ObservableState
-public struct EnergyBalansingSettingsAlertState: Equatable {
-  var currentDuration: Int
-  var soundEnabled: Bool
-  var vibrationEnabled: Bool
+public struct EnergyBalansingSettingsView: View {
+  public let store: StoreOf<EnergyBalansingSettings>
 
-  public init(currentDuration: Int, soundEnabled: Bool = true, vibrationEnabled: Bool = true) {
-    self.currentDuration = currentDuration
-    self.soundEnabled = soundEnabled
-    self.vibrationEnabled = vibrationEnabled
-  }
-}
-
-public enum EnergyBalansingSettingsAlertAction: Equatable {
-  case durationSelected(Int)
-  case soundToggled(Bool)
-  case vibrationToggled(Bool)
-  case dismiss
-}
-
-public struct EnergyBalansingSettingsAlertView: View {
-  let store: StoreOf<AppSettings>
-
-  public init(store: StoreOf<AppSettings>) {
+  public init(store: StoreOf<EnergyBalansingSettings>) {
     self.store = store
   }
 
   public var body: some View {
     WithViewStore(store, observe: { $0 }) { viewStore in
-      ZStack {
-        GgWithGradientView()
-
-        VStack(spacing: DesignConstants.spacingLarge) {
-          titleView
-          durationOptionsView(viewStore)
-          vibrationAndSoundSection(viewStore)
-          volumeSection(viewStore)
-          doneButton(viewStore)
-        }
-        .frame(maxWidth: DesignConstants.maxWidthMedium)
-        .padding(DesignConstants.paddingXLarge)
-        .padding(.horizontal, DesignConstants.paddingXXLarge)
+      VStack(spacing: DesignConstants.spacingLarge) {
+        titleView
+        durationOptionsView(viewStore)
+        vibrationAndSoundSection(viewStore)
+        volumeSection(viewStore)
+        doneButton(viewStore)
+      }
+      .frame(maxWidth: DesignConstants.maxWidthMedium)
+      .padding(DesignConstants.paddingXLarge)
+      .padding(.horizontal, DesignConstants.paddingXXLarge)
+      .onAppear {
+        viewStore.send(.onAppear)
       }
     }
   }
 
   private var titleView: some View {
     Text(String(localized: "session_duration", bundle: .main))
-      .font(.headline.weight(.semibold))
+      .font(.title2.weight(.semibold))
       .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
   }
 
-  private func durationOptionsView(_ viewStore: ViewStoreOf<AppSettings>) -> some View {
+  private func durationOptionsView(_ viewStore: ViewStoreOf<EnergyBalansingSettings>) -> some View {
     VStack(spacing: DesignConstants.paddingMedium) {
       ForEach([1, 3, 5, 10, 15], id: \.self) { duration in
         durationButton(duration: duration, isSelected: viewStore.sessionDuration == duration, viewStore: viewStore)
@@ -66,42 +45,27 @@ public struct EnergyBalansingSettingsAlertView: View {
     }
   }
 
-  private func durationButton(duration: Int, isSelected: Bool, viewStore: ViewStoreOf<AppSettings>) -> some View {
+  private func durationButton(duration: Int, isSelected: Bool, viewStore: ViewStoreOf<EnergyBalansingSettings>) -> some View {
     Button(action: {
       viewStore.send(.sessionDurationChanged(duration))
     }) {
       HStack {
-        Text("\(duration) \(duration == 1 ? String(localized: "minute", bundle: .main) : String(localized: "minutes", bundle: .main))")
+        Text("\(duration) \(String(localized: "minutes", bundle: .main))")
           .font(.body)
-          .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-
+          .foregroundStyle(isSelected ? ResourcesAsset.Colors.textPrimary.swiftUIColor : ResourcesAsset.Colors.textSecondary.swiftUIColor)
         Spacer()
-
         if isSelected {
-          Image(systemName: "checkmark.circle.fill")
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(height: DesignConstants.frameHeightSmall)
-            .foregroundStyle(ResourcesAsset.Colors.health.swiftUIColor)
-
-        } else {
-          Image(systemName: "circle")
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(height: DesignConstants.frameHeightSmall)
+          Image(systemName: "checkmark")
             .foregroundStyle(ResourcesAsset.Colors.health.swiftUIColor)
         }
       }
       .padding(.horizontal, DesignConstants.paddingLarge)
-      .padding(.vertical, DesignConstants.padding)
-      .background(
-        RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
-          .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
-      )
+      .padding(.vertical, DesignConstants.paddingMedium)
+      .background(RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium).fill(ResourcesAsset.Colors.cellBackground.swiftUIColor))
     }
   }
 
-  private func vibrationAndSoundSection(_ viewStore: ViewStoreOf<AppSettings>) -> some View {
+  private func vibrationAndSoundSection(_ viewStore: ViewStoreOf<EnergyBalansingSettings>) -> some View {
     VStack(spacing: DesignConstants.paddingMedium) {
       HStack {
         Image(systemName: "iphone.radiowaves.left.and.right")
@@ -110,9 +74,9 @@ public struct EnergyBalansingSettingsAlertView: View {
         Text(String(localized: "vibration", bundle: .main))
           .font(.body)
           .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-        
+
         Spacer()
-        
+
         Toggle("", isOn: Binding(
           get: { viewStore.vibrationEnabled },
           set: { viewStore.send(.vibrationEnabledChanged($0)) }
@@ -121,11 +85,8 @@ public struct EnergyBalansingSettingsAlertView: View {
       }
       .padding(.horizontal, DesignConstants.paddingLarge)
       .padding(.vertical, DesignConstants.paddingMedium)
-      .background(
-        RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
-          .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
-      )
-      
+      .background(RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium).fill(ResourcesAsset.Colors.cellBackground.swiftUIColor))
+
       HStack {
         Image(systemName: "speaker.wave.2.fill")
           .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
@@ -133,9 +94,9 @@ public struct EnergyBalansingSettingsAlertView: View {
         Text(String(localized: "sound", bundle: .main))
           .font(.body)
           .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-        
+
         Spacer()
-        
+
         Toggle("", isOn: Binding(
           get: { viewStore.soundEnabled },
           set: { viewStore.send(.soundEnabledChanged($0)) }
@@ -144,14 +105,11 @@ public struct EnergyBalansingSettingsAlertView: View {
       }
       .padding(.horizontal, DesignConstants.paddingLarge)
       .padding(.vertical, DesignConstants.paddingMedium)
-      .background(
-        RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
-          .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
-      )
+      .background(RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium).fill(ResourcesAsset.Colors.cellBackground.swiftUIColor))
     }
   }
 
-  private func volumeSection(_ viewStore: ViewStoreOf<AppSettings>) -> some View {
+  private func volumeSection(_ viewStore: ViewStoreOf<EnergyBalansingSettings>) -> some View {
     VStack(spacing: DesignConstants.paddingMedium) {
       HStack {
         Image(systemName: "speaker.wave.3.fill")
@@ -160,20 +118,17 @@ public struct EnergyBalansingSettingsAlertView: View {
         Text(String(localized: "volume", bundle: .main))
           .font(.body)
           .foregroundStyle(viewStore.soundEnabled ? ResourcesAsset.Colors.textPrimary.swiftUIColor : ResourcesAsset.Colors.textSecondary.swiftUIColor)
-        
+
         Spacer()
-        
+
         Text("\(Int(viewStore.audioVolume * 100))%")
           .font(.body)
           .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
       }
       .padding(.horizontal, DesignConstants.paddingLarge)
       .padding(.vertical, DesignConstants.paddingMedium)
-      .background(
-        RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
-          .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
-      )
-      
+      .background(RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium).fill(ResourcesAsset.Colors.cellBackground.swiftUIColor))
+
       Slider(
         value: Binding(
           get: { viewStore.audioVolume },
@@ -188,21 +143,19 @@ public struct EnergyBalansingSettingsAlertView: View {
     }
   }
 
-  private func doneButton(_ viewStore: ViewStoreOf<AppSettings>) -> some View {
+  private func doneButton(_ viewStore: ViewStoreOf<EnergyBalansingSettings>) -> some View {
     Button(action: {
-      viewStore.send(.destination(.dismiss))
+      viewStore.send(.done)
     }) {
       Text(String(localized: "done", bundle: .main))
-        .font(.body.weight(.semibold))
+        .font(.headline.weight(.semibold))
         .foregroundStyle(ResourcesAsset.Colors.textInvert.swiftUIColor)
-        .frame(maxWidth: DesignConstants.maxWidthMedium)
-        .frame(maxHeight: DesignConstants.frameHeightLarge)
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, DesignConstants.paddingLarge)
         .background(
           RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
             .fill(ResourcesAsset.Colors.clam.swiftUIColor)
         )
-        .padding(.vertical, DesignConstants.paddingMedium)
     }
   }
 }
-

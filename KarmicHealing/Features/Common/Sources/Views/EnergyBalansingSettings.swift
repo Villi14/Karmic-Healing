@@ -6,8 +6,9 @@ import ComposableArchitecture
 import Dependencies
 
 @Reducer
-public struct EnergyBalansingSettingsAlert {
+public struct EnergyBalansingSettings {
   @Dependency(\.userDefaults) var userDefaults
+  @Dependency(\.dismiss) var dismiss
   
   @ObservableState
   public struct State: Equatable {
@@ -68,7 +69,9 @@ public struct EnergyBalansingSettingsAlert {
         }
         
       case .done:
-        return .none
+        return .run { _ in
+          await dismiss()
+        }
         
       case .onAppear:
         state.sessionDuration = userDefaults.integer(for: .sessionDuration)

@@ -101,8 +101,8 @@ public struct AppSettingsView: View {
         ),
         state: \.sessionDurationAlert,
         action: Destination.Action.sessionDurationAlert
-      ) { _ in
-        EnergyBalansingSettingsAlertView(store: store)
+      ) { store in
+        EnergyBalansingSettingsView(store: store)
       }
     }
   }

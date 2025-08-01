@@ -59,7 +59,12 @@ public struct AppSettings {
         }
         return .none
       case .didTapSessionDuration:
-        state.destination = .sessionDurationAlert(.init(currentDuration: state.sessionDuration))
+        state.destination = .sessionDurationAlert(.init(
+          sessionDuration: state.sessionDuration,
+          soundEnabled: state.soundEnabled,
+          vibrationEnabled: state.vibrationEnabled,
+          audioVolume: state.audioVolume
+        ))
         return .none
       case let .sessionDurationChanged(duration):
         state.sessionDuration = duration
@@ -107,20 +112,36 @@ public struct Destination {
     case aboutAlert(KarmicHealingAlert<Action.Alert>.State)
     case clipboardAlert(KarmicHealingAlert<Action.CopyAlert>.State)
     case mailComposer
-    case sessionDurationAlert(EnergyBalansingSettingsAlertState)
+    case sessionDurationAlert(EnergyBalansingSettings.State)
   }
 
   public enum Action: Equatable {
     case aboutAlert(Alert)
     case clipboardAlert(CopyAlert)
     case mailComposer(MailComposer)
-    case sessionDurationAlert(EnergyBalansingSettingsAlertAction)
+    case sessionDurationAlert(EnergyBalansingSettings.Action)
 
     public enum Alert: Equatable {}
     public enum CopyAlert: Equatable {
       case copyToClipboard(String)
     }
     public enum MailComposer: Equatable {}
+  }
+  
+  public var body: some ReducerOf<Self> {
+    EmptyReducer()
+      .ifCaseLet(\.aboutAlert, action: \.aboutAlert) {
+        EmptyReducer()
+      }
+      .ifCaseLet(\.clipboardAlert, action: \.clipboardAlert) {
+        EmptyReducer()
+      }
+      .ifCaseLet(\.mailComposer, action: \.mailComposer) {
+        EmptyReducer()
+      }
+      .ifCaseLet(\.sessionDurationAlert, action: \.sessionDurationAlert) {
+        EnergyBalansingSettings()
+      }
   }
 }
 
