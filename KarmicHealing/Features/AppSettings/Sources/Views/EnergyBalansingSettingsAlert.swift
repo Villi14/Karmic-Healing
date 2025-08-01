@@ -41,7 +41,7 @@ public struct EnergyBalansingSettingsAlertView: View {
         VStack(spacing: DesignConstants.spacingLarge) {
           titleView
           durationOptionsView(viewStore)
-          soundAndVibrationSection(viewStore)
+          vibrationAndSoundSection(viewStore)
           volumeSection(viewStore)
           doneButton(viewStore)
         }
@@ -101,31 +101,8 @@ public struct EnergyBalansingSettingsAlertView: View {
     }
   }
 
-  private func soundAndVibrationSection(_ viewStore: ViewStoreOf<AppSettings>) -> some View {
+  private func vibrationAndSoundSection(_ viewStore: ViewStoreOf<AppSettings>) -> some View {
     VStack(spacing: DesignConstants.paddingMedium) {
-      HStack {
-        Image(systemName: "speaker.wave.2.fill")
-          .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
-
-        Text(String(localized: "sound", bundle: .main))
-          .font(.body)
-          .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-        
-        Spacer()
-        
-        Toggle("", isOn: Binding(
-          get: { viewStore.soundEnabled },
-          set: { viewStore.send(.soundEnabledChanged($0)) }
-        ))
-        .toggleStyle(SwitchToggleStyle(tint: ResourcesAsset.Colors.health.swiftUIColor))
-      }
-      .padding(.horizontal, DesignConstants.paddingLarge)
-      .padding(.vertical, DesignConstants.paddingMedium)
-      .background(
-        RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
-          .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
-      )
-      
       HStack {
         Image(systemName: "iphone.radiowaves.left.and.right")
           .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
@@ -148,6 +125,29 @@ public struct EnergyBalansingSettingsAlertView: View {
         RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
           .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
       )
+      
+      HStack {
+        Image(systemName: "speaker.wave.2.fill")
+          .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
+
+        Text(String(localized: "sound", bundle: .main))
+          .font(.body)
+          .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+        
+        Spacer()
+        
+        Toggle("", isOn: Binding(
+          get: { viewStore.soundEnabled },
+          set: { viewStore.send(.soundEnabledChanged($0)) }
+        ))
+        .toggleStyle(SwitchToggleStyle(tint: ResourcesAsset.Colors.health.swiftUIColor))
+      }
+      .padding(.horizontal, DesignConstants.paddingLarge)
+      .padding(.vertical, DesignConstants.paddingMedium)
+      .background(
+        RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
+          .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
+      )
     }
   }
 
@@ -155,11 +155,11 @@ public struct EnergyBalansingSettingsAlertView: View {
     VStack(spacing: DesignConstants.paddingMedium) {
       HStack {
         Image(systemName: "speaker.wave.3.fill")
-          .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
+          .foregroundStyle(viewStore.soundEnabled ? ResourcesAsset.Colors.friendly.swiftUIColor : ResourcesAsset.Colors.textSecondary.swiftUIColor)
 
         Text(String(localized: "volume", bundle: .main))
           .font(.body)
-          .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+          .foregroundStyle(viewStore.soundEnabled ? ResourcesAsset.Colors.textPrimary.swiftUIColor : ResourcesAsset.Colors.textSecondary.swiftUIColor)
         
         Spacer()
         
@@ -183,6 +183,7 @@ public struct EnergyBalansingSettingsAlertView: View {
         step: 0.1
       )
       .accentColor(ResourcesAsset.Colors.health.swiftUIColor)
+      .disabled(!viewStore.soundEnabled)
       .padding(.horizontal, DesignConstants.paddingLarge)
     }
   }
