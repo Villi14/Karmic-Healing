@@ -60,11 +60,14 @@ public struct BalancingEnergyListView: View {
 }
 
 #Preview {
-  BalancingEnergyListView(store: .init(
-    initialState: .init(),
-    reducer: {
-      BalancingEnergyList()
-    }
-  ))
+  ZStack {
+    GgWithGradientView()
+    BalancingEnergyListView(store: .init(
+      initialState: .init(),
+      reducer: {
+        BalancingEnergyList()
+      }
+    ))
+  }
 }
 

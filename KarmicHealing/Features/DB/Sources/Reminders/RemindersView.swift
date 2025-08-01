@@ -44,11 +44,14 @@ public struct RemindersView: View {
 }
 
 #Preview {
-  RemindersView(store: .init(
-    initialState: .init(),
-    reducer: {
-      Reminders()
-    }
-  ))
+  ZStack {
+    GgWithGradientView()
+    RemindersView(store: .init(
+      initialState: .init(),
+      reducer: {
+        Reminders()
+      }
+    ))
+  }
 }
 

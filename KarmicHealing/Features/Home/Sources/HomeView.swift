@@ -79,11 +79,14 @@ public struct HomeView: View {
 }
 
 #Preview {
-  HomeView(store: .init(
-    initialState: .init(),
-    reducer: {
-      Home()
-    }
-  ))
+  ZStack {
+    GgWithGradientView()
+    HomeView(store: .init(
+      initialState: .init(),
+      reducer: {
+        Home()
+      }
+    ))
+  }
 }
 

@@ -110,11 +110,14 @@ public struct AppSettingsView: View {
 }
 
 #Preview {
-  AppSettingsView(store: .init(
-    initialState: .init(),
-    reducer: {
-      AppSettings()
-    }
-  ))
+  ZStack {
+    GgWithGradientView()
+    AppSettingsView(store: .init(
+      initialState: .init(),
+      reducer: {
+        AppSettings()
+      }
+    ))
+  }
 }
 

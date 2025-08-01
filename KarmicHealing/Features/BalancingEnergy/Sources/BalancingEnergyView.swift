@@ -184,17 +184,20 @@ public struct BalancingEnergyView: View {
 }
 
 #Preview {
-  BalancingEnergyView(store: .init(
-    initialState: .init(
-      title: String(localized: "initial_process", bundle: .main),
-      currentStep: 0,
-      isCompleted: false,
-      steps: Step.part1
-    ),
-    reducer: {
-      BalancingEnergy()
-    }
-  ))
+  ZStack {
+    GgWithGradientView()
+    BalancingEnergyView(store: .init(
+      initialState: .init(
+        title: String(localized: "initial_process", bundle: .main),
+        currentStep: 0,
+        isCompleted: false,
+        steps: Step.part1
+      ),
+      reducer: {
+        BalancingEnergy()
+      }
+    ))
+  }
 }
 
 

@@ -339,8 +339,10 @@ struct RemindersListsView: View {
   let _ = try! prepareDependencies {
     $0.defaultDatabase = try appDatabase()
   }
-
-  NavigationStack {
-    RemindersListsView(model: RemindersListsModel())
+  ZStack {
+    GgWithGradientView()
+    NavigationStack {
+      RemindersListsView(model: RemindersListsModel())
+    }
   }
 }

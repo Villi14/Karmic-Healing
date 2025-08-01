@@ -339,7 +339,10 @@ struct RequestsListsView: View {
     $0.defaultDatabase = try appDatabase()
   }
 
-  NavigationStack {
-    RequestsListsView(model: RequestsListsModel())
+  ZStack {
+    GgWithGradientView()
+    NavigationStack {
+      RequestsListsView(model: RequestsListsModel())
+    }
   }
 }

@@ -44,11 +44,14 @@ public struct RequestsView: View {
 }
 
 #Preview {
-  RequestsView(store: .init(
-    initialState: .init(),
-    reducer: {
-      Requests()
-    }
-  ))
+  ZStack {
+    GgWithGradientView()
+    RequestsView(store: .init(
+      initialState: .init(),
+      reducer: {
+        Requests()
+      }
+    ))
+  }
 }
 

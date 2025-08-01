@@ -109,10 +109,13 @@ public struct OnboardingView: View {
 }
 
 #Preview {
-  OnboardingView(store: .init(
-    initialState: .init(),
-    reducer: {
-      Onboarding()
-    }
-  ))
+  ZStack {
+    GgWithGradientView()
+    OnboardingView(store: .init(
+      initialState: .init(),
+      reducer: {
+        Onboarding()
+      }
+    ))
+  }
 }
