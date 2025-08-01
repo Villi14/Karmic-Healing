@@ -6,15 +6,18 @@ public struct AudioClient {
   public var playSound: @Sendable (String, String) -> Void
   public var setVolume: @Sendable (Float) -> Void
   public var getVolume: @Sendable () -> Float
+  public var stopSound: @Sendable () -> Void
   
   public init(
     playSound: @escaping @Sendable (String, String) -> Void,
     setVolume: @escaping @Sendable (Float) -> Void,
-    getVolume: @escaping @Sendable () -> Float
+    getVolume: @escaping @Sendable () -> Float,
+    stopSound: @escaping @Sendable () -> Void
   ) {
     self.playSound = playSound
     self.setVolume = setVolume
     self.getVolume = getVolume
+    self.stopSound = stopSound
   }
 }
 
@@ -30,6 +33,9 @@ extension AudioClient: DependencyKey {
       },
       getVolume: {
         audioPlayer.getVolume()
+      },
+      stopSound: {
+        audioPlayer.stopSound()
       }
     )
   }()
@@ -37,7 +43,8 @@ extension AudioClient: DependencyKey {
   public static let testValue: Self = Self(
     playSound: { _, _ in },
     setVolume: { _ in },
-    getVolume: { 1.0 }
+    getVolume: { 1.0 },
+    stopSound: { }
   )
 }
 
@@ -64,6 +71,11 @@ private class AudioPlayer {
   func setVolume(_ newVolume: Float) {
     volume = max(0.0, min(1.0, newVolume))
     audioPlayer?.volume = volume
+  }
+  
+  func stopSound() {
+    audioPlayer?.stop()
+    audioPlayer = nil
   }
   
   func getVolume() -> Float {

@@ -9,6 +9,7 @@ import Dependencies
 public struct EnergyBalansingSettings {
   @Dependency(\.userDefaults) var userDefaults
   @Dependency(\.dismiss) var dismiss
+  @Dependency(\.audio) var audio
   
   @ObservableState
   public struct State: Equatable {
@@ -64,8 +65,9 @@ public struct EnergyBalansingSettings {
         
       case let .audioVolumeChanged(volume):
         state.audioVolume = volume
-        return .run { [userDefaults] _ in
+        return .run { [userDefaults, audio] _ in
           await userDefaults.setAsync(volume, for: .audioVolume)
+          audio.setVolume(volume)
         }
         
       case .done:
@@ -78,7 +80,10 @@ public struct EnergyBalansingSettings {
         state.soundEnabled = userDefaults.bool(for: .soundEnabled)
         state.vibrationEnabled = userDefaults.bool(for: .vibrationEnabled)
         state.audioVolume = userDefaults.float(for: .audioVolume)
-        return .none
+        let volume = state.audioVolume
+        return .run { [audio] _ in
+          audio.setVolume(volume)
+        }
       }
     }
   }

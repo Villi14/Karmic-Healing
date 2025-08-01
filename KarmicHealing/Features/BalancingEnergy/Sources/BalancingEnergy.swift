@@ -64,8 +64,8 @@ public struct BalancingEnergy {
         if state.currentStep < state.steps.count - 1 {
           state.currentStep += 1
           // Play sound and vibrate
-          return .run { [soundEnabled = state.soundEnabled, vibrationEnabled = state.vibrationEnabled, audioVolume = state.audioVolume] _ in
-            await playSoundAndVibrate(soundEnabled: soundEnabled, vibrationEnabled: vibrationEnabled, audioVolume: audioVolume)
+          return .run { _ in
+            await playSoundAndVibrate()
           }
         } else {
           return .send(.completeSteps)
@@ -75,8 +75,8 @@ public struct BalancingEnergy {
         if state.currentStep > 0 {
           state.currentStep -= 1
           // Play sound and vibrate
-          return .run { [soundEnabled = state.soundEnabled, vibrationEnabled = state.vibrationEnabled, audioVolume = state.audioVolume] _ in
-            await playSoundAndVibrate(soundEnabled: soundEnabled, vibrationEnabled: vibrationEnabled, audioVolume: audioVolume)
+          return .run { _ in
+            await playSoundAndVibrate()
           }
         }
         return .none
@@ -118,15 +118,15 @@ public struct BalancingEnergy {
           state.currentStep += 1
           let savedDuration = userDefaults.integer(for: .sessionDuration)
           let durationToUse = savedDuration > 0 ? savedDuration : state.sessionDuration
-          return .run { [soundEnabled = state.soundEnabled, vibrationEnabled = state.vibrationEnabled, audioVolume = state.audioVolume] _ in
-            await playSoundAndVibrate(soundEnabled: soundEnabled, vibrationEnabled: vibrationEnabled, audioVolume: audioVolume)
+          return .run { _ in
+            await playSoundAndVibrate()
             try await Task.sleep(nanoseconds: UInt64(durationToUse * 60 * 1_000_000_000))
           }
           .cancellable(id: CancelID.timer)
           .map { _ in .autoScrollTimer }
         } else {
-          return .run { [soundEnabled = state.soundEnabled, vibrationEnabled = state.vibrationEnabled, audioVolume = state.audioVolume] _ in
-            await playSoundAndVibrate(soundEnabled: soundEnabled, vibrationEnabled: vibrationEnabled, audioVolume: audioVolume)
+          return .run { _ in
+            await playSoundAndVibrate()
           }
           .merge(with: .send(.completeSteps))
         }
@@ -150,9 +150,14 @@ public struct BalancingEnergy {
     }
   }
   
-  private func playSoundAndVibrate(soundEnabled: Bool, vibrationEnabled: Bool, audioVolume: Float) async {
+  private func playSoundAndVibrate() async {
+    // Get current settings from UserDefaults to ensure we have the latest values
+    let soundEnabled = userDefaults.bool(for: .soundEnabled)
+    let vibrationEnabled = userDefaults.bool(for: .vibrationEnabled)
+    let currentVolume = userDefaults.float(for: .audioVolume)
+    
     if soundEnabled {
-      audio.setVolume(audioVolume)
+      audio.setVolume(currentVolume)
       audio.playSound("ding", "wav")
     }
     
