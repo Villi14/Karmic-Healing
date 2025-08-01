@@ -20,6 +20,7 @@ public struct AppSettings {
     var sessionDuration: Int = 5
     var soundEnabled: Bool = true
     var vibrationEnabled: Bool = true
+    var audioVolume: Float = 1.0
 
     public init() {}
   }
@@ -33,6 +34,7 @@ public struct AppSettings {
     case sessionDurationChanged(Int)
     case soundEnabledChanged(Bool)
     case vibrationEnabledChanged(Bool)
+    case audioVolumeChanged(Float)
     case onAppear
   }
 
@@ -74,6 +76,11 @@ public struct AppSettings {
         return .run { [userDefaults] _ in
           await userDefaults.setAsync(enabled, for: BoolKey.vibrationEnabled)
         }
+      case let .audioVolumeChanged(volume):
+        state.audioVolume = volume
+        return .run { [userDefaults] _ in
+          await userDefaults.setAsync(volume, for: FloatKey.audioVolume)
+        }
       case .onAppear:
         let savedDuration = userDefaults.integer(for: .sessionDuration)
         if savedDuration > 0 {
@@ -81,6 +88,7 @@ public struct AppSettings {
         }
         state.soundEnabled = userDefaults.bool(for: .soundEnabled)
         state.vibrationEnabled = userDefaults.bool(for: .vibrationEnabled)
+        state.audioVolume = userDefaults.float(for: .audioVolume)
         return .none
       case .destination:
         return .none

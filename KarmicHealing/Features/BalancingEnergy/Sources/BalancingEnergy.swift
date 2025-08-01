@@ -29,6 +29,7 @@ public struct BalancingEnergy {
     var autoScrollTimer: Timer?
     var soundEnabled: Bool = true
     var vibrationEnabled: Bool = true
+    var audioVolume: Float = 1.0
 
     public init(
       title: String,
@@ -60,8 +61,8 @@ public struct BalancingEnergy {
         if state.currentStep < state.steps.count - 1 {
           state.currentStep += 1
           // Play sound and vibrate
-          return .run { [soundEnabled = state.soundEnabled, vibrationEnabled = state.vibrationEnabled] _ in
-            await playSoundAndVibrate(soundEnabled: soundEnabled, vibrationEnabled: vibrationEnabled)
+          return .run { [soundEnabled = state.soundEnabled, vibrationEnabled = state.vibrationEnabled, audioVolume = state.audioVolume] _ in
+            await playSoundAndVibrate(soundEnabled: soundEnabled, vibrationEnabled: vibrationEnabled, audioVolume: audioVolume)
           }
         } else {
           return .send(.completeSteps)
@@ -71,8 +72,8 @@ public struct BalancingEnergy {
         if state.currentStep > 0 {
           state.currentStep -= 1
           // Play sound and vibrate
-          return .run { [soundEnabled = state.soundEnabled, vibrationEnabled = state.vibrationEnabled] _ in
-            await playSoundAndVibrate(soundEnabled: soundEnabled, vibrationEnabled: vibrationEnabled)
+          return .run { [soundEnabled = state.soundEnabled, vibrationEnabled = state.vibrationEnabled, audioVolume = state.audioVolume] _ in
+            await playSoundAndVibrate(soundEnabled: soundEnabled, vibrationEnabled: vibrationEnabled, audioVolume: audioVolume)
           }
         }
         return .none
@@ -87,6 +88,11 @@ public struct BalancingEnergy {
         if savedDuration > 0 {
           state.sessionDuration = savedDuration
         }
+        
+        // Load audio settings
+        state.soundEnabled = userDefaults.bool(for: .soundEnabled)
+        state.vibrationEnabled = userDefaults.bool(for: .vibrationEnabled)
+        state.audioVolume = userDefaults.float(for: .audioVolume)
 
         // Start auto-scroll timer using the loaded duration
         let durationToUse = savedDuration > 0 ? savedDuration : state.sessionDuration
@@ -105,15 +111,15 @@ public struct BalancingEnergy {
           state.currentStep += 1
           let savedDuration = userDefaults.integer(for: .sessionDuration)
           let durationToUse = savedDuration > 0 ? savedDuration : state.sessionDuration
-          return .run { [soundEnabled = state.soundEnabled, vibrationEnabled = state.vibrationEnabled] _ in
-            await playSoundAndVibrate(soundEnabled: soundEnabled, vibrationEnabled: vibrationEnabled)
+          return .run { [soundEnabled = state.soundEnabled, vibrationEnabled = state.vibrationEnabled, audioVolume = state.audioVolume] _ in
+            await playSoundAndVibrate(soundEnabled: soundEnabled, vibrationEnabled: vibrationEnabled, audioVolume: audioVolume)
             try await Task.sleep(nanoseconds: UInt64(durationToUse * 60 * 1_000_000_000))
           }
           .cancellable(id: CancelID.timer)
           .map { _ in .autoScrollTimer }
         } else {
-          return .run { [soundEnabled = state.soundEnabled, vibrationEnabled = state.vibrationEnabled] _ in
-            await playSoundAndVibrate(soundEnabled: soundEnabled, vibrationEnabled: vibrationEnabled)
+          return .run { [soundEnabled = state.soundEnabled, vibrationEnabled = state.vibrationEnabled, audioVolume = state.audioVolume] _ in
+            await playSoundAndVibrate(soundEnabled: soundEnabled, vibrationEnabled: vibrationEnabled, audioVolume: audioVolume)
           }
           .merge(with: .send(.completeSteps))
         }
@@ -131,8 +137,9 @@ public struct BalancingEnergy {
     }
   }
   
-  private func playSoundAndVibrate(soundEnabled: Bool, vibrationEnabled: Bool) async {
+  private func playSoundAndVibrate(soundEnabled: Bool, vibrationEnabled: Bool, audioVolume: Float) async {
     if soundEnabled {
+      audio.setVolume(audioVolume)
       audio.playSound("ding", "wav")
     }
     

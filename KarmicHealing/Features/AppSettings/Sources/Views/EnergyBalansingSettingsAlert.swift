@@ -42,6 +42,7 @@ public struct EnergyBalansingSettingsAlertView: View {
           titleView
           durationOptionsView(viewStore)
           soundAndVibrationSection(viewStore)
+          volumeSection(viewStore)
           doneButton(viewStore)
         }
         .frame(maxWidth: DesignConstants.maxWidthMedium)
@@ -147,6 +148,42 @@ public struct EnergyBalansingSettingsAlertView: View {
         RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
           .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
       )
+    }
+  }
+
+  private func volumeSection(_ viewStore: ViewStoreOf<AppSettings>) -> some View {
+    VStack(spacing: DesignConstants.paddingMedium) {
+      HStack {
+        Image(systemName: "speaker.wave.3.fill")
+          .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
+
+        Text(String(localized: "volume", bundle: .main))
+          .font(.body)
+          .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+        
+        Spacer()
+        
+        Text("\(Int(viewStore.audioVolume * 100))%")
+          .font(.body)
+          .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
+      }
+      .padding(.horizontal, DesignConstants.paddingLarge)
+      .padding(.vertical, DesignConstants.paddingMedium)
+      .background(
+        RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
+          .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
+      )
+      
+      Slider(
+        value: Binding(
+          get: { viewStore.audioVolume },
+          set: { viewStore.send(.audioVolumeChanged($0)) }
+        ),
+        in: 0.0...1.0,
+        step: 0.1
+      )
+      .accentColor(ResourcesAsset.Colors.health.swiftUIColor)
+      .padding(.horizontal, DesignConstants.paddingLarge)
     }
   }
 
