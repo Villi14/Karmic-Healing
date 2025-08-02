@@ -11,9 +11,9 @@ import AVFoundation
 @Reducer
 public struct BalancingEnergy {
   @Dependency(\.userDefaults) var userDefaults
-  @Dependency(\.mainQueue) var mainQueue
   @Dependency(\.continuousClock) var clock
   @Dependency(\.audio) var audio
+  @Dependency(\.notification) var notification
 
   private enum CancelID { case timer }
 
@@ -26,11 +26,6 @@ public struct BalancingEnergy {
     var currentStep: Int
     var isCompleted: Bool
     let steps: [Step]
-    var sessionDuration: Int = 5
-    var autoScrollTimer: Timer?
-    var soundEnabled: Bool = true
-    var vibrationEnabled: Bool = true
-    var audioVolume: Float = 1.0
 
     public init(
       title: String,
@@ -54,6 +49,7 @@ public struct BalancingEnergy {
     case onDisappear
     case autoScrollTimer
     case userManuallyScrolled
+    case startTimer
     case destination(PresentationAction<Destination.Action>)
   }
 
@@ -90,56 +86,36 @@ public struct BalancingEnergy {
         return .none
         
       case .onAppear:
-        // Load session duration from UserDefaults
-        let savedDuration = userDefaults.integer(for: .sessionDuration)
-        if savedDuration > 0 {
-          state.sessionDuration = savedDuration
+        // Request notification permission and start auto-scroll timer
+        return .run { send in
+          let granted = await notification.requestAuthorization()
+          if granted {
+            await send(.startTimer)
+          }
         }
-        
-        // Load audio settings
-        state.soundEnabled = userDefaults.bool(for: .soundEnabled)
-        state.vibrationEnabled = userDefaults.bool(for: .vibrationEnabled)
-        state.audioVolume = userDefaults.float(for: .audioVolume)
-
-        // Start auto-scroll timer using the loaded duration
-        let durationToUse = savedDuration > 0 ? savedDuration : state.sessionDuration
-        return .run { _ in
-          try await Task.sleep(nanoseconds: UInt64(durationToUse * 60 * 1_000_000_000))
-        }
-        .cancellable(id: CancelID.timer)
-        .map { _ in .autoScrollTimer }
 
       case .onDisappear:
-        // Cancel timer when view disappears
+        // Cancel all notifications when leaving the screen
+        notification.cancelAllNotifications()
         return .cancel(id: CancelID.timer)
         
       case .autoScrollTimer:
         if state.currentStep < state.steps.count - 1 {
           state.currentStep += 1
-          let savedDuration = userDefaults.integer(for: .sessionDuration)
-          let durationToUse = savedDuration > 0 ? savedDuration : state.sessionDuration
           return .run { _ in
             await playSoundAndVibrate()
-            try await Task.sleep(nanoseconds: UInt64(durationToUse * 60 * 1_000_000_000))
           }
-          .cancellable(id: CancelID.timer)
-          .map { _ in .autoScrollTimer }
+          .merge(with: startAutoScrollTimer())
         } else {
-          return .run { _ in
-            await playSoundAndVibrate()
-          }
-          .merge(with: .send(.completeSteps))
+          return .send(.completeSteps)
         }
         
       case .userManuallyScrolled:
         // Reset timer when user manually scrolls
-        let savedDuration = userDefaults.integer(for: .sessionDuration)
-        let durationToUse = savedDuration > 0 ? savedDuration : state.sessionDuration
-        return .run { _ in
-          try await clock.sleep(for: .seconds(durationToUse * 60))
-        }
-        .cancellable(id: CancelID.timer)
-        .map { _ in .autoScrollTimer }
+        return startAutoScrollTimer()
+        
+      case .startTimer:
+        return startAutoScrollTimer()
         
       case .destination:
         return .none
@@ -168,6 +144,24 @@ public struct BalancingEnergy {
         impactFeedback.impactOccurred()
       }
     }
+  }
+
+  private func startAutoScrollTimer() -> Effect<Action> {
+    let savedDuration = userDefaults.integer(for: .sessionDuration)
+    let durationToUse = savedDuration > 0 ? savedDuration : 5 // Default 5 minutes
+    
+    // Schedule local notification to wake up the app
+    notification.scheduleLocalNotification(
+      "Час перегорнути слайд",
+      "Натисніть щоб продовжити балансування енергії",
+      TimeInterval(durationToUse * 60)
+    )
+    
+    return .run { send in
+      try await clock.sleep(for: .seconds(durationToUse * 60))
+      await send(.autoScrollTimer)
+    }
+    .cancellable(id: CancelID.timer)
   }
 }
 

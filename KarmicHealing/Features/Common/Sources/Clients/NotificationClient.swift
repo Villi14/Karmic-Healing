@@ -8,7 +8,7 @@ import UserNotifications
 import XCTestDynamicOverlay
 
 extension DependencyValues {
-  public var notifications: NotificationClient {
+  public var notification: NotificationClient {
     get { self[NotificationClient.self] }
     set { self[NotificationClient.self] = newValue }
   }
@@ -16,23 +16,17 @@ extension DependencyValues {
 
 public struct NotificationClient {
   public var requestAuthorization: @Sendable () async -> Bool
-  public var scheduleNotification: @Sendable (String, String, String, Date, UUID) async -> Void
-  public var removeNotification: @Sendable (String) async -> Void
-  public var removeAllNotifications: @Sendable () async -> Void
-  public var getPendingNotifications: @Sendable () async -> [UNNotificationRequest]
-
+  public var scheduleLocalNotification: @Sendable (String, String, TimeInterval) -> Void
+  public var cancelAllNotifications: @Sendable () -> Void
+  
   public init(
-    requestAuthorization: @Sendable @escaping () async -> Bool,
-    scheduleNotification: @Sendable @escaping (String, String, String, Date, UUID) async -> Void,
-    removeNotification: @Sendable @escaping (String) async -> Void,
-    removeAllNotifications: @Sendable @escaping () async -> Void,
-    getPendingNotifications: @Sendable @escaping () async -> [UNNotificationRequest]
+    requestAuthorization: @escaping @Sendable () async -> Bool,
+    scheduleLocalNotification: @escaping @Sendable (String, String, TimeInterval) -> Void,
+    cancelAllNotifications: @escaping @Sendable () -> Void
   ) {
     self.requestAuthorization = requestAuthorization
-    self.scheduleNotification = scheduleNotification
-    self.removeNotification = removeNotification
-    self.removeAllNotifications = removeAllNotifications
-    self.getPendingNotifications = getPendingNotifications
+    self.scheduleLocalNotification = scheduleLocalNotification
+    self.cancelAllNotifications = cancelAllNotifications
   }
 }
 
@@ -42,74 +36,37 @@ extension NotificationClient: DependencyKey {
     
     return Self(
       requestAuthorization: {
-        return await withCheckedContinuation { continuation in
-          center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
-            continuation.resume(returning: granted)
-          }
+        do {
+          return try await center.requestAuthorization(options: [.alert, .sound, .badge])
+        } catch {
+          print("Failed to request notification authorization: \(error)")
+          return false
         }
       },
-      scheduleNotification: { id, title, body, date, reminderID in
+      scheduleLocalNotification: { title, body, timeInterval in
         let content = UNMutableNotificationContent()
         content.title = title
         content.body = body
-        content.userInfo = ["reminderID": reminderID.uuidString]
         content.sound = .default
         
-        let triggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
-        let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
+        let request = UNNotificationRequest(identifier: "auto-scroll", content: content, trigger: trigger)
         
-        do {
-          try await center.add(request)
-        } catch {
-          print("Failed to schedule notification: \(error)")
-        }
-      },
-      removeNotification: { id in
-        center.removePendingNotificationRequests(withIdentifiers: [id])
-      },
-      removeAllNotifications: {
-        center.removeAllPendingNotificationRequests()
-      },
-      getPendingNotifications: {
-        return await withCheckedContinuation { continuation in
-          center.getPendingNotificationRequests { requests in
-            continuation.resume(returning: requests)
+        center.add(request) { error in
+          if let error = error {
+            print("Failed to schedule notification: \(error)")
           }
         }
+      },
+      cancelAllNotifications: {
+        center.removeAllPendingNotificationRequests()
       }
     )
   }()
   
-  public static let testValue: Self = {
-    return Self(
-      requestAuthorization: { true },
-      scheduleNotification: { _, _, _, _, _ in },
-      removeNotification: { _ in },
-      removeAllNotifications: { },
-      getPendingNotifications: { [] }
-    )
-  }()
-}
-
-// MARK: - Convenience methods
-extension NotificationClient {
-  public func scheduleNotification(
-    id: String,
-    title: String,
-    body: String,
-    date: Date,
-    reminderID: UUID
-  ) async {
-    await scheduleNotification(id, title, body, date, reminderID)
-  }
-  
-  public func scheduleNotification(
-    id: String,
-    title: String,
-    body: String,
-    date: Date
-  ) async {
-    await scheduleNotification(id, title, body, date, UUID())
-  }
+  public static let testValue: Self = Self(
+    requestAuthorization: { true },
+    scheduleLocalNotification: { _, _, _ in },
+    cancelAllNotifications: { }
+  )
 }

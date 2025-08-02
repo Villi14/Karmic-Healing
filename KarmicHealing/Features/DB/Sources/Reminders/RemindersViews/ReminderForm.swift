@@ -5,7 +5,7 @@ import Common
 import Resources
 
 struct ReminderFormView: View {
-  @Dependency(\.notifications) var notifications
+  @Dependency(\.notification) var notification
 
   @FetchAll(RemindersList.order(by: \.title)) var remindersLists
   @FetchOne var remindersList: RemindersList
@@ -158,12 +158,10 @@ struct ReminderFormView: View {
 
       if let dueDate = reminder.dueDate {
         Task {
-          await notifications.scheduleNotification(
-            id: "reminder_\(reminderID.uuidString)",
-            title: reminder.title,
-            body: reminder.notes.isEmpty ? "" : reminder.notes,
-            date: dueDate,
-            reminderID: reminderID
+          notification.scheduleLocalNotification(
+            reminder.title,
+            reminder.notes.isEmpty ? "" : reminder.notes,
+            dueDate.timeIntervalSinceNow
           )
         }
       }
