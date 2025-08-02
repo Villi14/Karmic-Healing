@@ -98,8 +98,7 @@ public struct KarmicHealingAlertView<Action: Equatable>: View {
 
 #Preview {
   ZStack {
-    SwiftUI.Color.white
-      .ignoresSafeArea()
+    GgWithGradientView()
     KarmicHealingAlertPreviewView()
   }
 }

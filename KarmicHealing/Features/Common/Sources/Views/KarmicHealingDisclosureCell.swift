@@ -68,8 +68,7 @@ extension KarmicHealingDisclosureCell where Content == Text {
 
 #Preview {
   ZStack {
-    ResourcesAsset.Colors.background.swiftUIColor
-      .ignoresSafeArea()
+    GgWithGradientView()
     
     VStack {
       KarmicHealingDisclosureCell("123", onTap: {})

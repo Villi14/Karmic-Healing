@@ -41,11 +41,13 @@ public struct OnboardingView: View {
             }
           )) {
             ForEach(Array(viewStore.steps.enumerated()), id: \.offset) { index, step in
-                      VStack(spacing: DesignConstants.spacingLarge) {
-          Image(systemName: step.imageName)
-            .font(.largeTitle)
-            .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
-            .padding()
+              VStack(spacing: DesignConstants.spacingLarge) {
+                Image(systemName: step.imageName)
+                  .resizable()
+                  .aspectRatio(contentMode: .fit)
+                  .frame(height: DesignConstants.frameHeightMedium)
+                  .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
+                  .padding()
 
                 Text(step.title)
                   .font(.title.weight(.medium))
