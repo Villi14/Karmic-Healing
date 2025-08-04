@@ -88,7 +88,9 @@ public struct BalancingEnergy {
 
       case .completeSteps:
         state.isCompleted = true
-        return .none
+        // Cancel notifications when completing steps
+        notification.cancelAllNotifications()
+        return .cancel(id: CancelID.timer)
         
       case .didTapSettings:
         state.destination = .settings(.init())
@@ -106,7 +108,8 @@ public struct BalancingEnergy {
         }
         
       case .userManuallyScrolled:
-        // Reset timer when user manually scrolls
+        // Cancel existing notifications and reset timer when user manually scrolls
+        notification.cancelAllNotifications()
         return startAutoScrollTimer()
         
       case .startTimer:
