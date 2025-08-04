@@ -83,28 +83,32 @@ private class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificatio
     
     switch identifier {
     case "OPEN_REMINDER_FORM", UNNotificationDefaultActionIdentifier:
-      // Відкриваємо ReminderFormView через notification
-      DispatchQueue.main.async {
-        // Витягуємо reminderID з userInfo
-        if let reminderIDString = response.notification.request.content.userInfo["reminderID"] as? String,
-           let reminderID = UUID(uuidString: reminderIDString) {
-          print("AppDelegate: Extracted reminderID from notification: \(reminderID)")
-          // Відправляємо дію в Home reducer з реальним reminderID
-          self.store.send(.destination(.home(.openReminderFormFromNotification(reminderID: reminderID))))
-        } else {
-          print("AppDelegate: No reminderID found in notification, using default")
-          // Відправляємо дію в Home reducer без reminderID
-          self.store.send(.destination(.home(.openReminderFormFromNotification(reminderID: nil))))
+      Task { @MainActor in
+        // Витягуємо тип notification з userInfo
+        let notificationTypeString = response.notification.request.content.userInfo["notificationType"] as? String
+        let notificationType = NotificationType(rawValue: notificationTypeString ?? "") ?? .reminder
+        
+        switch notificationType {
+        case .reminder:
+          // Для reminder notification - відкриваємо RemindersDetailView
+          if let reminderIDString = response.notification.request.content.userInfo["reminderID"] as? String,
+             let reminderID = UUID(uuidString: reminderIDString) {
+            print("AppDelegate: Opening RemindersDetailView for reminder: \(reminderID)")
+            self.store.send(.destination(.home(.resetNavigationAndOpenReminder(reminderID: reminderID))))
+          } else {
+            print("AppDelegate: No reminderID found, opening RemindersDetailView without specific reminder")
+            self.store.send(.destination(.home(.resetNavigationAndOpenReminder(reminderID: nil))))
+          }
+          
+        case .balancingEnergy:
+          // Для balancing energy notification - просто відкриваємо додаток
+          print("AppDelegate: Balancing energy notification tapped - just opening app")
+          // Не робимо нічого, просто відкриваємо додаток
+          break
         }
       }
     default:
-      // Обробка існуючих сповіщень
-      if let reminderIDString = response.notification.request.content.userInfo["reminderID"] as? String,
-         let reminderID = UUID(uuidString: reminderIDString) {
-        DispatchQueue.main.async {
-          self.selectedReminderID = reminderID
-        }
-      }
+      break
     }
 
     completionHandler()

@@ -33,6 +33,7 @@ public struct Home {
     case didTap(HomeButton)
     case path(StackActionOf<Path>)
     case openReminderFormFromNotification(reminderID: UUID? = nil)
+    case resetNavigationAndOpenReminder(reminderID: UUID? = nil)
   }
 
   public var body: some ReducerOf<Self> {
@@ -95,6 +96,14 @@ public struct Home {
         return .none
       case let .openReminderFormFromNotification(reminderID):
         // Відкриваємо RemindersView і встановлюємо selectedReminderID
+        var remindersState = Reminders.State()
+        remindersState.selectedReminderID = reminderID
+        state.path.append(.reminders(remindersState))
+        return .none
+        
+      case let .resetNavigationAndOpenReminder(reminderID):
+        // Скидаємо всю навігацію і відкриваємо RemindersDetailView
+        state.path.removeAll()
         var remindersState = Reminders.State()
         remindersState.selectedReminderID = reminderID
         state.path.append(.reminders(remindersState))

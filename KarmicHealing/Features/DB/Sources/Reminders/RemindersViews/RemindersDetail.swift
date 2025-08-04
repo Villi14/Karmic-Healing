@@ -28,12 +28,6 @@ class RemindersDetailModel: HashableObject {
       .appStorage("show_completed_list_\(detailType.id)")
     )
     _reminderRows = FetchAll(remindersQuery)
-    // Скролимо до потрібного Reminder, якщо selectedReminderID задано
-    if let id = selectedReminderID, let index = reminderRows.firstIndex(where: { $0.id == id }) {
-      DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-        // TODO: Реалізувати скрол до index (потрібно додати ScrollViewReader у RemindersDetailView)
-      }
-    }
   }
 
   func orderingButtonTapped(_ ordering: Ordering) async {
@@ -202,7 +196,8 @@ struct RemindersDetailView: View {
         .onAppear {
           if let selectedID = model.selectedReminderID, !didScrollToReminder {
             if model.reminderRows.contains(where: { $0.id == selectedID }) {
-              DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+              Task { @MainActor in
+                try? await Task.sleep(for: .milliseconds(500))
                 withAnimation {
                   proxy.scrollTo(selectedID, anchor: .center)
                   didScrollToReminder = true

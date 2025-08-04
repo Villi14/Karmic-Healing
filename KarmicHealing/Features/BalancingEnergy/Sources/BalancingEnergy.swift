@@ -157,7 +157,8 @@ public struct BalancingEnergy {
     notification.scheduleLocalNotification(
       "Час перегорнути слайд",
       "Натисніть щоб продовжити балансування енергії",
-      TimeInterval(durationToUse * 60)
+      TimeInterval(durationToUse * 60),
+      .balancingEnergy
     )
     
     return .run { send in

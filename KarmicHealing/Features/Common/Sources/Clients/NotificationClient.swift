@@ -8,6 +8,11 @@ import UserNotifications
 import XCTestDynamicOverlay
 import AppIntents
 
+public enum NotificationType: String, CaseIterable {
+  case reminder = "REMINDER"
+  case balancingEnergy = "BALANCING_ENERGY"
+}
+
 extension DependencyValues {
   public var notification: NotificationClient {
     get { self[NotificationClient.self] }
@@ -17,16 +22,16 @@ extension DependencyValues {
 
 public struct NotificationClient {
   public var requestAuthorization: @Sendable () async -> Bool
-  public var scheduleLocalNotification: @Sendable (String, String, TimeInterval) -> Void
-  public var scheduleReminderNotification: @Sendable (String, String, TimeInterval, UUID?) -> Void
-  public var scheduleReminderNotificationWithIntent: @Sendable (String, String, TimeInterval, UUID?) -> Void
+  public var scheduleLocalNotification: @Sendable (String, String, TimeInterval, NotificationType) -> Void
+  public var scheduleReminderNotification: @Sendable (String, String, TimeInterval, UUID?, NotificationType) -> Void
+  public var scheduleReminderNotificationWithIntent: @Sendable (String, String, TimeInterval, UUID?, NotificationType) -> Void
   public var cancelAllNotifications: @Sendable () -> Void
   
   public init(
     requestAuthorization: @escaping @Sendable () async -> Bool,
-    scheduleLocalNotification: @escaping @Sendable (String, String, TimeInterval) -> Void,
-    scheduleReminderNotification: @escaping @Sendable (String, String, TimeInterval, UUID?) -> Void,
-    scheduleReminderNotificationWithIntent: @escaping @Sendable (String, String, TimeInterval, UUID?) -> Void,
+    scheduleLocalNotification: @escaping @Sendable (String, String, TimeInterval, NotificationType) -> Void,
+    scheduleReminderNotification: @escaping @Sendable (String, String, TimeInterval, UUID?, NotificationType) -> Void,
+    scheduleReminderNotificationWithIntent: @escaping @Sendable (String, String, TimeInterval, UUID?, NotificationType) -> Void,
     cancelAllNotifications: @escaping @Sendable () -> Void
   ) {
     self.requestAuthorization = requestAuthorization
@@ -50,7 +55,7 @@ extension NotificationClient: DependencyKey {
           return false
         }
       },
-      scheduleLocalNotification: { title, body, timeInterval in
+      scheduleLocalNotification: { title, body, timeInterval, type in
         // Валідуємо timeInterval - має бути >= 1 секунда
         let validTimeInterval = max(1.0, timeInterval)
         
@@ -58,9 +63,13 @@ extension NotificationClient: DependencyKey {
         content.title = title
         content.body = body
         content.sound = .default
+        content.categoryIdentifier = type.rawValue
+        
+        // Додаємо тип notification в userInfo
+        content.userInfo = ["notificationType": type.rawValue]
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: validTimeInterval, repeats: false)
-        let request = UNNotificationRequest(identifier: "auto-scroll", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: "\(type.rawValue.lowercased())-\(UUID().uuidString)", content: content, trigger: trigger)
         
         center.add(request) { error in
           if let error = error {
@@ -68,7 +77,7 @@ extension NotificationClient: DependencyKey {
           }
         }
       },
-      scheduleReminderNotification: { title, body, timeInterval, reminderID in
+      scheduleReminderNotification: { title, body, timeInterval, reminderID, type in
         // Валідуємо timeInterval - має бути >= 1 секунда
         let validTimeInterval = max(1.0, timeInterval)
         
@@ -78,17 +87,20 @@ extension NotificationClient: DependencyKey {
         content.sound = .default
         
         // Встановлюємо category для обробки в AppDelegate
-        content.categoryIdentifier = "REMINDER_FORM"
+        content.categoryIdentifier = type.rawValue
         
-        // Додаємо reminderID в userInfo для навігації
+        // Додаємо reminderID і тип notification в userInfo для навігації
         let reminderIDString = reminderID?.uuidString ?? UUID().uuidString
-        content.userInfo = ["reminderID": reminderIDString]
+        content.userInfo = [
+          "reminderID": reminderIDString,
+          "notificationType": type.rawValue
+        ]
         
         // Встановлюємо interruptionLevel для iOS 18+
         content.interruptionLevel = .timeSensitive
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: validTimeInterval, repeats: false)
-        let request = UNNotificationRequest(identifier: "reminder-\(reminderIDString)", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: "\(type.rawValue.lowercased())-\(reminderIDString)", content: content, trigger: trigger)
         
         center.add(request) { error in
           if let error = error {
@@ -96,7 +108,7 @@ extension NotificationClient: DependencyKey {
           }
         }
       },
-      scheduleReminderNotificationWithIntent: { title, body, timeInterval, reminderID in
+      scheduleReminderNotificationWithIntent: { title, body, timeInterval, reminderID, type in
         // Валідуємо timeInterval - має бути >= 1 секунда
         let validTimeInterval = max(1.0, timeInterval)
         
@@ -104,17 +116,20 @@ extension NotificationClient: DependencyKey {
         content.title = title
         content.body = body
         content.sound = .default
-        content.categoryIdentifier = "REMINDER_FORM"
+        content.categoryIdentifier = type.rawValue
         
-        // Додаємо reminderID в userInfo для навігації
+        // Додаємо reminderID і тип notification в userInfo для навігації
         let reminderIDString = reminderID?.uuidString ?? UUID().uuidString
-        content.userInfo = ["reminderID": reminderIDString]
+        content.userInfo = [
+          "reminderID": reminderIDString,
+          "notificationType": type.rawValue
+        ]
         
         // Встановлюємо interruptionLevel для iOS 18+
         content.interruptionLevel = .timeSensitive
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: validTimeInterval, repeats: false)
-        let request = UNNotificationRequest(identifier: "reminder-intent-\(reminderIDString)", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: "\(type.rawValue.lowercased())-intent-\(reminderIDString)", content: content, trigger: trigger)
         
         center.add(request) { error in
           if let error = error {
@@ -130,9 +145,9 @@ extension NotificationClient: DependencyKey {
   
   public static let testValue: Self = Self(
     requestAuthorization: { true },
-    scheduleLocalNotification: { _, _, _ in },
-    scheduleReminderNotification: { _, _, _, _ in },
-    scheduleReminderNotificationWithIntent: { _, _, _, _ in },
+    scheduleLocalNotification: { _, _, _, _ in },
+    scheduleReminderNotification: { _, _, _, _, _ in },
+    scheduleReminderNotificationWithIntent: { _, _, _, _, _ in },
     cancelAllNotifications: { }
   )
 }

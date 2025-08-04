@@ -204,7 +204,8 @@ struct ReminderFormView: View {
             reminder.title,
             reminder.notes.isEmpty ? "" : reminder.notes,
             timeInterval,
-            reminderID
+            reminderID,
+            .reminder
           )
         }
       }
