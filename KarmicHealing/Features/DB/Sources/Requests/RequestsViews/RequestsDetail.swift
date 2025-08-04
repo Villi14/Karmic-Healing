@@ -231,7 +231,7 @@ struct RequestsDetailView: View {
               } label: {
                 HStack {
                   Image(systemName: "plus")
-                  Text(String(localized: "request", bundle: .main))
+                  Text(String(localized: "additional_questions", bundle: .main))
                 }
                 .font(.body)
               }

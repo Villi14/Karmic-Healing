@@ -4,7 +4,6 @@ import Common
 import Resources
 
 struct RequestsListRow: View {
-  let requestsCount: Int
   let requestsList: RequestsList
   var onTap: (() -> Void)? = nil
 
@@ -14,7 +13,7 @@ struct RequestsListRow: View {
 
   var body: some View {
     ListRowView(
-      count: requestsCount,
+      count: 0, // We'll calculate this later if needed
       list: requestsList,
       color: requestsList.color,
       title: requestsList.title,
@@ -45,7 +44,6 @@ struct RequestsListRow: View {
   NavigationStack {
     List {
       RequestsListRow(
-        requestsCount: 10,
         requestsList: RequestsList(
           id: UUID(),
           title: "Personal"

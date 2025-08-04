@@ -12,9 +12,48 @@ struct RequestsList: Hashable, Identifiable {
   var color = Color(red: 0x4a / 255, green: 0x99 / 255, blue: 0xef / 255)
   var position = 0
   var title = ""
+  var description = ""
+  var isCompleted = false
+  var isFlagged = false
+  var priority: Priority?
+  var dueDate: Date?
+  var notes = ""
 }
 
 extension RequestsList.Draft: Identifiable {}
+
+extension RequestsList {
+  static let incomplete = Self.where { !$0.isCompleted }
+  static func searching(_ text: String) -> Where<RequestsList> {
+    Self.where {
+      $0.title.collate(.nocase).contains(text)
+      || $0.description.collate(.nocase).contains(text)
+      || $0.notes.collate(.nocase).contains(text)
+    }
+  }
+}
+
+extension RequestsList.TableColumns {
+  var isPastDue: some QueryExpression<Bool> {
+    @Dependency(\.date.now) var now
+    return !isCompleted && #sql("coalesce(date(\(dueDate)) < date(\(now)), 0)")
+  }
+
+  var isToday: some QueryExpression<Bool> {
+    @Dependency(\.date.now) var now
+    return !isCompleted && #sql("coalesce(date(\(dueDate)) = date(\(now)), 0)")
+  }
+
+  var isScheduled: some QueryExpression<Bool> {
+    !isCompleted && dueDate.isNot(nil)
+  }
+
+  var inlineNotes: some QueryExpression<String> {
+    notes.replace("\n", " ")
+  }
+}
+
+
 
 @Table
 struct Request: Codable, Equatable, Identifiable {
@@ -162,7 +201,13 @@ public func appDatabase() throws -> any DatabaseWriter {
         "id" TEXT PRIMARY KEY NOT NULL ON CONFLICT REPLACE DEFAULT (uuid()),
         "color" INTEGER NOT NULL DEFAULT \(raw: 0x4a99_ef00),
         "position" INTEGER NOT NULL DEFAULT 0,
-        "title" TEXT NOT NULL
+        "title" TEXT NOT NULL,
+        "description" TEXT NOT NULL DEFAULT '',
+        "isCompleted" INTEGER NOT NULL DEFAULT 0,
+        "isFlagged" INTEGER NOT NULL DEFAULT 0,
+        "priority" INTEGER,
+        "dueDate" TEXT,
+        "notes" TEXT NOT NULL DEFAULT ''
       ) STRICT
       """
     )
