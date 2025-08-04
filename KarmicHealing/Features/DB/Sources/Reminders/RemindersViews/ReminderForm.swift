@@ -11,7 +11,14 @@ struct ReminderFormView: View {
   @FetchOne var remindersList: RemindersList
 
   @State var reminder: Reminder.Draft
-  @State private var selectedDate: Date = Date()
+  @State private var selectedDate: Date = {
+    // Встановлюємо поточний локальний час як початкове значення
+    let now = Date()
+    let calendar = Calendar.current
+    let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: now)
+    return calendar.date(from: components) ?? now
+  }()
+  @State private var showDateErrorAlert = false
 
   @Dependency(\.defaultDatabase) private var database
   @Environment(\.dismiss) var dismiss
@@ -73,6 +80,16 @@ struct ReminderFormView: View {
           .padding(.vertical, DesignConstants.paddingTiny)
           .onChange(of: selectedDate) { _, newDate in
             reminder.dueDate = newDate
+            
+            // Логуємо зміну дати
+            let formatter = DateFormatter()
+            formatter.dateStyle = .medium
+            formatter.timeStyle = .medium
+            formatter.timeZone = TimeZone.current
+            
+            print("ReminderForm: DatePicker changed")
+            print("ReminderForm: New date (UTC): \(newDate)")
+            print("ReminderForm: New date (local): \(formatter.string(from: newDate))")
           }
         }
       }
@@ -148,24 +165,52 @@ struct ReminderFormView: View {
         .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
       }
     }
+    .sheet(isPresented: $showDateErrorAlert) {
+      AlertView<Never>(
+        store: .init(
+          initialState: .error(
+            title: String(localized: "date_error", bundle: .main),
+            message: String(localized: "date_error_message", bundle: .main)
+          ),
+          reducer: { AlertReducer() }
+        )
+      )
+    }
   }
 
   private func saveButtonTapped() {
+    // Перевіряємо дату перед збереженням
+    if let dueDate = reminder.dueDate {
+      let timeInterval = dueDate.timeIntervalSinceNow
+      
+      // Перевіряємо чи дата в майбутньому
+      guard timeInterval > 0 else {
+        showDateErrorAlert = true
+        return // Не зберігаємо і не закриваємо екран
+      }
+    }
+    
+    // Зберігаємо reminder тільки якщо дата валідна
     withErrorReporting {
       let reminderID = try database.write { db in
         try Reminder.upsert(reminder).returning(\.id).fetchOne(db)!
       }
 
       if let dueDate = reminder.dueDate {
+        let timeInterval = dueDate.timeIntervalSinceNow
+        
         Task {
-          notification.scheduleLocalNotification(
+          notification.scheduleReminderNotificationWithIntent(
             reminder.title,
             reminder.notes.isEmpty ? "" : reminder.notes,
-            dueDate.timeIntervalSinceNow
+            timeInterval,
+            reminderID
           )
         }
       }
     }
+    
+    // Закриваємо екран тільки після успішного збереження
     dismiss()
   }
 }

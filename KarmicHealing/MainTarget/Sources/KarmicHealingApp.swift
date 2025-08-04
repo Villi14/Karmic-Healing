@@ -10,6 +10,12 @@ import Db
 import UserNotifications
 import Combine
 
+// MARK: - Notification Names
+
+extension Notification.Name {
+  static let openReminderForm = Notification.Name("openReminderForm")
+}
+
 @main
 struct KarmicHealingApp: App {
   @UIApplicationDelegateAdaptor(AppDelegate.self) private var delegate
@@ -35,8 +41,9 @@ struct KarmicHealingApp: App {
 private class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
   let store: StoreOf<KarmicHealing>
   @Published var selectedReminderID: UUID?
+  @Published var shouldOpenReminderForm = false
   private var cancellables = Set<AnyCancellable>()
-  
+
   override init() {
     store = .init(
       initialState: .init(),
@@ -54,7 +61,7 @@ private class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificatio
       }
       .store(in: &cancellables)
   }
-  
+
   func application(
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
@@ -72,12 +79,34 @@ private class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificatio
 
   // MARK: - Notification Delegate
   func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-    if let reminderIDString = response.notification.request.content.userInfo["reminderID"] as? String,
-       let reminderID = UUID(uuidString: reminderIDString) {
+    let identifier = response.actionIdentifier
+    
+    switch identifier {
+    case "OPEN_REMINDER_FORM", UNNotificationDefaultActionIdentifier:
+      // Відкриваємо ReminderFormView через notification
       DispatchQueue.main.async {
-        self.selectedReminderID = reminderID
+        // Витягуємо reminderID з userInfo
+        if let reminderIDString = response.notification.request.content.userInfo["reminderID"] as? String,
+           let reminderID = UUID(uuidString: reminderIDString) {
+          print("AppDelegate: Extracted reminderID from notification: \(reminderID)")
+          // Відправляємо дію в Home reducer з реальним reminderID
+          self.store.send(.destination(.home(.openReminderFormFromNotification(reminderID: reminderID))))
+        } else {
+          print("AppDelegate: No reminderID found in notification, using default")
+          // Відправляємо дію в Home reducer без reminderID
+          self.store.send(.destination(.home(.openReminderFormFromNotification(reminderID: nil))))
+        }
+      }
+    default:
+      // Обробка існуючих сповіщень
+      if let reminderIDString = response.notification.request.content.userInfo["reminderID"] as? String,
+         let reminderID = UUID(uuidString: reminderIDString) {
+        DispatchQueue.main.async {
+          self.selectedReminderID = reminderID
+        }
       }
     }
+
     completionHandler()
   }
 }

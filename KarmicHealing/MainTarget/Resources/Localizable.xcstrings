@@ -2208,6 +2208,52 @@
           }
         }
       }
+    },
+    "date_error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date Error"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ошибка даты"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Помилка дати"
+          }
+        }
+      }
+    },
+    "date_error_message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The notification date cannot be in the past. Please set a date in the future."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дата сповіщення не може бути в минулому. Будь ласка, встановіть дату в майбутньому."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дата сповіщення не може бути в минулому. Будь ласка, встановіть дату в майбутньому."
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

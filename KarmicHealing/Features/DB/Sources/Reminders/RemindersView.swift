@@ -23,9 +23,17 @@ public struct RemindersView: View {
     WithViewStore(store, observe: { $0 }) { viewStore in
       VStack {
         if context == .live {
+          // Завжди показуємо RemindersListsView
           RemindersListsView(model: Self.model)
+            .onAppear {
+              // Передаємо selectedReminderID в модель
+              if let selectedReminderID = viewStore.selectedReminderID {
+                Self.model.setSelectedReminderID(selectedReminderID)
+              }
+            }
         }
       }
+
       .navigationTitle(String(localized: "reminders", bundle: .main))
       .navigationBarBackButtonHidden()
       .navigationBarTitleDisplayMode(.automatic)

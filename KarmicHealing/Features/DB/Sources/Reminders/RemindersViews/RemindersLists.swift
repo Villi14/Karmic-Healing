@@ -37,6 +37,8 @@ class RemindersListsModel {
   var destination: Destination?
   var searchRemindersModel = SearchRemindersModel()
   var seedDatabaseTip: SeedDatabaseTip?
+  var shouldOpenReminderFormFromNotification = false
+  var selectedReminderID: UUID?
 
   @ObservationIgnored
   @Dependency(\.defaultDatabase) private var database
@@ -63,6 +65,18 @@ class RemindersListsModel {
       seedDatabaseTip = SeedDatabaseTip()
     }
     searchRemindersModel.searchText = ""
+    
+    // Перевіряємо чи потрібно відкрити форму через notification
+    if shouldOpenReminderFormFromNotification {
+      shouldOpenReminderFormFromNotification = false
+      openReminderFormFromNotification()
+    }
+    
+    // Перевіряємо чи потрібно відкрити RemindersDetailView з selectedReminderID
+    if let selectedReminderID = getSelectedReminderID() {
+      openRemindersDetailWithSelectedReminder(selectedReminderID)
+      setSelectedReminderID(nil) // Скидаємо після використання
+    }
   }
 
   func newReminderButtonTapped() {
@@ -83,6 +97,37 @@ class RemindersListsModel {
 
   func listDetailsButtonTapped(remindersList: RemindersList) {
     destination = .remindersListForm(RemindersList.Draft(remindersList))
+  }
+
+  func openReminderFormFromNotification() {
+    guard let remindersList = remindersLists.first?.remindersList
+    else {
+      reportIssue("There must be at least one list.")
+      return
+    }
+  }
+  
+  func getSelectedReminderID() -> UUID? {
+    return selectedReminderID
+  }
+  
+  func setSelectedReminderID(_ id: UUID?) {
+    selectedReminderID = id
+  }
+  
+  func openRemindersDetailWithSelectedReminder(_ reminderID: UUID) {
+    guard let remindersList = remindersLists.first?.remindersList
+    else {
+      reportIssue("There must be at least one list.")
+      return
+    }
+    
+    destination = .detail(
+      RemindersDetailModel(
+        detailType: .remindersList(remindersList),
+        selectedReminderID: reminderID
+      )
+    )
   }
 
   func move(from source: IndexSet, to destination: Int) {
@@ -259,6 +304,7 @@ struct RemindersListsView: View {
         .onAppear {
           model.onAppear()
         }
+
         .toolbar {
 #if DEBUG
           ToolbarItem(placement: .automatic) {
@@ -315,6 +361,7 @@ struct RemindersListsView: View {
               .navigationTitle(String(localized: "new_reminder", bundle: .main))
           }
         }
+
         .sheet(item: $model.destination.remindersListForm) { remindersList in
           NavigationStack {
             RemindersListForm(remindersList: remindersList)
