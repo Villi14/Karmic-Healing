@@ -20,19 +20,19 @@ public struct BalancingEnergyListView: View {
   public var body: some View {
     WithViewStore(store, observe: { $0 }) { viewStore in
       ZStack {
-        GgWithGradientView()
+        BgWithGradientView()
         
         VStack {
           KarmicHealingDisclosureGroup {
-            KarmicHealingDisclosureCell(String(localized: "initial_process", bundle: .main)) {
+            DisclosureCell(String(localized: "initial_process", bundle: .main)) {
               self.store.send(.initialProcess)
             }
 
-            KarmicHealingDisclosureCell(String(localized: "essential_self", bundle: .main)) {
+            DisclosureCell(String(localized: "essential_self", bundle: .main)) {
               self.store.send(.essentialSelf)
             }
 
-            KarmicHealingDisclosureCell(String(localized: "divine_self", bundle: .main)) {
+            DisclosureCell(String(localized: "divine_self", bundle: .main)) {
               self.store.send(.divineSelf)
             }
           }
@@ -61,7 +61,7 @@ public struct BalancingEnergyListView: View {
 
 #Preview {
   ZStack {
-    GgWithGradientView()
+    BgWithGradientView()
     BalancingEnergyListView(store: .init(
       initialState: .init(),
       reducer: {

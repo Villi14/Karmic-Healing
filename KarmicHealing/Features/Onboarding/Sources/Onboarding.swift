@@ -63,7 +63,7 @@ public struct Onboarding {
 extension Onboarding {
   fileprivate func saveDidShowOnboarding() {
     Task {
-      await userDefaults.setAsync(true, for: BoolKey.showedOnboarding)
+      await userDefaults.setAsync(true, for: .showedOnboarding)
     }
   }
 }

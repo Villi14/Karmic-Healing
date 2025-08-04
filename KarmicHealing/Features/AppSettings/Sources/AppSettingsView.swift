@@ -19,24 +19,24 @@ public struct AppSettingsView: View {
   public var body: some View {
     WithViewStore(store, observe: { $0 }) { viewStore in
       ZStack {
-        GgWithGradientView()
+        BgWithGradientView()
         
         ScrollView {
           VStack {
             KarmicHealingDisclosureGroup {
-              KarmicHealingDisclosureCell(String(localized: "about", bundle: .main)) {
+              DisclosureCell(String(localized: "about", bundle: .main)) {
                 self.store.send(.didTapAbout)
               }
 
-              KarmicHealingDisclosureCell(String(localized: "session_duration", bundle: .main)) {
+              DisclosureCell(String(localized: "session_duration", bundle: .main)) {
                 self.store.send(.didTapSessionDuration)
               }
 
-              KarmicHealingDisclosureCell(String(localized: "change_language", bundle: .main)) {
+              DisclosureCell(String(localized: "change_language", bundle: .main)) {
                 self.store.send(.didTapChangeLanguage)
               }
 
-              KarmicHealingDisclosureCell(String(localized: "write_to_us", bundle: .main)) {
+              DisclosureCell(String(localized: "write_to_us", bundle: .main)) {
                 self.store.send(.didTapContactEmail)
               }
             }
@@ -68,7 +68,7 @@ public struct AppSettingsView: View {
         ),
         state: \.aboutAlert,
         action: Destination.Action.aboutAlert,
-        content: KarmicHealingAlertView<Destination.Action.Alert>.init(store:)
+        content: AlertView<Destination.Action.Alert>.init(store:)
       )
       .fullScreenCover(
         store: store.scope(
@@ -77,7 +77,7 @@ public struct AppSettingsView: View {
         ),
         state: \.clipboardAlert,
         action: Destination.Action.clipboardAlert,
-        content: KarmicHealingAlertView<Destination.Action.CopyAlert>.init(store:)
+        content: AlertView<Destination.Action.CopyAlert>.init(store:)
       )
       .fullScreenCover(
         store: self.store.scope(
@@ -111,7 +111,7 @@ public struct AppSettingsView: View {
 
 #Preview {
   ZStack {
-    GgWithGradientView()
+    BgWithGradientView()
     AppSettingsView(store: .init(
       initialState: .init(),
       reducer: {

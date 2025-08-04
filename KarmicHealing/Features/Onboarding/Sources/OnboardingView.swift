@@ -27,7 +27,7 @@ public struct OnboardingView: View {
   public var body: some View {
     WithViewStore(store, observe: ViewState.init) { viewStore in
       ZStack {
-        GgWithGradientView()
+        BgWithGradientView()
 
         VStack {
           TabView(selection: Binding(
@@ -112,7 +112,7 @@ public struct OnboardingView: View {
 
 #Preview {
   ZStack {
-    GgWithGradientView()
+    BgWithGradientView()
     OnboardingView(store: .init(
       initialState: .init(),
       reducer: {

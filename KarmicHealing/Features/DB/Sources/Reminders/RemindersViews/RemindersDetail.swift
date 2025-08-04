@@ -170,7 +170,7 @@ struct RemindersDetailView: View {
 
   var body: some View {
     ZStack {
-      GgWithGradientView()
+      BgWithGradientView()
 
       ScrollViewReader { proxy in
         List {

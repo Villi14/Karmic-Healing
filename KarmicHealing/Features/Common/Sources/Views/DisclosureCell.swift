@@ -5,7 +5,7 @@
 import Resources
 import SwiftUI
 
-public struct KarmicHealingDisclosureCell<Content: View>: View {
+public struct DisclosureCell<Content: View>: View {
   private let content: () -> Content
   private let onTap: () -> Void
   
@@ -59,7 +59,7 @@ public struct KarmicHealingDisclosureGroup<Content: View>: View {
   }
 }
 
-extension KarmicHealingDisclosureCell where Content == Text {
+extension DisclosureCell where Content == Text {
   public init(_ title: String, onTap: @escaping () -> Void) {
     self.content = { Text(title) }
     self.onTap = onTap
@@ -68,17 +68,17 @@ extension KarmicHealingDisclosureCell where Content == Text {
 
 #Preview {
   ZStack {
-    GgWithGradientView()
+    BgWithGradientView()
     
     VStack {
-      KarmicHealingDisclosureCell("123", onTap: {})
+      DisclosureCell("123", onTap: {})
         .padding(.bottom)
       
       KarmicHealingDisclosureGroup {
         VStack {
-          KarmicHealingDisclosureCell("Group 1", onTap: {})
-          KarmicHealingDisclosureCell("Group 2", onTap: {})
-          KarmicHealingDisclosureCell("Group 3", onTap: {})
+          DisclosureCell("Group 1", onTap: {})
+          DisclosureCell("Group 2", onTap: {})
+          DisclosureCell("Group 3", onTap: {})
         }
       }
     }

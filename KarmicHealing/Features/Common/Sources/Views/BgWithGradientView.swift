@@ -3,7 +3,7 @@
 import SwiftUI
 import Resources
 
-public struct GgWithGradientView: View {
+public struct BgWithGradientView: View {
   public init() {}
 
   public var body: some View {

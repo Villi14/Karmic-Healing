@@ -3,7 +3,7 @@
 import SwiftUI
 import Resources
 
-public struct KarmicHealingSearchBar: View {
+public struct SearchBar: View {
   @Binding var text: String
 
   public init(text: Binding<String>) {

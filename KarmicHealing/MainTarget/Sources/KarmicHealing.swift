@@ -58,6 +58,6 @@ enum Destination {
 
 extension KarmicHealing {
   fileprivate func shouldShowOnboarding() -> Bool {
-    return userDefaults.bool(for: BoolKey.showedOnboarding)
+    return userDefaults.bool(for: .showedOnboarding)
   }
 }

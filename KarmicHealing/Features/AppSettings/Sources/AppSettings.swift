@@ -26,6 +26,7 @@ public struct AppSettings {
   }
 
   public enum Action: Equatable {
+    case onAppear
     case didTapAbout
     case destination(PresentationAction<Destination.Action>)
     case didTapChangeLanguage
@@ -35,12 +36,20 @@ public struct AppSettings {
     case soundEnabledChanged(Bool)
     case vibrationEnabledChanged(Bool)
     case audioVolumeChanged(Float)
-    case onAppear
   }
 
   public var body: some ReducerOf<Self> {
     Reduce { state, action in
       switch action {
+      case .onAppear:
+        let savedDuration = userDefaults.integer(for: .sessionDuration)
+        if savedDuration > 0 {
+          state.sessionDuration = savedDuration
+        }
+        state.soundEnabled = userDefaults.bool(for: .soundEnabled)
+        state.vibrationEnabled = userDefaults.bool(for: .vibrationEnabled)
+        state.audioVolume = userDefaults.float(for: .audioVolume)
+        return .none
       case .didTapAbout:
         state.destination = .aboutAlert(.showAbout())
         return .none
@@ -69,32 +78,23 @@ public struct AppSettings {
       case let .sessionDurationChanged(duration):
         state.sessionDuration = duration
         return .run { [userDefaults] _ in
-          await userDefaults.setAsync(duration, for: IntKey.sessionDuration)
+          await userDefaults.setAsync(duration, for: .sessionDuration)
         }
       case let .soundEnabledChanged(enabled):
         state.soundEnabled = enabled
         return .run { [userDefaults] _ in
-          await userDefaults.setAsync(enabled, for: BoolKey.soundEnabled)
+          await userDefaults.setAsync(enabled, for: .soundEnabled)
         }
       case let .vibrationEnabledChanged(enabled):
         state.vibrationEnabled = enabled
         return .run { [userDefaults] _ in
-          await userDefaults.setAsync(enabled, for: BoolKey.vibrationEnabled)
+          await userDefaults.setAsync(enabled, for: .vibrationEnabled)
         }
       case let .audioVolumeChanged(volume):
         state.audioVolume = volume
         return .run { [userDefaults] _ in
-          await userDefaults.setAsync(volume, for: FloatKey.audioVolume)
+          await userDefaults.setAsync(volume, for: .audioVolume)
         }
-      case .onAppear:
-        let savedDuration = userDefaults.integer(for: .sessionDuration)
-        if savedDuration > 0 {
-          state.sessionDuration = savedDuration
-        }
-        state.soundEnabled = userDefaults.bool(for: .soundEnabled)
-        state.vibrationEnabled = userDefaults.bool(for: .vibrationEnabled)
-        state.audioVolume = userDefaults.float(for: .audioVolume)
-        return .none
       case .destination:
         return .none
       }
@@ -109,8 +109,8 @@ public struct AppSettings {
 public struct Destination {
   @ObservableState
   public enum State: Equatable {
-    case aboutAlert(KarmicHealingAlert<Action.Alert>.State)
-    case clipboardAlert(KarmicHealingAlert<Action.CopyAlert>.State)
+    case aboutAlert(AlertReducer<Action.Alert>.State)
+    case clipboardAlert(AlertReducer<Action.CopyAlert>.State)
     case mailComposer
     case sessionDurationAlert(EnergyBalansingSettings.State)
   }
@@ -130,22 +130,22 @@ public struct Destination {
   
   public var body: some ReducerOf<Self> {
     EmptyReducer()
-      .ifCaseLet(\.aboutAlert, action: \.aboutAlert) {
+      .ifLet(\.aboutAlert, action: \.aboutAlert) {
         EmptyReducer()
       }
-      .ifCaseLet(\.clipboardAlert, action: \.clipboardAlert) {
+      .ifLet(\.clipboardAlert, action: \.clipboardAlert) {
         EmptyReducer()
       }
-      .ifCaseLet(\.mailComposer, action: \.mailComposer) {
+      .ifLet(\.mailComposer, action: \.mailComposer) {
         EmptyReducer()
       }
-      .ifCaseLet(\.sessionDurationAlert, action: \.sessionDurationAlert) {
+      .ifLet(\.sessionDurationAlert, action: \.sessionDurationAlert) {
         EnergyBalansingSettings()
       }
   }
 }
 
-extension KarmicHealingAlert<Destination.Action.Alert>.State {
+extension AlertReducer<Destination.Action.Alert>.State {
   static func showAbout() -> Self {
     .init(
       image: Image(systemName: "info.circle"),
@@ -155,7 +155,7 @@ extension KarmicHealingAlert<Destination.Action.Alert>.State {
   }
 }
 
-extension KarmicHealingAlert<Destination.Action.CopyAlert>.State {
+extension AlertReducer<Destination.Action.CopyAlert>.State {
   static var contactUs: Self {
     let email = "karmic.healing@gmail.com"
 

@@ -22,7 +22,7 @@ public struct HomeView: View {
     WithViewStore(store, observe: { $0 }) { viewStore in
       NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
         ZStack {
-          GgWithGradientView()
+          BgWithGradientView()
 
           GeometryReader { proxy in
             let previewSize = previewSize(in: proxy.size)
@@ -80,7 +80,7 @@ public struct HomeView: View {
 
 #Preview {
   ZStack {
-    GgWithGradientView()
+    BgWithGradientView()
     HomeView(store: .init(
       initialState: .init(),
       reducer: {

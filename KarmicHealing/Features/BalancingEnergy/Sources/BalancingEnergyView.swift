@@ -31,7 +31,7 @@ public struct BalancingEnergyView: View {
   public var body: some View {
     WithViewStore(store, observe: ViewState.init) { viewStore in
       ZStack {
-        GgWithGradientView()
+        BgWithGradientView()
 
         VStack {
           Image(systemName: "exclamationmark.circle")
@@ -185,7 +185,7 @@ public struct BalancingEnergyView: View {
 
 #Preview {
   ZStack {
-    GgWithGradientView()
+    BgWithGradientView()
     BalancingEnergyView(store: .init(
       initialState: .init(
         title: String(localized: "initial_process", bundle: .main),

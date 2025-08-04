@@ -160,7 +160,7 @@ struct RequestsDetailView: View {
 
   var body: some View {
     ZStack {
-      GgWithGradientView()
+      BgWithGradientView()
 
       List {
         VStack(alignment: .leading) {

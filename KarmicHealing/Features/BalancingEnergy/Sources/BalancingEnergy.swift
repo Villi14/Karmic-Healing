@@ -41,21 +41,30 @@ public struct BalancingEnergy {
   }
 
   public enum Action: Equatable {
+    case onAppear
     case nextStep
     case previousStep
     case completeSteps
     case didTapSettings
-    case onAppear
-    case onDisappear
     case autoScrollTimer
     case userManuallyScrolled
     case startTimer
+    case onDisappear
     case destination(PresentationAction<Destination.Action>)
   }
 
   public var body: some ReducerOf<Self> {
     Reduce { state, action in
       switch action {
+      case .onAppear:
+        // Request notification permission and start auto-scroll timer
+        return .run { send in
+          let granted = await notification.requestAuthorization()
+          if granted {
+            await send(.startTimer)
+          }
+        }
+
       case .nextStep:
         if state.currentStep < state.steps.count - 1 {
           state.currentStep += 1
@@ -84,21 +93,7 @@ public struct BalancingEnergy {
       case .didTapSettings:
         state.destination = .settings(.init())
         return .none
-        
-      case .onAppear:
-        // Request notification permission and start auto-scroll timer
-        return .run { send in
-          let granted = await notification.requestAuthorization()
-          if granted {
-            await send(.startTimer)
-          }
-        }
 
-      case .onDisappear:
-        // Cancel all notifications when leaving the screen
-        notification.cancelAllNotifications()
-        return .cancel(id: CancelID.timer)
-        
       case .autoScrollTimer:
         if state.currentStep < state.steps.count - 1 {
           state.currentStep += 1
@@ -117,6 +112,11 @@ public struct BalancingEnergy {
       case .startTimer:
         return startAutoScrollTimer()
         
+      case .onDisappear:
+        // Cancel all notifications when leaving the screen
+        notification.cancelAllNotifications()
+        return .cancel(id: CancelID.timer)
+
       case .destination:
         return .none
       }

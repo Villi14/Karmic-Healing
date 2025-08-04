@@ -3,7 +3,7 @@
 import SwiftUI
 import Resources
 
-public struct KarmicHealingGridCell: View {
+public struct GridCell: View {
   let color: Color
   let count: Int?
   let iconName: String

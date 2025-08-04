@@ -159,16 +159,16 @@ struct RemindersListsView: View {
 
   var body: some View {
     ZStack {
-      GgWithGradientView()
+      BgWithGradientView()
 
       VStack(spacing: 0) {
-        KarmicHealingSearchBar(text: $model.searchRemindersModel.searchText)
+        SearchBar(text: $model.searchRemindersModel.searchText)
         List {
           if model.searchRemindersModel.searchText.isEmpty {
             Section {
               Grid(alignment: .leading, horizontalSpacing: DesignConstants.padding, verticalSpacing: DesignConstants.padding) {
                 GridRow {
-                  KarmicHealingGridCell(
+                  GridCell(
                     color: ResourcesAsset.Colors.clam.swiftUIColor,
                     count: model.stats.todayCount,
                     iconName: "calendar",
@@ -177,7 +177,7 @@ struct RemindersListsView: View {
                     model.statTapped(.today)
                   }
 
-                  KarmicHealingGridCell(
+                  GridCell(
                     color: ResourcesAsset.Colors.energy.swiftUIColor,
                     count: model.stats.scheduledCount,
                     iconName: "calendar",
@@ -188,7 +188,7 @@ struct RemindersListsView: View {
                 }
 
                 GridRow {
-                  KarmicHealingGridCell(
+                  GridCell(
                     color: ResourcesAsset.Colors.textSecondary.swiftUIColor,
                     count: model.stats.allCount,
                     iconName: "tray",
@@ -197,7 +197,7 @@ struct RemindersListsView: View {
                     model.statTapped(.all)
                   }
 
-                  KarmicHealingGridCell(
+                  GridCell(
                     color: ResourcesAsset.Colors.friendly.swiftUIColor,
                     count: model.stats.flaggedCount,
                     iconName: "flag",
@@ -208,7 +208,7 @@ struct RemindersListsView: View {
                 }
 
                 GridRow {
-                  KarmicHealingGridCell(
+                  GridCell(
                     color: ResourcesAsset.Colors.health.swiftUIColor,
                     count: nil,
                     iconName: "checkmark",
@@ -340,7 +340,7 @@ struct RemindersListsView: View {
     $0.defaultDatabase = try appDatabase()
   }
   ZStack {
-    GgWithGradientView()
+    BgWithGradientView()
     NavigationStack {
       RemindersListsView(model: RemindersListsModel())
     }
