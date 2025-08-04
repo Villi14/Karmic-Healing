@@ -95,14 +95,14 @@ public struct Home {
       case .path:
         return .none
       case let .openReminderFormFromNotification(reminderID):
-        // Відкриваємо RemindersView і встановлюємо selectedReminderID
+        // Open RemindersView and set selectedReminderID
         var remindersState = Reminders.State()
         remindersState.selectedReminderID = reminderID
         state.path.append(.reminders(remindersState))
         return .none
         
       case let .resetNavigationAndOpenReminder(reminderID):
-        // Скидаємо всю навігацію і відкриваємо RemindersDetailView
+        // Reset all navigation and open RemindersDetailView
         state.path.removeAll()
         var remindersState = Reminders.State()
         remindersState.selectedReminderID = reminderID

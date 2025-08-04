@@ -65,14 +65,14 @@ let store = TestStore(initialState: MyFeature.State()) {
 ### Типобезпечні ключі
 
 ```swift
-// Bool ключі
+// Bool keys
 public static let soundEnabled = BoolKey("sound_enabled")
 public static let vibrationEnabled = BoolKey("vibration_enabled")
 
-// String ключі  
+// String keys  
 public static let userLanguage = StringKey("user_language")
 
-// Int ключі
+// Int keys
 public static let sessionDuration = IntKey("session_duration")
 ```
 
@@ -81,12 +81,12 @@ public static let sessionDuration = IntKey("session_duration")
 ```swift
 @Dependency(\.userDefaults) var userDefaults
 
-// Читання
+// Reading
 let soundEnabled = userDefaults.bool(for: .soundEnabled)
 let language = userDefaults.string(for: .userLanguage)
 let duration = userDefaults.integer(for: .sessionDuration)
 
-// Запис
+// Writing
 await userDefaults.setAsync(true, for: .soundEnabled)
 await userDefaults.setAsync("uk", for: .userLanguage)
 await userDefaults.setAsync(10, for: .sessionDuration)

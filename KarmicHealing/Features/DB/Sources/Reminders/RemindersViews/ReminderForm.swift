@@ -12,7 +12,7 @@ struct ReminderFormView: View {
 
   @State var reminder: Reminder.Draft
   @State private var selectedDate: Date = {
-    // Встановлюємо поточний локальний час як початкове значення
+    // Set current local time as initial value
     let now = Date()
     let calendar = Calendar.current
     let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: now)
@@ -81,7 +81,7 @@ struct ReminderFormView: View {
           .onChange(of: selectedDate) { _, newDate in
             reminder.dueDate = newDate
             
-            // Логуємо зміну дати
+            // Log date change
             let formatter = DateFormatter()
             formatter.dateStyle = .medium
             formatter.timeStyle = .medium
@@ -179,18 +179,18 @@ struct ReminderFormView: View {
   }
 
   private func saveButtonTapped() {
-    // Перевіряємо дату перед збереженням
+    // Check date before saving
     if let dueDate = reminder.dueDate {
       let timeInterval = dueDate.timeIntervalSinceNow
       
-      // Перевіряємо чи дата в майбутньому
+      // Check if date is in the future
       guard timeInterval > 0 else {
         showDateErrorAlert = true
-        return // Не зберігаємо і не закриваємо екран
+        return // Don't save and don't close the screen
       }
     }
     
-    // Зберігаємо reminder тільки якщо дата валідна
+    // Save reminder only if date is valid
     withErrorReporting {
       let reminderID = try database.write { db in
         try Reminder.upsert(reminder).returning(\.id).fetchOne(db)!
@@ -211,7 +211,7 @@ struct ReminderFormView: View {
       }
     }
     
-    // Закриваємо екран тільки після успішного збереження
+    // Close screen only after successful save
     dismiss()
   }
 }

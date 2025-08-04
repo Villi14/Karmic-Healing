@@ -10,23 +10,23 @@ import Common
 public struct RemindersView: View {
   @SwiftUI.Environment(\.dismiss) var dismiss
   @Dependency(\.context) var context
-  
+
   static let model = RemindersListsModel()
 
   public let store: StoreOf<Reminders>
-  
+
   public init(store: StoreOf<Reminders>) {
     self.store = store
   }
-  
+
   public var body: some View {
     WithViewStore(store, observe: { $0 }) { viewStore in
       VStack {
         if context == .live {
-          // Завжди показуємо RemindersListsView
+          // Always show RemindersListsView
           RemindersListsView(model: Self.model)
             .onAppear {
-              // Передаємо selectedReminderID в модель
+              // Pass selectedReminderID to the model
               if let selectedReminderID = viewStore.selectedReminderID {
                 Self.model.setSelectedReminderID(selectedReminderID)
               }

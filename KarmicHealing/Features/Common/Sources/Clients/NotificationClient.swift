@@ -56,7 +56,7 @@ extension NotificationClient: DependencyKey {
         }
       },
       scheduleLocalNotification: { title, body, timeInterval, type in
-        // Валідуємо timeInterval - має бути >= 1 секунда
+        // Validate timeInterval - must be >= 1 second
         let validTimeInterval = max(1.0, timeInterval)
         
         let content = UNMutableNotificationContent()
@@ -65,7 +65,7 @@ extension NotificationClient: DependencyKey {
         content.sound = .default
         content.categoryIdentifier = type.rawValue
         
-        // Додаємо тип notification в userInfo
+        // Add notification type to userInfo
         content.userInfo = ["notificationType": type.rawValue]
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: validTimeInterval, repeats: false)
@@ -78,7 +78,7 @@ extension NotificationClient: DependencyKey {
         }
       },
       scheduleReminderNotification: { title, body, timeInterval, reminderID, type in
-        // Валідуємо timeInterval - має бути >= 1 секунда
+        // Validate timeInterval - must be >= 1 second
         let validTimeInterval = max(1.0, timeInterval)
         
         let content = UNMutableNotificationContent()
@@ -86,17 +86,17 @@ extension NotificationClient: DependencyKey {
         content.body = body
         content.sound = .default
         
-        // Встановлюємо category для обробки в AppDelegate
+        // Set category for processing in AppDelegate
         content.categoryIdentifier = type.rawValue
         
-        // Додаємо reminderID і тип notification в userInfo для навігації
+        // Add reminderID and notification type to userInfo for navigation
         let reminderIDString = reminderID?.uuidString ?? UUID().uuidString
         content.userInfo = [
           "reminderID": reminderIDString,
           "notificationType": type.rawValue
         ]
         
-        // Встановлюємо interruptionLevel для iOS 18+
+        // Set interruptionLevel for iOS 18+
         content.interruptionLevel = .timeSensitive
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: validTimeInterval, repeats: false)
@@ -109,7 +109,7 @@ extension NotificationClient: DependencyKey {
         }
       },
       scheduleReminderNotificationWithIntent: { title, body, timeInterval, reminderID, type in
-        // Валідуємо timeInterval - має бути >= 1 секунда
+        // Validate timeInterval - must be >= 1 second
         let validTimeInterval = max(1.0, timeInterval)
         
         let content = UNMutableNotificationContent()
@@ -118,14 +118,14 @@ extension NotificationClient: DependencyKey {
         content.sound = .default
         content.categoryIdentifier = type.rawValue
         
-        // Додаємо reminderID і тип notification в userInfo для навігації
+        // Add reminderID and notification type to userInfo for navigation
         let reminderIDString = reminderID?.uuidString ?? UUID().uuidString
         content.userInfo = [
           "reminderID": reminderIDString,
           "notificationType": type.rawValue
         ]
         
-        // Встановлюємо interruptionLevel для iOS 18+
+        // Set interruptionLevel for iOS 18+
         content.interruptionLevel = .timeSensitive
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: validTimeInterval, repeats: false)

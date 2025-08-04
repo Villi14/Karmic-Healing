@@ -84,13 +84,13 @@ private class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificatio
     switch identifier {
     case "OPEN_REMINDER_FORM", UNNotificationDefaultActionIdentifier:
       Task { @MainActor in
-        // Витягуємо тип notification з userInfo
+        // Extract notification type from userInfo
         let notificationTypeString = response.notification.request.content.userInfo["notificationType"] as? String
         let notificationType = NotificationType(rawValue: notificationTypeString ?? "") ?? .reminder
         
         switch notificationType {
         case .reminder:
-          // Для reminder notification - відкриваємо RemindersDetailView
+          // For reminder notification - open RemindersDetailView
           if let reminderIDString = response.notification.request.content.userInfo["reminderID"] as? String,
              let reminderID = UUID(uuidString: reminderIDString) {
             print("AppDelegate: Opening RemindersDetailView for reminder: \(reminderID)")
@@ -101,9 +101,9 @@ private class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificatio
           }
           
         case .balancingEnergy:
-          // Для balancing energy notification - просто відкриваємо додаток
+          // For balancing energy notification - just open the app
           print("AppDelegate: Balancing energy notification tapped - just opening app")
-          // Не робимо нічого, просто відкриваємо додаток
+          // Do nothing, just open the app
           break
         }
       }
