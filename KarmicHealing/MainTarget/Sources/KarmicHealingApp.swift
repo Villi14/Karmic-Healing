@@ -92,8 +92,14 @@ private class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificatio
         case .reminder:
           // For reminder notification - open RemindersDetailView
           if let reminderIDString = response.notification.request.content.userInfo["reminderID"] as? String,
-             let reminderID = UUID(uuidString: reminderIDString) {
-            print("AppDelegate: Opening RemindersDetailView for reminder: \(reminderID)")
+             let reminderID = UUID(uuidString: reminderIDString),
+             let reminderListIDString = response.notification.request.content.userInfo["reminderListID"] as? String,
+             let reminderListID = UUID(uuidString: reminderListIDString) {
+            print("AppDelegate: Opening RemindersDetailView for reminder: \(reminderID) in list: \(reminderListID)")
+            self.store.send(.destination(.home(.resetNavigationAndOpenReminder(reminderID: reminderID, reminderListID: reminderListID))))
+          } else if let reminderIDString = response.notification.request.content.userInfo["reminderID"] as? String,
+                    let reminderID = UUID(uuidString: reminderIDString) {
+            print("AppDelegate: Opening RemindersDetailView for reminder: \(reminderID) without list")
             self.store.send(.destination(.home(.resetNavigationAndOpenReminder(reminderID: reminderID))))
           } else {
             print("AppDelegate: No reminderID found, opening RemindersDetailView without specific reminder")

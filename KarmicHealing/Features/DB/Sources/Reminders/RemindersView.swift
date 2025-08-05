@@ -26,9 +26,12 @@ public struct RemindersView: View {
           // Always show RemindersListsView
           RemindersListsView(model: Self.model)
             .onAppear {
-              // Pass selectedReminderID to the model
+              // Pass selectedReminderID and selectedReminderListID to the model
               if let selectedReminderID = viewStore.selectedReminderID {
                 Self.model.setSelectedReminderID(selectedReminderID)
+              }
+              if let selectedReminderListID = viewStore.selectedReminderListID {
+                Self.model.setSelectedReminderListID(selectedReminderListID)
               }
             }
         }

@@ -199,15 +199,16 @@ struct ReminderFormView: View {
       if let dueDate = reminder.dueDate {
         let timeInterval = dueDate.timeIntervalSinceNow
         
-        Task {
-          notification.scheduleReminderNotificationWithIntent(
-            reminder.title,
-            reminder.notes.isEmpty ? "" : reminder.notes,
-            timeInterval,
-            reminderID,
-            .reminder
-          )
-        }
+                  Task {
+            notification.scheduleReminderNotificationWithIntent(
+              reminder.title,
+              reminder.notes.isEmpty ? "" : reminder.notes,
+              timeInterval,
+              reminderID,
+              remindersList.id,
+              .reminder
+            )
+          }
       }
     }
     

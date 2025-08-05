@@ -23,15 +23,15 @@ extension DependencyValues {
 public struct NotificationClient {
   public var requestAuthorization: @Sendable () async -> Bool
   public var scheduleLocalNotification: @Sendable (String, String, TimeInterval, NotificationType) -> Void
-  public var scheduleReminderNotification: @Sendable (String, String, TimeInterval, UUID?, NotificationType) -> Void
-  public var scheduleReminderNotificationWithIntent: @Sendable (String, String, TimeInterval, UUID?, NotificationType) -> Void
+  public var scheduleReminderNotification: @Sendable (String, String, TimeInterval, UUID?, UUID?, NotificationType) -> Void
+  public var scheduleReminderNotificationWithIntent: @Sendable (String, String, TimeInterval, UUID?, UUID?, NotificationType) -> Void
   public var cancelAllNotifications: @Sendable () -> Void
   
   public init(
     requestAuthorization: @escaping @Sendable () async -> Bool,
     scheduleLocalNotification: @escaping @Sendable (String, String, TimeInterval, NotificationType) -> Void,
-    scheduleReminderNotification: @escaping @Sendable (String, String, TimeInterval, UUID?, NotificationType) -> Void,
-    scheduleReminderNotificationWithIntent: @escaping @Sendable (String, String, TimeInterval, UUID?, NotificationType) -> Void,
+    scheduleReminderNotification: @escaping @Sendable (String, String, TimeInterval, UUID?, UUID?, NotificationType) -> Void,
+    scheduleReminderNotificationWithIntent: @escaping @Sendable (String, String, TimeInterval, UUID?, UUID?, NotificationType) -> Void,
     cancelAllNotifications: @escaping @Sendable () -> Void
   ) {
     self.requestAuthorization = requestAuthorization
@@ -77,7 +77,7 @@ extension NotificationClient: DependencyKey {
           }
         }
       },
-      scheduleReminderNotification: { title, body, timeInterval, reminderID, type in
+      scheduleReminderNotification: { title, body, timeInterval, reminderID, reminderListID, type in
         // Validate timeInterval - must be >= 1 second
         let validTimeInterval = max(1.0, timeInterval)
         
@@ -89,10 +89,12 @@ extension NotificationClient: DependencyKey {
         // Set category for processing in AppDelegate
         content.categoryIdentifier = type.rawValue
         
-        // Add reminderID and notification type to userInfo for navigation
+        // Add reminderID, reminderListID and notification type to userInfo for navigation
         let reminderIDString = reminderID?.uuidString ?? UUID().uuidString
+        let reminderListIDString = reminderListID?.uuidString ?? ""
         content.userInfo = [
           "reminderID": reminderIDString,
+          "reminderListID": reminderListIDString,
           "notificationType": type.rawValue
         ]
         
@@ -108,7 +110,7 @@ extension NotificationClient: DependencyKey {
           }
         }
       },
-      scheduleReminderNotificationWithIntent: { title, body, timeInterval, reminderID, type in
+      scheduleReminderNotificationWithIntent: { title, body, timeInterval, reminderID, reminderListID, type in
         // Validate timeInterval - must be >= 1 second
         let validTimeInterval = max(1.0, timeInterval)
         
@@ -118,10 +120,12 @@ extension NotificationClient: DependencyKey {
         content.sound = .default
         content.categoryIdentifier = type.rawValue
         
-        // Add reminderID and notification type to userInfo for navigation
+        // Add reminderID, reminderListID and notification type to userInfo for navigation
         let reminderIDString = reminderID?.uuidString ?? UUID().uuidString
+        let reminderListIDString = reminderListID?.uuidString ?? ""
         content.userInfo = [
           "reminderID": reminderIDString,
+          "reminderListID": reminderListIDString,
           "notificationType": type.rawValue
         ]
         
@@ -146,8 +150,8 @@ extension NotificationClient: DependencyKey {
   public static let testValue: Self = Self(
     requestAuthorization: { true },
     scheduleLocalNotification: { _, _, _, _ in },
-    scheduleReminderNotification: { _, _, _, _, _ in },
-    scheduleReminderNotificationWithIntent: { _, _, _, _, _ in },
+    scheduleReminderNotification: { _, _, _, _, _, _ in },
+    scheduleReminderNotificationWithIntent: { _, _, _, _, _, _ in },
     cancelAllNotifications: { }
   )
 }

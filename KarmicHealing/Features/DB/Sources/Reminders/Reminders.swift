@@ -13,6 +13,7 @@ public struct Reminders {
   public struct State: Equatable {
     public init() {}
     public var selectedReminderID: UUID? = nil
+    public var selectedReminderListID: UUID? = nil
   }
   
   public enum Action: Equatable {

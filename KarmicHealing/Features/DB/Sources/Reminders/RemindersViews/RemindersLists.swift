@@ -39,6 +39,7 @@ class RemindersListsModel {
   var seedDatabaseTip: SeedDatabaseTip?
   var shouldOpenReminderFormFromNotification = false
   var selectedReminderID: UUID?
+  var selectedReminderListID: UUID?
 
   @ObservationIgnored
   @Dependency(\.defaultDatabase) private var database
@@ -76,6 +77,7 @@ class RemindersListsModel {
     if let selectedReminderID = getSelectedReminderID() {
       openRemindersDetailWithSelectedReminder(selectedReminderID)
       setSelectedReminderID(nil) // Reset after use
+      setSelectedReminderListID(nil) // Reset after use
     }
   }
 
@@ -115,16 +117,33 @@ class RemindersListsModel {
     selectedReminderID = id
   }
 
+  func getSelectedReminderListID() -> UUID? {
+    return selectedReminderListID
+  }
+
+  func setSelectedReminderListID(_ id: UUID?) {
+    selectedReminderListID = id
+  }
+
   func openRemindersDetailWithSelectedReminder(_ reminderID: UUID) {
-    guard let remindersList = remindersLists.first?.remindersList
-    else {
-      reportIssue("There must be at least one list.")
-      return
+    // Try to find the specific list if selectedReminderListID is provided
+    let targetRemindersList: RemindersList
+    if let selectedReminderListID = selectedReminderListID,
+       let foundList = remindersLists.first(where: { $0.remindersList.id == selectedReminderListID })?.remindersList {
+      targetRemindersList = foundList
+    } else {
+      // Fallback to first list if no specific list is found
+      guard let remindersList = remindersLists.first?.remindersList
+      else {
+        reportIssue("There must be at least one list.")
+        return
+      }
+      targetRemindersList = remindersList
     }
 
     destination = .detail(
       RemindersDetailModel(
-        detailType: .remindersList(remindersList),
+        detailType: .remindersList(targetRemindersList),
         selectedReminderID: reminderID
       )
     )
