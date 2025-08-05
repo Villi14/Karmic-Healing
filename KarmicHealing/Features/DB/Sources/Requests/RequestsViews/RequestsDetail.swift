@@ -37,6 +37,34 @@ class RequestsDetailModel: HashableObject {
     await updateQuery()
   }
 
+  func toggleRequestsListCompletion(_ requestsList: RequestsList) async {
+    withErrorReporting {
+      try database.write { db in
+        // Check if all subordinate requests are completed using database query
+        let totalRequests = try Request.where { $0.requestsListID == requestsList.id }.fetchCount(db)
+        let completedRequests = try Request.where { $0.requestsListID == requestsList.id && $0.isCompleted }.fetchCount(db)
+        
+        // Only allow toggling if all subordinate requests are completed
+        guard totalRequests > 0 && totalRequests == completedRequests else {
+          return // Don't allow toggling if not all requests are completed
+        }
+        
+        let newCompletionStatus = !requestsList.isCompleted
+        
+        // Update only the RequestsList completion status
+        try RequestsList
+          .find(requestsList.id)
+          .update { $0.isCompleted = newCompletionStatus }
+          .execute(db)
+        
+        // Don't update subordinate requests - they remain unchanged
+      }
+    }
+    
+    // Refresh the query to show updated completion status
+    await updateQuery()
+  }
+
   func move(from source: IndexSet, to destination: Int) async {
     withErrorReporting {
       try database.write { db in
@@ -64,25 +92,13 @@ class RequestsDetailModel: HashableObject {
   private func updateQuery() async {
     await withErrorReporting {
       try await $requestRows.load(requestsQuery, animation: .default)
+      print("DEBUG: RequestsDetailModel updateQuery - requestRows count: \(requestRows.count)")
     }
   }
 
   private var requestsQuery: some StructuredQueriesCore.Statement<Row> {
     let query =
     Request
-      .where {
-        if !showCompleted {
-          !$0.isCompleted
-        }
-      }
-      .order { $0.isCompleted }
-      .order {
-        switch ordering {
-        case .dueDate: $0.dueDate.asc(nulls: .last)
-        case .priority: ($0.priority.desc(), $0.isFlagged.desc())
-        case .title: $0.title
-        }
-      }
       .where { request in
         switch detailType {
         case .all: !request.isCompleted
@@ -91,6 +107,24 @@ class RequestsDetailModel: HashableObject {
         case .requestsList(let list): request.requestsListID.eq(list.id)
         case .scheduled: request.isScheduled
         case .today: request.isToday
+        }
+      }
+      .where { request in
+        // For RequestsList, always show all requests regardless of completion status
+        if case .requestsList = detailType {
+          true
+        } else if !showCompleted {
+          !request.isCompleted
+        } else {
+          true
+        }
+      }
+      .order { $0.isCompleted }
+      .order {
+        switch ordering {
+        case .dueDate: $0.dueDate.asc(nulls: .last)
+        case .priority: ($0.priority.desc(), $0.isFlagged.desc())
+        case .title: $0.title
         }
       }
       .join(RequestsList.all) { $0.requestsListID.eq($1.id) }
@@ -165,10 +199,39 @@ struct RequestsDetailView: View {
       List {
         VStack(alignment: .leading) {
           GeometryReader { proxy in
-            Text(model.detailType.navigationTitle)
-              .font(.system(.title2, design: .rounded, weight: .bold))
-              .foregroundStyle(model.detailType.color)
-              .onAppear { navigationTitleHeight = proxy.size.height }
+            HStack {
+              Text(model.detailType.navigationTitle)
+                .font(.system(.title2, design: .rounded, weight: .bold))
+                .foregroundStyle(model.detailType.color)
+              
+              Spacer()
+              
+                                // Show checkbox only for RequestsList detail type
+                  if case .requestsList(let requestsList) = model.detailType {
+                    // Calculate completion status from current visible requests
+                    let allVisibleRequestsCompleted = model.requestRows.allSatisfy { $0.request.isCompleted }
+                    let canToggle = model.requestRows.isEmpty || allVisibleRequestsCompleted
+                    
+                    Button(action: {
+                      Task { await model.toggleRequestsListCompletion(requestsList) }
+                    }) {
+                      Image(systemName: allVisibleRequestsCompleted ? "circle.inset.filled" : "circle")
+                        .font(.title2)
+                        .foregroundStyle(
+                          allVisibleRequestsCompleted ? ResourcesAsset.Colors.health.swiftUIColor :
+                          canToggle ? model.detailType.color : ResourcesAsset.Colors.textSecondary.swiftUIColor
+                        )
+                    }
+                    .disabled(!canToggle)
+                    .onAppear {
+                      print("DEBUG: RequestsList checkbox - allVisibleRequestsCompleted: \(allVisibleRequestsCompleted), canToggle: \(canToggle), requestRows count: \(model.requestRows.count)")
+                    }
+                    .onChange(of: model.requestRows.count) { _, newCount in
+                      print("DEBUG: RequestsList checkbox - requestRows count changed to: \(newCount)")
+                    }
+                  }
+            }
+            .onAppear { navigationTitleHeight = proxy.size.height }
           }
         }
         .listRowSeparator(.hidden)
@@ -259,11 +322,14 @@ struct RequestsDetailView: View {
                 Image(systemName: "arrow.up.arrow.down")
               }
 
-              Button {
-                Task { await model.showCompletedButtonTapped() }
-              } label: {
-                Text(model.showCompleted ? String(localized: "hide_completed", bundle: .main) : String(localized: "show_completed", bundle: .main))
-                Image(systemName: model.showCompleted ? "eye" : "eye")
+              // Only show this button for non-RequestsList detail types
+              if !model.detailType.is(\.requestsList) {
+                Button {
+                  Task { await model.showCompletedButtonTapped() }
+                } label: {
+                  Text(model.showCompleted ? String(localized: "hide_completed", bundle: .main) : String(localized: "show_completed", bundle: .main))
+                  Image(systemName: model.showCompleted ? "eye" : "eye")
+                }
               }
             }
             .tint(model.detailType.color)

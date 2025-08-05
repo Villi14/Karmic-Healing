@@ -96,6 +96,30 @@ struct RequestRow: View {
           .returning(\.isCompleted)
           .fetchOne(db) ?? isCompleted
       }
+      
+      print("DEBUG: RequestRow toggleCompletion - request \(request.id) isCompleted: \(isCompleted)")
+      
+      // Update the parent RequestsList completion status
+      try requestsList.updateCompletionStatus(in: database)
+      
+      print("DEBUG: RequestRow toggleCompletion - updated RequestsList completion status")
+      
+      // Force refresh of the database to ensure UI updates
+      try database.write { _ in
+        // This empty write will trigger database observers
+      }
+      
+      // Force refresh of @FetchOne observers
+      try database.write { _ in
+        // This additional write ensures all observers are triggered
+      }
+      
+      // Force refresh of the parent view's @FetchAll
+      Task { @MainActor in
+        try? await database.write { _ in
+          // This will trigger @FetchAll observers in RequestsDetailView
+        }
+      }
     }
   }
 }

@@ -100,6 +100,30 @@ extension Request.TableColumns {
   }
 }
 
+// MARK: - RequestsList Completion Logic
+
+extension RequestsList {
+  /// Updates the completion status based on all subordinate requests
+  func updateCompletionStatus(in database: any DatabaseWriter) throws {
+    let allRequestsCompleted = try database.read { db in
+      let totalRequests = try Request.where { $0.requestsListID == self.id }.fetchCount(db)
+      let completedRequests = try Request.where { $0.requestsListID == self.id && $0.isCompleted }.fetchCount(db)
+      return totalRequests > 0 && totalRequests == completedRequests
+    }
+    
+    print("DEBUG: updateCompletionStatus - RequestsList \(self.id) - totalRequests: \(try database.read { db in try Request.where { $0.requestsListID == self.id }.fetchCount(db) }), allRequestsCompleted: \(allRequestsCompleted)")
+    
+    try database.write { db in
+      try RequestsList
+        .find(self.id)
+        .update { $0.isCompleted = allRequestsCompleted }
+        .execute(db)
+    }
+    
+    print("DEBUG: updateCompletionStatus - updated RequestsList \(self.id) isCompleted to \(allRequestsCompleted)")
+  }
+}
+
 @Table
 struct Reminder: Codable, Equatable, Identifiable {
   let id: UUID
