@@ -53,8 +53,6 @@ extension RequestsList.TableColumns {
   }
 }
 
-
-
 @Table
 struct Request: Codable, Equatable, Identifiable {
   let id: UUID

@@ -26,7 +26,7 @@ struct ReminderFormView: View {
   init(reminder: Reminder.Draft, remindersList: RemindersList) {
     _remindersList = FetchOne(wrappedValue: remindersList, RemindersList.find(remindersList.id))
     self.reminder = reminder
-    
+
     if let dueDate = reminder.dueDate {
       self._selectedDate = State(initialValue: dueDate)
     }
@@ -80,13 +80,13 @@ struct ReminderFormView: View {
           .padding(.vertical, DesignConstants.paddingTiny)
           .onChange(of: selectedDate) { _, newDate in
             reminder.dueDate = newDate
-            
+
             // Log date change
             let formatter = DateFormatter()
             formatter.dateStyle = .medium
             formatter.timeStyle = .medium
             formatter.timeZone = TimeZone.current
-            
+
             print("ReminderForm: DatePicker changed")
             print("ReminderForm: New date (UTC): \(newDate)")
             print("ReminderForm: New date (local): \(formatter.string(from: newDate))")
@@ -182,14 +182,14 @@ struct ReminderFormView: View {
     // Check date before saving
     if let dueDate = reminder.dueDate {
       let timeInterval = dueDate.timeIntervalSinceNow
-      
+
       // Check if date is in the future
       guard timeInterval > 0 else {
         showDateErrorAlert = true
         return // Don't save and don't close the screen
       }
     }
-    
+
     // Save reminder only if date is valid
     withErrorReporting {
       let reminderID = try database.write { db in
@@ -198,20 +198,20 @@ struct ReminderFormView: View {
 
       if let dueDate = reminder.dueDate {
         let timeInterval = dueDate.timeIntervalSinceNow
-        
-                  Task {
-            notification.scheduleReminderNotificationWithIntent(
-              reminder.title,
-              reminder.notes.isEmpty ? "" : reminder.notes,
-              timeInterval,
-              reminderID,
-              remindersList.id,
-              .reminder
-            )
-          }
+
+        Task {
+          notification.scheduleReminderNotificationWithIntent(
+            reminder.title,
+            reminder.notes.isEmpty ? "" : reminder.notes,
+            timeInterval,
+            reminderID,
+            remindersList.id,
+            .reminder
+          )
+        }
       }
     }
-    
+
     // Close screen only after successful save
     dismiss()
   }

@@ -92,8 +92,6 @@ public struct Home {
           )
         )
         return .none
-      case .path:
-        return .none
       case let .openReminderFormFromNotification(reminderID):
         // Open RemindersView and set selectedReminderID
         var remindersState = Reminders.State()
@@ -108,6 +106,9 @@ public struct Home {
         remindersState.selectedReminderID = reminderID
         remindersState.selectedReminderListID = reminderListID
         state.path.append(.reminders(remindersState))
+        return .none
+
+      case .path:
         return .none
       }
     }

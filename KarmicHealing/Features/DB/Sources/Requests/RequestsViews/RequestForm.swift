@@ -5,7 +5,6 @@ import Common
 import Resources
 
 struct RequestFormView: View {
-  @FetchAll(RequestsList.order(by: \.title)) var requestsLists
   @FetchOne var requestsList: RequestsList
 
   @State var request: Request.Draft
@@ -102,28 +101,6 @@ struct RequestFormView: View {
               .frame(width: DesignConstants.frameHeightSmall, height: DesignConstants.frameHeightSmall)
               .foregroundStyle(ResourcesAsset.Colors.energy.swiftUIColor)
             Text(String(localized: "priority", bundle: .main))
-          }
-        }
-
-        Picker(selection: $request.requestsListID) {
-          ForEach(requestsLists) { requestsList in
-            Text(requestsList.title)
-              .buttonStyle(.plain)
-              .tag(requestsList.id)
-          }
-        } label: {
-          HStack {
-            Image(systemName: "list.bullet")
-              .resizable()
-              .aspectRatio(contentMode: .fit)
-              .frame(width: DesignConstants.frameHeightSmall, height: DesignConstants.frameHeightSmall)
-              .foregroundStyle(requestsList.color)
-            Text(String(localized: "list", bundle: .main))
-          }
-        }
-        .task(id: request.requestsListID) {
-          await withErrorReporting {
-            try await $requestsList.load(RequestsList.find(request.requestsListID))
           }
         }
       }

@@ -43,24 +43,24 @@ class RequestsDetailModel: HashableObject {
         // Check if all subordinate requests are completed using database query
         let totalRequests = try Request.where { $0.requestsListID == requestsList.id }.fetchCount(db)
         let completedRequests = try Request.where { $0.requestsListID == requestsList.id && $0.isCompleted }.fetchCount(db)
-        
+
         // Only allow toggling if all subordinate requests are completed
         guard totalRequests > 0 && totalRequests == completedRequests else {
           return // Don't allow toggling if not all requests are completed
         }
-        
+
         let newCompletionStatus = !requestsList.isCompleted
-        
+
         // Update only the RequestsList completion status
         try RequestsList
           .find(requestsList.id)
           .update { $0.isCompleted = newCompletionStatus }
           .execute(db)
-        
+
         // Don't update subordinate requests - they remain unchanged
       }
     }
-    
+
     // Refresh the query to show updated completion status
     await updateQuery()
   }
@@ -203,33 +203,33 @@ struct RequestsDetailView: View {
               Text(model.detailType.navigationTitle)
                 .font(.system(.title2, design: .rounded, weight: .bold))
                 .foregroundStyle(model.detailType.color)
-              
+
               Spacer()
-              
-                                // Show checkbox only for RequestsList detail type
-                  if case .requestsList(let requestsList) = model.detailType {
-                    // Calculate completion status from current visible requests
-                    let allVisibleRequestsCompleted = model.requestRows.allSatisfy { $0.request.isCompleted }
-                    let canToggle = model.requestRows.isEmpty || allVisibleRequestsCompleted
-                    
-                    Button(action: {
-                      Task { await model.toggleRequestsListCompletion(requestsList) }
-                    }) {
-                      Image(systemName: allVisibleRequestsCompleted ? "circle.inset.filled" : "circle")
-                        .font(.title2)
-                        .foregroundStyle(
-                          allVisibleRequestsCompleted ? ResourcesAsset.Colors.health.swiftUIColor :
-                          canToggle ? model.detailType.color : ResourcesAsset.Colors.textSecondary.swiftUIColor
-                        )
-                    }
-                    .disabled(!canToggle)
-                    .onAppear {
-                      print("DEBUG: RequestsList checkbox - allVisibleRequestsCompleted: \(allVisibleRequestsCompleted), canToggle: \(canToggle), requestRows count: \(model.requestRows.count)")
-                    }
-                    .onChange(of: model.requestRows.count) { _, newCount in
-                      print("DEBUG: RequestsList checkbox - requestRows count changed to: \(newCount)")
-                    }
-                  }
+
+              // Show checkbox only for RequestsList detail type
+              if case .requestsList(let requestsList) = model.detailType {
+                // Calculate completion status from current visible requests
+                let allVisibleRequestsCompleted = model.requestRows.allSatisfy { $0.request.isCompleted }
+                let canToggle = model.requestRows.isEmpty || allVisibleRequestsCompleted
+
+                Button(action: {
+                  Task { await model.toggleRequestsListCompletion(requestsList) }
+                }) {
+                  Image(systemName: allVisibleRequestsCompleted ? "circle.inset.filled" : "circle")
+                    .font(.title2)
+                    .foregroundStyle(
+                      allVisibleRequestsCompleted ? ResourcesAsset.Colors.health.swiftUIColor :
+                        canToggle ? model.detailType.color : ResourcesAsset.Colors.textSecondary.swiftUIColor
+                    )
+                }
+                .disabled(!canToggle)
+                .onAppear {
+                  print("DEBUG: RequestsList checkbox - allVisibleRequestsCompleted: \(allVisibleRequestsCompleted), canToggle: \(canToggle), requestRows count: \(model.requestRows.count)")
+                }
+                .onChange(of: model.requestRows.count) { _, newCount in
+                  print("DEBUG: RequestsList checkbox - requestRows count changed to: \(newCount)")
+                }
+              }
             }
             .onAppear { navigationTitleHeight = proxy.size.height }
           }

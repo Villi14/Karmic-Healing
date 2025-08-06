@@ -602,20 +602,6 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AB097B3E340CA1EE3CED7F45"
-               BuildableName = "StructuredQueriesSupport.framework"
-               BlueprintName = "StructuredQueriesSupport"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-structured-queries/swift-structured-queries.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "114FBD9E0C8A1E594FBAE26F"
                BuildableName = "SwiftBasicFormat.framework"
                BlueprintName = "SwiftBasicFormat"
