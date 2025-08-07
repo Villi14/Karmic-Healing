@@ -215,10 +215,10 @@ struct RequestsDetailView: View {
                 Button(action: {
                   Task { await model.toggleRequestsListCompletion(requestsList) }
                 }) {
-                  Image(systemName: allVisibleRequestsCompleted ? "circle.inset.filled" : "circle")
+                  Image(systemName: requestsList.isCompleted ? "circle.inset.filled" : "circle")
                     .font(.title2)
                     .foregroundStyle(
-                      allVisibleRequestsCompleted ? ResourcesAsset.Colors.health.swiftUIColor :
+                      requestsList.isCompleted ? ResourcesAsset.Colors.health.swiftUIColor :
                         canToggle ? model.detailType.color : ResourcesAsset.Colors.textSecondary.swiftUIColor
                     )
                 }
@@ -245,7 +245,10 @@ struct RequestsDetailView: View {
             notes: row.notes,
             request: row.request,
             requestsList: row.requestsList,
-            showCompleted: model.showCompleted
+            showCompleted: model.showCompleted,
+            onRequestCompletionChanged: {
+              handleRequestCompletionChanged()
+            }
           )
         }
         .listRowBackground(Color.clear)
@@ -339,6 +342,14 @@ struct RequestsDetailView: View {
         }
       }
       .tint(ResourcesAsset.Colors.clam.swiftUIColor)
+    }
+  }
+
+  private func handleRequestCompletionChanged() {
+    if case .requestsList(let requestsList) = model.detailType {
+      Task {
+        await model.toggleRequestsListCompletion(requestsList)
+      }
     }
   }
 }

@@ -10,6 +10,7 @@ struct RequestRow: View {
   let request: Request
   let requestsList: RequestsList
   let showCompleted: Bool
+  let onRequestCompletionChanged: (() -> Void)?
 
   @State var editRequest: Request.Draft?
   @State var isCompleted: Bool
@@ -23,6 +24,7 @@ struct RequestRow: View {
     request: Request,
     requestsList: RequestsList,
     showCompleted: Bool,
+    onRequestCompletionChanged: (() -> Void)? = nil
   ) {
     self.color = color
     self.isPastDue = isPastDue
@@ -30,6 +32,7 @@ struct RequestRow: View {
     self.request = request
     self.requestsList = requestsList
     self.showCompleted = showCompleted
+    self.onRequestCompletionChanged = onRequestCompletionChanged
     self.isCompleted = request.isCompleted
   }
 
@@ -55,6 +58,8 @@ struct RequestRow: View {
             try Request.delete(request).execute(db)
           }
         }
+        // Notify parent view about deletion
+        onRequestCompletionChanged?()
       },
       onToggleFlag: {
         withErrorReporting {
@@ -69,11 +74,22 @@ struct RequestRow: View {
       onEdit: {
         editRequest = Request.Draft(request)
       },
+      onEditCompleted: {
+        // Notify parent view about edit completion
+        onRequestCompletionChanged?()
+      },
       onShowDetails: {
         editRequest = Request.Draft(request)
       },
       formView: { request, requestsList in
-        AnyView(RequestFormView(request: request, requestsList: requestsList))
+        AnyView(RequestFormView(
+          request: request, 
+          requestsList: requestsList,
+          onSave: {
+            // Notify parent view about save completion
+            onRequestCompletionChanged?()
+          }
+        ))
       }
     )
   }
@@ -114,12 +130,8 @@ struct RequestRow: View {
         // This additional write ensures all observers are triggered
       }
       
-      // Force refresh of the parent view's @FetchAll
-      Task { @MainActor in
-        try? await database.write { _ in
-          // This will trigger @FetchAll observers in RequestsDetailView
-        }
-      }
+      // Notify parent view about completion change
+      onRequestCompletionChanged?()
     }
   }
 }

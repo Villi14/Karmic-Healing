@@ -24,6 +24,7 @@ struct ItemRowView<ItemType: Identifiable, ListType: Identifiable, DraftType: Id
   let onDelete: () -> Void
   let onToggleFlag: () -> Void
   let onEdit: () -> Void
+  let onEditCompleted: () -> Void
   let onShowDetails: () -> Void
   let formView: (DraftType, ListType) -> AnyView
   
@@ -45,6 +46,7 @@ struct ItemRowView<ItemType: Identifiable, ListType: Identifiable, DraftType: Id
     onDelete: @escaping () -> Void,
     onToggleFlag: @escaping () -> Void,
     onEdit: @escaping () -> Void,
+    onEditCompleted: @escaping () -> Void,
     onShowDetails: @escaping () -> Void,
     formView: @escaping (DraftType, ListType) -> AnyView
   ) {
@@ -65,6 +67,7 @@ struct ItemRowView<ItemType: Identifiable, ListType: Identifiable, DraftType: Id
     self.onDelete = onDelete
     self.onToggleFlag = onToggleFlag
     self.onEdit = onEdit
+    self.onEditCompleted = onEditCompleted
     self.onShowDetails = onShowDetails
     self.formView = formView
     self.isCompletedState = isCompleted
@@ -140,6 +143,9 @@ struct ItemRowView<ItemType: Identifiable, ListType: Identifiable, DraftType: Id
       NavigationStack {
         formView(item, list)
           .navigationTitle(String(localized: "details", bundle: .main))
+          .onDisappear {
+            onEditCompleted()
+          }
       }
     }
     .task(id: isCompletedState) {

@@ -12,10 +12,13 @@ struct RequestFormView: View {
 
   @Dependency(\.defaultDatabase) private var database
   @Environment(\.dismiss) var dismiss
+  
+  let onSave: (() -> Void)?
 
-  init(request: Request.Draft, requestsList: RequestsList) {
+  init(request: Request.Draft, requestsList: RequestsList, onSave: (() -> Void)? = nil) {
     _requestsList = FetchOne(wrappedValue: requestsList, RequestsList.find(requestsList.id))
     self.request = request
+    self.onSave = onSave
 
     if let dueDate = request.dueDate {
       self._selectedDate = State(initialValue: dueDate)
@@ -131,6 +134,7 @@ struct RequestFormView: View {
         try Request.upsert(request).fetchOne(db)
       }
     }
+    onSave?()
     dismiss()
   }
 }

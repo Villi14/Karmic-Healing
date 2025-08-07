@@ -69,6 +69,7 @@ struct ReminderRow: View {
       onEdit: {
         editReminder = Reminder.Draft(reminder)
       },
+      onEditCompleted: {},
       onShowDetails: {
         editReminder = Reminder.Draft(reminder)
       },
