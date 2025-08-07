@@ -206,30 +206,30 @@ struct RequestsDetailView: View {
 
               Spacer()
 
-              // Show checkbox only for RequestsList detail type
-              if case .requestsList(let requestsList) = model.detailType {
-                // Calculate completion status from current visible requests
-                let allVisibleRequestsCompleted = model.requestRows.allSatisfy { $0.request.isCompleted }
-                let canToggle = model.requestRows.isEmpty || allVisibleRequestsCompleted
+              // Видалено чекбокс для RequestsList
+              // if case .requestsList(let requestsList) = model.detailType {
+              //   // Calculate completion status from current visible requests
+              //   let allVisibleRequestsCompleted = model.requestRows.allSatisfy { $0.request.isCompleted }
+              //   let canToggle = model.requestRows.isEmpty || allVisibleRequestsCompleted
 
-                Button(action: {
-                  Task { await model.toggleRequestsListCompletion(requestsList) }
-                }) {
-                  Image(systemName: requestsList.isCompleted ? "circle.inset.filled" : "circle")
-                    .font(.title2)
-                    .foregroundStyle(
-                      requestsList.isCompleted ? ResourcesAsset.Colors.health.swiftUIColor :
-                        canToggle ? model.detailType.color : ResourcesAsset.Colors.textSecondary.swiftUIColor
-                    )
-                }
-                .disabled(!canToggle)
-                .onAppear {
-                  print("DEBUG: RequestsList checkbox - allVisibleRequestsCompleted: \(allVisibleRequestsCompleted), canToggle: \(canToggle), requestRows count: \(model.requestRows.count)")
-                }
-                .onChange(of: model.requestRows.count) { _, newCount in
-                  print("DEBUG: RequestsList checkbox - requestRows count changed to: \(newCount)")
-                }
-              }
+              //   Button(action: {
+              //     Task { await model.toggleRequestsListCompletion(requestsList) }
+              //   }) {
+              //     Image(systemName: requestsList.isCompleted ? "circle.inset.filled" : "circle")
+              //       .font(.title2)
+              //       .foregroundStyle(
+              //         requestsList.isCompleted ? ResourcesAsset.Colors.health.swiftUIColor :
+              //           canToggle ? model.detailType.color : ResourcesAsset.Colors.textSecondary.swiftUIColor
+              //       )
+              //   }
+              //   .disabled(!canToggle)
+              //   .onAppear {
+              //     print("DEBUG: RequestsList checkbox - allVisibleRequestsCompleted: \(allVisibleRequestsCompleted), canToggle: \(canToggle), requestRows count: \(model.requestRows.count)")
+              //   }
+              //   .onChange(of: model.requestRows.count) { _, newCount in
+              //     print("DEBUG: RequestsList checkbox - requestRows count changed to: \(newCount)")
+              //   }
+              // }
             }
             .onAppear { navigationTitleHeight = proxy.size.height }
           }

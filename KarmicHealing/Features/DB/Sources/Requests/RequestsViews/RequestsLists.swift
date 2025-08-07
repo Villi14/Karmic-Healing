@@ -18,29 +18,11 @@ class RequestsListsModel {
   )
   var requestsLists
 
-  @ObservationIgnored
-  @FetchOne(
-    RequestsList.select {
-      Stats.Columns(
-        allCount: $0.count(filter: !$0.isCompleted),
-        flaggedCount: $0.count(filter: $0.isFlagged),
-        scheduledCount: $0.count(filter: $0.isScheduled),
-        todayCount: $0.count(filter: $0.isToday)
-      )
-    }
-  )
-  var stats = Stats()
-
   var destination: Destination?
   var searchRequestsModel = SearchRequestsModel()
-  var seedDatabaseTip: SeedDatabaseTip?
 
   @ObservationIgnored
   @Dependency(\.defaultDatabase) private var database
-
-  func statTapped(_ detailType: RequestsDetailModel.DetailType) {
-    destination = .detail(RequestsDetailModel(detailType: detailType))
-  }
 
   func requestsListTapped(requestsList: RequestsList) {
     destination = .detail(
@@ -55,9 +37,6 @@ class RequestsListsModel {
   func onAppear() {
     withErrorReporting {
       try Tips.configure()
-    }
-    if requestsLists.isEmpty {
-      seedDatabaseTip = SeedDatabaseTip()
     }
     searchRequestsModel.searchText = ""
   }
@@ -116,28 +95,6 @@ class RequestsListsModel {
     var id: RequestsList.ID { requestsList.id }
     var requestsList: RequestsList
   }
-
-  @Selection
-  struct Stats {
-    var allCount = 0
-    var flaggedCount = 0
-    var scheduledCount = 0
-    var todayCount = 0
-  }
-
-  struct SeedDatabaseTip: Tip {
-    var title: Text {
-      Text("Seed Sample Data")
-    }
-
-    var message: Text? {
-      Text("Tap here to quickly populate the app with test data.")
-    }
-
-    var image: Image? {
-      Image(systemName: "leaf")
-    }
-  }
 }
 
 extension RequestsListsModel {
@@ -159,7 +116,6 @@ struct RequestsListsView: View {
         SearchBar(text: $model.searchRequestsModel.searchText)
         List {
           if model.searchRequestsModel.searchText.isEmpty {
-            statsSection
             requestsSection
           } else {
             searchSection
@@ -185,7 +141,6 @@ struct RequestsListsView: View {
               Image(systemName: "ellipsis")
                 .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
             }
-            .popoverTip(model.seedDatabaseTip)
           }
 #endif
           ToolbarItem(placement: .bottomBar) {
@@ -230,47 +185,6 @@ struct RequestsListsView: View {
         .padding(.top, DesignConstants.padding)
       }
     }
-  }
-
-  private var statsSection: some View {
-    Section {
-      Grid(alignment: .leading, horizontalSpacing: DesignConstants.spacingSmall, verticalSpacing: DesignConstants.spacingSmall) {
-        GridRow {
-          GridCell(
-            color: ResourcesAsset.Colors.textSecondary.swiftUIColor,
-            count: model.stats.allCount,
-            iconName: "tray",
-            title: String(localized: "all", bundle: .main)
-          ) {
-            model.statTapped(.all)
-          }
-
-          GridCell(
-            color: ResourcesAsset.Colors.friendly.swiftUIColor,
-            count: model.stats.flaggedCount,
-            iconName: "flag",
-            title: String(localized: "flagged", bundle: .main)
-          ) {
-            model.statTapped(.flagged)
-          }
-        }
-
-        GridRow {
-          GridCell(
-            color: ResourcesAsset.Colors.health.swiftUIColor,
-            count: nil,
-            iconName: "checkmark",
-            title: String(localized: "completed", bundle: .main)
-          ) {
-            model.statTapped(.completed)
-          }
-        }
-      }
-      .buttonStyle(.plain)
-      .listRowBackground(Color.clear)
-      .padding(.horizontal, DesignConstants.paddingNegative)
-    }
-    .listSectionSeparator(.hidden)
   }
 
   private var requestsSection: some View {

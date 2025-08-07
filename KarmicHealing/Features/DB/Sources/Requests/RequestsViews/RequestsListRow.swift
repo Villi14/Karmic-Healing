@@ -8,10 +8,14 @@ struct RequestsListRow: View {
   var onTap: (() -> Void)? = nil
 
   @State var editList: RequestsList?
+  @State private var allRequestsCompleted: Bool = false
+  @State private var totalRequests: Int = 0
+  @State private var completedRequests: Int = 0
 
   @Dependency(\.defaultDatabase) private var database
 
   var body: some View {
+    // Видалено верхній чекбокс, залишився лише ListRowView
     ListRowView(
       count: 0, // We'll calculate this later if needed
       list: requestsList,
@@ -36,6 +40,33 @@ struct RequestsListRow: View {
           .navigationTitle(String(localized: "edit_list", bundle: .main))
       }
       .presentationDetents([.medium])
+    }
+  }
+
+  private var canToggle: Bool {
+    (totalRequests == 0 || allRequestsCompleted)
+  }
+
+  private func fetchRequestsStatus() async {
+    await withErrorReporting {
+      let (total, completed) = try await database.read { db in
+        let total = try Request.where { $0.requestsListID == requestsList.id }.fetchCount(db)
+        let completed = try Request.where { $0.requestsListID == requestsList.id && $0.isCompleted }.fetchCount(db)
+        return (total, completed)
+      }
+      totalRequests = total
+      completedRequests = completed
+      allRequestsCompleted = (total > 0 && total == completed)
+    }
+  }
+
+  private func toggleRequestsListCompletion() async throws {
+    try await database.write { db in
+      let newCompletionStatus = !requestsList.isCompleted
+      try RequestsList
+        .find(requestsList.id)
+        .update { $0.isCompleted = newCompletionStatus }
+        .execute(db)
     }
   }
 }
