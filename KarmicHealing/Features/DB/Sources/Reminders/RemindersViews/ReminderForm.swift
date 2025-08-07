@@ -95,7 +95,18 @@ struct ReminderFormView: View {
       }
 
       Section {
-        // Видалено Toggle(isOn: $reminder.isFlagged)
+        Toggle(isOn: $reminder.isFlagged) {
+          HStack {
+            Image(systemName: "flag")
+              .resizable()
+              .aspectRatio(contentMode: .fit)
+              .frame(width: DesignConstants.frameHeightSmall, height: DesignConstants.frameHeightSmall)
+              .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
+            Text(String(localized: "flag", bundle: .main))
+          }
+        }
+        .tint(ResourcesAsset.Colors.health.swiftUIColor)
+
         Picker(selection: $reminder.priority) {
           Text(String(localized: "none", bundle: .main)).tag(Priority?.none)
           Divider()

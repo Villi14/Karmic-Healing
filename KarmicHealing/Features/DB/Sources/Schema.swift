@@ -268,6 +268,7 @@ public func appDatabase() throws -> any DatabaseWriter {
         "id" TEXT PRIMARY KEY NOT NULL ON CONFLICT REPLACE DEFAULT (uuid()),
         "dueDate" TEXT,
         "isCompleted" INTEGER NOT NULL DEFAULT 0,
+        "isFlagged" INTEGER NOT NULL DEFAULT 0,
         "notes" TEXT,
         "position" INTEGER NOT NULL DEFAULT 0,
         "priority" INTEGER,
@@ -525,6 +526,7 @@ extension Database {
       Reminder(
         id: reminderIDs[1],
         dueDate: Date().addingTimeInterval(-60 * 60 * 24 * 2),
+        isFlagged: true,
         remindersListID: remindersListIDs[0],
         title: "Haircut"
       )
@@ -556,6 +558,7 @@ extension Database {
       Reminder(
         id: reminderIDs[5],
         dueDate: Date().addingTimeInterval(60 * 60 * 24 * 2),
+        isFlagged: true,
         priority: .high,
         remindersListID: remindersListIDs[1],
         title: "Pick up kids from school"

@@ -64,7 +64,9 @@ struct ReminderRow: View {
           }
         }
       }
+
       Spacer()
+      
       if !isCompleted {
         HStack {
           if reminder.isFlagged {
