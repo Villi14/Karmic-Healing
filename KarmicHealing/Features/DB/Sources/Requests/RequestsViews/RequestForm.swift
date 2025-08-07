@@ -78,18 +78,6 @@ struct RequestFormView: View {
       }
 
       Section {
-        Toggle(isOn: $request.isFlagged) {
-          HStack {
-            Image(systemName: "flag")
-              .resizable()
-              .aspectRatio(contentMode: .fit)
-              .frame(width: DesignConstants.frameHeightSmall, height: DesignConstants.frameHeightSmall)
-              .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
-            Text(String(localized: "flag", bundle: .main))
-          }
-        }
-        .tint(ResourcesAsset.Colors.health.swiftUIColor)
-
         Picker(selection: $request.priority) {
           Text(String(localized: "none", bundle: .main)).tag(Priority?.none)
           Divider()

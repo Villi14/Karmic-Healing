@@ -103,7 +103,6 @@ class RequestsDetailModel: HashableObject {
         switch detailType {
         case .all: !request.isCompleted
         case .completed: request.isCompleted
-        case .flagged: request.isFlagged
         case .requestsList(let list): request.requestsListID.eq(list.id)
         case .scheduled: request.isScheduled
         case .today: request.isToday
@@ -123,7 +122,7 @@ class RequestsDetailModel: HashableObject {
       .order {
         switch ordering {
         case .dueDate: $0.dueDate.asc(nulls: .last)
-        case .priority: ($0.priority.desc(), $0.isFlagged.desc())
+        case .priority: $0.priority.desc()
         case .title: $0.title
         }
       }
@@ -169,7 +168,6 @@ class RequestsDetailModel: HashableObject {
   enum DetailType: Hashable {
     case all
     case completed
-    case flagged
     case requestsList(RequestsList)
     case scheduled
     case today
@@ -359,7 +357,6 @@ extension RequestsDetailModel.DetailType {
     switch self {
     case .all: "all"
     case .completed: "completed"
-    case .flagged: "flagged"
     case .requestsList(let list): "list_\(list.id)"
     case .scheduled: "scheduled"
     case .today: "today"
@@ -370,7 +367,6 @@ extension RequestsDetailModel.DetailType {
     switch self {
     case .all: String(localized: "all", bundle: .main)
     case .completed: String(localized: "completed", bundle: .main)
-    case .flagged: String(localized: "flagged", bundle: .main)
     case .requestsList(let list): list.title
     case .scheduled: String(localized: "scheduled", bundle: .main)
     case .today: String(localized: "today", bundle: .main)
@@ -381,7 +377,6 @@ extension RequestsDetailModel.DetailType {
     switch self {
     case .all: ResourcesAsset.Colors.textPrimary.swiftUIColor
     case .completed: ResourcesAsset.Colors.health.swiftUIColor
-    case .flagged: ResourcesAsset.Colors.friendly.swiftUIColor
     case .requestsList(let list): list.color
     case .scheduled: ResourcesAsset.Colors.error.swiftUIColor
     case .today: ResourcesAsset.Colors.clam.swiftUIColor

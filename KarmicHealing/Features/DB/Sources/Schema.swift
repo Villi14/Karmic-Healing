@@ -14,7 +14,6 @@ struct RequestsList: Hashable, Identifiable {
   var title = ""
   var description = ""
   var isCompleted = false
-  var isFlagged = false
   var priority: Priority?
   var dueDate: Date?
   var notes = ""
@@ -58,7 +57,6 @@ struct Request: Codable, Equatable, Identifiable {
   let id: UUID
   var dueDate: Date?
   var isCompleted = false
-  var isFlagged = false
   var notes = ""
   var position = 0
   var priority: Priority?
@@ -226,7 +224,6 @@ public func appDatabase() throws -> any DatabaseWriter {
         "title" TEXT NOT NULL,
         "description" TEXT NOT NULL DEFAULT '',
         "isCompleted" INTEGER NOT NULL DEFAULT 0,
-        "isFlagged" INTEGER NOT NULL DEFAULT 0,
         "priority" INTEGER,
         "dueDate" TEXT,
         "notes" TEXT NOT NULL DEFAULT ''
@@ -241,7 +238,6 @@ public func appDatabase() throws -> any DatabaseWriter {
         "id" TEXT PRIMARY KEY NOT NULL ON CONFLICT REPLACE DEFAULT (uuid()),
         "dueDate" TEXT,
         "isCompleted" INTEGER NOT NULL DEFAULT 0,
-        "isFlagged" INTEGER NOT NULL DEFAULT 0,
         "notes" TEXT,
         "position" INTEGER NOT NULL DEFAULT 0,
         "priority" INTEGER,
@@ -272,7 +268,6 @@ public func appDatabase() throws -> any DatabaseWriter {
         "id" TEXT PRIMARY KEY NOT NULL ON CONFLICT REPLACE DEFAULT (uuid()),
         "dueDate" TEXT,
         "isCompleted" INTEGER NOT NULL DEFAULT 0,
-        "isFlagged" INTEGER NOT NULL DEFAULT 0,
         "notes" TEXT,
         "position" INTEGER NOT NULL DEFAULT 0,
         "priority" INTEGER,
@@ -419,7 +414,6 @@ extension Database {
       Request(
         id: requestIDs[1],
         dueDate: Date().addingTimeInterval(-60 * 60 * 24 * 2),
-        isFlagged: true,
         requestsListID: requestsListIDs[0],
         title: "Haircut"
       )
@@ -451,7 +445,6 @@ extension Database {
       Request(
         id: requestIDs[5],
         dueDate: Date().addingTimeInterval(60 * 60 * 24 * 2),
-        isFlagged: true,
         priority: .high,
         requestsListID: requestsListIDs[1],
         title: "Pick up kids from school"
@@ -532,7 +525,6 @@ extension Database {
       Reminder(
         id: reminderIDs[1],
         dueDate: Date().addingTimeInterval(-60 * 60 * 24 * 2),
-        isFlagged: true,
         remindersListID: remindersListIDs[0],
         title: "Haircut"
       )
@@ -564,7 +556,6 @@ extension Database {
       Reminder(
         id: reminderIDs[5],
         dueDate: Date().addingTimeInterval(60 * 60 * 24 * 2),
-        isFlagged: true,
         priority: .high,
         remindersListID: remindersListIDs[1],
         title: "Pick up kids from school"

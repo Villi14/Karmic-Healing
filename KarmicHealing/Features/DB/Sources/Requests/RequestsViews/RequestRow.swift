@@ -37,61 +37,86 @@ struct RequestRow: View {
   }
 
   var body: some View {
-    ItemRowView(
-      editItem: $editRequest,
-      color: color,
-      isPastDue: isPastDue,
-      notes: notes,
-      item: request,
-      list: requestsList,
-      showCompleted: showCompleted,
-      isCompleted: request.isCompleted,
-      isFlagged: request.isFlagged,
-      title: request.title,
-      priority: request.priority,
-      listColor: requestsList.color,
-      onComplete: completeButtonTapped,
-      onToggleCompletion: toggleCompletion,
-      onDelete: {
+    HStack {
+      HStack(alignment: .firstTextBaseline) {
+        Button(action: completeButtonTapped) {
+          Image(systemName: isCompleted ? "circle.inset.filled" : "circle")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(height: DesignConstants.frameHeightSmall)
+            .foregroundStyle(ResourcesAsset.Colors.health.swiftUIColor)
+            .padding([.trailing], DesignConstants.paddingSmall)
+        }
+        VStack(alignment: .leading) {
+          HStack(alignment: .firstTextBaseline) {
+            if let priority = request.priority {
+              Text(String(repeating: "!", count: priority.rawValue))
+                .foregroundStyle(isCompleted ? ResourcesAsset.Colors.textSecondary.swiftUIColor : requestsList.color)
+            }
+            Text(request.title)
+              .foregroundStyle(
+                isCompleted ? ResourcesAsset.Colors.textSecondary.swiftUIColor : ResourcesAsset.Colors.textPrimary.swiftUIColor
+              )
+          }
+          .font(.title3)
+          if !notes.isEmpty {
+            Text(notes)
+              .font(.subheadline)
+              .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+              .lineLimit(2)
+          }
+        }
+      }
+      Spacer()
+      if !isCompleted {
+        Button {
+          editRequest = Request.Draft(request)
+        } label: {
+          Image(systemName: "info.circle")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(height: DesignConstants.frameHeightSmall)
+            .foregroundStyle(ResourcesAsset.Colors.clarity.swiftUIColor)
+        }
+        .tint(color)
+      }
+    }
+    .buttonStyle(.borderless)
+    .swipeActions {
+      Button(String(localized: "delete", bundle: .main), role: .destructive) {
         withErrorReporting {
           try database.write { db in
             try Request.delete(request).execute(db)
           }
         }
-        // Notify parent view about deletion
         onRequestCompletionChanged?()
-      },
-      onToggleFlag: {
-        withErrorReporting {
-          try database.write { db in
-            try Request
-              .find(request.id)
-              .update { $0.isFlagged.toggle() }
-              .execute(db)
-          }
-        }
-      },
-      onEdit: {
+      }
+      .tint(ResourcesAsset.Colors.energy.swiftUIColor)
+      Button(String(localized: "details", bundle: .main)) {
         editRequest = Request.Draft(request)
-      },
-      onEditCompleted: {
-        // Notify parent view about edit completion
-        onRequestCompletionChanged?()
-      },
-      onShowDetails: {
-        editRequest = Request.Draft(request)
-      },
-      formView: { request, requestsList in
-        AnyView(RequestFormView(
-          request: request, 
+      }
+      .tint(ResourcesAsset.Colors.clarity.swiftUIColor)
+    }
+    .sheet(item: $editRequest) { item in
+      NavigationStack {
+        RequestFormView(
+          request: item,
           requestsList: requestsList,
           onSave: {
-            // Notify parent view about save completion
             onRequestCompletionChanged?()
           }
-        ))
+        )
+        .navigationTitle(String(localized: "details", bundle: .main))
       }
-    )
+    }
+    .task(id: isCompleted) {
+      guard !showCompleted else { return }
+      guard isCompleted, isCompleted != request.isCompleted else { return }
+      do {
+        try await Task.sleep(for: .seconds(2))
+        toggleCompletion()
+      } catch {}
+    }
   }
 
   private func completeButtonTapped() {

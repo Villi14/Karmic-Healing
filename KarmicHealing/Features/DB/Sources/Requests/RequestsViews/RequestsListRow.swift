@@ -15,9 +15,8 @@ struct RequestsListRow: View {
   @Dependency(\.defaultDatabase) private var database
 
   var body: some View {
-    // Видалено верхній чекбокс, залишився лише ListRowView
     ListRowView(
-      count: 0, // We'll calculate this later if needed
+      count: totalRequests, // Передаємо реальну кількість
       list: requestsList,
       color: requestsList.color,
       title: requestsList.title,
@@ -34,6 +33,9 @@ struct RequestsListRow: View {
         editList = requestsList
       }
     )
+    .onAppear {
+      Task { await fetchRequestsStatus() }
+    }
     .sheet(item: $editList) { list in
       NavigationStack {
         RequestsListForm(requestsList: RequestsList.Draft(list))

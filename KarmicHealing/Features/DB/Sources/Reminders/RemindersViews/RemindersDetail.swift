@@ -82,7 +82,7 @@ class RemindersDetailModel: HashableObject {
       .order {
         switch ordering {
         case .dueDate: $0.dueDate.asc(nulls: .last)
-        case .priority: ($0.priority.desc(), $0.isFlagged.desc())
+        case .priority: $0.priority.desc()
         case .title: $0.title
         }
       }

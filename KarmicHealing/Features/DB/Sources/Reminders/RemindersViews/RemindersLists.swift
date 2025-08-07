@@ -26,7 +26,6 @@ class RemindersListsModel {
     Reminder.select {
       Stats.Columns(
         allCount: $0.count(filter: !$0.isCompleted),
-        flaggedCount: $0.count(filter: $0.isFlagged),
         scheduledCount: $0.count(filter: $0.isScheduled),
         todayCount: $0.count(filter: $0.isToday)
       )
@@ -198,7 +197,6 @@ class RemindersListsModel {
   @Selection
   struct Stats {
     var allCount = 0
-    var flaggedCount = 0
     var scheduledCount = 0
     var todayCount = 0
   }
@@ -259,15 +257,6 @@ struct RemindersListsView: View {
                     title: String(localized: "all", bundle: .main)
                   ) {
                     model.statTapped(.all)
-                  }
-
-                  GridCell(
-                    color: ResourcesAsset.Colors.friendly.swiftUIColor,
-                    count: model.stats.flaggedCount,
-                    iconName: "flag",
-                    title: String(localized: "flagged", bundle: .main)
-                  ) {
-                    model.statTapped(.flagged)
                   }
                 }
 
