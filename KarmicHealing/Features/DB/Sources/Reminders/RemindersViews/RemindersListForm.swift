@@ -6,10 +6,10 @@ import Resources
 
 struct RemindersListForm: View {
   @Dependency(\.defaultDatabase) private var database
-  
-  @State var remindersList: RemindersList.Draft
   @Environment(\.dismiss) var dismiss
-  
+
+  @State var remindersList: RemindersList.Draft
+
   init(remindersList: RemindersList.Draft) {
     self.remindersList = remindersList
   }

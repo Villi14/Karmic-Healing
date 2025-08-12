@@ -29,7 +29,7 @@ struct ListRowView<ListType: Identifiable>: View {
             }
           }
         }) {
-          Image(systemName: requestsList.isCompleted ? "circle.inset.filled" : "circle")
+          Image(systemName: shouldShowCompleted ? "circle.inset.filled" : "circle")
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(height: DesignConstants.frameHeightSmall)
@@ -49,13 +49,32 @@ struct ListRowView<ListType: Identifiable>: View {
           .foregroundStyle(color)
           .padding(.leading, DesignConstants.paddingLarge)
       }
-      Text(title)
-        .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-        .font(.headline.weight(.medium))
-      Spacer()
-      Text("\(count)")
-        .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-        .padding(.trailing, DesignConstants.paddingLarge)
+      HStack {
+        Text(title)
+          .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+          .font(.headline.weight(.medium))
+        Spacer()
+      }
+      .contentShape(Rectangle())
+      .onTapGesture {
+        onTap?()
+      }
+      if let onEdit = onEdit {
+        Image(systemName: "info.circle")
+          .resizable()
+          .aspectRatio(contentMode: .fit)
+          .frame(height: DesignConstants.frameHeightSmall)
+          .foregroundStyle(ResourcesAsset.Colors.clarity.swiftUIColor)
+          .padding(.trailing, DesignConstants.paddingSmall)
+          .onTapGesture {
+            onEdit()
+          }
+      }
+      if count > 0 {
+        Text("\(count)")
+          .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+          .padding(.trailing, DesignConstants.paddingLarge)
+      }
     }
     .frame(height: DesignConstants.frameHeightXXLarge)
     .background {
@@ -86,14 +105,26 @@ struct ListRowView<ListType: Identifiable>: View {
         .tint(ResourcesAsset.Colors.clarity.swiftUIColor)
       }
     }
-    .contentShape(Rectangle())
-    .onTapGesture {
-      onTap?()
-    }
+    
   }
 
   private var canToggle: Bool {
-    (totalRequests == 0 || allRequestsCompleted)
+    if let requestsList = list as? RequestsList {
+      return totalRequests == 0 || allRequestsCompleted || requestsList.isCompleted
+    }
+    return true
+  }
+  
+  private var shouldShowCompleted: Bool {
+    if let requestsList = list as? RequestsList {
+      if totalRequests == 0 {
+        return requestsList.isCompleted
+      } else {
+        // Показуємо true тільки якщо всі прохання виконані І список позначений як виконаний
+        return allRequestsCompleted && requestsList.isCompleted
+      }
+    }
+    return false
   }
 
   private func fetchRequestsStatus(_ requestsList: RequestsList) async {
@@ -111,12 +142,33 @@ struct ListRowView<ListType: Identifiable>: View {
 
   private func toggleRequestsListCompletion(_ requestsList: RequestsList) async throws {
     try await database.write { db in
-      let newCompletionStatus = !requestsList.isCompleted
-      try RequestsList
-        .find(requestsList.id)
-        .update { $0.isCompleted = newCompletionStatus }
-        .execute(db)
+      if totalRequests == 0 {
+        // Порожній список: можна вільно перемикати
+        let newCompletionStatus = !requestsList.isCompleted
+        try RequestsList
+          .find(requestsList.id)
+          .update { $0.isCompleted = newCompletionStatus }
+          .execute(db)
+      } else if allRequestsCompleted {
+        // Усі підпроханння виконані: дозволяємо перемикати стан списку
+        let newCompletionStatus = !requestsList.isCompleted
+        try RequestsList
+          .find(requestsList.id)
+          .update { $0.isCompleted = newCompletionStatus }
+          .execute(db)
+      } else if requestsList.isCompleted {
+        // Дозволяємо скинути у false, якщо головне позначене як виконане
+        try RequestsList
+          .find(requestsList.id)
+          .update { $0.isCompleted = false }
+          .execute(db)
+      } else {
+        // Є невиконані підпроханння: не дозволяємо увімкнути true
+        return
+      }
     }
+    // Оновлюємо локальний стан після зміни
+    await fetchRequestsStatus(requestsList)
   }
 }
 

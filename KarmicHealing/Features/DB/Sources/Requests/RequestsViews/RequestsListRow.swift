@@ -41,12 +41,8 @@ struct RequestsListRow: View {
         RequestsListForm(requestsList: RequestsList.Draft(list))
           .navigationTitle(String(localized: "edit_list", bundle: .main))
       }
-      .presentationDetents([.medium])
+      .presentationDetents([.large])
     }
-  }
-
-  private var canToggle: Bool {
-    (totalRequests == 0 || allRequestsCompleted)
   }
 
   private func fetchRequestsStatus() async {
@@ -59,16 +55,6 @@ struct RequestsListRow: View {
       totalRequests = total
       completedRequests = completed
       allRequestsCompleted = (total > 0 && total == completed)
-    }
-  }
-
-  private func toggleRequestsListCompletion() async throws {
-    try await database.write { db in
-      let newCompletionStatus = !requestsList.isCompleted
-      try RequestsList
-        .find(requestsList.id)
-        .update { $0.isCompleted = newCompletionStatus }
-        .execute(db)
     }
   }
 }

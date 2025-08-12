@@ -8,7 +8,7 @@ import Resources
 import Common
 
 public struct RequestsView: View {
-  @SwiftUI.Environment(\.dismiss) var dismiss
+  @Environment(\.dismiss) var dismiss
   @Dependency(\.context) var context
 
   static let model = RequestsListsModel()

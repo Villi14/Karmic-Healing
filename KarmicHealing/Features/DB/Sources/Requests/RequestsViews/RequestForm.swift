@@ -6,12 +6,11 @@ import Resources
 
 struct RequestFormView: View {
   @FetchOne var requestsList: RequestsList
+  @Dependency(\.defaultDatabase) private var database
+  @Environment(\.dismiss) var dismiss
 
   @State var request: Request.Draft
   @State private var selectedDate: Date = Date()
-
-  @Dependency(\.defaultDatabase) private var database
-  @Environment(\.dismiss) var dismiss
   
   let onSave: (() -> Void)?
 

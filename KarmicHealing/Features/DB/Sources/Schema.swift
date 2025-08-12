@@ -191,7 +191,7 @@ public func appDatabase() throws -> any DatabaseWriter {
 #if DEBUG
     db.trace(options: .profile) {
       if context == .live {
-        logger.debug("\($0.expandedDescription)")
+      //  logger.debug("\($0.expandedDescription)")
       } else {
         print("\($0.expandedDescription)")
       }
@@ -206,7 +206,7 @@ public func appDatabase() throws -> any DatabaseWriter {
     context == .live
     ? URL.documentsDirectory.appending(component: "db.sqlite").path()
     : URL.temporaryDirectory.appending(component: "\(UUID().uuidString)-db.sqlite").path()
-    logger.info("open \(path)")
+   // logger.info("open \(path)")
     database = try DatabasePool(path: path, configuration: configuration)
   }
 
@@ -376,7 +376,7 @@ public func appDatabase() throws -> any DatabaseWriter {
   return database
 }
 
-private let logger = Logger(subsystem: "KarmicHealing", category: "Database")
+  //private let logger = Logger(subsystem: "KarmicHealing", category: "Database")
 
 #if DEBUG
 extension Database {

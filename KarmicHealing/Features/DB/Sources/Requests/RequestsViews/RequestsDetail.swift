@@ -11,11 +11,10 @@ class RequestsDetailModel: HashableObject {
   @ObservationIgnored @FetchAll var requestRows: [Row]
   @ObservationIgnored @Shared var ordering: Ordering
   @ObservationIgnored @Shared var showCompleted: Bool
+  @ObservationIgnored @Dependency(\.defaultDatabase) private var database
 
   let detailType: DetailType
   var isNewRequestSheetPresented = false
-
-  @ObservationIgnored @Dependency(\.defaultDatabase) private var database
 
   init(detailType: DetailType) {
     self.detailType = detailType
@@ -203,31 +202,6 @@ struct RequestsDetailView: View {
                 .foregroundStyle(model.detailType.color)
 
               Spacer()
-
-              // Видалено чекбокс для RequestsList
-              // if case .requestsList(let requestsList) = model.detailType {
-              //   // Calculate completion status from current visible requests
-              //   let allVisibleRequestsCompleted = model.requestRows.allSatisfy { $0.request.isCompleted }
-              //   let canToggle = model.requestRows.isEmpty || allVisibleRequestsCompleted
-
-              //   Button(action: {
-              //     Task { await model.toggleRequestsListCompletion(requestsList) }
-              //   }) {
-              //     Image(systemName: requestsList.isCompleted ? "circle.inset.filled" : "circle")
-              //       .font(.title2)
-              //       .foregroundStyle(
-              //         requestsList.isCompleted ? ResourcesAsset.Colors.health.swiftUIColor :
-              //           canToggle ? model.detailType.color : ResourcesAsset.Colors.textSecondary.swiftUIColor
-              //       )
-              //   }
-              //   .disabled(!canToggle)
-              //   .onAppear {
-              //     print("DEBUG: RequestsList checkbox - allVisibleRequestsCompleted: \(allVisibleRequestsCompleted), canToggle: \(canToggle), requestRows count: \(model.requestRows.count)")
-              //   }
-              //   .onChange(of: model.requestRows.count) { _, newCount in
-              //     print("DEBUG: RequestsList checkbox - requestRows count changed to: \(newCount)")
-              //   }
-              // }
             }
             .onAppear { navigationTitleHeight = proxy.size.height }
           }
@@ -344,11 +318,8 @@ struct RequestsDetailView: View {
   }
 
   private func handleRequestCompletionChanged() {
-    if case .requestsList(let requestsList) = model.detailType {
-      Task {
-        await model.toggleRequestsListCompletion(requestsList)
-      }
-    }
+    // Прибираємо автоматичне оновлення основного списку
+    // Тепер стан основного списку контролюється тільки через чекбокс в ListRowView
   }
 }
 

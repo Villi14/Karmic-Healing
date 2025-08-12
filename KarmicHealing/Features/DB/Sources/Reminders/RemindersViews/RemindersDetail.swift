@@ -12,12 +12,11 @@ class RemindersDetailModel: HashableObject {
   @ObservationIgnored @FetchAll var reminderRows: [Row]
   @ObservationIgnored @Shared var ordering: Ordering
   @ObservationIgnored @Shared var showCompleted: Bool
+  @ObservationIgnored @Dependency(\.defaultDatabase) private var database
 
   let detailType: DetailType
   var isNewReminderSheetPresented = false
   var selectedReminderID: UUID?
-
-  @ObservationIgnored @Dependency(\.defaultDatabase) private var database
 
   init(detailType: DetailType, selectedReminderID: UUID? = nil) {
     self.detailType = detailType

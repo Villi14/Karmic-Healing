@@ -6,6 +6,8 @@ import Resources
 
 struct ReminderFormView: View {
   @Dependency(\.notification) var notification
+  @Dependency(\.defaultDatabase) private var database
+  @Environment(\.dismiss) var dismiss
 
   @FetchAll(RemindersList.order(by: \.title)) var remindersLists
   @FetchOne var remindersList: RemindersList
@@ -19,9 +21,6 @@ struct ReminderFormView: View {
     return calendar.date(from: components) ?? now
   }()
   @State private var showDateErrorAlert = false
-
-  @Dependency(\.defaultDatabase) private var database
-  @Environment(\.dismiss) var dismiss
 
   init(reminder: Reminder.Draft, remindersList: RemindersList) {
     _remindersList = FetchOne(wrappedValue: remindersList, RemindersList.find(remindersList.id))
