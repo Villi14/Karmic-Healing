@@ -59,17 +59,19 @@ struct ListRowView<ListType: Identifiable>: View {
       .onTapGesture {
         onTap?()
       }
+
       if let onEdit = onEdit {
         Image(systemName: "info.circle")
           .resizable()
           .aspectRatio(contentMode: .fit)
           .frame(height: DesignConstants.frameHeightSmall)
           .foregroundStyle(ResourcesAsset.Colors.clarity.swiftUIColor)
-          .padding(.trailing, DesignConstants.paddingSmall)
+          .padding(.horizontal, DesignConstants.paddingLarge)
           .onTapGesture {
             onEdit()
           }
       }
+
       if count > 0 {
         Text("\(count)")
           .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
@@ -105,7 +107,6 @@ struct ListRowView<ListType: Identifiable>: View {
         .tint(ResourcesAsset.Colors.clarity.swiftUIColor)
       }
     }
-    
   }
 
   private var canToggle: Bool {
@@ -114,7 +115,7 @@ struct ListRowView<ListType: Identifiable>: View {
     }
     return true
   }
-  
+
   private var shouldShowCompleted: Bool {
     if let requestsList = list as? RequestsList {
       if totalRequests == 0 {
@@ -179,8 +180,7 @@ struct ListRowView<ListType: Identifiable>: View {
         count: 10,
         list: RequestsList(id: UUID(), title: "Personal"),
         color: .blue,
-        title: "Personal"
-      )
+        title: "Personal") {}
     }
   }
-} 
+}

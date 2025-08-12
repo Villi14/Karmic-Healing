@@ -218,9 +218,6 @@ struct RequestsDetailView: View {
             request: row.request,
             requestsList: row.requestsList,
             showCompleted: model.showCompleted,
-            onRequestCompletionChanged: {
-              handleRequestCompletionChanged()
-            }
           )
         }
         .listRowBackground(Color.clear)
@@ -315,11 +312,6 @@ struct RequestsDetailView: View {
       }
       .tint(ResourcesAsset.Colors.clam.swiftUIColor)
     }
-  }
-
-  private func handleRequestCompletionChanged() {
-    // Прибираємо автоматичне оновлення основного списку
-    // Тепер стан основного списку контролюється тільки через чекбокс в ListRowView
   }
 }
 

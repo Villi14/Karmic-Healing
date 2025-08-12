@@ -10,7 +10,6 @@ struct RequestRow: View {
   let request: Request
   let requestsList: RequestsList
   let showCompleted: Bool
-  let onRequestCompletionChanged: (() -> Void)?
 
   @State var editRequest: Request.Draft?
   @State var isCompleted: Bool
@@ -23,8 +22,7 @@ struct RequestRow: View {
     notes: String,
     request: Request,
     requestsList: RequestsList,
-    showCompleted: Bool,
-    onRequestCompletionChanged: (() -> Void)? = nil
+    showCompleted: Bool
   ) {
     self.color = color
     self.isPastDue = isPastDue
@@ -32,7 +30,6 @@ struct RequestRow: View {
     self.request = request
     self.requestsList = requestsList
     self.showCompleted = showCompleted
-    self.onRequestCompletionChanged = onRequestCompletionChanged
     self.isCompleted = request.isCompleted
   }
 
@@ -89,7 +86,6 @@ struct RequestRow: View {
             try Request.delete(request).execute(db)
           }
         }
-        onRequestCompletionChanged?()
       }
       .tint(ResourcesAsset.Colors.energy.swiftUIColor)
       Button(String(localized: "details", bundle: .main)) {
@@ -102,9 +98,7 @@ struct RequestRow: View {
         RequestFormView(
           request: item,
           requestsList: requestsList,
-          onSave: {
-            onRequestCompletionChanged?()
-          }
+          onSave: nil
         )
         .navigationTitle(String(localized: "details", bundle: .main))
       }
@@ -125,9 +119,6 @@ struct RequestRow: View {
           .returning(\.isCompleted)
           .fetchOne(db) ?? isCompleted
       }
-
-      // Notify parent view about completion change
-      onRequestCompletionChanged?()
     }
   }
 }

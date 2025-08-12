@@ -44,6 +44,7 @@ struct ReminderRow: View {
             .foregroundStyle(ResourcesAsset.Colors.health.swiftUIColor)
             .padding([.trailing], DesignConstants.paddingSmall)
         }
+        
         VStack(alignment: .leading) {
           HStack(alignment: .firstTextBaseline) {
             if let priority = reminder.priority {
