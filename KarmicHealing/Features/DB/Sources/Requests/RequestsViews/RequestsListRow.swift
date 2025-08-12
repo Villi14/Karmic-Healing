@@ -16,7 +16,7 @@ struct RequestsListRow: View {
 
   var body: some View {
     ListRowView(
-      count: totalRequests, // Передаємо реальну кількість
+      count: totalRequests,
       list: requestsList,
       color: requestsList.color,
       title: requestsList.title,

@@ -109,22 +109,10 @@ struct RequestRow: View {
         .navigationTitle(String(localized: "details", bundle: .main))
       }
     }
-    .task(id: isCompleted) {
-      guard !showCompleted else { return }
-      guard isCompleted, isCompleted != request.isCompleted else { return }
-      do {
-        try await Task.sleep(for: .seconds(2))
-        toggleCompletion()
-      } catch {}
-    }
   }
 
   private func completeButtonTapped() {
-    if showCompleted {
-      toggleCompletion()
-    } else {
-      isCompleted.toggle()
-    }
+    toggleCompletion()
   }
 
   private func toggleCompletion() {
@@ -137,24 +125,7 @@ struct RequestRow: View {
           .returning(\.isCompleted)
           .fetchOne(db) ?? isCompleted
       }
-      
-      print("DEBUG: RequestRow toggleCompletion - request \(request.id) isCompleted: \(isCompleted)")
-      
-      // Update the parent RequestsList completion status
-      try requestsList.updateCompletionStatus(in: database)
-      
-      print("DEBUG: RequestRow toggleCompletion - updated RequestsList completion status")
-      
-      // Force refresh of the database to ensure UI updates
-      try database.write { _ in
-        // This empty write will trigger database observers
-      }
-      
-      // Force refresh of @FetchOne observers
-      try database.write { _ in
-        // This additional write ensures all observers are triggered
-      }
-      
+
       // Notify parent view about completion change
       onRequestCompletionChanged?()
     }
