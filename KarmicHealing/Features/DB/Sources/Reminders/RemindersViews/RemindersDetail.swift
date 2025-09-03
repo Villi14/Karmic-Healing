@@ -13,11 +13,11 @@ class RemindersDetailModel: HashableObject {
   @ObservationIgnored @Shared var ordering: Ordering
   @ObservationIgnored @Shared var showCompleted: Bool
   @ObservationIgnored @Dependency(\.defaultDatabase) private var database
-
+  
   let detailType: DetailType
   var isNewReminderSheetPresented = false
   var selectedReminderID: UUID?
-
+  
   init(detailType: DetailType, selectedReminderID: UUID? = nil) {
     self.detailType = detailType
     self.selectedReminderID = selectedReminderID
@@ -28,23 +28,23 @@ class RemindersDetailModel: HashableObject {
     )
     _reminderRows = FetchAll(remindersQuery)
   }
-
+  
   func orderingButtonTapped(_ ordering: Ordering) async {
     $ordering.withLock { $0 = ordering }
     await updateQuery()
   }
-
+  
   func showCompletedButtonTapped() async {
     $showCompleted.withLock { $0.toggle() }
     await updateQuery()
   }
-
+  
   func move(from source: IndexSet, to destination: Int) async {
     withErrorReporting {
       try database.write { db in
         var ids = reminderRows.map(\.reminder.id)
         ids.move(fromOffsets: source, toOffset: destination)
-
+        
         try Reminder
           .where { $0.id.in(ids) }
           .update {
@@ -62,13 +62,13 @@ class RemindersDetailModel: HashableObject {
     }
     await updateQuery()
   }
-
+  
   private func updateQuery() async {
     await withErrorReporting {
       try await $reminderRows.load(remindersQuery, animation: .default)
     }
   }
-
+  
   private var remindersQuery: some StructuredQueriesCore.Statement<Row> {
     let query =
     Reminder
@@ -106,23 +106,23 @@ class RemindersDetailModel: HashableObject {
       }
     return query
   }
-
+  
   enum Ordering: String, CaseIterable {
     case dueDate = "Due Date"
     case priority = "Priority"
     case title = "Title"
-
+    
     var localizedTitle: String {
       switch self {
       case .dueDate:
-        return String(localized: "due_date", bundle: .main)
+        return "due_date".loc()
       case .priority:
-        return String(localized: "priority", bundle: .main)
+        return "priority".loc()
       case .title:
-        return String(localized: "title", bundle: .main)
+        return "title".loc()
       }
     }
-
+    
     var icon: Image {
       switch self {
       case .dueDate: Image(systemName: "calendar")
@@ -131,7 +131,7 @@ class RemindersDetailModel: HashableObject {
       }
     }
   }
-
+  
   @CasePathable
   @dynamicMemberLookup
   enum DetailType: Hashable {
@@ -142,7 +142,7 @@ class RemindersDetailModel: HashableObject {
     case scheduled
     case today
   }
-
+  
   @Selection
   struct Row: Identifiable {
     var id: Reminder.ID { reminder.id }
@@ -156,15 +156,15 @@ class RemindersDetailModel: HashableObject {
 struct RemindersDetailView: View {
   @SwiftUI.Environment(\.dismiss) var dismiss
   @Bindable var model: RemindersDetailModel
-
+  
   @State var isNavigationTitleVisible = false
   @State var navigationTitleHeight: CGFloat = 36
   @State private var didScrollToReminder = false
-
+  
   var body: some View {
     ZStack {
       BgWithGradientView()
-
+      
       ScrollViewReader { proxy in
         List {
           VStack(alignment: .leading) {
@@ -178,7 +178,7 @@ struct RemindersDetailView: View {
           .listRowSeparator(.hidden)
           .listRowBackground(Color.clear)
           .padding(.bottom, DesignConstants.paddingLarge)
-
+          
           ForEach(model.reminderRows) { row in
             ReminderRow(
               color: model.detailType.color,
@@ -231,7 +231,7 @@ struct RemindersDetailView: View {
               reminder: Reminder.Draft(remindersListID: remindersList.id),
               remindersList: remindersList
             )
-            .navigationTitle(String(localized: "new_reminder", bundle: .main))
+            .navigationTitle("new_reminder".loc())
           }
         }
       }
@@ -250,7 +250,7 @@ struct RemindersDetailView: View {
               } label: {
                 HStack {
                   Image(systemName: "plus")
-                  Text(String(localized: "reminder", bundle: .main))
+                  Text("reminder".loc())
                 }
                 .font(.body)
               }
@@ -259,7 +259,7 @@ struct RemindersDetailView: View {
             .tint(model.detailType.color)
           }
         }
-
+        
         ToolbarItem(placement: .primaryAction) {
           Menu {
             Group {
@@ -273,15 +273,15 @@ struct RemindersDetailView: View {
                   }
                 }
               } label: {
-                Text(String(localized: "sort_by", bundle: .main))
+                Text("sort_by".loc())
                 Text(model.ordering.localizedTitle)
                 Image(systemName: "arrow.up.arrow.down")
               }
-
+              
               Button {
                 Task { await model.showCompletedButtonTapped() }
               } label: {
-                Text(model.showCompleted ? String(localized: "hide_completed", bundle: .main) : String(localized: "show_completed", bundle: .main))
+                Text(model.showCompleted ? "hide_completed".loc() : "show_completed".loc())
                 Image(systemName: model.showCompleted ? "eye" : "eye")
               }
             }
@@ -307,18 +307,18 @@ extension RemindersDetailModel.DetailType {
     case .today: "today"
     }
   }
-
+  
   fileprivate var navigationTitle: String {
     switch self {
-    case .all: String(localized: "all", bundle: .main)
-    case .completed: String(localized: "completed", bundle: .main)
-    case .flagged: String(localized: "flagged", bundle: .main)
+    case .all: "all".loc()
+    case .completed: "completed".loc()
+    case .flagged: "flagged".loc()
     case .remindersList(let list): list.title
-    case .scheduled: String(localized: "scheduled", bundle: .main)
-    case .today: String(localized: "today", bundle: .main)
+    case .scheduled: "scheduled".loc()
+    case .today: "today".loc()
     }
   }
-
+  
   fileprivate var color: Color {
     switch self {
     case .all: ResourcesAsset.Colors.textPrimary.swiftUIColor
@@ -341,12 +341,12 @@ struct RemindersDetailPreview: PreviewProvider {
         )
       }
     }
-
+    
     let detailTypes: [RemindersDetailModel.DetailType] = [
       .all,
       .remindersList(remindersList)
     ]
-
+    
     ForEach(detailTypes, id: \.self) { detailType in
       NavigationStack {
         RemindersDetailView(model: RemindersDetailModel(detailType: detailType))

@@ -10,15 +10,15 @@ import Common
 public struct RemindersView: View {
   @SwiftUI.Environment(\.dismiss) var dismiss
   @Dependency(\.context) var context
-
+  
   static let model = RemindersListsModel()
-
+  
   public let store: StoreOf<Reminders>
-
+  
   public init(store: StoreOf<Reminders>) {
     self.store = store
   }
-
+  
   public var body: some View {
     WithViewStore(store, observe: { $0 }) { viewStore in
       VStack {
@@ -36,8 +36,8 @@ public struct RemindersView: View {
             }
         }
       }
-
-      .navigationTitle(String(localized: "reminders", bundle: .main))
+      
+      .navigationTitle("reminders".loc())
       .navigationBarBackButtonHidden()
       .navigationBarTitleDisplayMode(.automatic)
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)

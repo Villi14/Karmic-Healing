@@ -6,14 +6,14 @@ import Resources
 struct RequestsListRow: View {
   let requestsList: RequestsList
   var onTap: (() -> Void)? = nil
-
+  
   @State var editList: RequestsList?
   @State private var allRequestsCompleted: Bool = false
   @State private var totalRequests: Int = 0
   @State private var completedRequests: Int = 0
-
+  
   @Dependency(\.defaultDatabase) private var database
-
+  
   var body: some View {
     ListRowView(
       count: totalRequests,
@@ -39,12 +39,12 @@ struct RequestsListRow: View {
     .sheet(item: $editList) { list in
       NavigationStack {
         RequestsListForm(requestsList: RequestsList.Draft(list))
-          .navigationTitle(String(localized: "edit_list", bundle: .main))
+          .navigationTitle("edit_list".loc())
       }
       .presentationDetents([.large])
     }
   }
-
+  
   private func fetchRequestsStatus() async {
     await withErrorReporting {
       let (total, completed) = try await database.read { db in

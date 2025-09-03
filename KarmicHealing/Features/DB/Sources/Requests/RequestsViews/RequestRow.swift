@@ -80,7 +80,7 @@ struct RequestRow: View {
     }
     .buttonStyle(.borderless)
     .swipeActions {
-      Button(String(localized: "delete", bundle: .main), role: .destructive) {
+      Button("delete".loc(), role: .destructive) {
         withErrorReporting {
           try database.write { db in
             try Request.delete(request).execute(db)
@@ -88,7 +88,7 @@ struct RequestRow: View {
         }
       }
       .tint(ResourcesAsset.Colors.energy.swiftUIColor)
-      Button(String(localized: "details", bundle: .main)) {
+      Button("details".loc()) {
         editRequest = Request.Draft(request)
       }
       .tint(ResourcesAsset.Colors.clarity.swiftUIColor)
@@ -100,7 +100,7 @@ struct RequestRow: View {
           requestsList: requestsList,
           onSave: nil
         )
-        .navigationTitle(String(localized: "details", bundle: .main))
+        .navigationTitle("details".loc())
       }
     }
   }
@@ -134,7 +134,7 @@ struct RequestRowPreview: PreviewProvider {
         requestsList = try RequestsList.all.fetchOne(db)!
       }
     }
-
+    
     NavigationStack {
       List {
         RequestRow(

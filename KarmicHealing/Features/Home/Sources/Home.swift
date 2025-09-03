@@ -14,13 +14,13 @@ import BalancingEnergy
 @Reducer
 public struct Home {
   public init() {}
-
+  
   @ObservableState
   public struct State: Equatable {
     public init() {}
-
+    
     var path = StackState<Path.State>()
-
+    
     let homeButtons: [HomeButton] = [
       .balancingEnуergyButton,
       .requestsButton,
@@ -28,14 +28,14 @@ public struct Home {
       .settingsButton
     ]
   }
-
+  
   public enum Action: Equatable {
     case didTap(HomeButton)
     case path(StackActionOf<Path>)
     case openReminderFormFromNotification(reminderID: UUID? = nil)
     case resetNavigationAndOpenReminder(reminderID: UUID? = nil, reminderListID: UUID? = nil)
   }
-
+  
   public var body: some ReducerOf<Self> {
     Reduce { state, action in
       switch action {
@@ -60,7 +60,7 @@ public struct Home {
         state.path.append(
           .balancingEnergy(
             .init(
-              title: String(localized: "initial_process", bundle: .main),
+              title: "initial_process".loc(),
               currentStep: 0,
               isCompleted: false,
               steps: Step.part1
@@ -84,7 +84,7 @@ public struct Home {
         state.path.append(
           .balancingEnergy(
             .init(
-              title: String(localized: "essential_self", bundle: .main),
+              title: "essential_self".loc(),
               currentStep: 0,
               isCompleted: false,
               steps: Step.part2
@@ -96,7 +96,7 @@ public struct Home {
         state.path.append(
           .balancingEnergy(
             .init(
-              title: String(localized: "divine_self", bundle: .main),
+              title: "divine_self".loc(),
               currentStep: 0,
               isCompleted: false,
               steps: Step.part3
@@ -119,7 +119,7 @@ public struct Home {
         remindersState.selectedReminderListID = reminderListID
         state.path.append(.reminders(remindersState))
         return .none
-
+        
       case .path:
         return .none
       }

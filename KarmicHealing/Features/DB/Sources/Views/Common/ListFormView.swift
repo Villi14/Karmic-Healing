@@ -29,7 +29,7 @@ struct ListFormView<ListType: Identifiable>: View {
     Form {
       Section {
         VStack {
-          TextField(String(localized: "list_name", bundle: .main), text: $title)
+          TextField("list_name".loc(), text: $title)
             .font(.system(.title2, design: .rounded, weight: .bold))
             .foregroundStyle(color)
             .multilineTextAlignment(.center)
@@ -39,14 +39,14 @@ struct ListFormView<ListType: Identifiable>: View {
             .padding(.vertical)
         }
       }
-
-      ColorPicker(String(localized: "color", bundle: .main), selection: $color)
+      
+      ColorPicker("color".loc(), selection: $color)
         .tint(ResourcesAsset.Colors.clam.swiftUIColor)
     }
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
       ToolbarItem {
-        Button(String(localized: "save", bundle: .main)) {
+        Button("save".loc()) {
           onSave(list)
           dismiss()
         }
@@ -55,7 +55,7 @@ struct ListFormView<ListType: Identifiable>: View {
       }
       
       ToolbarItem(placement: .cancellationAction) {
-        Button(String(localized: "cancel", bundle: .main)) {
+        Button("cancel".loc()) {
           dismiss()
         }
         .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
@@ -73,6 +73,6 @@ struct ListFormView<ListType: Identifiable>: View {
     ) { _ in
       print("Save tapped")
     }
-    .navigationTitle(String(localized: "new_list", bundle: .main))
+    .navigationTitle("new_list".loc())
   }
 } 

@@ -11,9 +11,9 @@ import SwiftUI
 public struct AppSettings {
   @Dependency(\.openURL) var openURL
   @Dependency(\.userDefaults) var userDefaults
-  
+
   public init() {}
-  
+
   @ObservableState
   public struct State: Equatable {
     @Presents var destination: Destination.State?
@@ -22,10 +22,10 @@ public struct AppSettings {
     var vibrationEnabled: Bool = true
     var audioVolume: Float = 1.0
     var userTheme: String = "system"
-    
+
     public init() {}
   }
-  
+
   public enum Action: Equatable {
     case onAppear
     case didTapAbout
@@ -40,7 +40,7 @@ public struct AppSettings {
     case audioVolumeChanged(Float)
     case themeChanged(String)
   }
-  
+
   public var body: some ReducerOf<Self> {
     Reduce { state, action in
       switch action {
@@ -131,21 +131,21 @@ public struct Destination {
     case sessionDurationAlert(EnergyBalansingSettings.State)
     case themeSettings(ThemeSettings.State)
   }
-  
+
   public enum Action: Equatable {
     case aboutAlert(Alert)
     case clipboardAlert(CopyAlert)
     case mailComposer(MailComposer)
     case sessionDurationAlert(EnergyBalansingSettings.Action)
     case themeSettings(ThemeSettings.Action)
-    
+
     public enum Alert: Equatable {}
     public enum CopyAlert: Equatable {
       case copyToClipboard(String)
     }
     public enum MailComposer: Equatable {}
   }
-  
+
   public var body: some ReducerOf<Self> {
     EmptyReducer()
       .ifLet(\.aboutAlert, action: \.aboutAlert) {
@@ -170,8 +170,8 @@ extension AlertReducer<Destination.Action.Alert>.State {
   static func showAbout() -> Self {
     .init(
       image: Image(systemName: "info.circle"),
-              title: "about".localized(),
-              message: "thanks_for_using_karmic_healing_2025".localized()
+      title: "about".loc(),
+      message: "thanks_for_using_karmic_healing_2025".loc()
     )
   }
 }
@@ -179,14 +179,14 @@ extension AlertReducer<Destination.Action.Alert>.State {
 extension AlertReducer<Destination.Action.CopyAlert>.State {
   static var contactUs: Self {
     let email = "karmic.healing@gmail.com"
-    
+
     return .init(
       image: Image(systemName: "envelope"),
-      title: String(localized: "write_to_us", bundle: .main),
+      title: "write_to_us".loc(),
       message: email,
       buttons: [
         .init(
-          label: String(localized: "copy_to_clipboard", bundle: .main),
+          label: "copy_to_clipboard".loc(),
           action: .copyToClipboard(email)
         )
       ]

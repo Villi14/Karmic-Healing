@@ -20,7 +20,7 @@ class RemindersListsModel {
     animation: .default
   )
   var remindersLists
-
+  
   @ObservationIgnored
   @FetchOne(
     Reminder.select {
@@ -33,21 +33,21 @@ class RemindersListsModel {
     }
   )
   var stats = Stats()
-
+  
   var destination: Destination?
   var searchRemindersModel = SearchRemindersModel()
   var seedDatabaseTip: SeedDatabaseTip?
   var shouldOpenReminderFormFromNotification = false
   var selectedReminderID: UUID?
   var selectedReminderListID: UUID?
-
+  
   @ObservationIgnored
   @Dependency(\.defaultDatabase) private var database
-
+  
   func statTapped(_ detailType: RemindersDetailModel.DetailType) {
     destination = .detail(RemindersDetailModel(detailType: detailType))
   }
-
+  
   func remindersListTapped(remindersList: RemindersList) {
     destination = .detail(
       RemindersDetailModel(
@@ -57,7 +57,7 @@ class RemindersListsModel {
       )
     )
   }
-
+  
   func onAppear() {
     withErrorReporting {
       try Tips.configure()
@@ -66,13 +66,13 @@ class RemindersListsModel {
       seedDatabaseTip = SeedDatabaseTip()
     }
     searchRemindersModel.searchText = ""
-
+    
     // Check if we need to open form through notification
     if shouldOpenReminderFormFromNotification {
       shouldOpenReminderFormFromNotification = false
       openReminderFormFromNotification()
     }
-
+    
     // Check if we need to open RemindersDetailView with selectedReminderID
     if let selectedReminderID = getSelectedReminderID() {
       openRemindersDetailWithSelectedReminder(selectedReminderID)
@@ -80,7 +80,7 @@ class RemindersListsModel {
       setSelectedReminderListID(nil) // Reset after use
     }
   }
-
+  
   func newReminderButtonTapped() {
     guard let remindersList = remindersLists.first?.remindersList
     else {
@@ -92,15 +92,15 @@ class RemindersListsModel {
       remindersList: remindersList
     )
   }
-
+  
   func addListButtonTapped() {
     destination = .remindersListForm(RemindersList.Draft())
   }
-
+  
   func listDetailsButtonTapped(remindersList: RemindersList) {
     destination = .remindersListForm(RemindersList.Draft(remindersList))
   }
-
+  
   func openReminderFormFromNotification() {
     guard let _ = remindersLists.first?.remindersList
     else {
@@ -108,23 +108,23 @@ class RemindersListsModel {
       return
     }
   }
-
+  
   func getSelectedReminderID() -> UUID? {
     return selectedReminderID
   }
-
+  
   func setSelectedReminderID(_ id: UUID?) {
     selectedReminderID = id
   }
-
+  
   func getSelectedReminderListID() -> UUID? {
     return selectedReminderListID
   }
-
+  
   func setSelectedReminderListID(_ id: UUID?) {
     selectedReminderListID = id
   }
-
+  
   func openRemindersDetailWithSelectedReminder(_ reminderID: UUID) {
     // Try to find the specific list if selectedReminderListID is provided
     let targetRemindersList: RemindersList
@@ -140,7 +140,7 @@ class RemindersListsModel {
       }
       targetRemindersList = remindersList
     }
-
+    
     destination = .detail(
       RemindersDetailModel(
         detailType: .remindersList(targetRemindersList),
@@ -148,7 +148,7 @@ class RemindersListsModel {
       )
     )
   }
-
+  
   func move(from source: IndexSet, to destination: Int) {
     withErrorReporting {
       try database.write { db in
@@ -170,7 +170,7 @@ class RemindersListsModel {
       }
     }
   }
-
+  
 #if DEBUG
   func seedDatabaseButtonTapped() {
     withErrorReporting {
@@ -180,21 +180,21 @@ class RemindersListsModel {
     }
   }
 #endif
-
+  
   @CasePathable
   enum Destination {
     case detail(RemindersDetailModel)
     case reminderForm(Reminder.Draft, remindersList: RemindersList)
     case remindersListForm(RemindersList.Draft)
   }
-
+  
   @Selection
   struct ReminderListState: Identifiable {
     var id: RemindersList.ID { remindersList.id }
     var remindersCount: Int
     var remindersList: RemindersList
   }
-
+  
   @Selection
   struct Stats {
     var allCount = 0
@@ -202,16 +202,16 @@ class RemindersListsModel {
     var scheduledCount = 0
     var todayCount = 0
   }
-
+  
   struct SeedDatabaseTip: Tip {
     var title: Text {
       Text("Seed Sample Data")
     }
-
+    
     var message: Text? {
       Text("Tap here to quickly populate the app with test data.")
     }
-
+    
     var image: Image? {
       Image(systemName: "leaf")
     }
@@ -220,11 +220,11 @@ class RemindersListsModel {
 
 struct RemindersListsView: View {
   @Bindable var model: RemindersListsModel
-
+  
   var body: some View {
     ZStack {
       BgWithGradientView()
-
+      
       VStack(spacing: 0) {
         SearchBar(text: $model.searchRemindersModel.searchText)
         List {
@@ -236,47 +236,47 @@ struct RemindersListsView: View {
                     color: ResourcesAsset.Colors.clam.swiftUIColor,
                     count: model.stats.todayCount,
                     iconName: "calendar",
-                    title: String(localized: "today", bundle: .main)
+                    title: "today".loc()
                   ) {
                     model.statTapped(.today)
                   }
-
+                  
                   GridCell(
                     color: ResourcesAsset.Colors.energy.swiftUIColor,
                     count: model.stats.scheduledCount,
                     iconName: "calendar",
-                    title: String(localized: "scheduled", bundle: .main)
+                    title: "scheduled".loc()
                   ) {
                     model.statTapped(.scheduled)
                   }
                 }
-
+                
                 GridRow {
                   GridCell(
                     color: ResourcesAsset.Colors.textSecondary.swiftUIColor,
                     count: model.stats.allCount,
                     iconName: "tray",
-                    title: String(localized: "all", bundle: .main)
+                    title: "all".loc()
                   ) {
                     model.statTapped(.all)
                   }
-
+                  
                   GridCell(
                     color: ResourcesAsset.Colors.friendly.swiftUIColor,
                     count: model.stats.flaggedCount,
                     iconName: "flag",
-                    title: String(localized: "flagged", bundle: .main)
+                    title: "flagged".loc()
                   ) {
                     model.statTapped(.flagged)
                   }
                 }
-
+                
                 GridRow {
                   GridCell(
                     color: ResourcesAsset.Colors.health.swiftUIColor,
                     count: nil,
                     iconName: "checkmark",
-                    title: String(localized: "completed", bundle: .main)
+                    title: "completed".loc()
                   ) {
                     model.statTapped(.completed)
                   }
@@ -285,10 +285,10 @@ struct RemindersListsView: View {
               .buttonStyle(.plain)
               .listRowBackground(Color.clear)
               .padding(.horizontal, DesignConstants.paddingNegative)
-
+              
             }
             .listSectionSeparator(.hidden)
-
+            
             Section {
               ForEach(model.remindersLists) { state in
                 RemindersListRow(
@@ -300,7 +300,7 @@ struct RemindersListsView: View {
                 )
               }
             } header: {
-              Text(String(localized: "my_reminders", bundle: .main))
+              Text("my_reminders".loc())
                 .font(.system(.headline, design: .rounded, weight: .bold))
                 .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
                 .textCase(nil)
@@ -323,7 +323,7 @@ struct RemindersListsView: View {
         .onAppear {
           model.onAppear()
         }
-
+        
         .toolbar {
 #if DEBUG
           ToolbarItem(placement: .automatic) {
@@ -331,9 +331,9 @@ struct RemindersListsView: View {
               Button {
                 model.seedDatabaseButtonTapped()
               } label: {
-                Text(String(localized: "seed_data", bundle: .main))
+                Text("seed_data".loc())
                   .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
-
+                
                 Image(systemName: "leaf")
                   .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
               }
@@ -352,22 +352,22 @@ struct RemindersListsView: View {
                 HStack {
                   Image(systemName: "plus")
                     .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
-
-                  Text(String(localized: "reminder", bundle: .main))
+                  
+                  Text("reminder".loc())
                     .font(.body)
                     .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
                 }
               }
-
+              
               Spacer()
-
+              
               Button {
                 model.addListButtonTapped()
               } label: {
                 Image(systemName: "plus")
                   .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
-
-                Text(String(localized: "list", bundle: .main))
+                
+                Text("list".loc())
                   .font(.body)
                   .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
               }
@@ -377,13 +377,13 @@ struct RemindersListsView: View {
         .sheet(item: $model.destination.reminderForm, id: \.0.id) { reminder, remindersList in
           NavigationStack {
             ReminderFormView(reminder: reminder, remindersList: remindersList)
-              .navigationTitle(String(localized: "new_reminder", bundle: .main))
+              .navigationTitle("new_reminder".loc())
           }
         }
         .sheet(item: $model.destination.remindersListForm) { remindersList in
           NavigationStack {
             RemindersListForm(remindersList: remindersList)
-              .navigationTitle(String(localized: "new_list", bundle: .main))
+              .navigationTitle("new_list".loc())
           }
           .presentationDetents([.medium])
         }

@@ -8,40 +8,40 @@ struct RequestFormView: View {
   @FetchOne var requestsList: RequestsList
   @Dependency(\.defaultDatabase) private var database
   @Environment(\.dismiss) var dismiss
-
+  
   @State var request: Request.Draft
   @State private var selectedDate: Date = Date()
   
   let onSave: (() -> Void)?
-
+  
   init(request: Request.Draft, requestsList: RequestsList, onSave: (() -> Void)? = nil) {
     _requestsList = FetchOne(wrappedValue: requestsList, RequestsList.find(requestsList.id))
     self.request = request
     self.onSave = onSave
-
+    
     if let dueDate = request.dueDate {
       self._selectedDate = State(initialValue: dueDate)
     }
   }
-
+  
   var body: some View {
     Form {
-      TextField(String(localized: "title", bundle: .main), text: $request.title)
-
+      TextField("title".loc(), text: $request.title)
+      
       ZStack {
         if request.notes.isEmpty {
-          TextEditor(text: .constant(String(localized: "notes", bundle: .main)))
+          TextEditor(text: .constant("notes".loc()))
             .foregroundStyle(.placeholder)
             .accessibilityHidden(true, isEnabled: false)
         }
-
+        
         TextEditor(text: $request.notes)
       }
       .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
       .tint(ResourcesAsset.Colors.clam.swiftUIColor)
       .lineLimit(4)
       .padding(.horizontal, DesignConstants.paddingNegativeSmall)
-
+      
       Section {
         Toggle(isOn: $request.isDateSet.animation()) {
           HStack {
@@ -50,7 +50,7 @@ struct RequestFormView: View {
               .aspectRatio(contentMode: .fit)
               .frame(width: DesignConstants.frameHeightSmall, height: DesignConstants.frameHeightSmall)
               .foregroundStyle(ResourcesAsset.Colors.energy.swiftUIColor)
-            Text(String(localized: "date", bundle: .main))
+            Text("date".loc())
           }
         }
         .tint(ResourcesAsset.Colors.health.swiftUIColor)
@@ -61,7 +61,7 @@ struct RequestFormView: View {
             request.dueDate = nil
           }
         }
-
+        
         if let _ = request.dueDate {
           DatePicker(
             "",
@@ -75,14 +75,14 @@ struct RequestFormView: View {
           }
         }
       }
-
+      
       Section {
         Picker(selection: $request.priority) {
-          Text(String(localized: "none", bundle: .main)).tag(Priority?.none)
+          Text("none".loc()).tag(Priority?.none)
           Divider()
-          Text(String(localized: "high", bundle: .main)).tag(Priority.high)
-          Text(String(localized: "medium", bundle: .main)).tag(Priority.medium)
-          Text(String(localized: "low", bundle: .main)).tag(Priority.low)
+          Text("high".loc()).tag(Priority.high)
+          Text("medium".loc()).tag(Priority.medium)
+          Text("low".loc()).tag(Priority.low)
         } label: {
           HStack {
             Image(systemName: "exclamationmark")
@@ -90,7 +90,7 @@ struct RequestFormView: View {
               .aspectRatio(contentMode: .fit)
               .frame(width: DesignConstants.frameHeightSmall, height: DesignConstants.frameHeightSmall)
               .foregroundStyle(ResourcesAsset.Colors.energy.swiftUIColor)
-            Text(String(localized: "priority", bundle: .main))
+            Text("priority".loc())
           }
         }
       }
@@ -100,21 +100,21 @@ struct RequestFormView: View {
     .toolbar {
       ToolbarItem {
         Button(action: saveButtonTapped) {
-          Text(String(localized: "save", bundle: .main))
+          Text("save".loc())
         }
         .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
         .disabled(request.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
       }
       
       ToolbarItem(placement: .cancellationAction) {
-        Button(String(localized: "cancel", bundle: .main)) {
+        Button("cancel".loc()) {
           dismiss()
         }
         .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
       }
     }
   }
-
+  
   private func saveButtonTapped() {
     withErrorReporting {
       try database.write { db in
@@ -155,7 +155,7 @@ struct RequestFormPreview: PreviewProvider {
     
     NavigationStack {
       RequestFormView(request: Request.Draft(request), requestsList: requestsList)
-        .navigationTitle(String(localized: "detail", bundle: .main))
+        .navigationTitle("detail".loc())
     }
   }
 }

@@ -16,31 +16,31 @@ extension HomeButton {
     .init(
       color: ResourcesAsset.Colors.health.swiftUIColor,
       icon: Image(systemName: "apple.meditate"),
-      title: String(localized: "energy_balancing", bundle: .main).uppercased()
+      title: "energy_balancing".loc().uppercased()
     )
   }
-
+  
   public static var requestsButton: Self {
     .init(
       color: ResourcesAsset.Colors.energy.swiftUIColor,
       icon: Image(systemName: "staroflife"),
-      title: String(localized: "requests", bundle: .main).uppercased()
+      title: "requests".loc().uppercased()
     )
   }
-
+  
   public static var remindersButton: Self {
     .init(
       color: ResourcesAsset.Colors.friendly.swiftUIColor,
       icon: Image(systemName: "pencil.and.list.clipboard"),
-      title: String(localized: "reminders", bundle: .main).uppercased()
+      title: "reminders".loc().uppercased()
     )
   }
-
+  
   public static var settingsButton: Self {
     .init(
       color: ResourcesAsset.Colors.clam.swiftUIColor,
       icon: Image(systemName: "gearshape"),
-      title: String(localized: "settings", bundle: .main).uppercased()
+      title: "settings".loc().uppercased()
     )
   }
 }

@@ -13,17 +13,17 @@ class SearchRequestsModel {
       Task { await updateQuery() }
     }
   }
-
+  
   @ObservationIgnored @FetchOne var completedCount: Int = 0
   @ObservationIgnored @FetchAll var requests: [Row]
-
+  
   @ObservationIgnored @Dependency(\.defaultDatabase) private var database
-
+  
   func showCompletedButtonTapped() async {
     showCompletedInSearchResults.toggle()
     await updateQuery()
   }
-
+  
   func deleteCompletedRequests(monthsAgo: Int? = nil) {
     withErrorReporting {
       try database.write { db in
@@ -40,20 +40,20 @@ class SearchRequestsModel {
       }
     }
   }
-
+  
   private func updateQuery() async {
     await withErrorReporting {
       if searchText.isEmpty {
         showCompletedInSearchResults = false
       }
-
+      
       try await $completedCount.load(
         Request.searching(searchText)
           .where(\.isCompleted)
           .count(),
         animation: .default
       )
-
+      
       try await $requests.load(
         Request
           .searching(searchText)
@@ -76,7 +76,7 @@ class SearchRequestsModel {
       )
     }
   }
-
+  
   @Selection
   struct Row: Identifiable {
     var id: Request.ID { request.id }
@@ -89,52 +89,52 @@ class SearchRequestsModel {
 
 struct SearchRequestsView: View {
   let model: SearchRequestsModel
-
+  
   init(model: SearchRequestsModel) {
     self.model = model
   }
-
+  
   var body: some View {
     HStack {
-      Text("\(model.completedCount) " + String(localized: "completed", bundle: .main))
+      Text("\(model.completedCount) " + "completed".loc())
         .monospacedDigit()
         .contentTransition(.numericText())
-
+      
       if model.completedCount > 0 {
         Text("•")
-
+        
         Menu {
-          Text(String(localized: "clear_completed_requests", bundle: .main))
-
-          Button(String(localized: "older_than_1_month", bundle: .main)) {
+          Text("clear_completed_requests".loc())
+          
+          Button("older_than_1_month".loc()) {
             model.deleteCompletedRequests(monthsAgo: 1)
           }
-
-          Button(String(localized: "older_than_6_months", bundle: .main)) {
+          
+          Button("older_than_6_months".loc()) {
             model.deleteCompletedRequests(monthsAgo: 6)
           }
-
-          Button(String(localized: "older_than_1_year", bundle: .main)) {
+          
+          Button("older_than_1_year".loc()) {
             model.deleteCompletedRequests(monthsAgo: 12)
           }
-
-          Button(String(localized: "all_completed", bundle: .main)) {
+          
+          Button("all_completed".loc()) {
             model.deleteCompletedRequests()
           }
         } label: {
-          Text(String(localized: "clear", bundle: .main))
+          Text("clear".loc())
         }
-
+        
         Spacer()
-
-        Button(model.showCompletedInSearchResults ? String(localized: "hide", bundle: .main) : String(localized: "show", bundle: .main)) {
+        
+        Button(model.showCompletedInSearchResults ? "hide".loc() : "show".loc()) {
           Task { await model.showCompletedButtonTapped() }
         }
       }
     }
     .tint(ResourcesAsset.Colors.clam.swiftUIColor)
     .buttonStyle(.borderless)
-
+    
     ForEach(model.requests) { request in
       RequestRow(
         color: request.requestsList.color,
@@ -153,13 +153,13 @@ struct SearchRequestsView: View {
   let _ = try! prepareDependencies {
     $0.defaultDatabase = try appDatabase()
   }
-
+  
   NavigationStack {
     List {
       if !searchText.isEmpty {
         SearchRequestsView(model: SearchRequestsModel())
       } else {
-        Text(String(localized: "tap_search", bundle: .main))
+        Text("tap_search".loc())
       }
     }
     .searchable(text: $searchText)

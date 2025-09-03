@@ -7,7 +7,7 @@ import Resources
 struct RequestsListForm: View {
   @Dependency(\.defaultDatabase) private var database
   @Environment(\.dismiss) var dismiss
-
+  
   @State var requestsList: RequestsList.Draft
   @State private var isDueDateEnabled: Bool
   @State private var selectedDate: Date = Date()
@@ -24,7 +24,7 @@ struct RequestsListForm: View {
     Form {
       Section {
         VStack {
-          TextField(String(localized: "list_name", bundle: .main), text: $requestsList.title)
+          TextField("list_name".loc(), text: $requestsList.title)
             .font(.system(.title2, design: .rounded, weight: .bold))
             .foregroundStyle(requestsList.color)
             .multilineTextAlignment(.center)
@@ -34,10 +34,10 @@ struct RequestsListForm: View {
             .padding(.vertical)
         }
       }
-
-      ColorPicker(String(localized: "color", bundle: .main), selection: $requestsList.color)
+      
+      ColorPicker("color".loc(), selection: $requestsList.color)
         .tint(ResourcesAsset.Colors.clam.swiftUIColor)
-
+      
       Section {
         Toggle(isOn: $isDueDateEnabled.animation()) {
           HStack {
@@ -49,7 +49,7 @@ struct RequestsListForm: View {
                 height: DesignConstants.frameHeightSmall
               )
               .foregroundStyle(ResourcesAsset.Colors.energy.swiftUIColor)
-            Text(String(localized: "date", bundle: .main))
+            Text("date".loc())
           }
         }
         .tint(ResourcesAsset.Colors.health.swiftUIColor)
@@ -60,7 +60,7 @@ struct RequestsListForm: View {
             requestsList.dueDate = nil
           }
         }
-
+        
         if let _ = requestsList.dueDate, isDueDateEnabled {
           DatePicker(
             "",
@@ -78,7 +78,7 @@ struct RequestsListForm: View {
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
       ToolbarItem {
-        Button(String(localized: "save", bundle: .main)) {
+        Button("save".loc()) {
           withErrorReporting {
             try database.write { db in
               try RequestsList.upsert(requestsList)
@@ -90,9 +90,9 @@ struct RequestsListForm: View {
         .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
         .disabled(requestsList.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
       }
-
+      
       ToolbarItem(placement: .cancellationAction) {
-        Button(String(localized: "cancel", bundle: .main)) {
+        Button("cancel".loc()) {
           dismiss()
         }
         .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
@@ -109,7 +109,7 @@ struct RequestsListFormPreviews: PreviewProvider {
     
     NavigationStack {
       RequestsListForm(requestsList: RequestsList.Draft())
-        .navigationTitle(String(localized: "new_list", bundle: .main))
+        .navigationTitle("new_list".loc())
     }
   }
 }

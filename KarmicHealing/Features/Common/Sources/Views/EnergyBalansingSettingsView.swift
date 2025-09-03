@@ -88,7 +88,7 @@ public struct EnergyBalansingSettings {
       }
     }
   }
-} 
+}
 
 public struct EnergyBalansingSettingsView: View {
   public let store: StoreOf<EnergyBalansingSettings>
@@ -116,7 +116,7 @@ public struct EnergyBalansingSettingsView: View {
   }
 
   private var titleView: some View {
-    Text(String(localized: "session_duration", bundle: .main))
+    Text("session_duration".loc())
       .font(.title2.weight(.semibold))
       .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
   }
@@ -134,7 +134,7 @@ public struct EnergyBalansingSettingsView: View {
       viewStore.send(.sessionDurationChanged(duration))
     }) {
       HStack {
-        Text("\(duration) \(String(localized: "minutes", bundle: .main))")
+        Text("\(duration) \("minutes".loc())")
           .font(.body)
           .foregroundStyle(isSelected ? ResourcesAsset.Colors.textPrimary.swiftUIColor : ResourcesAsset.Colors.textSecondary.swiftUIColor)
         Spacer()
@@ -155,7 +155,7 @@ public struct EnergyBalansingSettingsView: View {
         Image(systemName: "iphone.radiowaves.left.and.right")
           .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
 
-        Text(String(localized: "vibration", bundle: .main))
+        Text("vibration".loc())
           .font(.body)
           .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
 
@@ -175,7 +175,7 @@ public struct EnergyBalansingSettingsView: View {
         Image(systemName: "speaker.wave.2.fill")
           .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
 
-        Text(String(localized: "sound", bundle: .main))
+        Text("sound".loc())
           .font(.body)
           .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
 
@@ -199,7 +199,7 @@ public struct EnergyBalansingSettingsView: View {
         Image(systemName: "speaker.wave.3.fill")
           .foregroundStyle(viewStore.soundEnabled ? ResourcesAsset.Colors.friendly.swiftUIColor : ResourcesAsset.Colors.textSecondary.swiftUIColor)
 
-        Text(String(localized: "volume", bundle: .main))
+        Text("volume".loc())
           .font(.body)
           .foregroundStyle(viewStore.soundEnabled ? ResourcesAsset.Colors.textPrimary.swiftUIColor : ResourcesAsset.Colors.textSecondary.swiftUIColor)
 
@@ -231,7 +231,7 @@ public struct EnergyBalansingSettingsView: View {
     Button(action: {
       viewStore.send(.done)
     }) {
-      Text(String(localized: "done", bundle: .main))
+      Text("done".loc())
         .font(.headline.weight(.semibold))
         .foregroundStyle(ResourcesAsset.Colors.textInvert.swiftUIColor)
         .frame(maxWidth: .infinity)

@@ -151,7 +151,18 @@ Button("Start Process") {
 
 ### Adding new strings:
 1. Add to `MainTarget/Resources/Localizable.xcstrings`
-2. Use `String(localized: "key", bundle: .main)`
+2. Use `"key".localized()` (recommended) or `String(localized: "key", bundle: .main)
+
+**Examples:**
+```swift
+// Recommended way:
+Text("welcome_message".localized())
+Button("save".localized()) { ... }
+
+// Alternative way:
+Text(String(localized: "welcome_message", bundle: .main))
+Button(String(localized: "save", bundle: .main)) { ... }
+```
 
 ## 🔧 Configuration
 

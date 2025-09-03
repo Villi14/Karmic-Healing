@@ -98,7 +98,7 @@ public struct BalancingEnergy {
         )
 
       case .markInitialProcessCompletedIfNeeded:
-        if state.title == String(localized: "initial_process", bundle: .main) {
+        if state.title == "initial_process".loc() {
           return .run { send in
             await userDefaults.setAsync(true, for: .initialProcessCompleted)
             await send(.initialProcessCompletionSaved)
@@ -108,7 +108,7 @@ public struct BalancingEnergy {
 
       case .initialProcessCompletionSaved:
         return .none
-        
+
       case .didTapSettings:
         state.destination = .settings(.init())
         return .none
@@ -123,15 +123,15 @@ public struct BalancingEnergy {
         } else {
           return .send(.completeSteps)
         }
-        
+
       case .userManuallyScrolled:
         // Cancel existing notifications and reset timer when user manually scrolls
         notification.cancelAllNotifications()
         return startAutoScrollTimer()
-        
+
       case .startTimer:
         return startAutoScrollTimer()
-        
+
       case .onDisappear:
         // Cancel all notifications when leaving the screen
         notification.cancelAllNotifications()
@@ -145,18 +145,18 @@ public struct BalancingEnergy {
       Destination()
     }
   }
-  
+
   private func playSoundAndVibrate() async {
     // Get current settings from UserDefaults to ensure we have the latest values
     let soundEnabled = userDefaults.bool(for: .soundEnabled)
     let vibrationEnabled = userDefaults.bool(for: .vibrationEnabled)
     let currentVolume = userDefaults.float(for: .audioVolume)
-    
+
     if soundEnabled {
       audio.setVolume(currentVolume)
       audio.playSound("ding", "wav")
     }
-    
+
     // Trigger haptic feedback if enabled
     if vibrationEnabled {
       await MainActor.run {
@@ -169,15 +169,15 @@ public struct BalancingEnergy {
   private func startAutoScrollTimer() -> Effect<Action> {
     let savedDuration = userDefaults.integer(for: .sessionDuration)
     let durationToUse = savedDuration > 0 ? savedDuration : 5 // Default 5 minutes
-    
+
     // Schedule local notification to wake up the app
     notification.scheduleLocalNotification(
-      String(localized: "time_to_flip_slide", bundle: .main),
-      String(localized: "tap_to_continue_energy_balancing", bundle: .main),
+      "time_to_flip_slide".loc(),
+      "tap_to_continue_energy_balancing".loc(),
       TimeInterval(durationToUse * 60),
       .balancingEnergy
     )
-    
+
     return .run { send in
       try await clock.sleep(for: .seconds(durationToUse * 60))
       await send(.autoScrollTimer)
@@ -192,11 +192,11 @@ public struct Destination {
   public enum State: Equatable {
     case settings(EnergyBalansingSettings.State)
   }
-  
+
   public enum Action: Equatable {
     case settings(EnergyBalansingSettings.Action)
   }
-  
+
   public var body: some ReducerOf<Self> {
     Scope(state: \.settings, action: \.settings) {
       EnergyBalansingSettings()

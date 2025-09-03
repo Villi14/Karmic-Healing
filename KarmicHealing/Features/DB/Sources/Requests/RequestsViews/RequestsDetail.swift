@@ -12,10 +12,10 @@ class RequestsDetailModel: HashableObject {
   @ObservationIgnored @Shared var ordering: Ordering
   @ObservationIgnored @Shared var showCompleted: Bool
   @ObservationIgnored @Dependency(\.defaultDatabase) private var database
-
+  
   let detailType: DetailType
   var isNewRequestSheetPresented = false
-
+  
   init(detailType: DetailType) {
     self.detailType = detailType
     _ordering = Shared(wrappedValue: .dueDate, .appStorage("ordering_list_\(detailType.id)"))
@@ -25,51 +25,51 @@ class RequestsDetailModel: HashableObject {
     )
     _requestRows = FetchAll(requestsQuery)
   }
-
+  
   func orderingButtonTapped(_ ordering: Ordering) async {
     $ordering.withLock { $0 = ordering }
     await updateQuery()
   }
-
+  
   func showCompletedButtonTapped() async {
     $showCompleted.withLock { $0.toggle() }
     await updateQuery()
   }
-
+  
   func toggleRequestsListCompletion(_ requestsList: RequestsList) async {
     withErrorReporting {
       try database.write { db in
         // Check if all subordinate requests are completed using database query
         let totalRequests = try Request.where { $0.requestsListID == requestsList.id }.fetchCount(db)
         let completedRequests = try Request.where { $0.requestsListID == requestsList.id && $0.isCompleted }.fetchCount(db)
-
+        
         // Only allow toggling if all subordinate requests are completed
         guard totalRequests > 0 && totalRequests == completedRequests else {
           return // Don't allow toggling if not all requests are completed
         }
-
+        
         let newCompletionStatus = !requestsList.isCompleted
-
+        
         // Update only the RequestsList completion status
         try RequestsList
           .find(requestsList.id)
           .update { $0.isCompleted = newCompletionStatus }
           .execute(db)
-
+        
         // Don't update subordinate requests - they remain unchanged
       }
     }
-
+    
     // Refresh the query to show updated completion status
     await updateQuery()
   }
-
+  
   func move(from source: IndexSet, to destination: Int) async {
     withErrorReporting {
       try database.write { db in
         var ids = requestRows.map(\.request.id)
         ids.move(fromOffsets: source, toOffset: destination)
-
+        
         try Request
           .where { $0.id.in(ids) }
           .update {
@@ -87,14 +87,14 @@ class RequestsDetailModel: HashableObject {
     }
     await updateQuery()
   }
-
+  
   private func updateQuery() async {
     await withErrorReporting {
       try await $requestRows.load(requestsQuery, animation: .default)
       print("DEBUG: RequestsDetailModel updateQuery - requestRows count: \(requestRows.count)")
     }
   }
-
+  
   private var requestsQuery: some StructuredQueriesCore.Statement<Row> {
     let query =
     Request
@@ -136,23 +136,23 @@ class RequestsDetailModel: HashableObject {
       }
     return query
   }
-
+  
   enum Ordering: String, CaseIterable {
     case dueDate = "Due Date"
     case priority = "Priority"
     case title = "Title"
-
+    
     var localizedTitle: String {
       switch self {
       case .dueDate:
-        return String(localized: "due_date", bundle: .main)
+        return "due_date".loc()
       case .priority:
-        return String(localized: "priority", bundle: .main)
+        return "priority".loc()
       case .title:
-        return String(localized: "title", bundle: .main)
+        return "title".loc()
       }
     }
-
+    
     var icon: Image {
       switch self {
       case .dueDate: Image(systemName: "calendar")
@@ -161,7 +161,7 @@ class RequestsDetailModel: HashableObject {
       }
     }
   }
-
+  
   @CasePathable
   @dynamicMemberLookup
   enum DetailType: Hashable {
@@ -171,7 +171,7 @@ class RequestsDetailModel: HashableObject {
     case scheduled
     case today
   }
-
+  
   @Selection
   struct Row: Identifiable {
     var id: Request.ID { request.id }
@@ -185,14 +185,14 @@ class RequestsDetailModel: HashableObject {
 struct RequestsDetailView: View {
   @SwiftUI.Environment(\.dismiss) var dismiss
   @Bindable var model: RequestsDetailModel
-
+  
   @State var isNavigationTitleVisible = false
   @State var navigationTitleHeight: CGFloat = 36
-
+  
   var body: some View {
     ZStack {
       BgWithGradientView()
-
+      
       List {
         VStack(alignment: .leading) {
           GeometryReader { proxy in
@@ -200,7 +200,7 @@ struct RequestsDetailView: View {
               Text(model.detailType.navigationTitle)
                 .font(.system(.title2, design: .rounded, weight: .bold))
                 .foregroundStyle(model.detailType.color)
-
+              
               Spacer()
             }
             .onAppear { navigationTitleHeight = proxy.size.height }
@@ -209,7 +209,7 @@ struct RequestsDetailView: View {
         .listRowSeparator(.hidden)
         .listRowBackground(Color.clear)
         .padding(.bottom, DesignConstants.paddingLarge)
-
+        
         ForEach(model.requestRows) { row in
           RequestRow(
             color: model.detailType.color,
@@ -247,7 +247,7 @@ struct RequestsDetailView: View {
               request: Request.Draft(requestsListID: requestsList.id),
               requestsList: requestsList
             )
-            .navigationTitle(String(localized: "new_request", bundle: .main))
+            .navigationTitle("new_request".loc())
           }
         }
       }
@@ -266,7 +266,7 @@ struct RequestsDetailView: View {
               } label: {
                 HStack {
                   Image(systemName: "plus")
-                  Text(String(localized: "additional_questions", bundle: .main))
+                  Text("additional_questions".loc())
                 }
                 .font(.body)
               }
@@ -275,7 +275,7 @@ struct RequestsDetailView: View {
             .tint(model.detailType.color)
           }
         }
-
+        
         ToolbarItem(placement: .primaryAction) {
           Menu {
             Group {
@@ -289,17 +289,17 @@ struct RequestsDetailView: View {
                   }
                 }
               } label: {
-                Text(String(localized: "sort_by", bundle: .main))
+                Text("sort_by".loc())
                 Text(model.ordering.localizedTitle)
                 Image(systemName: "arrow.up.arrow.down")
               }
-
+              
               // Only show this button for non-RequestsList detail types
               if !model.detailType.is(\.requestsList) {
                 Button {
                   Task { await model.showCompletedButtonTapped() }
                 } label: {
-                  Text(model.showCompleted ? String(localized: "hide_completed", bundle: .main) : String(localized: "show_completed", bundle: .main))
+                  Text(model.showCompleted ? "hide_completed".loc() : "show_completed".loc())
                   Image(systemName: model.showCompleted ? "eye" : "eye")
                 }
               }
@@ -325,17 +325,17 @@ extension RequestsDetailModel.DetailType {
     case .today: "today"
     }
   }
-
+  
   fileprivate var navigationTitle: String {
     switch self {
-    case .all: String(localized: "all", bundle: .main)
-    case .completed: String(localized: "completed", bundle: .main)
+    case .all: "all".loc()
+    case .completed: "completed".loc()
     case .requestsList(let list): list.title
-    case .scheduled: String(localized: "scheduled", bundle: .main)
-    case .today: String(localized: "today", bundle: .main)
+    case .scheduled: "scheduled".loc()
+    case .today: "today".loc()
     }
   }
-
+  
   fileprivate var color: Color {
     switch self {
     case .all: ResourcesAsset.Colors.textPrimary.swiftUIColor
@@ -357,12 +357,12 @@ struct RequestsDetailPreview: PreviewProvider {
         )
       }
     }
-
+    
     let detailTypes: [RequestsDetailModel.DetailType] = [
       .all,
       .requestsList(requestsList)
     ]
-
+    
     ForEach(detailTypes, id: \.self) { detailType in
       NavigationStack {
         RequestsDetailView(model: RequestsDetailModel(detailType: detailType))

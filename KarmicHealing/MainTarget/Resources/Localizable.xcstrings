@@ -300,6 +300,52 @@
         }
       }
     },
+    "copy_to_clipboard" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copy to Clipboard"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Копировать в буфер обмена"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Копіювати в буфер обміну"
+          }
+        }
+      }
+    },
+    "dark" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dark"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тёмная"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Темна"
+          }
+        }
+      }
+    },
     "date" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -434,6 +480,52 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Деталі"
+          }
+        }
+      }
+    },
+    "discover_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Track reminders and requests to stay on course."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отслеживайте напоминания и просьбы, чтобы держать курс."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відстежуйте нагадування та прохання, щоб тримати курс."
+          }
+        }
+      }
+    },
+    "discover_your_path" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Discover your path"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открой свой путь"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкрийте свій шлях"
           }
         }
       }
@@ -737,6 +829,29 @@
         }
       }
     },
+    "journey_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set your preferences and begin balancing today."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Настрой предпочтения и начни балансирование уже сегодня."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Налаштуйте уподобання та розпочніть балансування вже сьогодні."
+          }
+        }
+      }
+    },
     "karmic_healing" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -756,6 +871,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Кармічне зцілення"
+          }
+        }
+      }
+    },
+    "light" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Light"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Светлая"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Світла"
           }
         }
       }
@@ -1956,6 +2094,29 @@
         }
       }
     },
+    "skip" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skip"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пропустить"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пропустити"
+          }
+        }
+      }
+    },
     "sort_by" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1998,6 +2159,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Звук"
+          }
+        }
+      }
+    },
+    "start_your_journey" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start your journey"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Начни своё путешествие"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Розпочніть свою подорож"
           }
         }
       }
@@ -2117,6 +2301,29 @@
         }
       }
     },
+    "system" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "System"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Системная"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Системна"
+          }
+        }
+      }
+    },
     "tap_here_to_quickly_populate_the_app_with_test_data" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2136,6 +2343,98 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Натисніть тут, щоб швидко заповнити застосунок тестовими даними."
+          }
+        }
+      }
+    },
+    "tap_to_continue_energy_balancing" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to continue energy balancing"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нажмите чтобы продолжить балансирование энергии"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Натисніть щоб продовжити балансування енергії"
+          }
+        }
+      }
+    },
+    "thanks_for_using_karmic_healing_2025" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thanks for using Karmic Healing 2025"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Спасибо за использование Karmic Healing 2025"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дякуємо за використання Karmic Healing 2025"
+          }
+        }
+      }
+    },
+    "theme" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Theme"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тема"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тема"
+          }
+        }
+      }
+    },
+    "time_to_flip_slide" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Time to flip slide"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Время перевернуть слайд"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Час перегорнути слайд"
           }
         }
       }
@@ -2232,6 +2531,52 @@
         }
       }
     },
+    "welcome_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balance your energy and build mindful habits."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сбалансируйте энергию и формируйте осознанные привычки."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Збалансуйте енергію та формуйте усвідомлені звички."
+          }
+        }
+      }
+    },
+    "welcome_to_karmic_healing" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Welcome to Karmic Healing"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Добро пожаловать в Karmic Healing"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ласкаво просимо до Karmic Healing"
+          }
+        }
+      }
+    },
     "write_to_us" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2253,189 +2598,6 @@
             "value" : "Напишіть нам"
           }
         }
-      }
-    }
-    ,
-    "skip" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Skip" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Пропустить" } },
-        "uk" : { "stringUnit" : { "state" : "translated", "value" : "Пропустити" } }
-      }
-    }
-    ,
-    "theme" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Theme"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Тема"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Тема"
-          }
-        }
-      }
-    },
-    "System" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "System"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Системная"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Системна"
-          }
-        }
-      }
-    },
-    "Light" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Light"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Светлая"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Світла"
-          }
-        }
-      }
-    },
-    "Dark" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dark"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Тёмная"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Темна"
-          }
-        }
-      }
-    }
-    ,
-    "welcome_to_karmic_healing" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Welcome to Karmic Healing" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Добро пожаловать в Karmic Healing" } },
-        "uk" : { "stringUnit" : { "state" : "translated", "value" : "Ласкаво просимо до Karmic Healing" } }
-      }
-    },
-    "welcome_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Balance your energy and build mindful habits." } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Сбалансируйте энергию и формируйте осознанные привычки." } },
-        "uk" : { "stringUnit" : { "state" : "translated", "value" : "Збалансуйте енергію та формуйте усвідомлені звички." } }
-      }
-    },
-    "discover_your_path" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Discover your path" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Открой свой путь" } },
-        "uk" : { "stringUnit" : { "state" : "translated", "value" : "Відкрийте свій шлях" } }
-      }
-    },
-    "discover_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Track reminders and requests to stay on course." } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Отслеживайте напоминания и просьбы, чтобы держать курс." } },
-        "uk" : { "stringUnit" : { "state" : "translated", "value" : "Відстежуйте нагадування та прохання, щоб тримати курс." } }
-      }
-    },
-    "start_your_journey" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Start your journey" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Начни своё путешествие" } },
-        "uk" : { "stringUnit" : { "state" : "translated", "value" : "Розпочніть свою подорож" } }
-      }
-    },
-    "journey_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Set your preferences and begin balancing today." } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Настрой предпочтения и начни балансирование уже сегодня." } },
-        "uk" : { "stringUnit" : { "state" : "translated", "value" : "Налаштуйте уподобання та розпочніть балансування вже сьогодні." } }
-      }
-    },
-    "time_to_flip_slide" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Time to flip slide" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Время перевернуть слайд" } },
-        "uk" : { "stringUnit" : { "state" : "translated", "value" : "Час перегорнути слайд" } }
-      }
-    },
-    "tap_to_continue_energy_balancing" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Tap to continue energy balancing" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Нажмите чтобы продолжить балансирование энергии" } },
-        "uk" : { "stringUnit" : { "state" : "translated", "value" : "Натисніть щоб продовжити балансування енергії" } }
-      }
-    },
-    "thanks_for_using_karmic_healing_2025" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Thanks for using Karmic Healing 2025" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Спасибо за использование Karmic Healing 2025" } },
-        "uk" : { "stringUnit" : { "state" : "translated", "value" : "Дякуємо за використання Karmic Healing 2025" } }
-      }
-    },
-    "copy_to_clipboard" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Copy to Clipboard" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Копировать в буфер обмена" } },
-        "uk" : { "stringUnit" : { "state" : "translated", "value" : "Копіювати в буфер обміну" } }
       }
     }
   },

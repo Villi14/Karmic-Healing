@@ -13,7 +13,7 @@ struct RemindersListForm: View {
   init(remindersList: RemindersList.Draft) {
     self.remindersList = remindersList
   }
-  
+
   var body: some View {
     ListFormView(
       list: $remindersList,
@@ -35,10 +35,10 @@ struct RemindersListFormPreviews: PreviewProvider {
     let _ = try! prepareDependencies {
       $0.defaultDatabase = try appDatabase()
     }
-    
+
     NavigationStack {
       RemindersListForm(remindersList: RemindersList.Draft())
-        .navigationTitle(String(localized: "new_list", bundle: .main))
+        .navigationTitle("new_list".loc())
     }
   }
 }

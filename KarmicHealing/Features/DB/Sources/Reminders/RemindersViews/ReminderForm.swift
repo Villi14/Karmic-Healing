@@ -8,10 +8,10 @@ struct ReminderFormView: View {
   @Dependency(\.notification) var notification
   @Dependency(\.defaultDatabase) private var database
   @Environment(\.dismiss) var dismiss
-
+  
   @FetchAll(RemindersList.order(by: \.title)) var remindersLists
   @FetchOne var remindersList: RemindersList
-
+  
   @State var reminder: Reminder.Draft
   @State private var selectedDate: Date = {
     // Set current local time as initial value
@@ -21,34 +21,34 @@ struct ReminderFormView: View {
     return calendar.date(from: components) ?? now
   }()
   @State private var showDateErrorAlert = false
-
+  
   init(reminder: Reminder.Draft, remindersList: RemindersList) {
     _remindersList = FetchOne(wrappedValue: remindersList, RemindersList.find(remindersList.id))
     self.reminder = reminder
-
+    
     if let dueDate = reminder.dueDate {
       self._selectedDate = State(initialValue: dueDate)
     }
   }
-
+  
   var body: some View {
     Form {
-      TextField(String(localized: "title", bundle: .main), text: $reminder.title)
-
+      TextField("title".loc(), text: $reminder.title)
+      
       ZStack {
         if reminder.notes.isEmpty {
-          TextEditor(text: .constant(String(localized: "notes", bundle: .main)))
+          TextEditor(text: .constant("notes".loc()))
             .foregroundStyle(.placeholder)
             .accessibilityHidden(true, isEnabled: false)
         }
-
+        
         TextEditor(text: $reminder.notes)
       }
       .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
       .tint(ResourcesAsset.Colors.clam.swiftUIColor)
       .lineLimit(4)
       .padding(.horizontal, DesignConstants.paddingNegativeSmall)
-
+      
       Section {
         Toggle(isOn: $reminder.isDateSet.animation()) {
           HStack {
@@ -57,7 +57,7 @@ struct ReminderFormView: View {
               .aspectRatio(contentMode: .fit)
               .frame(width: DesignConstants.frameHeightSmall, height: DesignConstants.frameHeightSmall)
               .foregroundStyle(ResourcesAsset.Colors.energy.swiftUIColor)
-            Text(String(localized: "date", bundle: .main))
+            Text("date".loc())
           }
         }
         .tint(ResourcesAsset.Colors.health.swiftUIColor)
@@ -68,7 +68,7 @@ struct ReminderFormView: View {
             reminder.dueDate = nil
           }
         }
-
+        
         if let dueDate = reminder.dueDate {
           DatePicker(
             "",
@@ -79,20 +79,20 @@ struct ReminderFormView: View {
           .padding(.vertical, DesignConstants.paddingTiny)
           .onChange(of: selectedDate) { _, newDate in
             reminder.dueDate = newDate
-
+            
             // Log date change
             let formatter = DateFormatter()
             formatter.dateStyle = .medium
             formatter.timeStyle = .medium
             formatter.timeZone = TimeZone.current
-
+            
             print("ReminderForm: DatePicker changed")
             print("ReminderForm: New date (UTC): \(newDate)")
             print("ReminderForm: New date (local): \(formatter.string(from: newDate))")
           }
         }
       }
-
+      
       Section {
         Toggle(isOn: $reminder.isFlagged) {
           HStack {
@@ -101,17 +101,17 @@ struct ReminderFormView: View {
               .aspectRatio(contentMode: .fit)
               .frame(width: DesignConstants.frameHeightSmall, height: DesignConstants.frameHeightSmall)
               .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
-            Text(String(localized: "flag", bundle: .main))
+            Text("flag".loc())
           }
         }
         .tint(ResourcesAsset.Colors.health.swiftUIColor)
-
+        
         Picker(selection: $reminder.priority) {
-          Text(String(localized: "none", bundle: .main)).tag(Priority?.none)
+          Text("none".loc()).tag(Priority?.none)
           Divider()
-          Text(String(localized: "high", bundle: .main)).tag(Priority.high)
-          Text(String(localized: "medium", bundle: .main)).tag(Priority.medium)
-          Text(String(localized: "low", bundle: .main)).tag(Priority.low)
+          Text("high".loc()).tag(Priority.high)
+          Text("medium".loc()).tag(Priority.medium)
+          Text("low".loc()).tag(Priority.low)
         } label: {
           HStack {
             Image(systemName: "exclamationmark")
@@ -119,10 +119,10 @@ struct ReminderFormView: View {
               .aspectRatio(contentMode: .fit)
               .frame(width: DesignConstants.frameHeightSmall, height: DesignConstants.frameHeightSmall)
               .foregroundStyle(ResourcesAsset.Colors.energy.swiftUIColor)
-            Text(String(localized: "priority", bundle: .main))
+            Text("priority".loc())
           }
         }
-
+        
         Picker(selection: $reminder.remindersListID) {
           ForEach(remindersLists) { remindersList in
             Text(remindersList.title)
@@ -136,7 +136,7 @@ struct ReminderFormView: View {
               .aspectRatio(contentMode: .fit)
               .frame(width: DesignConstants.frameHeightSmall, height: DesignConstants.frameHeightSmall)
               .foregroundStyle(remindersList.color)
-            Text(String(localized: "list", bundle: .main))
+            Text("list".loc())
           }
         }
         .task(id: reminder.remindersListID) {
@@ -151,14 +151,14 @@ struct ReminderFormView: View {
     .toolbar {
       ToolbarItem {
         Button(action: saveButtonTapped) {
-          Text(String(localized: "save", bundle: .main))
+          Text("save".loc())
         }
         .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
         .disabled(reminder.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
       }
-
+      
       ToolbarItem(placement: .cancellationAction) {
-        Button(String(localized: "cancel", bundle: .main)) {
+        Button("cancel".loc()) {
           dismiss()
         }
         .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
@@ -168,36 +168,36 @@ struct ReminderFormView: View {
       AlertView<Never>(
         store: .init(
           initialState: .error(
-            title: String(localized: "date_error", bundle: .main),
-            message: String(localized: "date_error_message", bundle: .main)
+            title: "date_error".loc(),
+            message: "date_error_message".loc()
           ),
           reducer: { AlertReducer() }
         )
       )
     }
   }
-
+  
   private func saveButtonTapped() {
     // Check date before saving
     if let dueDate = reminder.dueDate {
       let timeInterval = dueDate.timeIntervalSinceNow
-
+      
       // Check if date is in the future
       guard timeInterval > 0 else {
         showDateErrorAlert = true
         return // Don't save and don't close the screen
       }
     }
-
+    
     // Save reminder only if date is valid
     withErrorReporting {
       let reminderID = try database.write { db in
         try Reminder.upsert(reminder).returning(\.id).fetchOne(db)!
       }
-
+      
       if let dueDate = reminder.dueDate {
         let timeInterval = dueDate.timeIntervalSinceNow
-
+        
         Task {
           notification.scheduleReminderNotificationWithIntent(
             reminder.title,
@@ -210,7 +210,7 @@ struct ReminderFormView: View {
         }
       }
     }
-
+    
     // Close screen only after successful save
     dismiss()
   }
@@ -242,10 +242,10 @@ struct ReminderFormPreview: PreviewProvider {
         )
       }
     }
-
+    
     NavigationStack {
       ReminderFormView(reminder: Reminder.Draft(reminder), remindersList: remindersList)
-        .navigationTitle(String(localized: "detail", bundle: .main))
+        .navigationTitle("detail".loc())
     }
   }
 }

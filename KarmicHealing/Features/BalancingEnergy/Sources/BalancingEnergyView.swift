@@ -9,30 +9,30 @@ import Common
 
 public struct BalancingEnergyView: View {
   @SwiftUI.Environment(\.dismiss) var dismiss
-
+  
   public let store: StoreOf<BalancingEnergy>
-
+  
   public init(store: StoreOf<BalancingEnergy>) {
     self.store = store
   }
-
+  
   private struct ViewState: Equatable {
     let title: String
     let currentStep: Int
     let steps: [Step]
-
+    
     init(state: BalancingEnergy.State) {
       self.title = state.title
       self.currentStep = state.currentStep
       self.steps = state.steps
     }
   }
-
+  
   public var body: some View {
     WithViewStore(store, observe: ViewState.init) { viewStore in
       ZStack {
         BgWithGradientView()
-
+        
         VStack {
           Image(systemName: "exclamationmark.circle")
             .resizable()
@@ -40,13 +40,13 @@ public struct BalancingEnergyView: View {
             .aspectRatio(contentMode: .fit)
             .frame(height: DesignConstants.frameHeightMedium)
             .padding(.top, DesignConstants.paddingLarge)
-
-          Text(String(localized: "attention_before_proceeding", bundle: .main))
+          
+          Text("attention_before_proceeding".loc())
             .font(.headline.weight(.medium))
             .multilineTextAlignment(.center)
             .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
             .padding()
-
+          
           TabView(selection: Binding(
             get: { viewStore.currentStep },
             set: { newValue in
@@ -67,17 +67,17 @@ public struct BalancingEnergyView: View {
                   .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
                   .padding(.top, DesignConstants.paddingXLarge)
                   .padding(.horizontal)
-
+                
                 HStack {
                   Text(step.description)
                     .font(.body.weight(.medium))
                     .multilineTextAlignment(.leading)
                     .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
                     .padding(.horizontal)
-
+                  
                   Spacer()
                 }
-
+                
                 Spacer()
               }
               .tag(index)
@@ -110,22 +110,22 @@ public struct BalancingEnergyView: View {
               }
           )
           .padding()
-
+          
           HStack {
             if viewStore.currentStep > 0 {
-                          Button(String(localized: "back", bundle: .main)) {
-              viewStore.send(.previousStep)
-              viewStore.send(.userManuallyScrolled)
-            }
+              Button("back".loc()) {
+                viewStore.send(.previousStep)
+                viewStore.send(.userManuallyScrolled)
+              }
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
               .padding()
             }
-
+            
             Spacer()
-
+            
             Button(viewStore.currentStep == viewStore.steps.count - 1 ?
-                   String(localized: "done", bundle: .main) :
-                    String(localized: "next", bundle: .main)) {
+                   "done".loc() :
+                    "next".loc()) {
               if viewStore.currentStep == viewStore.steps.count - 1 {
                 viewStore.send(.completeSteps)
                 dismiss()
@@ -134,11 +134,11 @@ public struct BalancingEnergyView: View {
                 viewStore.send(.userManuallyScrolled)
               }
             }
-            .frame(minWidth: DesignConstants.frameWidthXLarge, minHeight: DesignConstants.frameHeightLarge)
-            .background(ResourcesAsset.Colors.clam.swiftUIColor)
-            .foregroundStyle(ResourcesAsset.Colors.textInvert.swiftUIColor)
-            .cornerRadius(DesignConstants.cornerRadiusMedium)
-            .padding()
+                    .frame(minWidth: DesignConstants.frameWidthXLarge, minHeight: DesignConstants.frameHeightLarge)
+                    .background(ResourcesAsset.Colors.clam.swiftUIColor)
+                    .foregroundStyle(ResourcesAsset.Colors.textInvert.swiftUIColor)
+                    .cornerRadius(DesignConstants.cornerRadiusMedium)
+                    .padding()
           }
           .padding()
         }
@@ -189,7 +189,7 @@ public struct BalancingEnergyView: View {
     BgWithGradientView()
     BalancingEnergyView(store: .init(
       initialState: .init(
-        title: String(localized: "initial_process", bundle: .main),
+        title: "initial_process".loc(),
         currentStep: 0,
         isCompleted: false,
         steps: Step.part1

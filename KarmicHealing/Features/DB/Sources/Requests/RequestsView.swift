@@ -10,15 +10,15 @@ import Common
 public struct RequestsView: View {
   @Environment(\.dismiss) var dismiss
   @Dependency(\.context) var context
-
+  
   static let model = RequestsListsModel()
-
+  
   public let store: StoreOf<Requests>
-
+  
   public init(store: StoreOf<Requests>) {
     self.store = store
   }
-
+  
   public var body: some View {
     WithViewStore(store, observe: { $0 }) { viewStore in
       VStack {
@@ -26,7 +26,7 @@ public struct RequestsView: View {
           RequestsListsView(model: Self.model)
         }
       }
-      .navigationTitle(String(localized: "requests", bundle: .main))
+      .navigationTitle("requests".loc())
       .navigationBarBackButtonHidden()
       .navigationBarTitleDisplayMode(.automatic)
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)

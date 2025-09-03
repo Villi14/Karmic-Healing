@@ -13,20 +13,20 @@ import AppSettings
 
 public struct HomeView: View {
   @Bindable var store: StoreOf<Home>
-
+  
   public init(store: StoreOf<Home>) {
     self.store = store
   }
-
+  
   public var body: some View {
     WithViewStore(store, observe: { $0 }) { viewStore in
       NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
         ZStack {
           BgWithGradientView()
-
+          
           GeometryReader { proxy in
             let previewSize = previewSize(in: proxy.size)
-
+            
             LazyVGrid(columns: [
               GridItem(.fixed(previewSize.width)),
               GridItem(.fixed(previewSize.width))
@@ -52,7 +52,7 @@ public struct HomeView: View {
           }
         }
         .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-        .navigationTitle(String(localized: "karmic_healing", bundle: .main))
+        .navigationTitle("karmic_healing".loc())
         .navigationBarTitleDisplayMode(.inline)
       } destination: { store in
         switch store.case {
@@ -70,7 +70,7 @@ public struct HomeView: View {
       }
     }
   }
-
+  
   private func previewSize(in proxy: CGSize) -> CGSize {
     let width = (proxy.width - DesignConstants.itemSpacing) / 2
     let height = width * DesignConstants.goldenRatio

@@ -21,20 +21,20 @@ public struct BalancingEnergyListView: View {
     WithViewStore(store, observe: { $0 }) { viewStore in
       ZStack {
         BgWithGradientView()
-        
+
         VStack {
           KarmicHealingDisclosureGroup {
             if !viewStore.initialProcessCompleted {
-              DisclosureCell(String(localized: "initial_process", bundle: .main)) {
+              DisclosureCell("initial_process".loc()) {
                 self.store.send(.initialProcess)
               }
             }
 
-            DisclosureCell(String(localized: "essential_self", bundle: .main)) {
+            DisclosureCell("essential_self".loc()) {
               self.store.send(.essentialSelf)
             }
 
-            DisclosureCell(String(localized: "divine_self", bundle: .main)) {
+            DisclosureCell("divine_self".loc()) {
               self.store.send(.divineSelf)
             }
           }
@@ -46,7 +46,7 @@ public struct BalancingEnergyListView: View {
         .padding(.top)
       }
       .onAppear { self.store.send(.onAppear) }
-      .navigationTitle(String(localized: "energy_balancing", bundle: .main))
+      .navigationTitle("energy_balancing".loc())
       .navigationBarBackButtonHidden()
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
       .toolbar {

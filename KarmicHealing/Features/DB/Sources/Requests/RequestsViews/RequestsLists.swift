@@ -17,13 +17,13 @@ class RequestsListsModel {
     animation: .default
   )
   var requestsLists
-
+  
   var destination: Destination?
   var searchRequestsModel = SearchRequestsModel()
-
+  
   @ObservationIgnored
   @Dependency(\.defaultDatabase) private var database
-
+  
   func requestsListTapped(requestsList: RequestsList) {
     destination = .detail(
       RequestsDetailModel(
@@ -33,22 +33,22 @@ class RequestsListsModel {
       )
     )
   }
-
+  
   func onAppear() {
     withErrorReporting {
       try Tips.configure()
     }
     searchRequestsModel.searchText = ""
   }
-
+  
   func addListButtonTapped() {
     destination = .requestsListForm(RequestsList.Draft())
   }
-
+  
   func listDetailsButtonTapped(requestsList: RequestsList) {
     destination = .requestsListForm(RequestsList.Draft(requestsList))
   }
-
+  
   func move(from source: IndexSet, to destination: Int) {
     withErrorReporting {
       try database.write { db in
@@ -70,7 +70,7 @@ class RequestsListsModel {
       }
     }
   }
-
+  
 #if DEBUG
   func seedDatabaseButtonTapped() {
     withErrorReporting {
@@ -80,14 +80,14 @@ class RequestsListsModel {
     }
   }
 #endif
-
+  
   @CasePathable
   enum Destination {
     case detail(RequestsDetailModel)
     case requestForm(Request.Draft, requestsList: RequestsList)
     case requestsListForm(RequestsList.Draft)
   }
-
+  
   @Selection
   struct RequestListState: Identifiable {
     var id: RequestsList.ID { requestsList.id }
@@ -105,11 +105,11 @@ extension RequestsListsModel {
 
 struct RequestsListsView: View {
   @Bindable var model: RequestsListsModel
-
+  
   var body: some View {
     ZStack {
       BgWithGradientView()
-
+      
       VStack(spacing: 0) {
         SearchBar(text: $model.searchRequestsModel.searchText)
         List {
@@ -129,9 +129,9 @@ struct RequestsListsView: View {
               Button {
                 model.seedDatabaseButtonTapped()
               } label: {
-                Text(String(localized: "seed_data", bundle: .main))
+                Text("seed_data".loc())
                   .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
-
+                
                 Image(systemName: "leaf")
                   .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
               }
@@ -149,13 +149,13 @@ struct RequestsListsView: View {
                 HStack {
                   Image(systemName: "plus")
                     .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
-
-                  Text(String(localized: "request", bundle: .main))
+                  
+                  Text("request".loc())
                     .font(.body)
                     .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
                 }
               }
-
+              
               Spacer()
             }
           }
@@ -163,13 +163,13 @@ struct RequestsListsView: View {
         .sheet(item: $model.destination.requestForm, id: \.0.id) { request, requestsList in
           NavigationStack {
             RequestFormView(request: request, requestsList: requestsList)
-              .navigationTitle(String(localized: "new_request", bundle: .main))
+              .navigationTitle("new_request".loc())
           }
         }
         .sheet(item: $model.destination.requestsListForm) { requestsList in
           NavigationStack {
             RequestsListForm(requestsList: requestsList)
-              .navigationTitle(String(localized: "new_list", bundle: .main))
+              .navigationTitle("new_list".loc())
           }
           .presentationDetents([.medium])
         }
@@ -184,7 +184,7 @@ struct RequestsListsView: View {
       }
     }
   }
-
+  
   private var requestsSection: some View {
     Section {
       ForEach(model.requestsListsArray) { state in
@@ -196,7 +196,7 @@ struct RequestsListsView: View {
         )
       }
     } header: {
-      Text(String(localized: "my_requests", bundle: .main))
+      Text("my_requests".loc())
         .font(.system(.headline, design: .rounded, weight: .bold))
         .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
         .textCase(nil)
@@ -212,7 +212,7 @@ struct RequestsListsView: View {
       trailing: DesignConstants.paddingMedium)
     )
   }
-
+  
   private var searchSection: some View {
     SearchRequestsView(model: model.searchRequestsModel)
       .listRowBackground(Color.clear)
@@ -223,7 +223,7 @@ struct RequestsListsView: View {
   let _ = try! prepareDependencies {
     $0.defaultDatabase = try appDatabase()
   }
-
+  
   ZStack {
     BgWithGradientView()
     NavigationStack {

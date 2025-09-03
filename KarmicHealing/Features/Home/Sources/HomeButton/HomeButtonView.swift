@@ -9,7 +9,7 @@ import Common
 public struct HomeButtonView: View {
   let size: CGSize
   let homeButton: HomeButton
-
+  
   public init(
     size: CGSize,
     homeButton: HomeButton
@@ -17,7 +17,7 @@ public struct HomeButtonView: View {
     self.size = size
     self.homeButton = homeButton
   }
-
+  
   public var body: some View {
     VStack(alignment: .leading) {
       HStack {
@@ -28,29 +28,29 @@ public struct HomeButtonView: View {
           .frame(maxWidth: DesignConstants.maxWidthSmall)
           .padding(.leading, DesignConstants.paddingXLarge)
           .padding(.top, DesignConstants.paddingLarge)
-
+        
         Spacer()
-
+        
         Rectangle()
           .frame(width: DesignConstants.frameWidthSmall, height: DesignConstants.frameWidthSmall)
           .cornerRadius(DesignConstants.cornerRadiusSmall)
           .foregroundStyle(homeButton.color)
           .padding(.trailing, DesignConstants.paddingLarge)
       }
-
+      
       Spacer()
-
+      
       Text(homeButton.title)
         .font(.caption.weight(.medium))
         .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
         .multilineTextAlignment(.leading)
         .padding(.horizontal, DesignConstants.paddingXLarge)
-
+      
       Rectangle()
         .frame(width: DesignConstants.frameWidthXLarge, height: DesignConstants.lineWidth)
         .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
         .padding(.horizontal, DesignConstants.paddingXLarge)
-
+      
       Spacer()
     }
     .frame(width: size.width, height: size.height)
@@ -65,14 +65,14 @@ public struct HomeButtonView: View {
   ZStack {
     ResourcesAsset.Colors.background.swiftUIColor
       .ignoresSafeArea()
-
+    
     HomeButtonView(
       size: CGSize(width: DesignConstants.maxWidthMedium,
                    height: DesignConstants.maxWidthMedium * DesignConstants.goldenRatio),
       homeButton: .init(
         color: ResourcesAsset.Colors.clam.swiftUIColor,
         icon: Image(systemName: "info.circle"),
-        title: String(localized: "About", bundle: .main).uppercased()
+        title: "About".loc().uppercased()
       )
     )
   }

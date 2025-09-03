@@ -96,7 +96,7 @@ struct SearchRemindersView: View {
 
   var body: some View {
     HStack {
-      Text("\(model.completedCount) " + String(localized: "completed", bundle: .main))
+      Text("\(model.completedCount) " + "completed".loc())
         .monospacedDigit()
         .contentTransition(.numericText())
 
@@ -104,30 +104,30 @@ struct SearchRemindersView: View {
         Text("•")
 
         Menu {
-          Text(String(localized: "clear_completed_reminders", bundle: .main))
+          Text("clear_completed_reminders".loc())
 
-          Button(String(localized: "older_than_1_month", bundle: .main)) {
+          Button("older_than_1_month".loc()) {
             model.deleteCompletedReminders(monthsAgo: 1)
           }
 
-          Button(String(localized: "older_than_6_months", bundle: .main)) {
+          Button("older_than_6_months".loc()) {
             model.deleteCompletedReminders(monthsAgo: 6)
           }
 
-          Button(String(localized: "older_than_1_year", bundle: .main)) {
+          Button("older_than_1_year".loc()) {
             model.deleteCompletedReminders(monthsAgo: 12)
           }
 
-          Button(String(localized: "all_completed", bundle: .main)) {
+          Button("all_completed".loc()) {
             model.deleteCompletedReminders()
           }
         } label: {
-          Text(String(localized: "clear", bundle: .main))
+          Text("clear".loc())
         }
 
         Spacer()
 
-        Button(model.showCompletedInSearchResults ? String(localized: "hide", bundle: .main) : String(localized: "show", bundle: .main)) {
+        Button(model.showCompletedInSearchResults ? "hide".loc() : "show".loc()) {
           Task { await model.showCompletedButtonTapped() }
         }
       }
@@ -159,7 +159,7 @@ struct SearchRemindersView: View {
       if !searchText.isEmpty {
         SearchRemindersView(model: SearchRemindersModel())
       } else {
-        Text(String(localized: "tap_search", bundle: .main))
+        Text("tap_search".loc())
       }
     }
     .searchable(text: $searchText)

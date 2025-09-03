@@ -8,15 +8,15 @@ import Common
 @Reducer
 public struct Onboarding {
   @Dependency(\.userDefaults) var userDefaults
-
+  
   public init() {}
-
+  
   @ObservableState
   public struct State: Equatable {
     public var isCompleted: Bool
     var currentStep: Int
     let steps: [OnboardingStep]
-
+    
     public init(
       isCompleted: Bool = false,
       currentStep: Int = 0,
@@ -27,13 +27,13 @@ public struct Onboarding {
       self.steps = steps
     }
   }
-
+  
   public enum Action: Equatable {
     case nextStep
     case previousStep
     case completeOnboarding
   }
-
+  
   public var body: some ReducerOf<Self> {
     Reduce { state, action in
       switch action {
@@ -45,13 +45,13 @@ public struct Onboarding {
           return .send(.completeOnboarding)
         }
         return .none
-
+        
       case .previousStep:
         if state.currentStep > 0 {
           state.currentStep -= 1
         }
         return .none
-
+        
       case .completeOnboarding:
         state.isCompleted = true
         return .none
@@ -73,7 +73,7 @@ public struct OnboardingStep: Equatable {
   public let title: String
   public let description: String
   public let showSkipButton: Bool
-
+  
   public init(
     imageName: String, 
     title: String, 
@@ -91,25 +91,25 @@ extension OnboardingStep {
   public static var firstStep: Self {
     .init(
       imageName: "sparkles",
-      title: String(localized: "welcome_to_karmic_healing", bundle: .main),
-      description: String(localized: "welcome_description", bundle: .main),
+      title: "welcome_to_karmic_healing".loc(),
+      description: "welcome_description".loc(),
       showSkipButton: true
     )
   }
-
+  
   public static var secondStep: Self {
     .init(
       imageName: "heart",
-      title: String(localized: "discover_your_path", bundle: .main),
-      description: String(localized: "discover_description", bundle: .main)
+      title: "discover_your_path".loc(),
+      description: "discover_description".loc()
     )
   }
-
+  
   public static var thirdStep: Self {
     .init(
       imageName: "star",
-      title: String(localized: "start_your_journey", bundle: .main),
-      description: String(localized: "journey_description", bundle: .main)
+      title: "start_your_journey".loc(),
+      description: "journey_description".loc()
     )
   }
 }

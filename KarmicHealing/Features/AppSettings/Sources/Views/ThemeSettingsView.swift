@@ -79,16 +79,16 @@ public struct ThemeSettingsView: View {
   }
 
   private var titleView: some View {
-    Text(String(localized: "theme", bundle: .main))
+    Text("theme".loc())
       .font(.title2.weight(.semibold))
       .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
   }
 
   private func optionsView(_ viewStore: ViewStoreOf<ThemeSettings>) -> some View {
     VStack(spacing: DesignConstants.paddingMedium) {
-      themeButton(themeKey: "system", title: String(localized: "System", bundle: .main), isSelected: viewStore.userTheme == "system", viewStore: viewStore)
-      themeButton(themeKey: "light", title: String(localized: "Light", bundle: .main), isSelected: viewStore.userTheme == "light", viewStore: viewStore)
-      themeButton(themeKey: "dark", title: String(localized: "Dark", bundle: .main), isSelected: viewStore.userTheme == "dark", viewStore: viewStore)
+      themeButton(themeKey: "system", title: "system".loc(), isSelected: viewStore.userTheme == "system", viewStore: viewStore)
+      themeButton(themeKey: "light", title: "light".loc(), isSelected: viewStore.userTheme == "light", viewStore: viewStore)
+      themeButton(themeKey: "dark", title: "dark".loc(), isSelected: viewStore.userTheme == "dark", viewStore: viewStore)
     }
   }
 
@@ -116,7 +116,7 @@ public struct ThemeSettingsView: View {
     Button(action: {
       viewStore.send(.done)
     }) {
-      Text(String(localized: "done", bundle: .main))
+      Text("done".loc())
         .font(.headline.weight(.semibold))
         .foregroundStyle(ResourcesAsset.Colors.textInvert.swiftUIColor)
         .frame(maxWidth: .infinity)

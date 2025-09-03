@@ -33,7 +33,7 @@ public struct OnboardingView: View {
           HStack {
             Spacer()
             if viewStore.steps.indices.contains(viewStore.currentStep) && viewStore.steps[viewStore.currentStep].showSkipButton {
-              Button(String(localized: "skip", bundle: .main)) {
+              Button("skip".loc()) {
                 viewStore.send(.completeOnboarding)
               }
               .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
@@ -95,7 +95,7 @@ public struct OnboardingView: View {
 
           HStack {
             if viewStore.currentStep > 0 {
-              Button(String(localized: "back", bundle: .main)) {
+              Button("back".loc()) {
                 viewStore.send(.previousStep)
               }
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
@@ -105,11 +105,12 @@ public struct OnboardingView: View {
             Spacer()
 
             Button(viewStore.currentStep == viewStore.steps.count - 1 ?
-                   String(localized: "done", bundle: .main) :
-                    String(localized: "next", bundle: .main)) {
+                   "done".loc() :
+                    "next".loc()) {
               viewStore.send(.nextStep)
             }
-            .frame(minWidth: DesignConstants.frameWidthXLarge, minHeight: DesignConstants.frameHeightLarge)
+            .frame(minWidth: DesignConstants.frameWidthXLarge,
+                   minHeight: DesignConstants.frameHeightLarge)
             .background(ResourcesAsset.Colors.clam.swiftUIColor)
             .foregroundStyle(ResourcesAsset.Colors.textInvert.swiftUIColor)
             .cornerRadius(DesignConstants.cornerRadiusMedium)

@@ -10,12 +10,12 @@ struct ReminderRow: View {
   let reminder: Reminder
   let remindersList: RemindersList
   let showCompleted: Bool
-
+  
   @State var editReminder: Reminder.Draft?
   @State var isCompleted: Bool
-
+  
   @Dependency(\.defaultDatabase) private var database
-
+  
   init(
     color: Color,
     isPastDue: Bool,
@@ -32,7 +32,7 @@ struct ReminderRow: View {
     self.showCompleted = showCompleted
     self.isCompleted = reminder.isCompleted
   }
-
+  
   var body: some View {
     HStack {
       HStack(alignment: .firstTextBaseline) {
@@ -65,7 +65,7 @@ struct ReminderRow: View {
           }
         }
       }
-
+      
       Spacer()
       
       if !isCompleted {
@@ -92,7 +92,7 @@ struct ReminderRow: View {
     }
     .buttonStyle(.borderless)
     .swipeActions {
-      Button(String(localized: "delete", bundle: .main), role: .destructive) {
+      Button("delete".loc(), role: .destructive) {
         withErrorReporting {
           try database.write { db in
             try Reminder.delete(reminder).execute(db)
@@ -100,7 +100,7 @@ struct ReminderRow: View {
         }
       }
       .tint(ResourcesAsset.Colors.energy.swiftUIColor)
-      Button(reminder.isFlagged ? String(localized: "unflag", bundle: .main) : String(localized: "flag", bundle: .main)) {
+      Button(reminder.isFlagged ? "unflag".loc() : "flag".loc()) {
         withErrorReporting {
           try database.write { db in
             try Reminder
@@ -111,7 +111,7 @@ struct ReminderRow: View {
         }
       }
       .tint(ResourcesAsset.Colors.friendly.swiftUIColor)
-      Button(String(localized: "details", bundle: .main)) {
+      Button("details".loc()) {
         editReminder = Reminder.Draft(reminder)
       }
       .tint(ResourcesAsset.Colors.clarity.swiftUIColor)
@@ -119,7 +119,7 @@ struct ReminderRow: View {
     .sheet(item: $editReminder) { item in
       NavigationStack {
         ReminderFormView(reminder: item, remindersList: remindersList)
-          .navigationTitle(String(localized: "details", bundle: .main))
+          .navigationTitle("details".loc())
       }
     }
     .task(id: isCompleted) {
@@ -131,7 +131,7 @@ struct ReminderRow: View {
       } catch {}
     }
   }
-
+  
   private func completeButtonTapped() {
     if showCompleted {
       toggleCompletion()
@@ -139,7 +139,7 @@ struct ReminderRow: View {
       isCompleted.toggle()
     }
   }
-
+  
   private func toggleCompletion() {
     withErrorReporting {
       try database.write { db in
@@ -165,7 +165,7 @@ struct ReminderRowPreview: PreviewProvider {
         remindersList = try RemindersList.all.fetchOne(db)!
       }
     }
-
+    
     NavigationStack {
       List {
         ReminderRow(
