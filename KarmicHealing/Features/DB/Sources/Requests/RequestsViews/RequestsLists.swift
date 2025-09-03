@@ -41,8 +41,6 @@ class RequestsListsModel {
     searchRequestsModel.searchText = ""
   }
 
-
-
   func addListButtonTapped() {
     destination = .requestsListForm(RequestsList.Draft())
   }
@@ -98,11 +96,11 @@ class RequestsListsModel {
 }
 
 extension RequestsListsModel {
-    var requestsListsArray: [RequestListState] {
-        requestsLists.map { requestsList in
-            RequestListState(requestsList: requestsList)
-        }
+  var requestsListsArray: [RequestListState] {
+    requestsLists.map { requestsList in
+      RequestListState(requestsList: requestsList)
     }
+  }
 }
 
 struct RequestsListsView: View {

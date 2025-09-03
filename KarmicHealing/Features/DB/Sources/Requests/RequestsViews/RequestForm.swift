@@ -62,7 +62,7 @@ struct RequestFormView: View {
           }
         }
 
-        if let dueDate = request.dueDate {
+        if let _ = request.dueDate {
           DatePicker(
             "",
             selection: $selectedDate,

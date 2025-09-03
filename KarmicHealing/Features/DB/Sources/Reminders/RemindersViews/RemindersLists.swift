@@ -102,7 +102,7 @@ class RemindersListsModel {
   }
 
   func openReminderFormFromNotification() {
-    guard let remindersList = remindersLists.first?.remindersList
+    guard let _ = remindersLists.first?.remindersList
     else {
       reportIssue("There must be at least one list.")
       return
