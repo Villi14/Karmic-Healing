@@ -2256,6 +2256,15 @@
       }
     }
     ,
+    "skip" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Skip" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Пропустить" } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "Пропустити" } }
+      }
+    }
+    ,
     "theme" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2346,6 +2355,55 @@
             "value" : "Темна"
           }
         }
+      }
+    }
+    ,
+    "welcome_to_karmic_healing" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Welcome to Karmic Healing" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Добро пожаловать в Karmic Healing" } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "Ласкаво просимо до Karmic Healing" } }
+      }
+    },
+    "welcome_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Balance your energy and build mindful habits." } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Сбалансируйте энергию и формируйте осознанные привычки." } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "Збалансуйте енергію та формуйте усвідомлені звички." } }
+      }
+    },
+    "discover_your_path" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Discover your path" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Открой свой путь" } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "Відкрийте свій шлях" } }
+      }
+    },
+    "discover_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Track reminders and requests to stay on course." } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Отслеживайте напоминания и просьбы, чтобы держать курс." } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "Відстежуйте нагадування та прохання, щоб тримати курс." } }
+      }
+    },
+    "start_your_journey" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Start your journey" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Начни своё путешествие" } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "Розпочніть свою подорож" } }
+      }
+    },
+    "journey_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Set your preferences and begin balancing today." } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Настрой предпочтения и начни балансирование уже сегодня." } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "Налаштуйте уподобання та розпочніть балансування вже сьогодні." } }
       }
     }
   },

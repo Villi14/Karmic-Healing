@@ -46,9 +46,7 @@ public struct GridCell: View {
 
         if let count {
           Text("\(count)")
-            .font(.title3)
-            .fontDesign(.rounded)
-            .bold()
+            .font(.title3.weight(.bold))
             .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
         }
       }

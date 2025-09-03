@@ -30,6 +30,17 @@ public struct OnboardingView: View {
         BgWithGradientView()
 
         VStack {
+          HStack {
+            Spacer()
+            if viewStore.steps.indices.contains(viewStore.currentStep) && viewStore.steps[viewStore.currentStep].showSkipButton {
+              Button(String(localized: "skip", bundle: .main)) {
+                viewStore.send(.completeOnboarding)
+              }
+              .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
+              .padding([.top, .trailing])
+            }
+          }
+
           TabView(selection: Binding(
             get: { viewStore.currentStep },
             set: { newValue in
@@ -51,9 +62,9 @@ public struct OnboardingView: View {
 
                 Text(step.title)
                   .font(.title.weight(.medium))
-                  .bold()
                   .multilineTextAlignment(.center)
                   .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+                  .padding(.horizontal)
 
                 Text(step.description)
                   .font(.subheadline.weight(.medium))
@@ -98,10 +109,11 @@ public struct OnboardingView: View {
                     String(localized: "next", bundle: .main)) {
               viewStore.send(.nextStep)
             }
-            .padding()
+            .frame(minWidth: DesignConstants.frameWidthXLarge, minHeight: DesignConstants.frameHeightLarge)
             .background(ResourcesAsset.Colors.clam.swiftUIColor)
             .foregroundStyle(ResourcesAsset.Colors.textInvert.swiftUIColor)
             .cornerRadius(DesignConstants.cornerRadiusMedium)
+            .padding()
           }
           .padding()
         }
