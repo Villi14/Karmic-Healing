@@ -108,6 +108,7 @@ extension UserDefaultsClient {
     public static let soundEnabled = "sound_enabled"
     public static let vibrationEnabled = "vibration_enabled"
     public static let audioVolume = "audio_volume"
+    public static let userTheme = "user_theme"
   }
 }
 
@@ -132,6 +133,7 @@ public struct StringKey {
   }
   
   public static let userLanguage = StringKey(UserDefaultsClient.Keys.userLanguage)
+  public static let userTheme = StringKey(UserDefaultsClient.Keys.userTheme)
 }
 
 public struct IntKey {

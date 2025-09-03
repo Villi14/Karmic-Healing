@@ -20,12 +20,16 @@ public struct AppSettingsView: View {
     WithViewStore(store, observe: { $0 }) { viewStore in
       ZStack {
         BgWithGradientView()
-        
+
         ScrollView {
           VStack {
             KarmicHealingDisclosureGroup {
               DisclosureCell(String(localized: "about", bundle: .main)) {
                 self.store.send(.didTapAbout)
+              }
+
+              DisclosureCell(String(localized: "theme", bundle: .main)) {
+                self.store.send(.didTapThemeSettings)
               }
 
               DisclosureCell(String(localized: "session_duration", bundle: .main)) {
@@ -70,6 +74,16 @@ public struct AppSettingsView: View {
         action: Destination.Action.aboutAlert,
         content: AlertView<Destination.Action.Alert>.init(store:)
       )
+      .fullScreenCover(
+        store: store.scope(
+          state: \.$destination,
+          action: \.destination
+        ),
+        state: \.themeSettings,
+        action: Destination.Action.themeSettings
+      ) { store in
+        ThemeSettingsView(store: store)
+      }
       .fullScreenCover(
         store: store.scope(
           state: \.$destination,
