@@ -45,6 +45,8 @@ public struct BalancingEnergy {
     case nextStep
     case previousStep
     case completeSteps
+    case markInitialProcessCompletedIfNeeded
+    case initialProcessCompletionSaved
     case didTapSettings
     case autoScrollTimer
     case userManuallyScrolled
@@ -90,7 +92,22 @@ public struct BalancingEnergy {
         state.isCompleted = true
         // Cancel notifications when completing steps
         notification.cancelAllNotifications()
-        return .cancel(id: CancelID.timer)
+        return .concatenate(
+          .cancel(id: CancelID.timer),
+          .send(.markInitialProcessCompletedIfNeeded)
+        )
+
+      case .markInitialProcessCompletedIfNeeded:
+        if state.title == String(localized: "initial_process", bundle: .main) {
+          return .run { send in
+            await userDefaults.setAsync(true, for: .initialProcessCompleted)
+            await send(.initialProcessCompletionSaved)
+          }
+        }
+        return .none
+
+      case .initialProcessCompletionSaved:
+        return .none
         
       case .didTapSettings:
         state.destination = .settings(.init())
@@ -155,8 +172,8 @@ public struct BalancingEnergy {
     
     // Schedule local notification to wake up the app
     notification.scheduleLocalNotification(
-      "Час перегорнути слайд",
-      "Натисніть щоб продовжити балансування енергії",
+      String(localized: "time_to_flip_slide", bundle: .main),
+      String(localized: "tap_to_continue_energy_balancing", bundle: .main),
       TimeInterval(durationToUse * 60),
       .balancingEnergy
     )

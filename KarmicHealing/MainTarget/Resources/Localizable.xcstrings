@@ -2405,6 +2405,38 @@
         "ru" : { "stringUnit" : { "state" : "translated", "value" : "Настрой предпочтения и начни балансирование уже сегодня." } },
         "uk" : { "stringUnit" : { "state" : "translated", "value" : "Налаштуйте уподобання та розпочніть балансування вже сьогодні." } }
       }
+    },
+    "time_to_flip_slide" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Time to flip slide" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Время перевернуть слайд" } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "Час перегорнути слайд" } }
+      }
+    },
+    "tap_to_continue_energy_balancing" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Tap to continue energy balancing" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Нажмите чтобы продолжить балансирование энергии" } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "Натисніть щоб продовжити балансування енергії" } }
+      }
+    },
+    "thanks_for_using_karmic_healing_2025" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Thanks for using Karmic Healing 2025" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Спасибо за использование Karmic Healing 2025" } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "Дякуємо за використання Karmic Healing 2025" } }
+      }
+    },
+    "copy_to_clipboard" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Copy to Clipboard" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Копировать в буфер обмена" } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "Копіювати в буфер обміну" } }
+      }
     }
   },
   "version" : "1.0"

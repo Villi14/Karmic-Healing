@@ -170,8 +170,8 @@ extension AlertReducer<Destination.Action.Alert>.State {
   static func showAbout() -> Self {
     .init(
       image: Image(systemName: "info.circle"),
-      title: String(localized: "about", bundle: .main),
-      message: "Thanks for using Karmic Healing 2025"
+              title: "about".localized(),
+              message: "thanks_for_using_karmic_healing_2025".localized()
     )
   }
 }
@@ -186,7 +186,7 @@ extension AlertReducer<Destination.Action.CopyAlert>.State {
       message: email,
       buttons: [
         .init(
-          label: String(localized: "Copy to Clipboard", bundle: .main),
+          label: String(localized: "copy_to_clipboard", bundle: .main),
           action: .copyToClipboard(email)
         )
       ]

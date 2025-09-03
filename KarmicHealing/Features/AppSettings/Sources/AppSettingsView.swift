@@ -120,7 +120,6 @@ public struct AppSettingsView: View {
       }
     }
   }
-
 }
 
 #Preview {

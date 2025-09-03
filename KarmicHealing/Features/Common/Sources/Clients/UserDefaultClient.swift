@@ -109,6 +109,7 @@ extension UserDefaultsClient {
     public static let vibrationEnabled = "vibration_enabled"
     public static let audioVolume = "audio_volume"
     public static let userTheme = "user_theme"
+    public static let initialProcessCompleted = "initial_process_completed"
   }
 }
 
@@ -123,6 +124,7 @@ public struct BoolKey {
   public static let showedOnboarding = BoolKey(UserDefaultsClient.Keys.showedOnboarding)
   public static let soundEnabled = BoolKey(UserDefaultsClient.Keys.soundEnabled)
   public static let vibrationEnabled = BoolKey(UserDefaultsClient.Keys.vibrationEnabled)
+  public static let initialProcessCompleted = BoolKey(UserDefaultsClient.Keys.initialProcessCompleted)
 }
 
 public struct StringKey {

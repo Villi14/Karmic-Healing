@@ -68,6 +68,18 @@ public struct Home {
           )
         )
         return .none
+      case .path(.element(id: _, action: .balancingEnergy(.completeSteps))):
+        // Після завершення повертаємося до списку; редʼюсер списку сам перечитає прапорець
+        return .none
+      case .path(.element(id: _, action: .balancingEnergy(.initialProcessCompletionSaved))):
+        // Після завершення залишаємось на списку, але оновлюємо його стан
+        // Знаходимо BalancingEnergyList у стеку і надсилаємо дію для оновлення
+        for index in state.path.indices {
+          if case .balancingEnergyList = state.path[index] {
+            return .send(.path(.element(id: state.path.ids[index], action: .balancingEnergyList(.markInitialProcessCompleted))))
+          }
+        }
+        return .none
       case .path(.element(id: _, action: .balancingEnergyList(.essentialSelf))):
         state.path.append(
           .balancingEnergy(
