@@ -106,9 +106,6 @@ public struct BalancingEnergy {
         }
         return .none
 
-      case .initialProcessCompletionSaved:
-        return .none
-
       case .didTapSettings:
         state.destination = .settings(.init())
         return .none
@@ -137,7 +134,7 @@ public struct BalancingEnergy {
         notification.cancelAllNotifications()
         return .cancel(id: CancelID.timer)
 
-      case .destination:
+      case .initialProcessCompletionSaved, .destination:
         return .none
       }
     }

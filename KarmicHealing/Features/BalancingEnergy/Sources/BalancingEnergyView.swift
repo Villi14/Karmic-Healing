@@ -9,30 +9,30 @@ import Common
 
 public struct BalancingEnergyView: View {
   @SwiftUI.Environment(\.dismiss) var dismiss
-  
+
   public let store: StoreOf<BalancingEnergy>
-  
+
   public init(store: StoreOf<BalancingEnergy>) {
     self.store = store
   }
-  
+
   private struct ViewState: Equatable {
     let title: String
     let currentStep: Int
     let steps: [Step]
-    
+
     init(state: BalancingEnergy.State) {
       self.title = state.title
       self.currentStep = state.currentStep
       self.steps = state.steps
     }
   }
-  
+
   public var body: some View {
     WithViewStore(store, observe: ViewState.init) { viewStore in
       ZStack {
         BgWithGradientView()
-        
+
         VStack {
           Image(systemName: "exclamationmark.circle")
             .resizable()
@@ -40,13 +40,13 @@ public struct BalancingEnergyView: View {
             .aspectRatio(contentMode: .fit)
             .frame(height: DesignConstants.frameHeightMedium)
             .padding(.top, DesignConstants.paddingLarge)
-          
+
           Text("attention_before_proceeding".loc())
             .font(.headline.weight(.medium))
             .multilineTextAlignment(.center)
             .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
             .padding()
-          
+
           TabView(selection: Binding(
             get: { viewStore.currentStep },
             set: { newValue in
@@ -74,7 +74,7 @@ public struct BalancingEnergyView: View {
                     .multilineTextAlignment(.leading)
                     .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
                     .padding(.horizontal)
-                  
+
                   Spacer()
                 }
                 
@@ -96,6 +96,8 @@ public struct BalancingEnergyView: View {
             DragGesture()
               .onEnded { gesture in
                 let threshold: CGFloat = DesignConstants.thresholdMedium
+                let slideWidth = UIScreen.main.bounds.width - 32
+
                 if gesture.translation.width > threshold {
                   if viewStore.currentStep > 0 {
                     viewStore.send(.previousStep)
@@ -110,7 +112,7 @@ public struct BalancingEnergyView: View {
               }
           )
           .padding()
-          
+
           HStack {
             if viewStore.currentStep > 0 {
               Button("back".loc()) {
@@ -120,9 +122,9 @@ public struct BalancingEnergyView: View {
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
               .padding()
             }
-            
+
             Spacer()
-            
+
             Button(viewStore.currentStep == viewStore.steps.count - 1 ?
                    "done".loc() :
                     "next".loc()) {
@@ -134,11 +136,11 @@ public struct BalancingEnergyView: View {
                 viewStore.send(.userManuallyScrolled)
               }
             }
-                    .frame(minWidth: DesignConstants.frameWidthXLarge, minHeight: DesignConstants.frameHeightLarge)
-                    .background(ResourcesAsset.Colors.clam.swiftUIColor)
-                    .foregroundStyle(ResourcesAsset.Colors.textInvert.swiftUIColor)
-                    .cornerRadius(DesignConstants.cornerRadiusMedium)
-                    .padding()
+            .frame(minWidth: DesignConstants.frameWidthXLarge, minHeight: DesignConstants.frameHeightLarge)
+            .background(ResourcesAsset.Colors.clam.swiftUIColor)
+            .foregroundStyle(ResourcesAsset.Colors.textInvert.swiftUIColor)
+            .cornerRadius(DesignConstants.cornerRadiusMedium)
+            .padding()
           }
           .padding()
         }
@@ -161,7 +163,7 @@ public struct BalancingEnergyView: View {
               .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
           }
         }
-        
+
         ToolbarItem(placement: .topBarTrailing) {
           Button(action: { viewStore.send(.didTapSettings) }) {
             Image(systemName: "gearshape.fill")

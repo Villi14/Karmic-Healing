@@ -1335,7 +1335,99 @@
         }
       }
     },
-    "part_1_step_7" : {
+    "part_1_step_6_text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ask the Lords of Karma to cleanse, release, and heal the Kundalini chakras from all negative connections"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Попросите Властителей Кармы очистить, освободить и исцелить чакры\nКундалини от всяких негативных связей."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Попросіть Володарів Карми очистити, звільнити та зцілити чакри Кундаліні від усіх негативних зв’язків."
+          }
+        }
+      }
+    },
+    "part_1_step_7_text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ask the Lords of Karma to cleanse, release, and heal the Kundalini chakras from all negative hooks."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Попросите Властителей Кармы\nочистить, освободить и исцелить чакры Кундалини от всяких негативных крючьев. "
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Попросіть Володарів Карми очистити, звільнити та зцілити чакри Кундаліні від усіх негативних гачків."
+          }
+        }
+      }
+    },
+    "part_1_step_8_text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ask the Lords of Karma to cleanse, release, and heal the chakras of the Hara line from all negative hooks."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Попросите Властителей Кармы\nочистить, освободить и исцелить чакры линии Хара от всяких негативных крючьев. "
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Попросіть Володарів Карми очистити, звільнити та зцілити чакри лінії Хара від усіх негативних гачків."
+          }
+        }
+      }
+    },
+    "part_1_step_9_text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ask the Lords of Karma to free, heal, and cleanse your energy from all heart wounds."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Попросите Властителей Кармы, это освободить,\nисцелить и очистить вашу энергию от всех сердечных ран."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Попросіть Володарів Карми звільнити, зцілити та очистити вашу енергію від усіх сердечних ран."
+          }
+        }
+      }
+    },
+    "part_1_step_10" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1358,7 +1450,7 @@
         }
       }
     },
-    "part_1_step_7_text" : {
+    "part_1_step_10_text" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1381,7 +1473,7 @@
         }
       }
     },
-    "part_1_step_8" : {
+    "part_1_step_11" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1404,7 +1496,7 @@
         }
       }
     },
-    "part_1_step_9" : {
+    "part_1_step_12" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1427,7 +1519,7 @@
         }
       }
     },
-    "part_1_step_10" : {
+    "part_1_step_13" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1450,7 +1542,7 @@
         }
       }
     },
-    "part_1_step_11" : {
+    "part_1_step_14" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1537,7 +1629,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Попросіть очистити, зцілити, вирівняти, відкрити та активувати три Галактичні\nМатриці."
+            "value" : "Попросіть очистити, зцілити, вирівняти, відкрити та активувати три Галактичні Матриці."
           }
         }
       }

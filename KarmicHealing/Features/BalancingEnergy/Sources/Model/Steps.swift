@@ -12,7 +12,10 @@ extension Step {
     .part1step8,
     .part1step9,
     .part1step10,
-    .part1step11
+    .part1step11,
+    .part1step12,
+    .part1step13,
+    .part1step14
   ]
 
   public static let part2: [Step] = [
@@ -21,8 +24,8 @@ extension Step {
     .step3,
     .part2step4,
     .part2step5,
-    .part1step8,
-    .part1step9,
+    .part1step11,
+    .part1step12,
     .part2step8,
     .part2step9,
     .part2step10,
@@ -36,8 +39,8 @@ extension Step {
     .step3,
     .part2step4,
     .part2step5,
-    .part1step8,
-    .part1step9,
+    .part1step11,
+    .part1step12,
     .part2step8,
     .part2step9,
     .part2step10,
@@ -75,30 +78,54 @@ extension Step {
   }
 
   public static var part1step6: Self {
-    .init(title: "part_1_step_6".loc())
+    .init(
+      title: "part_1_step_6".loc(),
+      description: "part_1_step_6_text".loc()
+    )
   }
 
   public static var part1step7: Self {
     .init(
-      title: "part_1_step_7".loc(),
-      description: "part_1_step_7_text".loc(),
+      title: "part_1_step_6".loc(),
+      description: "part_1_step_7_text".loc()
     )
   }
 
   public static var part1step8: Self {
-    .init(title: "part_1_step_8".loc())
+    .init(
+      title: "part_1_step_6".loc(),
+      description: "part_1_step_8_text".loc()
+    )
   }
 
   public static var part1step9: Self {
-    .init(title: "part_1_step_9".loc())
+    .init(
+      title: "part_1_step_6".loc(),
+      description: "part_1_step_9_text".loc()
+    )
   }
 
   public static var part1step10: Self {
-    .init(title: "part_1_step_10".loc())
+    .init(
+      title: "part_1_step_10".loc(),
+      description: "part_1_step_10_text".loc()
+    )
   }
 
   public static var part1step11: Self {
     .init(title: "part_1_step_11".loc())
+  }
+
+  public static var part1step12: Self {
+    .init(title: "part_1_step_12".loc())
+  }
+
+  public static var part1step13: Self {
+    .init(title: "part_1_step_13".loc())
+  }
+
+  public static var part1step14: Self {
+    .init(title: "part_1_step_14".loc())
   }
 
   public static var part2step4: Self {
