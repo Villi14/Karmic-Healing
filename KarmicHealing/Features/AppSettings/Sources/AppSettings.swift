@@ -154,14 +154,14 @@ public struct Destination {
       .ifLet(\.themeSettings, action: \.themeSettings) {
         ThemeSettings()
       }
+      .ifLet(\.sessionDurationAlert, action: \.sessionDurationAlert) {
+        EnergyBalansingSettings()
+      }
       .ifLet(\.clipboardAlert, action: \.clipboardAlert) {
         EmptyReducer()
       }
       .ifLet(\.mailComposer, action: \.mailComposer) {
         EmptyReducer()
-      }
-      .ifLet(\.sessionDurationAlert, action: \.sessionDurationAlert) {
-        EnergyBalansingSettings()
       }
   }
 }

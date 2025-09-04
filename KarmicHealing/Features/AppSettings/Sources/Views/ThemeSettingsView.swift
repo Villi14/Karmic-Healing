@@ -100,7 +100,9 @@ public struct ThemeSettingsView: View {
         Text(title)
           .font(.body)
           .foregroundStyle(isSelected ? ResourcesAsset.Colors.textPrimary.swiftUIColor : ResourcesAsset.Colors.textSecondary.swiftUIColor)
+
         Spacer()
+
         if isSelected {
           Image(systemName: "checkmark")
             .foregroundStyle(ResourcesAsset.Colors.health.swiftUIColor)
@@ -108,7 +110,8 @@ public struct ThemeSettingsView: View {
       }
       .padding(.horizontal, DesignConstants.paddingLarge)
       .padding(.vertical, DesignConstants.paddingMedium)
-      .background(RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium).fill(ResourcesAsset.Colors.cellBackground.swiftUIColor))
+      .background(RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
+        .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor))
     }
   }
 

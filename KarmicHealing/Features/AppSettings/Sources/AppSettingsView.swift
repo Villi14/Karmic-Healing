@@ -89,6 +89,16 @@ public struct AppSettingsView: View {
           state: \.$destination,
           action: \.destination
         ),
+        state: \.sessionDurationAlert,
+        action: Destination.Action.sessionDurationAlert
+      ) { store in
+        EnergyBalansingSettingsView(store: store)
+      }
+      .fullScreenCover(
+        store: store.scope(
+          state: \.$destination,
+          action: \.destination
+        ),
         state: \.clipboardAlert,
         action: Destination.Action.clipboardAlert,
         content: AlertView<Destination.Action.CopyAlert>.init(store:)
@@ -107,16 +117,6 @@ public struct AppSettingsView: View {
             set: { if !$0 { self.store.send(.destination(.dismiss)) } }
           )
         )
-      }
-      .fullScreenCover(
-        store: store.scope(
-          state: \.$destination,
-          action: \.destination
-        ),
-        state: \.sessionDurationAlert,
-        action: Destination.Action.sessionDurationAlert
-      ) { store in
-        EnergyBalansingSettingsView(store: store)
       }
     }
   }
