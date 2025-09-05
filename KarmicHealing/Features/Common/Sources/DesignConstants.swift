@@ -33,7 +33,13 @@ public enum DesignConstants {
     public static let helpStepCircleSizeSmall: CGFloat = 30
     public static let helpStepSpacing: CGFloat = 12
     public static let helpTipSpacing: CGFloat = 8
-
+    public static let helpHeaderSpacing: CGFloat = 12
+    
+    // Onboarding specific constants
+    public static let onboardingTextContentHeight: CGFloat = 160
+    public static let onboardingIconContainerHeight: CGFloat = helpIconSize + paddingLarge * 2
+    public static let onboardingSkipButtonHeight: CGFloat = 60
+    
     // Frame sizes
     public static let frameHeightSmall: CGFloat = 18
     public static let frameHeightMedium: CGFloat = 36
