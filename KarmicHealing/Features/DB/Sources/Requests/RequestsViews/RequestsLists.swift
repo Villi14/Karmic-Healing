@@ -20,6 +20,7 @@ class RequestsListsModel {
   
   var destination: Destination?
   var searchRequestsModel = SearchRequestsModel()
+  var isHelpPresented = false
   
   @ObservationIgnored
   @Dependency(\.defaultDatabase) private var database
@@ -43,6 +44,10 @@ class RequestsListsModel {
   
   func addListButtonTapped() {
     destination = .requestsListForm(RequestsList.Draft())
+  }
+  
+  func helpButtonTapped() {
+    isHelpPresented = true
   }
   
   func listDetailsButtonTapped(requestsList: RequestsList) {
@@ -123,6 +128,14 @@ struct RequestsListsView: View {
           model.onAppear()
         }
         .toolbar {
+          ToolbarItem(placement: .topBarTrailing) {
+            Button {
+              model.helpButtonTapped()
+            } label: {
+              Image(systemName: "questionmark.circle")
+                .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
+            }
+          }
 #if DEBUG
           ToolbarItem(placement: .automatic) {
             Menu {
@@ -172,6 +185,12 @@ struct RequestsListsView: View {
               .navigationTitle("new_list".loc())
           }
           .presentationDetents([.medium])
+        }
+        .sheet(isPresented: $model.isHelpPresented) {
+          NavigationStack {
+            RequestsHelpView()
+          }
+          .presentationDetents([.large])
         }
         .tint(ResourcesAsset.Colors.clam.swiftUIColor)
         .navigationDestination(item: $model.destination.detail) { detailModel in

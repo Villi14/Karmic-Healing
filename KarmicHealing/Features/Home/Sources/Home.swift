@@ -69,11 +69,11 @@ public struct Home {
         )
         return .none
       case .path(.element(id: _, action: .balancingEnergy(.completeSteps))):
-        // Після завершення повертаємося до списку; редʼюсер списку сам перечитає прапорець
+        // After completion return to list; list reducer will re-read the flag itself
         return .none
       case .path(.element(id: _, action: .balancingEnergy(.initialProcessCompletionSaved))):
-        // Після завершення залишаємось на списку, але оновлюємо його стан
-        // Знаходимо BalancingEnergyList у стеку і надсилаємо дію для оновлення
+        // After completion stay on list but update its state
+        // Find BalancingEnergyList in stack and send action for update
         for index in state.path.indices {
           if case .balancingEnergyList = state.path[index] {
             return .send(.path(.element(id: state.path.ids[index], action: .balancingEnergyList(.markInitialProcessCompleted))))

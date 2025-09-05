@@ -49,11 +49,30 @@ public struct BalancingEnergyListView: View {
       .navigationTitle("energy_balancing".loc())
       .navigationBarBackButtonHidden()
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+      .sheet(isPresented: Binding(
+        get: { viewStore.isHelpPresented },
+        set: { isPresented in
+          if !isPresented {
+            store.send(.helpDismissed)
+          }
+        }
+      )) {
+        NavigationStack {
+          BalancingEnergyHelpView()
+        }
+        .presentationDetents([.large])
+      }
       .toolbar {
         ToolbarItem(placement: .topBarLeading) {
           Button(action: { dismiss() }) {
             Image(systemName: "chevron.left")
               .renderingMode(.template)
+              .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
+          }
+        }
+        ToolbarItem(placement: .topBarTrailing) {
+          Button(action: { store.send(.helpButtonTapped) }) {
+            Image(systemName: "questionmark.circle")
               .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
           }
         }

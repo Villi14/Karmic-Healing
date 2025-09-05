@@ -121,7 +121,7 @@ struct ListRowView<ListType: Identifiable>: View {
       if totalRequests == 0 {
         return requestsList.isCompleted
       } else {
-        // Показуємо true тільки якщо всі прохання виконані І список позначений як виконаний
+        // Show true only if all requests are completed AND list is marked as completed
         return allRequestsCompleted && requestsList.isCompleted
       }
     }
@@ -144,31 +144,30 @@ struct ListRowView<ListType: Identifiable>: View {
   private func toggleRequestsListCompletion(_ requestsList: RequestsList) async throws {
     try await database.write { db in
       if totalRequests == 0 {
-        // Порожній список: можна вільно перемикати
+        // Empty list: can freely toggle
         let newCompletionStatus = !requestsList.isCompleted
         try RequestsList
           .find(requestsList.id)
           .update { $0.isCompleted = newCompletionStatus }
           .execute(db)
       } else if allRequestsCompleted {
-        // Усі підпроханння виконані: дозволяємо перемикати стан списку
+        // All sub-requests are completed: allow toggling list state
         let newCompletionStatus = !requestsList.isCompleted
         try RequestsList
           .find(requestsList.id)
           .update { $0.isCompleted = newCompletionStatus }
           .execute(db)
       } else if requestsList.isCompleted {
-        // Дозволяємо скинути у false, якщо головне позначене як виконане
+        // Allow resetting to false if main is marked as completed
         try RequestsList
           .find(requestsList.id)
           .update { $0.isCompleted = false }
           .execute(db)
       } else {
-        // Є невиконані підпроханння: не дозволяємо увімкнути true
         return
       }
     }
-    // Оновлюємо локальний стан після зміни
+    // Update local state after change
     await fetchRequestsStatus(requestsList)
   }
 }
@@ -180,7 +179,9 @@ struct ListRowView<ListType: Identifiable>: View {
         count: 10,
         list: RequestsList(id: UUID(), title: "Personal"),
         color: .blue,
-        title: "Personal") {}
+        title: "Personal",
+        onEdit:  {}
+      )
     }
   }
 }

@@ -13,6 +13,7 @@ public struct BalancingEnergyList {
   @ObservableState
   public struct State: Equatable {
     public var initialProcessCompleted: Bool = false
+    public var isHelpPresented: Bool = false
     public init(initialProcessCompleted: Bool = false) {
       self.initialProcessCompleted = initialProcessCompleted
     }
@@ -24,6 +25,8 @@ public struct BalancingEnergyList {
     case essentialSelf
     case divineSelf
     case markInitialProcessCompleted
+    case helpButtonTapped
+    case helpDismissed
   }
 
   public var body: some ReducerOf<Self> {
@@ -34,6 +37,12 @@ public struct BalancingEnergyList {
         return .none
       case .markInitialProcessCompleted:
         state.initialProcessCompleted = true
+        return .none
+      case .helpButtonTapped:
+        state.isHelpPresented = true
+        return .none
+      case .helpDismissed:
+        state.isHelpPresented = false
         return .none
       case .initialProcess, .essentialSelf, .divineSelf:
         return .none

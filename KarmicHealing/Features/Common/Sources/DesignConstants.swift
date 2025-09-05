@@ -26,6 +26,13 @@ public enum DesignConstants {
     public static let spacingLarge: CGFloat = 20
     public static let spacingXLarge: CGFloat = 32
     public static let itemSpacing: CGFloat = 36
+    
+    // Help view specific constants
+    public static let helpIconSize: CGFloat = 60
+    public static let helpStepCircleSize: CGFloat = 40
+    public static let helpStepCircleSizeSmall: CGFloat = 30
+    public static let helpStepSpacing: CGFloat = 12
+    public static let helpTipSpacing: CGFloat = 8
 
     // Frame sizes
     public static let frameHeightSmall: CGFloat = 18

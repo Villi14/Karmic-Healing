@@ -67,7 +67,7 @@ public struct BalancingEnergyView: View {
                   .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
                   .padding(.top, DesignConstants.paddingXLarge)
                   .padding(.horizontal)
-                
+
                 HStack {
                   Text(step.description)
                     .font(.body.weight(.medium))
@@ -77,7 +77,8 @@ public struct BalancingEnergyView: View {
 
                   Spacer()
                 }
-                
+                .padding(.horizontal)
+
                 Spacer()
               }
               .tag(index)
@@ -96,8 +97,6 @@ public struct BalancingEnergyView: View {
             DragGesture()
               .onEnded { gesture in
                 let threshold: CGFloat = DesignConstants.thresholdMedium
-                let slideWidth = UIScreen.main.bounds.width - 32
-
                 if gesture.translation.width > threshold {
                   if viewStore.currentStep > 0 {
                     viewStore.send(.previousStep)
@@ -125,9 +124,7 @@ public struct BalancingEnergyView: View {
 
             Spacer()
 
-            Button(viewStore.currentStep == viewStore.steps.count - 1 ?
-                   "done".loc() :
-                    "next".loc()) {
+            Button(viewStore.currentStep == viewStore.steps.count - 1 ? "done".loc() : "next".loc()) {
               if viewStore.currentStep == viewStore.steps.count - 1 {
                 viewStore.send(.completeSteps)
                 dismiss()
