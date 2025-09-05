@@ -20,7 +20,7 @@ public struct Onboarding {
     public init(
       isCompleted: Bool = false,
       currentStep: Int = 0,
-      steps: [OnboardingStep] = [ .firstStep, .secondStep, .thirdStep ]
+      steps: [OnboardingStep] = [ .firstStep, .secondStep, .thirdStep, .fourthStep ]
     ) {
       self.currentStep = currentStep
       self.isCompleted = isCompleted
@@ -90,26 +90,34 @@ public struct OnboardingStep: Equatable {
 extension OnboardingStep {
   public static var firstStep: Self {
     .init(
-      imageName: "sparkles",
-      title: "welcome_to_karmic_healing".loc(),
-      description: "welcome_description".loc(),
+      imageName: "book.closed.fill",
+      title: "onboarding_book_title".loc(),
+      description: "onboarding_book_description".loc(),
       showSkipButton: true
     )
   }
   
   public static var secondStep: Self {
     .init(
-      imageName: "heart",
-      title: "discover_your_path".loc(),
-      description: "discover_description".loc()
+      imageName: "sparkles",
+      title: "onboarding_app_title".loc(),
+      description: "onboarding_app_description".loc()
     )
   }
   
   public static var thirdStep: Self {
     .init(
-      imageName: "star",
-      title: "start_your_journey".loc(),
-      description: "journey_description".loc()
+      imageName: "heart.fill",
+      title: "onboarding_healing_title".loc(),
+      description: "onboarding_healing_description".loc()
+    )
+  }
+  
+  public static var fourthStep: Self {
+    .init(
+      imageName: "star.fill",
+      title: "onboarding_journey_title".loc(),
+      description: "onboarding_journey_description".loc()
     )
   }
 }

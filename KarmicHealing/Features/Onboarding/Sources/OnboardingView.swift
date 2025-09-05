@@ -37,7 +37,8 @@ public struct OnboardingView: View {
                 viewStore.send(.completeOnboarding)
               }
               .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
-              .padding([.top, .trailing])
+              .font(.body.weight(.medium))
+              .padding([.top, .trailing], DesignConstants.paddingLarge)
             }
           }
 
@@ -56,21 +57,22 @@ public struct OnboardingView: View {
                 Image(systemName: step.imageName)
                   .resizable()
                   .aspectRatio(contentMode: .fit)
-                  .frame(height: DesignConstants.frameHeightMedium)
+                  .frame(height: DesignConstants.helpIconSize)
                   .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
-                  .padding()
+                  .padding(DesignConstants.paddingLarge)
 
                 Text(step.title)
-                  .font(.title.weight(.medium))
+                  .font(.title.weight(.bold))
                   .multilineTextAlignment(.center)
                   .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-                  .padding(.horizontal)
+                  .padding(.horizontal, DesignConstants.paddingLarge)
 
                 Text(step.description)
-                  .font(.subheadline.weight(.medium))
+                  .font(.body.weight(.medium))
                   .multilineTextAlignment(.center)
                   .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
-                  .padding(.horizontal)
+                  .padding(.horizontal, DesignConstants.paddingLarge)
+                  .lineSpacing(DesignConstants.spacingSmall)
               }
               .tag(index)
             }
@@ -99,7 +101,8 @@ public struct OnboardingView: View {
                 viewStore.send(.previousStep)
               }
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-              .padding()
+              .font(.body.weight(.medium))
+              .padding(DesignConstants.paddingLarge)
             }
 
             Spacer()
@@ -109,14 +112,16 @@ public struct OnboardingView: View {
                     "next".loc()) {
               viewStore.send(.nextStep)
             }
+            .padding(.horizontal, DesignConstants.paddingLarge)
             .frame(minWidth: DesignConstants.frameWidthXLarge,
                    minHeight: DesignConstants.frameHeightLarge)
             .background(ResourcesAsset.Colors.clam.swiftUIColor)
             .foregroundStyle(ResourcesAsset.Colors.textInvert.swiftUIColor)
+            .font(.body.weight(.semibold))
             .cornerRadius(DesignConstants.cornerRadiusMedium)
-            .padding()
+            .padding(DesignConstants.paddingLarge)
           }
-          .padding()
+          .padding(DesignConstants.paddingLarge)
         }
       }
     }

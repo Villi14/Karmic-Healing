@@ -133,7 +133,9 @@ public struct BalancingEnergyView: View {
                 viewStore.send(.userManuallyScrolled)
               }
             }
-            .frame(minWidth: DesignConstants.frameWidthXLarge, minHeight: DesignConstants.frameHeightLarge)
+            .padding(.horizontal, DesignConstants.paddingLarge)
+            .frame(minWidth: DesignConstants.frameWidthXLarge,
+                   minHeight: DesignConstants.frameHeightLarge)
             .background(ResourcesAsset.Colors.clam.swiftUIColor)
             .foregroundStyle(ResourcesAsset.Colors.textInvert.swiftUIColor)
             .cornerRadius(DesignConstants.cornerRadiusMedium)
