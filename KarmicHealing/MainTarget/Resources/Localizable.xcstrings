@@ -2468,19 +2468,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Thanks for using Karmic Healing 2025"
+            "value" : "This app is a companion to Diana Stein's 'Karmic Healing' book - originally written in English and translated into Russian.\n\nDevelopment:\n• Built with TCA (The Composable Architecture)\n\nThanks for using Karmic Healing 2025"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Спасибо за использование Karmic Healing 2025"
+            "value" : "Это приложение является дополнением к книге Дайяны Стайн 'Кармическое Исцеление' - изначально написанной на английском языке и переведенной на русский.\n\nРазработка:\n• Создано с использованием TCA (The Composable Architecture)\n\nСпасибо за использование Karmic Healing 2025"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Дякуємо за використання Karmic Healing 2025"
+            "value" : "Цей застосунок є доповненням до книги Дайяни Стайн 'Кармічне Зцілення' - спочатку написаної англійською мовою та перекладеної російською.\n\nРозробка:\n• Створено з використанням TCA (The Composable Architecture)\n\nДякуємо за використання Karmic Healing 2025"
           }
         }
       }
