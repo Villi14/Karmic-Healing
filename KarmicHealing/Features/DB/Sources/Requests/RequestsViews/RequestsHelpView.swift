@@ -15,15 +15,16 @@ public struct RequestsHelpView: View {
         VStack(spacing: DesignConstants.spacingXLarge) {
           // Header
           VStack(spacing: DesignConstants.helpStepSpacing) {
-            Image(systemName: "questionmark.circle.fill")
+            Image(systemName: "questionmark.circle")
               .font(.system(size: DesignConstants.helpIconSize))
-              .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
+              .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
             
             Text("help_title".loc())
               .font(.title.weight(.bold))
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
               .multilineTextAlignment(.center)
-            
+              .padding(.horizontal)
+
             Text("help_subtitle".loc())
               .font(.body)
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
@@ -38,35 +39,35 @@ public struct RequestsHelpView: View {
               number: 1,
               title: "help_step_1_title".loc(),
               description: "help_step_1_description".loc(),
-              icon: "heart.fill"
+              icon: "heart"
             )
             
             helpStep(
               number: 2,
               title: "help_step_2_title".loc(),
               description: "help_step_2_description".loc(),
-              icon: "moon.stars.fill"
+              icon: "moon.stars"
             )
             
             helpStep(
               number: 3,
               title: "help_step_3_title".loc(),
               description: "help_step_3_description".loc(),
-              icon: "sun.max.fill"
+              icon: "sun.max"
             )
             
             helpStep(
               number: 4,
               title: "help_step_4_title".loc(),
               description: "help_step_4_description".loc(),
-              icon: "hand.raised.fill"
+              icon: "hand.raised"
             )
             
             helpStep(
               number: 5,
               title: "help_step_5_title".loc(),
               description: "help_step_5_description".loc(),
-              icon: "checkmark.circle.fill"
+              icon: "checkmark.circle"
             )
           }
           .padding(.horizontal, DesignConstants.paddingLarge)
@@ -221,7 +222,7 @@ public struct RequestsHelpView: View {
       // Step number
       ZStack {
         Circle()
-          .fill(ResourcesAsset.Colors.clam.swiftUIColor)
+          .stroke(ResourcesAsset.Colors.friendly.swiftUIColor, lineWidth: DesignConstants.lineWidth)
           .frame(width: DesignConstants.helpStepCircleSize, height: DesignConstants.helpStepCircleSize)
         
         Text("\(number)")
@@ -232,7 +233,7 @@ public struct RequestsHelpView: View {
       VStack(alignment: .leading, spacing: DesignConstants.helpTipSpacing) {
         HStack {
           Image(systemName: icon)
-            .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
+            .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
             .font(.title3)
           
           Text(title)
@@ -261,7 +262,7 @@ public struct RequestsHelpView: View {
       // Step number
       ZStack {
         Circle()
-          .fill(ResourcesAsset.Colors.clam.swiftUIColor)
+          .stroke(ResourcesAsset.Colors.friendly.swiftUIColor, lineWidth: DesignConstants.lineWidth)
           .frame(width: DesignConstants.helpStepCircleSizeSmall, height: DesignConstants.helpStepCircleSizeSmall)
         
         Text("\(number)")
@@ -280,8 +281,8 @@ public struct RequestsHelpView: View {
   
   private func tipRow(text: String) -> some View {
     HStack(alignment: .top, spacing: DesignConstants.helpTipSpacing) {
-      Image(systemName: "lightbulb.fill")
-        .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
+      Image(systemName: "lightbulb")
+        .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
         .font(.caption)
       
       Text(text)

@@ -62,7 +62,7 @@ public struct BalancingEnergyView: View {
             ForEach(Array(viewStore.steps.enumerated()), id: \.offset) { index, step in
               VStack(spacing: DesignConstants.spacingLarge) {
                 Text(step.title)
-                  .font(.title3.weight(.medium))
+                  .font(.body.weight(.medium))
                   .multilineTextAlignment(.center)
                   .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
                   .padding(.top, DesignConstants.paddingXLarge)
@@ -70,7 +70,7 @@ public struct BalancingEnergyView: View {
 
                 HStack {
                   Text(step.description)
-                    .font(.body.weight(.medium))
+                    .font(.callout.weight(.medium))
                     .multilineTextAlignment(.leading)
                     .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
                     .padding(.horizontal)
@@ -165,7 +165,7 @@ public struct BalancingEnergyView: View {
 
         ToolbarItem(placement: .topBarTrailing) {
           Button(action: { viewStore.send(.didTapSettings) }) {
-            Image(systemName: "gearshape.fill")
+            Image(systemName: "gearshape")
               .renderingMode(.template)
               .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
           }

@@ -96,7 +96,7 @@ extension AlertReducer.State {
     buttons: [ButtonState] = []
   ) -> Self {
     .init(
-      image: Image(systemName: "checkmark.circle.fill"),
+      image: Image(systemName: "checkmark.circle"),
       title: title,
       message: message,
       buttons: buttons,
@@ -110,7 +110,7 @@ extension AlertReducer.State {
     buttons: [ButtonState] = []
   ) -> Self {
     .init(
-      image: Image(systemName: "exclamationmark.triangle.fill"),
+      image: Image(systemName: "exclamationmark.triangle"),
       title: title,
       message: message,
       buttons: buttons,

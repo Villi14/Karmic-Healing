@@ -90,7 +90,7 @@ public struct OnboardingStep: Equatable {
 extension OnboardingStep {
   public static var firstStep: Self {
     .init(
-      imageName: "book.closed.fill",
+      imageName: "book.closed",
       title: "onboarding_book_title".loc(),
       description: "onboarding_book_description".loc(),
       showSkipButton: true
@@ -107,7 +107,7 @@ extension OnboardingStep {
   
   public static var thirdStep: Self {
     .init(
-      imageName: "heart.fill",
+      imageName: "heart",
       title: "onboarding_healing_title".loc(),
       description: "onboarding_healing_description".loc()
     )
@@ -115,7 +115,7 @@ extension OnboardingStep {
   
   public static var fourthStep: Self {
     .init(
-      imageName: "star.fill",
+      imageName: "star",
       title: "onboarding_journey_title".loc(),
       description: "onboarding_journey_description".loc()
     )

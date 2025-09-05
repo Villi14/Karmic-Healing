@@ -714,6 +714,420 @@
         }
       }
     },
+    "help" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Help"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Помощь"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Допомога"
+          }
+        }
+      }
+    },
+    "help_step_1_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find a quiet place where you won't be disturbed. Sit or lie down comfortably, close your eyes, and take several deep breaths to relax."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Найдите тихое место, где вас никто не потревожит. Сядьте или лягте удобно, закройте глаза и сделайте несколько глубоких вдохов для расслабления."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Знайдіть тихе місце, де вас ніхто не потурбує. Сядьте або лягтіть зручно, закрийте очі та зробіть кілька глибоких вдихів для розслаблення."
+          }
+        }
+      }
+    },
+    "help_step_1_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prepare your space"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Подготовьте пространство"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Підготуйте простір"
+          }
+        }
+      }
+    },
+    "help_step_2_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mentally or aloud, ask the Lords of Karma for permission to speak with them. Wait for their response - you may feel a sense of permission or guidance."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мысленно или вслух попросите Властителей Кармы разрешения поговорить с ними. Дождитесь их ответа - вы можете почувствовать чувство разрешения или руководства."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Думкою попросіть Володарів Карми дозволу поговорити з ними. Дочекайтеся їх відповіді - ви можете відчути почуття дозволу або керівництва."
+          }
+        }
+      }
+    },
+    "help_step_2_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ask for permission"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Попросите разрешения"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Попросіть дозволу"
+          }
+        }
+      }
+    },
+    "help_step_3_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clearly and respectfully state your request. Be specific about what you need help with. Speak from your heart with sincerity and humility."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Четко и уважительно изложите вашу просьбу. Будьте конкретны в том, с чем вам нужна помощь. Говорите от сердца с искренностью и смирением."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Чітко та з повагою викладіть ваше прохання. Будьте конкретні в тому, з чим вам потрібна допомога. Говоріть від серця з щирістю та смиренністю."
+          }
+        }
+      }
+    },
+    "help_step_3_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formulate your request"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сформулируйте просьбу"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сформулюйте прохання"
+          }
+        }
+      }
+    },
+    "help_step_4_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "After making your request, remain quiet and attentive. You may receive guidance through thoughts, feelings, images, or inner knowing. Trust your intuition."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "После изложения просьбы оставайтесь тихими и внимательными. Вы можете получить руководство через мысли, чувства, образы или внутреннее знание. Доверяйте своей интуиции."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Після викладення прохання залишайтеся тихими та уважними. Ви можете отримати керівництво через думки, почуття, образи або внутрішнє знання. Довіряйте своїй інтуїції."
+          }
+        }
+      }
+    },
+    "help_step_4_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Listen and observe"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Слушайте и наблюдайте"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Слухайте та спостерігайте"
+          }
+        }
+      }
+    },
+    "help_step_5_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thank the Lords of Karma for their time and assistance. Express your gratitude sincerely, regardless of whether you received immediate help or not."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поблагодарите Властителей Кармы за их время и помощь. Выразите свою благодарность искренне, независимо от того, получили ли вы немедленную помощь или нет."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Подякуйте Володарям Карми за їх час та допомогу. Висловіть свою подяку щиро, незалежно від того, чи отримали ви негайну допомогу чи ні."
+          }
+        }
+      }
+    },
+    "help_step_5_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Express gratitude"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выразите благодарность"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Висловіть подяку"
+          }
+        }
+      }
+    },
+    "help_subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Step-by-step guide to effective communication"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пошаговое руководство по эффективному общению"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Покроковий посібник з ефективного спілкування"
+          }
+        }
+      }
+    },
+    "help_tip_1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Practice regularly - the more you communicate, the stronger your connection becomes"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Практикуйтесь регулярно - чем больше вы общаетесь, тем сильнее становится ваша связь"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Практикуйтеся регулярно - чим більше ви спілкуєтеся, тим міцнішою стає ваш зв'язок"
+          }
+        }
+      }
+    },
+    "help_tip_2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Be patient - answers may not come immediately, but they will come at the right time"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Будьте терпеливы - ответы могут прийти не сразу, но они придут в нужное время"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Будьте терплячі - відповіді можуть прийти не одразу, але вони прийдуть у потрібний час"
+          }
+        }
+      }
+    },
+    "help_tip_3" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trust the process - even if you don't see immediate results, trust that healing is happening"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Доверяйте процессу - даже если вы не видите немедленных результатов, доверяйте, что исцеление происходит"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Довіряйте процесу - навіть якщо ви не бачите негайних результатів, довіряйте, що зцілення відбувається"
+          }
+        }
+      }
+    },
+    "help_tip_4" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keep a journal - record your experiences and insights to track your progress"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ведите дневник - записывайте свои переживания и озарения, чтобы отслеживать прогресс"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ведіть щоденник - записуйте свої переживання та осяяння, щоб відстежувати прогрес"
+          }
+        }
+      }
+    },
+    "help_tips_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Important Tips"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Важные советы"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Важливі поради"
+          }
+        }
+      }
+    },
+    "help_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How to work with the Lords of Karma"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Как работать с Властителями Кармы"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Як працювати з Володарями Карми"
+          }
+        }
+      }
+    },
     "hide" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -848,6 +1262,351 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Налаштуйте уподобання та розпочніть балансування вже сьогодні."
+          }
+        }
+      }
+    },
+    "karma_category_a" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "a) for healing from diseases or correcting physical condition;"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "а) для исцеления от болезней или исправления физического состояния;"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "а) для зцілення від хвороб або виправлення фізичного стану;"
+          }
+        }
+      }
+    },
+    "karma_category_b" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "b) for healing conflict relationships;"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "б) для исцеления конфликтных взаимоотношений;"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "б) для зцілення конфліктних взаємин;"
+          }
+        }
+      }
+    },
+    "karma_category_c" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "c) for getting rid of negative character traits and bad habits;"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "в) для избавления от негативных черт характера и дурных привычек;"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "в) для позбавлення від негативних рис характеру та поганих звичок;"
+          }
+        }
+      }
+    },
+    "karma_category_d" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "d) for correcting negative life situations."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "г) для исправления негативных жизненных ситуаций."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "г) для виправлення негативних життєвих ситуацій."
+          }
+        }
+      }
+    },
+    "karma_help_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detailed Process of Working with the Lords of Karma"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Детальный процесс работы с Властителями Кармы"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Детальний процес роботи з Володарями Карми"
+          }
+        }
+      }
+    },
+    "karma_liberation_prayer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Let this healing pass through all levels and all bodies, through all my lives, including this present life, let all harm (caused by connections or situations) be removed, and let healing come to today - to NOW!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пусть это исцеление пройдет сквозь все уровни и все тела, через все мои жизни, в том числе и нынешнюю жизнь, пусть снимется всякий вред (принесенный связями или ситуациями), и пусть исцеление придет в сегодня - в СЕЙЧАС!"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нехай це зцілення пройде крізь усі рівні та всі тіла, через всі мої життя, включаючи це теперішнє життя, нехай зніметься всяка шкода (завдана зв'язками чи ситуаціями), і нехай зцілення прийде в сьогодні - в ЗАРАЗ!"
+          }
+        }
+      }
+    },
+    "karma_step_1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ask permission to speak with the Lords of Karma - you will feel their presence."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Попросите разрешения поговорить с Властителями Кармы - вы почувствуете их присутствие."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Попросіть дозволу поговорити з Володарями Карми - ви відчуєте їх присутність."
+          }
+        }
+      }
+    },
+    "karma_step_2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ask for the karmic liberation you wish to receive."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Попросите о том кармическом освобождении, которое желаете получить."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Попросіть про те кармічне звільнення, яке бажаєте отримати."
+          }
+        }
+      }
+    },
+    "karma_step_3" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You will receive an answer \"yes\" or \"no\"."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы получите ответ \"да\" или \"нет\"."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви отримаєте відповідь \"так\" або \"ні\"."
+          }
+        }
+      }
+    },
+    "karma_step_4" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If the answer is \"yes\", ask for liberation:"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Если ответ \"да\", попросите об освобождении:"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Якщо відповідь \"так\", попросіть про звільнення:"
+          }
+        }
+      }
+    },
+    "karma_step_5" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If the answer is \"no\", ask what you should do to achieve liberation. Wait for the answer. If you receive information about a past life that you don't fully understand, ask for clarification."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Если же ответ \"нет\", спросите, что вам следует сделать, чтобы добиться освобождения. Подождите, пока придет ответ. Если вам дадут информацию о прошлой жизни, которую вы понимаете не до конца, попросите прояснить то, что вы увидели."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Якщо ж відповідь \"ні\", запитайте, що вам слід зробити, щоб досягти звільнення. Дочекайтеся, поки прийде відповідь. Якщо вам дадуть інформацію про минуле життя, яку ви розумієте не до кінця, попросіть прояснити те, що ви побачили."
+          }
+        }
+      }
+    },
+    "karma_step_6" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you receive \"no\" in step 4, repeat questions requiring yes-no answers at each stage. Each time you receive a negative answer, do what is written in step 5."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Получив ответ \"нет\" в пункте 4, повторяйте вопросы, требующие ответов \"да-нет\" на каждом этапе. Каждый раз, получив отрицательный ответ, делайте то, что написано в пункте 5."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отримавши відповідь \"ні\" в пункті 4, повторюйте питання, що потребують відповідей \"так-ні\" на кожному етапі. Кожного разу, отримавши негативну відповідь, робіть те, що написано в пункті 5."
+          }
+        }
+      }
+    },
+    "karma_step_7" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can ask as many times as you want and about anything. But your requests should be simple and stated separately."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы можете просить сколько угодно раз и о чем угодно. Но ваши просьбы должны быть простыми и высказываться каждая отдельно."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви можете просити скільки завгодно разів і про що завгодно. Але ваші прохання повинні бути простими і висловлюватися кожне окремо."
+          }
+        }
+      }
+    },
+    "karma_step_8" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use this process for four categories of karmic healing:"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пользуйтесь этим процессом для четырех категорий кармического исцеления:"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Користуйтеся цим процесом для чотирьох категорій кармічного зцілення:"
+          }
+        }
+      }
+    },
+    "karma_step_9" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Treat these Beings with great respect. Never argue with them and don't forget to thank them."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Относитесь к этим Существам с огромным почтением. Никогда не спорьте с ними и не забывайте благодарить."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ставтеся до цих Істот з величезною пошаною. Ніколи не сперечайтеся з ними і не забувайте дякувати."
           }
         }
       }
@@ -1262,6 +2021,190 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Старше 6 місяців"
+          }
+        }
+      }
+    },
+    "onboarding_app_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Transform the teachings from the book into daily practice. Track your healing journey, manage requests, and work with the Lords of Karma step by step."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Превратите учения из книги в ежедневную практику. Отслеживайте свой путь исцеления, управляйте просьбами и работайте с Властителями Кармы пошагово."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перетворіть вчення з книги на щоденну практику. Відстежуйте свій шлях зцілення, керуйте проханнями та працюйте з Володарями Карми покроково."
+          }
+        }
+      }
+    },
+    "onboarding_app_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your Spiritual Companion"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваш духовный спутник"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваш духовний супутник"
+          }
+        }
+      }
+    },
+    "onboarding_book_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This app is a companion to Diana Stein's 'Karmic Healing' - originally written in English and translated into Russian."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Это приложение является дополнением к книге Дайяны Стайн 'Кармическое Исцеление' - изначально написанной на английском языке и переведенной на русский."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Цей застосунок є доповненням до книги Дайяни Стайн 'Кармічне Зцілення' - спочатку написаної англійською мовою та перекладеної російською."
+          }
+        }
+      }
+    },
+    "onboarding_book_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Based on Diana Stein's Book"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "На основе книги Дайяны Стайн"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "На основі книги Дайяни Стайн"
+          }
+        }
+      }
+    },
+    "onboarding_healing_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Learn to work with the Lords of Karma through guided requests. Heal relationships, overcome negative traits, and transform life situations with their guidance."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Научитесь работать с Властителями Кармы через направленные просьбы. Исцеляйте отношения, преодолевайте негативные черты и трансформируйте жизненные ситуации с их помощью."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Навчіться працювати з Володарями Карми через спрямовані прохання. Зцілюйте стосунки, подолайте негативні риси та трансформуйте життєві ситуації з їх допомогою."
+          }
+        }
+      }
+    },
+    "onboarding_healing_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Karmic Healing Process"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Процесс кармического исцеления"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Процес кармічного зцілення"
+          }
+        }
+      }
+    },
+    "onboarding_journey_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Change your past, present, and future with the help of the Lords of Karma. Start your journey of spiritual healing and personal transformation today."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Измените свое прошлое, настоящее и будущее с помощью Властителей Кармы. Начните свой путь духовного исцеления и личностной трансформации уже сегодня."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Змініть своє минуле, теперішнє та майбутнє з допомогою Володарів Карми. Почніть свій шлях духовного зцілення та особистісного перетворення вже сьогодні."
+          }
+        }
+      }
+    },
+    "onboarding_journey_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Begin Your Transformation"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Начните свое преображение"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Почніть своє перетворення"
           }
         }
       }
@@ -2688,949 +3631,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Напишіть нам"
-          }
-        }
-      }
-    },
-    "help" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Help"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Помощь"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Допомога"
-          }
-        }
-      }
-    },
-    "help_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "How to work with the Lords of Karma"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Как работать с Властителями Кармы"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Як працювати з Володарями Карми"
-          }
-        }
-      }
-    },
-    "help_subtitle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Step-by-step guide to effective communication"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Пошаговое руководство по эффективному общению"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Покроковий посібник з ефективного спілкування"
-          }
-        }
-      }
-    },
-    "help_step_1_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prepare your space"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Подготовьте пространство"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Підготуйте простір"
-          }
-        }
-      }
-    },
-    "help_step_1_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Find a quiet place where you won't be disturbed. Sit or lie down comfortably, close your eyes, and take several deep breaths to relax."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Найдите тихое место, где вас никто не потревожит. Сядьте или лягте удобно, закройте глаза и сделайте несколько глубоких вдохов для расслабления."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Знайдіть тихе місце, де вас ніхто не потурбує. Сядьте або лягтіть зручно, закрийте очі та зробіть кілька глибоких вдихів для розслаблення."
-          }
-        }
-      }
-    },
-    "help_step_2_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ask for permission"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Попросите разрешения"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Попросіть дозволу"
-          }
-        }
-      }
-    },
-    "help_step_2_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mentally or aloud, ask the Lords of Karma for permission to speak with them. Wait for their response - you may feel a sense of permission or guidance."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Мысленно или вслух попросите Властителей Кармы разрешения поговорить с ними. Дождитесь их ответа - вы можете почувствовать чувство разрешения или руководства."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Думкою попросіть Володарів Карми дозволу поговорити з ними. Дочекайтеся їх відповіді - ви можете відчути почуття дозволу або керівництва."
-          }
-        }
-      }
-    },
-    "help_step_3_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Formulate your request"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Сформулируйте просьбу"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Сформулюйте прохання"
-          }
-        }
-      }
-    },
-    "help_step_3_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Clearly and respectfully state your request. Be specific about what you need help with. Speak from your heart with sincerity and humility."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Четко и уважительно изложите вашу просьбу. Будьте конкретны в том, с чем вам нужна помощь. Говорите от сердца с искренностью и смирением."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Чітко та з повагою викладіть ваше прохання. Будьте конкретні в тому, з чим вам потрібна допомога. Говоріть від серця з щирістю та смиренністю."
-          }
-        }
-      }
-    },
-    "help_step_4_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Listen and observe"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Слушайте и наблюдайте"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Слухайте та спостерігайте"
-          }
-        }
-      }
-    },
-    "help_step_4_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "After making your request, remain quiet and attentive. You may receive guidance through thoughts, feelings, images, or inner knowing. Trust your intuition."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "После изложения просьбы оставайтесь тихими и внимательными. Вы можете получить руководство через мысли, чувства, образы или внутреннее знание. Доверяйте своей интуиции."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Після викладення прохання залишайтеся тихими та уважними. Ви можете отримати керівництво через думки, почуття, образи або внутрішнє знання. Довіряйте своїй інтуїції."
-          }
-        }
-      }
-    },
-    "help_step_5_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Express gratitude"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Выразите благодарность"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Висловіть подяку"
-          }
-        }
-      }
-    },
-    "help_step_5_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Thank the Lords of Karma for their time and assistance. Express your gratitude sincerely, regardless of whether you received immediate help or not."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Поблагодарите Властителей Кармы за их время и помощь. Выразите свою благодарность искренне, независимо от того, получили ли вы немедленную помощь или нет."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Подякуйте Володарям Карми за їх час та допомогу. Висловіть свою подяку щиро, незалежно від того, чи отримали ви негайну допомогу чи ні."
-          }
-        }
-      }
-    },
-    "help_tips_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Important Tips"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Важные советы"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Важливі поради"
-          }
-        }
-      }
-    },
-    "help_tip_1" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Practice regularly - the more you communicate, the stronger your connection becomes"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Практикуйтесь регулярно - чем больше вы общаетесь, тем сильнее становится ваша связь"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Практикуйтеся регулярно - чим більше ви спілкуєтеся, тим міцнішою стає ваш зв'язок"
-          }
-        }
-      }
-    },
-    "help_tip_2" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Be patient - answers may not come immediately, but they will come at the right time"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Будьте терпеливы - ответы могут прийти не сразу, но они придут в нужное время"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Будьте терплячі - відповіді можуть прийти не одразу, але вони прийдуть у потрібний час"
-          }
-        }
-      }
-    },
-    "help_tip_3" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Trust the process - even if you don't see immediate results, trust that healing is happening"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Доверяйте процессу - даже если вы не видите немедленных результатов, доверяйте, что исцеление происходит"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Довіряйте процесу - навіть якщо ви не бачите негайних результатів, довіряйте, що зцілення відбувається"
-          }
-        }
-      }
-    },
-    "help_tip_4" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Keep a journal - record your experiences and insights to track your progress"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ведите дневник - записывайте свои переживания и озарения, чтобы отслеживать прогресс"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ведіть щоденник - записуйте свої переживання та осяяння, щоб відстежувати прогрес"
-          }
-        }
-      }
-    },
-    "karma_help_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Detailed Process of Working with the Lords of Karma"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Детальный процесс работы с Властителями Кармы"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Детальний процес роботи з Володарями Карми"
-          }
-        }
-      }
-    },
-    "karma_step_1" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ask permission to speak with the Lords of Karma - you will feel their presence."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Попросите разрешения поговорить с Властителями Кармы - вы почувствуете их присутствие."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Попросіть дозволу поговорити з Володарями Карми - ви відчуєте їх присутність."
-          }
-        }
-      }
-    },
-    "karma_step_2" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ask for the karmic liberation you wish to receive."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Попросите о том кармическом освобождении, которое желаете получить."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Попросіть про те кармічне звільнення, яке бажаєте отримати."
-          }
-        }
-      }
-    },
-    "karma_step_3" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You will receive an answer \"yes\" or \"no\"."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Вы получите ответ \"да\" или \"нет\"."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ви отримаєте відповідь \"так\" або \"ні\"."
-          }
-        }
-      }
-    },
-    "karma_step_4" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "If the answer is \"yes\", ask for liberation:"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Если ответ \"да\", попросите об освобождении:"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Якщо відповідь \"так\", попросіть про звільнення:"
-          }
-        }
-      }
-    },
-    "karma_liberation_prayer" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Let this healing pass through all levels and all bodies, through all my lives, including this present life, let all harm (caused by connections or situations) be removed, and let healing come to today - to NOW!"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Пусть это исцеление пройдет сквозь все уровни и все тела, через все мои жизни, в том числе и нынешнюю жизнь, пусть снимется всякий вред (принесенный связями или ситуациями), и пусть исцеление придет в сегодня - в СЕЙЧАС!"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Нехай це зцілення пройде крізь усі рівні та всі тіла, через всі мої життя, включаючи це теперішнє життя, нехай зніметься всяка шкода (завдана зв'язками чи ситуаціями), і нехай зцілення прийде в сьогодні - в ЗАРАЗ!"
-          }
-        }
-      }
-    },
-    "karma_step_5" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "If the answer is \"no\", ask what you should do to achieve liberation. Wait for the answer. If you receive information about a past life that you don't fully understand, ask for clarification."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Если же ответ \"нет\", спросите, что вам следует сделать, чтобы добиться освобождения. Подождите, пока придет ответ. Если вам дадут информацию о прошлой жизни, которую вы понимаете не до конца, попросите прояснить то, что вы увидели."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Якщо ж відповідь \"ні\", запитайте, що вам слід зробити, щоб досягти звільнення. Дочекайтеся, поки прийде відповідь. Якщо вам дадуть інформацію про минуле життя, яку ви розумієте не до кінця, попросіть прояснити те, що ви побачили."
-          }
-        }
-      }
-    },
-    "karma_step_6" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "If you receive \"no\" in step 4, repeat questions requiring yes-no answers at each stage. Each time you receive a negative answer, do what is written in step 5."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Получив ответ \"нет\" в пункте 4, повторяйте вопросы, требующие ответов \"да-нет\" на каждом этапе. Каждый раз, получив отрицательный ответ, делайте то, что написано в пункте 5."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Отримавши відповідь \"ні\" в пункті 4, повторюйте питання, що потребують відповідей \"так-ні\" на кожному етапі. Кожного разу, отримавши негативну відповідь, робіть те, що написано в пункті 5."
-          }
-        }
-      }
-    },
-    "karma_step_7" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You can ask as many times as you want and about anything. But your requests should be simple and stated separately."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Вы можете просить сколько угодно раз и о чем угодно. Но ваши просьбы должны быть простыми и высказываться каждая отдельно."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ви можете просити скільки завгодно разів і про що завгодно. Але ваші прохання повинні бути простими і висловлюватися кожне окремо."
-          }
-        }
-      }
-    },
-    "karma_step_8" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Use this process for four categories of karmic healing:"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Пользуйтесь этим процессом для четырех категорий кармического исцеления:"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Користуйтеся цим процесом для чотирьох категорій кармічного зцілення:"
-          }
-        }
-      }
-    },
-    "karma_category_a" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "a) for healing from diseases or correcting physical condition;"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "а) для исцеления от болезней или исправления физического состояния;"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "а) для зцілення від хвороб або виправлення фізичного стану;"
-          }
-        }
-      }
-    },
-    "karma_category_b" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "b) for healing conflict relationships;"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "б) для исцеления конфликтных взаимоотношений;"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "б) для зцілення конфліктних взаємин;"
-          }
-        }
-      }
-    },
-    "karma_category_c" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "c) for getting rid of negative character traits and bad habits;"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "в) для избавления от негативных черт характера и дурных привычек;"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "в) для позбавлення від негативних рис характеру та поганих звичок;"
-          }
-        }
-      }
-    },
-    "karma_category_d" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "d) for correcting negative life situations."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "г) для исправления негативных жизненных ситуаций."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "г) для виправлення негативних життєвих ситуацій."
-          }
-        }
-      }
-    },
-    "karma_step_9" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Treat these Beings with great respect. Never argue with them and don't forget to thank them."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Относитесь к этим Существам с огромным почтением. Никогда не спорьте с ними и не забывайте благодарить."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ставтеся до цих Істот з величезною пошаною. Ніколи не сперечайтеся з ними і не забувайте дякувати."
-          }
-        }
-      }
-    },
-    "onboarding_book_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Based on Diana Stein's Book"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "На основе книги Дайяны Стайн"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "На основі книги Дайяни Стайн"
-          }
-        }
-      }
-    },
-    "onboarding_book_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "This app is a companion to Diana Stein's 'Karmic Healing' - originally written in English and translated into Russian. Discover the power of working with the Lords of Karma."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Это приложение является дополнением к книге Дайяны Стайн 'Кармическое Исцеление' - изначально написанной на английском языке и переведенной на русский. Откройте силу работы с Властителями Кармы."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Цей застосунок є доповненням до книги Дайяни Стайн 'Кармічне Зцілення' - спочатку написаної англійською мовою та перекладеної російською. Відкрийте силу роботи з Володарями Карми."
-          }
-        }
-      }
-    },
-    "onboarding_app_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Your Spiritual Companion"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ваш духовный спутник"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ваш духовний супутник"
-          }
-        }
-      }
-    },
-    "onboarding_app_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Transform the teachings from the book into daily practice. Track your healing journey, manage requests, and work with the Lords of Karma step by step."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Превратите учения из книги в ежедневную практику. Отслеживайте свой путь исцеления, управляйте просьбами и работайте с Властителями Кармы пошагово."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Перетворіть вчення з книги на щоденну практику. Відстежуйте свій шлях зцілення, керуйте проханнями та працюйте з Володарями Карми покроково."
-          }
-        }
-      }
-    },
-    "onboarding_healing_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Karmic Healing Process"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Процесс кармического исцеления"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Процес кармічного зцілення"
-          }
-        }
-      }
-    },
-    "onboarding_healing_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Learn to work with the Lords of Karma through guided requests. Heal relationships, overcome negative traits, and transform life situations with their guidance."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Научитесь работать с Властителями Кармы через направленные просьбы. Исцеляйте отношения, преодолевайте негативные черты и трансформируйте жизненные ситуации с их помощью."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Навчіться працювати з Володарями Карми через спрямовані прохання. Зцілюйте стосунки, подолайте негативні риси та трансформуйте життєві ситуації з їх допомогою."
-          }
-        }
-      }
-    },
-    "onboarding_journey_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Begin Your Transformation"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Начните свое преображение"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Почніть своє перетворення"
-          }
-        }
-      }
-    },
-    "onboarding_journey_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Change your past, present, and future with the help of the Lords of Karma. Start your journey of spiritual healing and personal transformation today."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Измените свое прошлое, настоящее и будущее с помощью Властителей Кармы. Начните свой путь духовного исцеления и личностной трансформации уже сегодня."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Змініть своє минуле, теперішнє та майбутнє з допомогою Володарів Карми. Почніть свій шлях духовного зцілення та особистісного перетворення вже сьогодні."
           }
         }
       }

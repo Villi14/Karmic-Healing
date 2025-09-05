@@ -172,7 +172,7 @@ public struct EnergyBalansingSettingsView: View {
       .background(RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium).fill(ResourcesAsset.Colors.cellBackground.swiftUIColor))
 
       HStack {
-        Image(systemName: "speaker.wave.2.fill")
+        Image(systemName: "speaker.wave.2")
           .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
 
         Text("sound".loc())
@@ -196,7 +196,7 @@ public struct EnergyBalansingSettingsView: View {
   private func volumeSection(_ viewStore: ViewStoreOf<EnergyBalansingSettings>) -> some View {
     VStack(spacing: DesignConstants.paddingMedium) {
       HStack {
-        Image(systemName: "speaker.wave.3.fill")
+        Image(systemName: "speaker.wave.3")
           .foregroundStyle(viewStore.soundEnabled ? ResourcesAsset.Colors.friendly.swiftUIColor : ResourcesAsset.Colors.textSecondary.swiftUIColor)
 
         Text("volume".loc())
