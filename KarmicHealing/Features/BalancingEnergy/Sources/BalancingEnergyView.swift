@@ -45,6 +45,8 @@ public struct BalancingEnergyView: View {
             .font(.headline.weight(.medium))
             .multilineTextAlignment(.center)
             .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
+            .minimumScaleFactor(0.5)
+            .lineLimit(4)
             .padding()
 
           TabView(selection: Binding(
@@ -73,6 +75,7 @@ public struct BalancingEnergyView: View {
                     .font(.callout.weight(.medium))
                     .multilineTextAlignment(.leading)
                     .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
+                    .minimumScaleFactor(0.5)
                     .padding(.horizontal)
 
                   Spacer()

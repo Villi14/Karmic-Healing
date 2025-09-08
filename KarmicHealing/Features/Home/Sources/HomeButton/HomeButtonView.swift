@@ -42,15 +42,11 @@ public struct HomeButtonView: View {
       
       Text(homeButton.title)
         .font(.caption.weight(.medium))
+        .minimumScaleFactor(0.5)
         .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
         .multilineTextAlignment(.leading)
         .padding(.horizontal, DesignConstants.paddingXLarge)
-      
-      Rectangle()
-        .frame(width: DesignConstants.frameWidthXLarge, height: DesignConstants.lineWidth)
-        .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
-        .padding(.horizontal, DesignConstants.paddingXLarge)
-      
+    
       Spacer()
     }
     .frame(width: size.width, height: size.height)

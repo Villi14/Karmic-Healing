@@ -118,7 +118,7 @@ public struct BalancingEnergyHelpView: View {
       // Step number
       ZStack {
         Circle()
-          .stroke(ResourcesAsset.Colors.friendly.swiftUIColor, lineWidth: DesignConstants.lineWidth)
+          .stroke(ResourcesAsset.Colors.clam.swiftUIColor, lineWidth: DesignConstants.lineWidth)
           .frame(width: DesignConstants.helpStepCircleSize, height: DesignConstants.helpStepCircleSize)
         
         Text("\(number)")

@@ -222,7 +222,7 @@ public struct RequestsHelpView: View {
       // Step number
       ZStack {
         Circle()
-          .stroke(ResourcesAsset.Colors.friendly.swiftUIColor, lineWidth: DesignConstants.lineWidth)
+          .stroke(ResourcesAsset.Colors.clam.swiftUIColor, lineWidth: DesignConstants.lineWidth)
           .frame(width: DesignConstants.helpStepCircleSize, height: DesignConstants.helpStepCircleSize)
         
         Text("\(number)")
@@ -262,7 +262,7 @@ public struct RequestsHelpView: View {
       // Step number
       ZStack {
         Circle()
-          .stroke(ResourcesAsset.Colors.friendly.swiftUIColor, lineWidth: DesignConstants.lineWidth)
+          .stroke(ResourcesAsset.Colors.clam.swiftUIColor, lineWidth: DesignConstants.lineWidth)
           .frame(width: DesignConstants.helpStepCircleSizeSmall, height: DesignConstants.helpStepCircleSizeSmall)
         
         Text("\(number)")

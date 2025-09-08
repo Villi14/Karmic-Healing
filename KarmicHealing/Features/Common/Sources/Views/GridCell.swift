@@ -38,6 +38,7 @@ public struct GridCell: View {
 
           Text(title)
             .font(.footnote.weight(.medium))
+            .minimumScaleFactor(0.5)
             .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
             .padding(.top, DesignConstants.paddingSmall)
         }
