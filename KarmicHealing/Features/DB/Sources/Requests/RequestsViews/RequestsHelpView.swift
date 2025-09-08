@@ -283,7 +283,7 @@ public struct RequestsHelpView: View {
     HStack(alignment: .top, spacing: DesignConstants.helpTipSpacing) {
       Image(systemName: "lightbulb")
         .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
-        .font(.caption)
+        .font(.title3)
       
       Text(text)
         .font(.body)

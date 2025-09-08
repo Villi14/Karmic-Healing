@@ -179,6 +179,7 @@ public struct AlertView<Action: Equatable>: View {
                 .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
                 .font(.callout)
                 .multilineTextAlignment(.center)
+                .minimumScaleFactor(0.5)
                 .padding(.horizontal, DesignConstants.paddingLarge)
             }
           }

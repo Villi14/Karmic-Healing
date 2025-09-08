@@ -72,6 +72,28 @@ public struct BalancingEnergyHelpView: View {
           }
           .padding(.horizontal, DesignConstants.paddingLarge)
           
+          // Meditation Settings
+          VStack(spacing: DesignConstants.helpStepSpacing) {
+            Text("meditation_settings_title".loc())
+              .font(.headline.weight(.semibold))
+              .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+            
+            VStack(spacing: DesignConstants.helpTipSpacing) {
+              tipRow(text: "meditation_step_timing".loc())
+              tipRow(text: "meditation_vibration_setting".loc())
+              tipRow(text: "meditation_sound_setting".loc())
+              tipRow(text: "meditation_volume_setting".loc())
+              tipRow(text: "meditation_sleep_notification".loc())
+            }
+          }
+          .padding(.horizontal, DesignConstants.paddingLarge)
+          .padding(.vertical, DesignConstants.paddingLarge)
+          .background(
+            RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
+              .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
+          )
+          .padding(.horizontal, DesignConstants.paddingLarge)
+          
           // Important tips
           VStack(spacing: DesignConstants.helpStepSpacing) {
             Text("help_tips_title".loc())
@@ -157,7 +179,7 @@ public struct BalancingEnergyHelpView: View {
     HStack(alignment: .top, spacing: DesignConstants.helpTipSpacing) {
       Image(systemName: "lightbulb")
         .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
-        .font(.caption)
+        .font(.title3)
       
       Text(text)
         .font(.body)

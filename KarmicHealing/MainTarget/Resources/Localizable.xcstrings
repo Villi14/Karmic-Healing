@@ -1726,6 +1726,144 @@
         }
       }
     },
+    "meditation_settings_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Meditation Step Settings"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Настройки шагов медитации"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Налаштування кроків медитації"
+          }
+        }
+      }
+    },
+    "meditation_sleep_notification" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If the app goes to sleep, a local notification will be sent to help synchronize the steps of your meditative practice."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Если приложение заснет, будет отправлено локальное уведомление, которое поможет синхронизировать шаги вашей медитативной практики."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Якщо застосунок засне, буде надіслано локальне сповіщення, яке допоможе синхронізувати кроки вашої медитативної практики."
+          }
+        }
+      }
+    },
+    "meditation_sound_setting" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can enable or disable sound playback when transitioning to the next step."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы можете включить или отключить воспроизведение звука при переходе к следующему шагу."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви можете увімкнути або вимкнути програвання звуку при переході до наступного кроку."
+          }
+        }
+      }
+    },
+    "meditation_step_timing" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can customize the time interval for transitioning to the next step in meditation."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы можете настроить временной интервал для перехода к следующему шагу в медитации."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви можете налаштувати часовий інтервал для переходу до наступного кроку в медитації."
+          }
+        }
+      }
+    },
+    "meditation_vibration_setting" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can enable or disable vibration when transitioning to the next step."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы можете включить или отключить вибрацию при переходе к следующему шагу."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви можете увімкнути або вимкнути вібрацію при переході до наступного кроку."
+          }
+        }
+      }
+    },
+    "meditation_volume_setting" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can adjust the volume of this sound."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы можете настроить громкость этого звука."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви можете налаштувати гучність цього звуку."
+          }
+        }
+      }
+    },
     "medium" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2077,19 +2215,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This app is a companion to Diana Stein's 'Karmic Healing' - originally written in English and translated into Russian."
+            "value" : "This app is a supplement to the Russian edition 'Karmic Healing', which is a translation of the English edition 'Psychic Healing with Spirit Guides and Angels' by Diana Stein."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Это приложение является дополнением к книге Дайяны Стайн 'Кармическое Исцеление' - изначально написанной на английском языке и переведенной на русский."
+            "value" : "Это приложение является дополнением к российскому изданию 'Кармическое Исцеление', которое является переводом английского издания 'Psychic Healing with Spirit Guides and Angels' Дайаны Стайн."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Цей застосунок є доповненням до книги Дайяни Стайн 'Кармічне Зцілення' - спочатку написаної англійською мовою та перекладеної російською."
+            "value" : "Цей застосунок є доповненням до російського видання 'Кармическое Исцеление', яке є перекладом англійського видання 'Psychic Healing with Spirit Guides and Angels' Дайани Стайн."
           }
         }
       }
@@ -3411,19 +3549,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This app is a companion to Diana Stein's 'Karmic Healing' book - originally written in English and translated into Russian.\n\nDevelopment:\n• Built with TCA (The Composable Architecture)\n\nThanks for using Karmic Healing 2025"
+            "value" : "This app is a supplement to the Russian edition 'Karmic Healing', which is a translation of the English edition 'Psychic Healing with Spirit Guides and Angels' by Diana Stein.\n\nDevelopment:\n• Built with TCA (The Composable Architecture)\n\nThanks for using Karmic Healing."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Это приложение является дополнением к книге Дайяны Стайн 'Кармическое Исцеление' - изначально написанной на английском языке и переведенной на русский.\n\nРазработка:\n• Создано с использованием TCA (The Composable Architecture)\n\nСпасибо за использование Karmic Healing 2025"
+            "value" : "Это приложение является дополнением к российскому изданию 'Кармическое Исцеление', которое является переводом английского издания 'Psychic Healing with Spirit Guides and Angels' Дайаны Стайн.\n\nРазработка:\n• Создано с использованием TCA (The Composable Architecture)\n\nСпасибо за использование Karmic Healing."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Цей застосунок є доповненням до книги Дайяни Стайн 'Кармічне Зцілення' - спочатку написаної англійською мовою та перекладеної російською.\n\nРозробка:\n• Створено з використанням TCA (The Composable Architecture)\n\nДякуємо за використання Karmic Healing 2025"
+            "value" : "Цей застосунок є доповненням до російського видання 'Кармическое Исцеление', яке є перекладом англійського видання 'Psychic Healing with Spirit Guides and Angels' Дайани Стайн.\n\nРозробка:\n• Створено з використанням TCA (The Composable Architecture)\n\nДякуємо за використання Karmic Healing."
           }
         }
       }
@@ -3457,19 +3595,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Time to flip slide"
+            "value" : "It is time to move on to the next step"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Время перевернуть слайд"
+            "value" : "Время перейти к следующему шагу."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Час перегорнути слайд"
+            "value" : "Час перейти до наступного кроку."
           }
         }
       }
