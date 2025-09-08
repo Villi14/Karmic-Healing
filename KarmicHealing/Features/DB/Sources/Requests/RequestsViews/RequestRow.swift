@@ -1,3 +1,4 @@
+import GRDB
 import SharingGRDB
 import SwiftUI
 import Common
@@ -119,20 +120,48 @@ struct RequestRow: View {
   private func toggleCompletion() {
     withErrorReporting {
       try database.write { db in
+        // Toggle the completion status of the current request
         isCompleted =
         try Request
           .find(request.id)
           .update { $0.isCompleted.toggle() }
           .returning(\.isCompleted)
           .fetchOne(db) ?? isCompleted
+        
+        // Update the parent RequestsList completion status based on new logic
+        try updateMainRequestCompletionStatus(in: db)
       }
     }
+  }
+  
+  private func updateMainRequestCompletionStatus(in db: Database) throws {
+    // Get all subordinate requests for this main request
+    let totalRequests = try Request.where { $0.requestsListID == requestsList.id }.fetchCount(db)
+    let completedRequests = try Request.where { $0.requestsListID == requestsList.id && $0.isCompleted }.fetchCount(db)
+    
+    let allSubRequestsCompleted = totalRequests > 0 && totalRequests == completedRequests
+    
+    
+    // Rule 4: If any subordinate request is unchecked, main request should be unchecked
+    // But we don't automatically set main request to checked when all subordinates are completed
+    if !allSubRequestsCompleted && totalRequests > 0 {
+      // Reset main request to uncompleted if any subordinate is uncompleted
+      try RequestsList
+        .find(requestsList.id)
+        .update { $0.isCompleted = false }
+        .execute(db)
+    }
+    // Note: We don't automatically set main request to completed when all subordinates are completed
+    // The user must manually check the main request
   }
   
   private func deleteRequest() {
     withErrorReporting {
       try database.write { db in
         try Request.delete(request).execute(db)
+        
+        // Update main request completion status after deletion
+        try updateMainRequestCompletionStatus(in: db)
       }
     }
   }

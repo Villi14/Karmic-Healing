@@ -117,7 +117,7 @@ class RequestsDetailModel: HashableObject {
           true
         }
       }
-      .order { $0.isCompleted }
+      .order { $0.position }
       .order {
         switch ordering {
         case .dueDate: $0.dueDate.asc(nulls: .last)

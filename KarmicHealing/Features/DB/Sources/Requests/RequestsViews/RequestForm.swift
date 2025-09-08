@@ -118,7 +118,19 @@ struct RequestFormView: View {
   private func saveButtonTapped() {
     withErrorReporting {
       try database.write { db in
+        // Check if this is a new request (not editing existing)
+        let isNewRequest = request.id == nil
+        
+        // Save the request
         try Request.upsert(request).fetchOne(db)
+        
+        // Rule 2: If adding a new subordinate request and main request is completed, reset it to uncompleted
+        if isNewRequest && requestsList.isCompleted {
+          try RequestsList
+            .find(requestsList.id)
+            .update { $0.isCompleted = false }
+            .execute(db)
+        }
       }
     }
     onSave?()

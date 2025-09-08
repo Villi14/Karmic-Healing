@@ -144,26 +144,27 @@ struct ListRowView<ListType: Identifiable>: View {
   private func toggleRequestsListCompletion(_ requestsList: RequestsList) async throws {
     try await database.write { db in
       if totalRequests == 0 {
-        // Empty list: can freely toggle
+        // Rule 1: Main request can be toggled if no subordinate requests
         let newCompletionStatus = !requestsList.isCompleted
         try RequestsList
           .find(requestsList.id)
           .update { $0.isCompleted = newCompletionStatus }
           .execute(db)
       } else if allRequestsCompleted {
-        // All sub-requests are completed: allow toggling list state
+        // Rule 3: Main request can be toggled if all subordinate requests are completed
         let newCompletionStatus = !requestsList.isCompleted
         try RequestsList
           .find(requestsList.id)
           .update { $0.isCompleted = newCompletionStatus }
           .execute(db)
       } else if requestsList.isCompleted {
-        // Allow resetting to false if main is marked as completed
+        // Rule 4: Allow resetting main request to uncheck if any subordinate is uncheck
         try RequestsList
           .find(requestsList.id)
           .update { $0.isCompleted = false }
           .execute(db)
       } else {
+        // Cannot check main request if not all subordinate requests are completed
         return
       }
     }
