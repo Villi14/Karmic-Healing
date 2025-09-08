@@ -65,17 +65,24 @@ struct RequestRow: View {
         }
       }
       Spacer()
-      if !isCompleted {
+      HStack(spacing: DesignConstants.paddingMedium) {
         Button {
           editRequest = Request.Draft(request)
         } label: {
           Image(systemName: "info.circle")
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(height: DesignConstants.frameHeightSmall)
-            .foregroundStyle(ResourcesAsset.Colors.clarity.swiftUIColor)
+            .font(.title3)
+            .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
         }
-        .tint(color)
+        .tint(ResourcesAsset.Colors.friendly.swiftUIColor)
+        
+        Button {
+          deleteRequest()
+        } label: {
+          Image(systemName: "trash")
+            .font(.title3)
+            .foregroundStyle(ResourcesAsset.Colors.error.swiftUIColor)
+        }
+        .tint(ResourcesAsset.Colors.energy.swiftUIColor)
       }
     }
     .buttonStyle(.borderless)
@@ -118,6 +125,14 @@ struct RequestRow: View {
           .update { $0.isCompleted.toggle() }
           .returning(\.isCompleted)
           .fetchOne(db) ?? isCompleted
+      }
+    }
+  }
+  
+  private func deleteRequest() {
+    withErrorReporting {
+      try database.write { db in
+        try Request.delete(request).execute(db)
       }
     }
   }

@@ -176,6 +176,24 @@ public struct RequestsHelpView: View {
           )
           .padding(.horizontal, DesignConstants.paddingLarge)
           
+          // Request Structure
+          VStack(spacing: DesignConstants.helpStepSpacing) {
+            Text("requests_structure_title".loc())
+              .font(.headline.weight(.semibold))
+              .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+            
+            VStack(spacing: DesignConstants.helpTipSpacing) {
+              tipRow(text: "requests_structure_explanation".loc())
+            }
+          }
+          .padding(.horizontal, DesignConstants.paddingLarge)
+          .padding(.vertical, DesignConstants.paddingLarge)
+          .background(
+            RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
+              .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
+          )
+          .padding(.horizontal, DesignConstants.paddingLarge)
+          
           // Important tips
           VStack(spacing: DesignConstants.helpStepSpacing) {
             Text("help_tips_title".loc())

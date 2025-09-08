@@ -109,7 +109,7 @@ struct RequestsListFormPreviews: PreviewProvider {
     
     NavigationStack {
       RequestsListForm(requestsList: RequestsList.Draft())
-        .navigationTitle("new_list".loc())
+        .navigationTitle("list_name".loc())
     }
   }
 }

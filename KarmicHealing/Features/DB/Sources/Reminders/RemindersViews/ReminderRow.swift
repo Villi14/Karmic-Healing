@@ -68,26 +68,30 @@ struct ReminderRow: View {
       
       Spacer()
       
-      if !isCompleted {
-        HStack {
-          if reminder.isFlagged {
-            Image(systemName: "flag")
-              .resizable()
-              .aspectRatio(contentMode: .fit)
-              .frame(height: DesignConstants.frameHeightSmall)
-              .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
-          }
-          Button {
-            editReminder = Reminder.Draft(reminder)
-          } label: {
-            Image(systemName: "info.circle")
-              .resizable()
-              .aspectRatio(contentMode: .fit)
-              .frame(height: DesignConstants.frameHeightSmall)
-              .foregroundStyle(ResourcesAsset.Colors.clarity.swiftUIColor)
-          }
-          .tint(color)
+      HStack(spacing: DesignConstants.paddingMedium) {
+        if reminder.isFlagged {
+          Image(systemName: "flag")
+            .font(.title3)
+            .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
         }
+        
+        Button {
+          editReminder = Reminder.Draft(reminder)
+        } label: {
+          Image(systemName: "info.circle")
+            .font(.title3)
+            .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
+        }
+        .tint(ResourcesAsset.Colors.friendly.swiftUIColor)
+        
+        Button {
+          deleteReminder()
+        } label: {
+          Image(systemName: "trash")
+            .font(.title3)
+            .foregroundStyle(ResourcesAsset.Colors.energy.swiftUIColor)
+        }
+        .tint(ResourcesAsset.Colors.energy.swiftUIColor)
       }
     }
     .buttonStyle(.borderless)
@@ -149,6 +153,14 @@ struct ReminderRow: View {
           .update { $0.isCompleted.toggle() }
           .returning(\.isCompleted)
           .fetchOne(db) ?? isCompleted
+      }
+    }
+  }
+  
+  private func deleteReminder() {
+    withErrorReporting {
+      try database.write { db in
+        try Reminder.delete(reminder).execute(db)
       }
     }
   }

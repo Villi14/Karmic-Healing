@@ -605,19 +605,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Edit list"
+            "value" : "Edit"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Редактировать список"
+            "value" : "Редактировать"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Редагувати список"
+            "value" : "Редагувати"
           }
         }
       }
@@ -1686,19 +1686,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "List Name"
+            "value" : "Main Request"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Название списка"
+            "value" : "Основная просьба"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Назва списку"
+            "value" : "Основне прохання"
           }
         }
       }
@@ -1768,6 +1768,52 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Якщо застосунок засне, буде надіслано локальне сповіщення, яке допоможе синхронізувати кроки вашої медитативної практики."
+          }
+        }
+      }
+    },
+    "requests_structure_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Request Structure"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Структура просьб"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Структура прохань"
+          }
+        }
+      }
+    },
+    "requests_structure_explanation" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A main request can have additional (subordinate) requests. The main request can be marked as completed only when all subordinate requests are completed."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "У основной просьбы могут быть дополнительные (подчинённые) просьбы. Основная просьба может быть отмечена как выполненная только когда все подчинённые уже выполнены."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "У основного прохання можуть бути додаткові (підпорядковані) прохання. Основне прохання може бути позначене як виконане, якщо всі підпорядковані вже виконані."
           }
         }
       }
@@ -2169,19 +2215,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Transform the teachings from the book into daily practice. Track your healing journey, manage requests, and work with the Lords of Karma step by step."
+            "value" : "Transform the teachings from the book into regular practice. Track your healing journey, manage requests, and work with the Lords of Karma step by step."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Превратите учения из книги в ежедневную практику. Отслеживайте свой путь исцеления, управляйте просьбами и работайте с Властителями Кармы пошагово."
+            "value" : "Превратите учения из книги в регулярную практику. Отслеживайте свой путь исцеления, управляйте просьбами и работайте с Властителями Кармы пошагово."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Перетворіть вчення з книги на щоденну практику. Відстежуйте свій шлях зцілення, керуйте проханнями та працюйте з Володарями Карми покроково."
+            "value" : "Перетворіть вчення з книги на регулярну практику. Відстежуйте свій шлях зцілення, керуйте проханнями та працюйте з Володарями Карми покроково."
           }
         }
       }
