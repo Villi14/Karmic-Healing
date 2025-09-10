@@ -321,20 +321,6 @@ public func appDatabase() throws -> any DatabaseWriter {
 
     try #sql(
       """
-      CREATE TEMPORARY TRIGGER "non_empty_requests_lists" 
-      AFTER DELETE ON "requestsLists"
-      FOR EACH ROW BEGIN
-        INSERT INTO "requestsLists"
-        ("title", "color")
-        SELECT 'Personal', \(raw: 0x4a99ef)
-        WHERE (SELECT count(*) FROM "requestsLists") = 0;
-      END
-      """
-    )
-    .execute(db)
-
-    try #sql(
-      """
       CREATE TEMPORARY TRIGGER "default_position_reminders_lists" 
       AFTER INSERT ON "remindersLists"
       FOR EACH ROW BEGIN
@@ -354,19 +340,6 @@ public func appDatabase() throws -> any DatabaseWriter {
         UPDATE "reminders"
         SET "position" = (SELECT max("position") + 1 FROM "reminders")
         WHERE "id" = NEW."id";
-      END
-      """
-    )
-    .execute(db)
-    try #sql(
-      """
-      CREATE TEMPORARY TRIGGER "non_empty_reminders_lists" 
-      AFTER DELETE ON "remindersLists"
-      FOR EACH ROW BEGIN
-        INSERT INTO "remindersLists"
-        ("title", "color")
-        SELECT 'Personal', \(raw: 0x4a99ef)
-        WHERE (SELECT count(*) FROM "remindersLists") = 0;
       END
       """
     )
