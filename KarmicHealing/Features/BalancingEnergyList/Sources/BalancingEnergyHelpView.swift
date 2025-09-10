@@ -79,6 +79,7 @@ public struct BalancingEnergyHelpView: View {
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
             
             VStack(spacing: DesignConstants.helpTipSpacing) {
+              tipRow(text: "meditation_auto_scroll".loc())
               tipRow(text: "meditation_step_timing".loc())
               tipRow(text: "meditation_vibration_setting".loc())
               tipRow(text: "meditation_sound_setting".loc())

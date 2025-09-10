@@ -156,6 +156,9 @@ public struct BalancingEnergyView: View {
       .onDisappear {
         viewStore.send(.onDisappear)
       }
+      .onReceive(NotificationCenter.default.publisher(for: UserDefaults.didChangeNotification)) { _ in
+        viewStore.send(.settingsDidChange)
+      }
       .toolbar {
         ToolbarItem(placement: .topBarLeading) {
           Button(action: { dismiss() }) {

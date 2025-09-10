@@ -77,7 +77,16 @@ public struct EnergyBalansingSettings {
         }
 
       case .onAppear:
-        state.sessionDuration = userDefaults.integer(for: .sessionDuration)
+        let savedDuration = userDefaults.integer(for: .sessionDuration)
+        state.sessionDuration = savedDuration > 0 ? savedDuration : 5 // Default to 5 minutes if not set
+
+        // If no duration was saved, save the default value
+        if savedDuration <= 0 {
+          return .run { [userDefaults] _ in
+            await userDefaults.setAsync(5, for: .sessionDuration)
+          }
+        }
+
         state.soundEnabled = userDefaults.bool(for: .soundEnabled)
         state.vibrationEnabled = userDefaults.bool(for: .vibrationEnabled)
         state.audioVolume = userDefaults.float(for: .audioVolume)

@@ -171,7 +171,7 @@ extension AlertReducer<Destination.Action.Alert>.State {
     .init(
       image: Image(systemName: "info.circle"),
       title: "about".loc(),
-      message: "thanks_for_using_karmic_healing_2025".loc()
+      message: "thanks_for_using_karmic_healing".loc()
     )
   }
 }

@@ -76,6 +76,31 @@ private class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificatio
     }
     return true
   }
+  
+  func applicationWillTerminate(_ application: UIApplication) {
+    // Cancel only balancing energy notifications when app is about to terminate
+    UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
+      let balancingEnergyIdentifiers = requests.compactMap { request in
+        let userInfo = request.content.userInfo
+        
+        if let notificationType = userInfo["notificationType"] as? String, notificationType == "BALANCING_ENERGY" {
+          return request.identifier
+        }
+        return nil
+      }
+      
+      if !balancingEnergyIdentifiers.isEmpty {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: balancingEnergyIdentifiers)
+        print("AppDelegate: Cancelled \(balancingEnergyIdentifiers.count) balancing energy notifications on app termination")
+      }
+    }
+  }
+  
+  func applicationDidEnterBackground(_ application: UIApplication) {
+    // Don't cancel balancing energy notifications when app goes to background
+    // They should continue working if user is still in meditation process
+    print("AppDelegate: App went to background - keeping balancing energy notifications active")
+  }
 
   // MARK: - Notification Delegate
   func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {

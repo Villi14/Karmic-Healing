@@ -52,6 +52,7 @@ public struct BalancingEnergy {
     case userManuallyScrolled
     case startTimer
     case onDisappear
+    case settingsDidChange
     case destination(PresentationAction<Destination.Action>)
   }
 
@@ -91,7 +92,7 @@ public struct BalancingEnergy {
       case .completeSteps:
         state.isCompleted = true
         // Cancel notifications when completing steps
-        notification.cancelAllNotifications()
+        notification.cancelBalancingEnergyNotifications()
         return .concatenate(
           .cancel(id: CancelID.timer),
           .send(.markInitialProcessCompletedIfNeeded)
@@ -123,18 +124,31 @@ public struct BalancingEnergy {
 
       case .userManuallyScrolled:
         // Cancel existing notifications and reset timer when user manually scrolls
-        notification.cancelAllNotifications()
-        return startAutoScrollTimer()
+        notification.cancelBalancingEnergyNotifications()
+        return .concatenate(
+          .cancel(id: CancelID.timer),
+          startAutoScrollTimer()
+        )
 
       case .startTimer:
         return startAutoScrollTimer()
 
       case .onDisappear:
-        // Cancel all notifications when leaving the screen
-        notification.cancelAllNotifications()
+        // Cancel only balancing energy notifications when leaving the screen
+        notification.cancelBalancingEnergyNotifications()
         return .cancel(id: CancelID.timer)
 
-      case .initialProcessCompletionSaved, .destination:
+      case .initialProcessCompletionSaved:
+        return .none
+
+      case .settingsDidChange:
+        // Restart timer when settings change
+        return .concatenate(
+          .cancel(id: CancelID.timer),
+          startAutoScrollTimer()
+        )
+
+      case .destination:
         return .none
       }
     }

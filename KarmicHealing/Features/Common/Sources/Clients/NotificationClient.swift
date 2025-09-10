@@ -25,20 +25,20 @@ public struct NotificationClient {
   public var scheduleLocalNotification: @Sendable (String, String, TimeInterval, NotificationType) -> Void
   public var scheduleReminderNotification: @Sendable (String, String, TimeInterval, UUID?, UUID?, NotificationType) -> Void
   public var scheduleReminderNotificationWithIntent: @Sendable (String, String, TimeInterval, UUID?, UUID?, NotificationType) -> Void
-  public var cancelAllNotifications: @Sendable () -> Void
+  public var cancelBalancingEnergyNotifications: @Sendable () -> Void
   
   public init(
     requestAuthorization: @escaping @Sendable () async -> Bool,
     scheduleLocalNotification: @escaping @Sendable (String, String, TimeInterval, NotificationType) -> Void,
     scheduleReminderNotification: @escaping @Sendable (String, String, TimeInterval, UUID?, UUID?, NotificationType) -> Void,
     scheduleReminderNotificationWithIntent: @escaping @Sendable (String, String, TimeInterval, UUID?, UUID?, NotificationType) -> Void,
-    cancelAllNotifications: @escaping @Sendable () -> Void
+    cancelBalancingEnergyNotifications: @escaping @Sendable () -> Void
   ) {
     self.requestAuthorization = requestAuthorization
     self.scheduleLocalNotification = scheduleLocalNotification
     self.scheduleReminderNotification = scheduleReminderNotification
     self.scheduleReminderNotificationWithIntent = scheduleReminderNotificationWithIntent
-    self.cancelAllNotifications = cancelAllNotifications
+    self.cancelBalancingEnergyNotifications = cancelBalancingEnergyNotifications
   }
 }
 
@@ -141,8 +141,23 @@ extension NotificationClient: DependencyKey {
           }
         }
       },
-      cancelAllNotifications: {
-        center.removeAllPendingNotificationRequests()
+      cancelBalancingEnergyNotifications: {
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.getPendingNotificationRequests { requests in
+          let balancingEnergyIdentifiers = requests.compactMap { request in
+            let userInfo = request.content.userInfo
+            if let notificationType = userInfo["notificationType"] as? String,
+               notificationType == NotificationType.balancingEnergy.rawValue {
+              return request.identifier
+            }
+            return nil
+          }
+          
+          if !balancingEnergyIdentifiers.isEmpty {
+            notificationCenter.removePendingNotificationRequests(withIdentifiers: balancingEnergyIdentifiers)
+            print("NotificationClient: Cancelled \(balancingEnergyIdentifiers.count) balancing energy notifications")
+          }
+        }
       }
     )
   }()
@@ -152,6 +167,6 @@ extension NotificationClient: DependencyKey {
     scheduleLocalNotification: { _, _, _, _ in },
     scheduleReminderNotification: { _, _, _, _, _, _ in },
     scheduleReminderNotificationWithIntent: { _, _, _, _, _, _ in },
-    cancelAllNotifications: { }
+    cancelBalancingEnergyNotifications: { }
   )
 }

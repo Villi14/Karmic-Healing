@@ -755,7 +755,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Знайдіть тихе місце, де вас ніхто не потурбує. Сядьте або лягтіть зручно, закрийте очі та зробіть кілька глибоких вдихів для розслаблення."
+            "value" : "Знайдіть тихе місце, де вас ніхто не потурбує. Сядьте або ляжте зручно, закрийте очі та зробіть кілька глибоких вдихів для розслаблення."
           }
         }
       }
@@ -1726,6 +1726,29 @@
         }
       }
     },
+    "meditation_auto_scroll" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Meditation steps scroll automatically according to the set time interval."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Шаги медитации прокручиваются автоматически согласно установленному временному интервалу."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кроки медитації гортаються автоматично згідно з встановленим часовим інтервалом."
+          }
+        }
+      }
+    },
     "meditation_settings_title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1768,52 +1791,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Якщо застосунок засне, буде надіслано локальне сповіщення, яке допоможе синхронізувати кроки вашої медитативної практики."
-          }
-        }
-      }
-    },
-    "requests_structure_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Request Structure"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Структура просьб"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Структура прохань"
-          }
-        }
-      }
-    },
-    "requests_structure_explanation" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A main request can have additional (subordinate) requests. The main request can be marked as completed only when all subordinate requests are completed."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "У основной просьбы могут быть дополнительные (подчинённые) просьбы. Основная просьба может быть отмечена как выполненная только когда все подчинённые уже выполнены."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "У основного прохання можуть бути додаткові (підпорядковані) прохання. Основне прохання може бути позначене як виконане, якщо всі підпорядковані вже виконані."
           }
         }
       }
@@ -3106,6 +3083,52 @@
         }
       }
     },
+    "requests_structure_explanation" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A main request can have additional (subordinate) requests. The main request can be marked as completed only when all subordinate requests are completed."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "У основной просьбы могут быть дополнительные (подчинённые) просьбы. Основная просьба может быть отмечена как выполненная только когда все подчинённые уже выполнены."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "У основного прохання можуть бути додаткові (підпорядковані) прохання. Основне прохання може бути позначене як виконане, якщо всі підпорядковані вже виконані."
+          }
+        }
+      }
+    },
+    "requests_structure_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Request Structure"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Структура просьб"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Структура прохань"
+          }
+        }
+      }
+    },
     "save" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3589,7 +3612,7 @@
         }
       }
     },
-    "thanks_for_using_karmic_healing_2025" : {
+    "thanks_for_using_karmic_healing" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -3641,19 +3664,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "It is time to move on to the next step"
+            "value" : "Next step"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Время перейти к следующему шагу."
+            "value" : "Следующий шаг"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Час перейти до наступного кроку."
+            "value" : "Наступний крок"
           }
         }
       }
