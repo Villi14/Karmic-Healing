@@ -24,8 +24,8 @@ struct RequestsListForm: View {
     Form {
       Section {
         VStack {
-          TextField("list_name".loc(), text: $requestsList.title)
-            .font(.system(.title2, design: .rounded, weight: .bold))
+          TextField("request_placeholder".loc(), text: $requestsList.title)
+            .font(.system(.title, design: .rounded, weight: .bold))
             .foregroundStyle(requestsList.color)
             .multilineTextAlignment(.center)
             .textFieldStyle(.plain)
@@ -109,7 +109,7 @@ struct RequestsListFormPreviews: PreviewProvider {
     
     NavigationStack {
       RequestsListForm(requestsList: RequestsList.Draft())
-        .navigationTitle("list_name".loc())
+        .navigationTitle("request_placeholder".loc())
     }
   }
 }

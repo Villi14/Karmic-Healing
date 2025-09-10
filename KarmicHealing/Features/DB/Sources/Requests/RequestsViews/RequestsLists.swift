@@ -182,7 +182,7 @@ struct RequestsListsView: View {
         .sheet(item: $model.destination.requestsListForm) { requestsList in
           NavigationStack {
             RequestsListForm(requestsList: requestsList)
-              .navigationTitle("new_list".loc())
+              .navigationTitle("request_placeholder".loc())
           }
           .presentationDetents([.medium])
         }

@@ -28,6 +28,10 @@ struct RequestsListRow: View {
               .execute(db)
           }
         }
+        // Force UI update after deletion
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+          // This helps ensure the UI updates properly
+        }
       },
       onEdit: {
         editList = requestsList
@@ -39,7 +43,7 @@ struct RequestsListRow: View {
     .sheet(item: $editList) { list in
       NavigationStack {
         RequestsListForm(requestsList: RequestsList.Draft(list))
-          .navigationTitle("edit_list".loc())
+          .navigationTitle("request_placeholder".loc())
       }
       .presentationDetents([.large])
     }

@@ -34,6 +34,7 @@ struct ReminderFormView: View {
   var body: some View {
     Form {
       TextField("title".loc(), text: $reminder.title)
+        .font(.system(.title3, design: .rounded, weight: .semibold))
       
       ZStack {
         if reminder.notes.isEmpty {

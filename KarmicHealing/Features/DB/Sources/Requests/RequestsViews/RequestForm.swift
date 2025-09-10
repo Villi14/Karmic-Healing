@@ -27,6 +27,7 @@ struct RequestFormView: View {
   var body: some View {
     Form {
       TextField("title".loc(), text: $request.title)
+        .font(.system(.title2, design: .rounded, weight: .semibold))
       
       ZStack {
         if request.notes.isEmpty {

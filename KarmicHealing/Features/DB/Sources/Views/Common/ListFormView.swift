@@ -29,8 +29,8 @@ struct ListFormView<ListType: Identifiable>: View {
     Form {
       Section {
         VStack {
-          TextField("list_name".loc(), text: $title)
-            .font(.system(.title2, design: .rounded, weight: .bold))
+          TextField("reminder_placeholder".loc(), text: $title)
+            .font(.system(.title3, design: .rounded, weight: .bold))
             .foregroundStyle(color)
             .multilineTextAlignment(.center)
             .textFieldStyle(.plain)
