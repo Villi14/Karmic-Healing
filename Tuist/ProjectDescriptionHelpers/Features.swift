@@ -92,7 +92,13 @@ public let db = Module(
     .external(name: "ComposableArchitecture"),
     .external(name: "SharingGRDB")
   ],
-  resources: .notPresent
+  resources: .notPresent,
+  unitTests: .present(
+    dependencies: [
+      .target(testingUtilities.implementationTarget),
+      .external(name: "ComposableArchitecture")
+    ]
+  )
 )
 
 // MARK: - App Settings module

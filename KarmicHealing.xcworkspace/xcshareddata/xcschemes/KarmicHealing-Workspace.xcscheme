@@ -210,6 +210,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4F0D63B2F6E390D5DB9165E7"
+               BuildableName = "DbTests.xctest"
+               BlueprintName = "DbTests"
+               ReferencedContainer = "container:KarmicHealing.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "56E5E7D15D17320671D69B9C"
                BuildableName = "Dependencies.framework"
                BlueprintName = "Dependencies"
@@ -910,6 +924,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4F0D63B2F6E390D5DB9165E7"
+               BuildableName = "DbTests.xctest"
+               BlueprintName = "DbTests"
+               ReferencedContainer = "container:KarmicHealing.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
