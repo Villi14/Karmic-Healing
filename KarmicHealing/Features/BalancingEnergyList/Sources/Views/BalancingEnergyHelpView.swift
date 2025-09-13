@@ -1,11 +1,14 @@
 import SwiftUI
 import Resources
 import Common
+import ComposableArchitecture
 
 public struct BalancingEnergyHelpView: View {
-  @Environment(\.dismiss) var dismiss
+  @Bindable var store: StoreOf<BalancingEnergyHelp>
   
-  public init() {}
+  public init(store: StoreOf<BalancingEnergyHelp>) {
+    self.store = store
+  }
   
   public var body: some View {
     ZStack {
@@ -126,7 +129,7 @@ public struct BalancingEnergyHelpView: View {
       .toolbarBackground(.visible, for: .navigationBar)
       .toolbar {
         ToolbarItem(placement: .topBarTrailing) {
-          Button(action: { dismiss() }) {
+          Button(action: { store.send(.dismissButtonTapped) }) {
             Image(systemName: "xmark")
               .renderingMode(.template)
               .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
@@ -194,6 +197,10 @@ public struct BalancingEnergyHelpView: View {
 
 #Preview {
   NavigationStack {
-    BalancingEnergyHelpView()
+    BalancingEnergyHelpView(
+      store: Store(initialState: BalancingEnergyHelp.State()) {
+        BalancingEnergyHelp()
+      }
+    )
   }
 }

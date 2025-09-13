@@ -211,7 +211,7 @@ public struct AlertView<Action: Equatable>: View {
     ForEach(buttons) { button in
       Button {
         if let action = button.action {
-          self.store.send(action)
+          store.send(action)
         }
         self.dismiss()
       } label: {

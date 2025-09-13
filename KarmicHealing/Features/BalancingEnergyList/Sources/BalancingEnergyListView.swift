@@ -11,70 +11,61 @@ import BalancingEnergy
 public struct BalancingEnergyListView: View {
   @SwiftUI.Environment(\.dismiss) var dismiss
 
-  private let store: StoreOf<BalancingEnergyList>
+  @Bindable var store: StoreOf<BalancingEnergyList>
 
   public init(store: StoreOf<BalancingEnergyList>) {
     self.store = store
   }
 
   public var body: some View {
-    WithViewStore(store, observe: { $0 }) { viewStore in
-      ZStack {
-        BgWithGradientView()
+    ZStack {
+      BgWithGradientView()
 
-        VStack {
-          KarmicHealingDisclosureGroup {
-            if !viewStore.initialProcessCompleted {
-              DisclosureCell("initial_process".loc()) {
-                self.store.send(.initialProcess)
-              }
-            }
-
-            DisclosureCell("essential_self".loc()) {
-              self.store.send(.essentialSelf)
-            }
-
-            DisclosureCell("divine_self".loc()) {
-              self.store.send(.divineSelf)
+      VStack {
+        KarmicHealingDisclosureGroup {
+          if !store.initialProcessCompleted {
+            DisclosureCell("initial_process".loc()) {
+              store.send(.initialProcess)
             }
           }
 
-          Spacer()
+          DisclosureCell("essential_self".loc()) {
+            store.send(.essentialSelf)
+          }
+
+          DisclosureCell("divine_self".loc()) {
+            store.send(.divineSelf)
+          }
         }
-        .font(.headline.weight(.medium))
-        .padding(.horizontal)
-        .padding(.top)
+
+        Spacer()
       }
-      .onAppear { self.store.send(.onAppear) }
-      .navigationTitle("energy_balancing".loc())
-      .navigationBarBackButtonHidden()
-      .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-      .sheet(isPresented: Binding(
-        get: { viewStore.isHelpPresented },
-        set: { isPresented in
-          if !isPresented {
-            store.send(.helpDismissed)
-          }
-        }
-      )) {
-        NavigationStack {
-          BalancingEnergyHelpView()
-        }
-        .presentationDetents([.large])
+      .font(.headline.weight(.medium))
+      .padding(.horizontal)
+      .padding(.top)
+    }
+    .onAppear { store.send(.onAppear) }
+    .navigationTitle("energy_balancing".loc())
+    .navigationBarBackButtonHidden()
+    .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+    .sheet(item: $store.scope(state: \.help, action: \.help)) { helpStore in
+      NavigationStack {
+        BalancingEnergyHelpView(store: helpStore)
       }
-      .toolbar {
-        ToolbarItem(placement: .topBarLeading) {
-          Button(action: { dismiss() }) {
-            Image(systemName: "chevron.left")
-              .renderingMode(.template)
-              .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
-          }
+      .presentationDetents([.large])
+    }
+    .toolbar {
+      ToolbarItem(placement: .topBarLeading) {
+        Button(action: { dismiss() }) {
+          Image(systemName: "chevron.left")
+            .renderingMode(.template)
+            .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
         }
-        ToolbarItem(placement: .topBarTrailing) {
-          Button(action: { store.send(.helpButtonTapped) }) {
-            Image(systemName: "questionmark.circle")
-              .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
-          }
+      }
+      ToolbarItem(placement: .topBarTrailing) {
+        Button(action: { store.send(.helpButtonTapped) }) {
+          Image(systemName: "questionmark.circle")
+            .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
         }
       }
     }

@@ -14,6 +14,9 @@ public struct BalancingEnergyList {
   public struct State: Equatable {
     public var initialProcessCompleted: Bool = false
     public var isHelpPresented: Bool = false
+
+    @Presents public var help: BalancingEnergyHelp.State?
+
     public init(initialProcessCompleted: Bool = false) {
       self.initialProcessCompleted = initialProcessCompleted
     }
@@ -27,6 +30,7 @@ public struct BalancingEnergyList {
     case markInitialProcessCompleted
     case helpButtonTapped
     case helpDismissed
+    case help(PresentationAction<BalancingEnergyHelp.Action>)
   }
 
   public var body: some ReducerOf<Self> {
@@ -39,14 +43,20 @@ public struct BalancingEnergyList {
         state.initialProcessCompleted = true
         return .none
       case .helpButtonTapped:
-        state.isHelpPresented = true
+        state.help = BalancingEnergyHelp.State(isPresented: true)
         return .none
       case .helpDismissed:
-        state.isHelpPresented = false
+        state.help = nil
         return .none
-      case .initialProcess, .essentialSelf, .divineSelf:
+      case .help(.presented(.dismiss)):
+        state.help = nil
+        return .none
+      case .initialProcess, .essentialSelf, .divineSelf, .help:
         return .none
       }
+    }
+    .ifLet(\.$help, action: \.help) {
+      BalancingEnergyHelp()
     }
   }
 }
