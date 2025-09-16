@@ -28,9 +28,9 @@ let packageSettings = PackageSettings(
 let package = Package(
   name: "KarmicHealingDependencies",
   dependencies: [
-    .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", from: "1.19.1"),
-    .package(url: "https://github.com/pointfreeco/sharing-grdb.git", from: "0.5.0"),
-    .package(url: "https://github.com/pointfreeco/swift-dependencies", from: "1.9.0"),
-    .package(url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.18.3")
+    .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", from: "1.22.2"),
+    .package(url: "https://github.com/pointfreeco/swift-navigation.git", from: "2.4.2"),
+    .package(url: "https://github.com/pointfreeco/sharing-grdb.git", from: "0.6.0"),
+    .package(url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.18.4")
   ]
 )

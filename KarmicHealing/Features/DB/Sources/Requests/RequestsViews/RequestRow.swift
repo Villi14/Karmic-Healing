@@ -72,9 +72,9 @@ struct RequestRow: View {
         } label: {
           Image(systemName: "info.circle")
             .font(.title3)
-            .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
+            .foregroundStyle(ResourcesAsset.Colors.clarity.swiftUIColor)
         }
-        .tint(ResourcesAsset.Colors.friendly.swiftUIColor)
+        .tint(ResourcesAsset.Colors.clarity.swiftUIColor)
         
         Button {
           deleteRequest()

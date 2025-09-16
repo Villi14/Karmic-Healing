@@ -378,6 +378,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1918E6267DCA4B8A806076DD"
+               BuildableName = "IssueReportingPackageSupport.framework"
+               BlueprintName = "IssueReportingPackageSupport"
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/xctest-dynamic-overlay/xctest-dynamic-overlay.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "D5734659E17303697C587D84"
                BuildableName = "KarmicHealing.app"
                BlueprintName = "KarmicHealing"
@@ -605,6 +619,48 @@
                BlueprintIdentifier = "F73339DCC49ABB99D412087D"
                BuildableName = "StructuredQueriesMacros"
                BlueprintName = "StructuredQueriesMacros"
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-structured-queries/swift-structured-queries.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "962A03DF31837F98C9D5EE22"
+               BuildableName = "StructuredQueriesSQLite.framework"
+               BlueprintName = "StructuredQueriesSQLite"
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-structured-queries/swift-structured-queries.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "314CC642CFF9D8D1CAD4A963"
+               BuildableName = "StructuredQueriesSQLiteCore.framework"
+               BlueprintName = "StructuredQueriesSQLiteCore"
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-structured-queries/swift-structured-queries.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CBC7B0AB77B4C3FB47DCC4D5"
+               BuildableName = "StructuredQueriesSQLiteMacros"
+               BlueprintName = "StructuredQueriesSQLiteMacros"
                ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-structured-queries/swift-structured-queries.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

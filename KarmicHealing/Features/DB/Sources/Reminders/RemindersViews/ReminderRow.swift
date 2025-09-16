@@ -69,20 +69,20 @@ struct ReminderRow: View {
       Spacer()
       
       HStack(spacing: DesignConstants.paddingMedium) {
-        if reminder.isFlagged {
-          Image(systemName: "flag")
-            .font(.title3)
-            .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
-        }
-        
         Button {
           editReminder = Reminder.Draft(reminder)
         } label: {
           Image(systemName: "info.circle")
             .font(.title3)
+            .foregroundStyle(ResourcesAsset.Colors.clarity.swiftUIColor)
+        }
+        .tint(ResourcesAsset.Colors.clarity.swiftUIColor)
+        
+        if reminder.isFlagged {
+          Image(systemName: "flag")
+            .font(.title3)
             .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
         }
-        .tint(ResourcesAsset.Colors.friendly.swiftUIColor)
         
         Button {
           deleteReminder()

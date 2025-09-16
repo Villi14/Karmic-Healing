@@ -4,38 +4,49 @@ import SharingGRDB
 import SwiftUI
 
 extension Color {
-  public struct HexRepresentation: QueryBindable, QueryRepresentable {
+  public struct HexRepresentation: QueryRepresentable {
     public var queryOutput: Color
-
-    public var queryBinding: QueryBinding {
-      guard let components = UIColor(queryOutput).cgColor.components else {
-        struct InvalidColor: Error {}
-        return .invalid(InvalidColor())
-      }
-
+    public init(queryOutput: Color) {
+      self.queryOutput = queryOutput
+    }
+    public init(hexValue: Int64) {
+      self.init(
+        queryOutput: Color(
+          red: Double((hexValue >> 24) & 0xFF) / 0xFF,
+          green: Double((hexValue >> 16) & 0xFF) / 0xFF,
+          blue: Double((hexValue >> 8) & 0xFF) / 0xFF,
+          opacity: Double(hexValue & 0xFF) / 0xFF
+        )
+      )
+    }
+    public var hexValue: Int64? {
+      guard let components = UIColor(queryOutput).cgColor.components
+      else { return nil }
       let r = Int64(components[0] * 0xFF) << 24
       let g = Int64(components[1] * 0xFF) << 16
       let b = Int64(components[2] * 0xFF) << 8
       let a = Int64((components.indices.contains(3) ? components[3] : 1) * 0xFF)
-
-      return .int(r | g | b | a)
+      return r | g | b | a
     }
+  }
+}
 
-    public init(queryOutput: Color) {
-      self.queryOutput = queryOutput
+extension Color.HexRepresentation: QueryBindable {
+  public init?(queryBinding: StructuredQueriesCore.QueryBinding) {
+    guard case .int(let hexValue) = queryBinding else { return nil }
+    self.init(hexValue: hexValue)
+  }
+  public var queryBinding: QueryBinding {
+    guard let hexValue else {
+      struct InvalidColor: Error {}
+      return .invalid(InvalidColor())
     }
+    return .int(hexValue)
+  }
+}
 
-    public init(decoder: inout some QueryDecoder) throws {
-      let hex = try Int(decoder: &decoder)
-
-      self.init(
-        queryOutput: Color(
-          red: Double((hex >> 24) & 0xFF) / 0xFF,
-          green: Double((hex >> 16) & 0xFF) / 0xFF,
-          blue: Double((hex >> 8) & 0xFF) / 0xFF,
-          opacity: Double(hex & 0xFF) / 0xFF
-        )
-      )
-    }
+extension Color.HexRepresentation: QueryDecodable {
+  public init(decoder: inout some QueryDecoder) throws {
+    try self.init(hexValue: Int64(decoder: &decoder))
   }
 }
