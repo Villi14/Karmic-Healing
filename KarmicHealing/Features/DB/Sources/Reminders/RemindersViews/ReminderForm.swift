@@ -47,7 +47,7 @@ struct ReminderFormView: View {
       }
       .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
       .tint(ResourcesAsset.Colors.clam.swiftUIColor)
-      .lineLimit(4)
+      .frame(minHeight: DesignConstants.textEditorMinHeight)
       .padding(.horizontal, DesignConstants.paddingNegativeSmall)
       
       Section {
@@ -86,10 +86,6 @@ struct ReminderFormView: View {
             formatter.dateStyle = .medium
             formatter.timeStyle = .medium
             formatter.timeZone = TimeZone.current
-            
-            print("ReminderForm: DatePicker changed")
-            print("ReminderForm: New date (UTC): \(newDate)")
-            print("ReminderForm: New date (local): \(formatter.string(from: newDate))")
           }
         }
       }

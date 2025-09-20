@@ -325,7 +325,7 @@ extension RemindersDetailModel.DetailType {
     case .completed: ResourcesAsset.Colors.health.swiftUIColor
     case .flagged: ResourcesAsset.Colors.friendly.swiftUIColor
     case .remindersList(let list): list.color
-    case .scheduled: ResourcesAsset.Colors.error.swiftUIColor
+    case .scheduled: ResourcesAsset.Colors.energy.swiftUIColor
     case .today: ResourcesAsset.Colors.clam.swiftUIColor
     }
   }

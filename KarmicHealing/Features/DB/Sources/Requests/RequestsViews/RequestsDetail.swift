@@ -341,7 +341,7 @@ extension RequestsDetailModel.DetailType {
     case .all: ResourcesAsset.Colors.textPrimary.swiftUIColor
     case .completed: ResourcesAsset.Colors.health.swiftUIColor
     case .requestsList(let list): list.color
-    case .scheduled: ResourcesAsset.Colors.error.swiftUIColor
+    case .scheduled: ResourcesAsset.Colors.energy.swiftUIColor
     case .today: ResourcesAsset.Colors.clam.swiftUIColor
     }
   }

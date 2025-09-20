@@ -40,7 +40,7 @@ struct RequestFormView: View {
       }
       .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
       .tint(ResourcesAsset.Colors.clam.swiftUIColor)
-      .lineLimit(4)
+      .frame(minHeight: DesignConstants.textEditorMinHeight)
       .padding(.horizontal, DesignConstants.paddingNegativeSmall)
       
       Section {

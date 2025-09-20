@@ -385,7 +385,7 @@ struct RemindersListsView: View {
             RemindersListForm(remindersList: remindersList)
               .navigationTitle("new_list".loc())
           }
-          .presentationDetents([.medium])
+          .presentationDetents([.large])
         }
         .tint(ResourcesAsset.Colors.clam.swiftUIColor)
         .navigationDestination(item: $model.destination.detail) { detailModel in

@@ -184,7 +184,7 @@ struct RequestsListsView: View {
             RequestsListForm(requestsList: requestsList)
               .navigationTitle("request_placeholder".loc())
           }
-          .presentationDetents([.medium])
+          .presentationDetents([.large])
         }
         .sheet(isPresented: $model.isHelpPresented) {
           NavigationStack {

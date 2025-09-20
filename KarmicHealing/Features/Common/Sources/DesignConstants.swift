@@ -55,6 +55,9 @@ public enum DesignConstants {
     public static let maxWidthSmall: CGFloat = 24
     public static let maxWidthMedium: CGFloat = 300
     public static let maxHeightLarge: CGFloat = 500
+    
+    // Text editor heights
+    public static let textEditorMinHeight: CGFloat = 120
 
     // Opacity
     public static let opacityLow: Double = 0.075

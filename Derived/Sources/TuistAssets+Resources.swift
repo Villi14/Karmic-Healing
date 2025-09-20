@@ -21,16 +21,7 @@
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 public enum ResourcesAsset: Sendable {
   public enum Colors {
-  public static let accent = ResourcesColors(name: "Accent")
-    public static let accentLight = ResourcesColors(name: "AccentLight")
-    public static let error = ResourcesColors(name: "Error")
-    public static let info = ResourcesColors(name: "Info")
-    public static let primary = ResourcesColors(name: "Primary")
-    public static let primaryLight = ResourcesColors(name: "PrimaryLight")
-    public static let success = ResourcesColors(name: "Success")
-    public static let surface = ResourcesColors(name: "Surface")
-    public static let warning = ResourcesColors(name: "Warning")
-    public static let background = ResourcesColors(name: "background")
+  public static let background = ResourcesColors(name: "background")
     public static let beige = ResourcesColors(name: "beige")
     public static let cellBackground = ResourcesColors(name: "cell_background")
     public static let clam = ResourcesColors(name: "clam")

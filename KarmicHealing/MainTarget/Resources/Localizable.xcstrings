@@ -2054,19 +2054,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "New List"
+            "value" : "New"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Новый список"
+            "value" : "Новый"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Новий список"
+            "value" : "Новий"
           }
         }
       }
@@ -2077,19 +2077,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "New Reminder"
+            "value" : "New"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Новое напоминание"
+            "value" : "Новoe"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Нове нагадування"
+            "value" : "Новe"
           }
         }
       }

@@ -81,7 +81,7 @@ struct RequestRow: View {
         } label: {
           Image(systemName: "trash")
             .font(.title3)
-            .foregroundStyle(ResourcesAsset.Colors.error.swiftUIColor)
+            .foregroundStyle(ResourcesAsset.Colors.energy.swiftUIColor)
         }
         .tint(ResourcesAsset.Colors.energy.swiftUIColor)
       }

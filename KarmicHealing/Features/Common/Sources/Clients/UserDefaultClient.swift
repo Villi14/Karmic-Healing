@@ -162,7 +162,7 @@ public struct FloatKey {
 
 // MARK: - Convenience methods
 extension UserDefaultsClient {
-  // Type-safe methods
+  // MARK: - Type-safe getters
   public func bool(for key: BoolKey) -> Bool {
     boolForKey(key.rawValue)
   }
@@ -178,33 +178,8 @@ extension UserDefaultsClient {
   public func float(for key: FloatKey) -> Float {
     floatForKey(key.rawValue)
   }
-  
-  @MainActor
-  public func set(_ value: Bool, for key: BoolKey) {
-    setBool(value, key.rawValue)
-  }
-  
-  @MainActor
-  public func set(_ value: String, for key: StringKey) {
-    setString(value, key.rawValue)
-  }
-  
-  @MainActor
-  public func set(_ value: Int, for key: IntKey) {
-    setInteger(value, key.rawValue)
-  }
-  
-  @MainActor
-  public func set(_ value: Float, for key: FloatKey) {
-    setFloat(value, key.rawValue)
-  }
-  
-  @MainActor
-  public func remove(_ key: String) {
-    remove(key)
-  }
-  
-  // Async versions for non-MainActor contexts
+
+  // MARK: - Type-safe async setters
   public func setAsync(_ value: Bool, for key: BoolKey) async {
     await MainActor.run {
       setBool(value, key.rawValue)
@@ -226,59 +201,6 @@ extension UserDefaultsClient {
   public func setAsync(_ value: Float, for key: FloatKey) async {
     await MainActor.run {
       setFloat(value, key.rawValue)
-    }
-  }
-  
-  public func removeAsync(_ key: String) async {
-    await MainActor.run {
-      remove(key)
-    }
-  }
-  
-  // Simple string key methods
-  public func bool(for key: String) -> Bool {
-    boolForKey(key)
-  }
-  
-  public func string(for key: String) -> String? {
-    stringForKey(key)
-  }
-  
-  public func integer(for key: String) -> Int {
-    integerForKey(key)
-  }
-  
-  @MainActor
-  public func set(_ value: Bool, for key: String) {
-    setBool(value, key)
-  }
-  
-  @MainActor
-  public func set(_ value: String, for key: String) {
-    setString(value, key)
-  }
-  
-  @MainActor
-  public func set(_ value: Int, for key: String) {
-    setInteger(value, key)
-  }
-  
-  // Async versions for simple keys
-  public func setAsync(_ value: Bool, for key: String) async {
-    await MainActor.run {
-      setBool(value, key)
-    }
-  }
-  
-  public func setAsync(_ value: String, for key: String) async {
-    await MainActor.run {
-      setString(value, key)
-    }
-  }
-  
-  public func setAsync(_ value: Int, for key: String) async {
-    await MainActor.run {
-      setInteger(value, key)
     }
   }
 }
