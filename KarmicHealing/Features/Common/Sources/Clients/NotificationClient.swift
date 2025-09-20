@@ -74,6 +74,8 @@ extension NotificationClient: DependencyKey {
         center.add(request) { error in
           if let error = error {
             print("Failed to schedule notification: \(error)")
+          } else {
+            print("NotificationClient: Successfully scheduled \(type.rawValue) notification with identifier: \(request.identifier)")
           }
         }
       },
@@ -156,6 +158,9 @@ extension NotificationClient: DependencyKey {
           if !balancingEnergyIdentifiers.isEmpty {
             notificationCenter.removePendingNotificationRequests(withIdentifiers: balancingEnergyIdentifiers)
             print("NotificationClient: Cancelled \(balancingEnergyIdentifiers.count) balancing energy notifications")
+            print("NotificationClient: Cancelled identifiers: \(balancingEnergyIdentifiers)")
+          } else {
+            print("NotificationClient: No balancing energy notifications found to cancel")
           }
         }
       }

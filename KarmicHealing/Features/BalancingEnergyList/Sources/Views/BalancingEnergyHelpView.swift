@@ -108,7 +108,6 @@ public struct BalancingEnergyHelpView: View {
               tipRow(text: "help_tip_1".loc())
               tipRow(text: "help_tip_2".loc())
               tipRow(text: "help_tip_3".loc())
-              tipRow(text: "help_tip_4".loc())
             }
           }
           .padding(.horizontal, DesignConstants.paddingLarge)

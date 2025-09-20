@@ -20,7 +20,7 @@ public struct AppSettings {
     var sessionDuration: Int = 5
     var soundEnabled: Bool = true
     var vibrationEnabled: Bool = true
-    var audioVolume: Float = 1.0
+    var audioVolume: Float = 0.5
     var userTheme: String = "system"
 
     public init() {}
@@ -34,6 +34,7 @@ public struct AppSettings {
     case didTapContactEmail
     case didTapSessionDuration
     case didTapThemeSettings
+    case didTapPrivacyPolicy
     case sessionDurationChanged(Int)
     case soundEnabledChanged(Bool)
     case vibrationEnabledChanged(Bool)
@@ -86,6 +87,9 @@ public struct AppSettings {
       case .didTapThemeSettings:
         state.destination = .themeSettings(.init(userTheme: state.userTheme))
         return .none
+      case .didTapPrivacyPolicy:
+        state.destination = .privacyPolicy(.init())
+        return .none
       case let .sessionDurationChanged(duration):
         state.sessionDuration = duration
         return .run { [userDefaults] _ in
@@ -130,6 +134,7 @@ public struct Destination {
     case mailComposer
     case sessionDurationAlert(EnergyBalansingSettings.State)
     case themeSettings(ThemeSettings.State)
+    case privacyPolicy(PrivacyPolicy.State)
   }
 
   public enum Action: Equatable {
@@ -138,6 +143,7 @@ public struct Destination {
     case mailComposer(MailComposer)
     case sessionDurationAlert(EnergyBalansingSettings.Action)
     case themeSettings(ThemeSettings.Action)
+    case privacyPolicy(PrivacyPolicy.Action)
 
     public enum Alert: Equatable {}
     public enum CopyAlert: Equatable {
@@ -151,17 +157,20 @@ public struct Destination {
       .ifLet(\.aboutAlert, action: \.aboutAlert) {
         EmptyReducer()
       }
+      .ifLet(\.clipboardAlert, action: \.clipboardAlert) {
+        EmptyReducer()
+      }
+      .ifLet(\.mailComposer, action: \.mailComposer) {
+        EmptyReducer()
+      }
       .ifLet(\.themeSettings, action: \.themeSettings) {
         ThemeSettings()
       }
       .ifLet(\.sessionDurationAlert, action: \.sessionDurationAlert) {
         EnergyBalansingSettings()
       }
-      .ifLet(\.clipboardAlert, action: \.clipboardAlert) {
-        EmptyReducer()
-      }
-      .ifLet(\.mailComposer, action: \.mailComposer) {
-        EmptyReducer()
+      .ifLet(\.privacyPolicy, action: \.privacyPolicy) {
+        PrivacyPolicy()
       }
   }
 }

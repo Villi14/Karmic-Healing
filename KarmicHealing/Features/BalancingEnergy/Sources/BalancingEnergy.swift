@@ -58,6 +58,7 @@ public struct BalancingEnergy {
 
   public var body: some ReducerOf<Self> {
     Reduce { state, action in
+      print("BalancingEnergy: Received action: \(action)")
       switch action {
       case .onAppear:
         // Request notification permission and start auto-scroll timer
@@ -135,7 +136,9 @@ public struct BalancingEnergy {
 
       case .onDisappear:
         // Cancel only balancing energy notifications when leaving the screen
+        print("BalancingEnergy: onDisappear - cancelling notifications and timer")
         notification.cancelBalancingEnergyNotifications()
+        print("BalancingEnergy: Cancelling timer with ID: \(CancelID.timer)")
         return .cancel(id: CancelID.timer)
 
       case .initialProcessCompletionSaved:
@@ -181,15 +184,18 @@ public struct BalancingEnergy {
     let savedDuration = userDefaults.integer(for: .sessionDuration)
     let durationToUse = savedDuration > 0 ? savedDuration : 5 // Default 5 minutes
 
-    // Schedule local notification to wake up the app
-    notification.scheduleLocalNotification(
-      "time_to_flip_slide".loc(),
-      "tap_to_continue_energy_balancing".loc(),
-      TimeInterval(durationToUse * 60),
-      .balancingEnergy
-    )
+    print("BalancingEnergy: Starting auto scroll timer with duration: \(durationToUse) minutes")
 
     return .run { send in
+      print("BalancingEnergy: Scheduling notification inside timer effect")
+      // Schedule local notification to wake up the app
+      notification.scheduleLocalNotification(
+        "time_to_flip_slide".loc(),
+        "tap_to_continue_energy_balancing".loc(),
+        TimeInterval(durationToUse * 60),
+        .balancingEnergy
+      )
+      
       try await clock.sleep(for: .seconds(durationToUse * 60))
       await send(.autoScrollTimer)
     }

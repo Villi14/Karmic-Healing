@@ -16,38 +16,45 @@ public struct AppSettingsView: View {
     self.store = store
   }
 
-  public var body: some View {
-    ZStack {
-      BgWithGradientView()
+  private var settingsContent: some View {
+    ScrollView {
+      VStack {
+        KarmicHealingDisclosureGroup {
+          DisclosureCell("about".loc()) {
+            store.send(.didTapAbout)
+          }
 
-      ScrollView {
-        VStack {
-          KarmicHealingDisclosureGroup {
-            DisclosureCell("about".loc()) {
-              store.send(.didTapAbout)
-            }
+          DisclosureCell("theme".loc()) {
+            store.send(.didTapThemeSettings)
+          }
 
-            DisclosureCell("theme".loc()) {
-              store.send(.didTapThemeSettings)
-            }
+          DisclosureCell("session_duration".loc()) {
+            store.send(.didTapSessionDuration)
+          }
 
-            DisclosureCell("session_duration".loc()) {
-              store.send(.didTapSessionDuration)
-            }
+          DisclosureCell("change_language".loc()) {
+            store.send(.didTapChangeLanguage)
+          }
 
-            DisclosureCell("change_language".loc()) {
-              store.send(.didTapChangeLanguage)
-            }
+          DisclosureCell("privacy_policy".loc()) {
+            store.send(.didTapPrivacyPolicy)
+          }
 
-            DisclosureCell("write_to_us".loc()) {
-              store.send(.didTapContactEmail)
-            }
+          DisclosureCell("write_to_us".loc()) {
+            store.send(.didTapContactEmail)
           }
         }
       }
-      .font(.headline.weight(.medium))
-      .padding(.horizontal)
-      .padding(.top)
+    }
+    .font(.headline.weight(.medium))
+    .padding(.horizontal)
+    .padding(.top)
+  }
+
+  public var body: some View {
+    ZStack {
+      BgWithGradientView()
+      settingsContent
     }
     .navigationTitle("settings".loc())
     .navigationBarBackButtonHidden()
@@ -102,6 +109,16 @@ public struct AppSettingsView: View {
       action: Destination.Action.clipboardAlert,
       content: AlertView<Destination.Action.CopyAlert>.init(store:)
     )
+    .fullScreenCover(
+      store: store.scope(
+        state: \.$destination,
+        action: \.destination
+      ),
+      state: \.privacyPolicy,
+      action: Destination.Action.privacyPolicy
+    ) { store in
+      PrivacyPolicyView(store: store)
+    }
     .fullScreenCover(
       store: store.scope(
         state: \.$destination,

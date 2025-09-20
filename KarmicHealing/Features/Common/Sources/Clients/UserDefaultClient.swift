@@ -20,6 +20,7 @@ public struct UserDefaultsClient {
   public var floatForKey: @Sendable (String) -> Float
   public var integerForKey: @Sendable (String) -> Int
   public var stringForKey: @Sendable (String) -> String?
+  public var objectForKey: @Sendable (String) -> Any?
   public var remove: @MainActor @Sendable (String) -> Void
   public var setBool: @MainActor @Sendable (Bool, String) -> Void
   public var setData: @MainActor @Sendable (Data?, String) -> Void
@@ -35,6 +36,7 @@ public struct UserDefaultsClient {
     floatForKey: @Sendable @escaping (String) -> Float,
     integerForKey: @Sendable @escaping (String) -> Int,
     stringForKey: @Sendable @escaping (String) -> String?,
+    objectForKey: @Sendable @escaping (String) -> Any?,
     remove: @MainActor @Sendable @escaping (String) -> Void,
     setBool: @MainActor @Sendable @escaping (Bool, String) -> Void,
     setData: @MainActor @Sendable @escaping (Data?, String) -> Void,
@@ -49,6 +51,7 @@ public struct UserDefaultsClient {
     self.floatForKey = floatForKey
     self.integerForKey = integerForKey
     self.stringForKey = stringForKey
+    self.objectForKey = objectForKey
     self.remove = remove
     self.setBool = setBool
     self.setData = setData
@@ -62,12 +65,23 @@ public struct UserDefaultsClient {
 extension UserDefaultsClient: DependencyKey {
   public static let liveValue: Self = {
     return Self(
-      boolForKey: { UserDefaults.standard.bool(forKey: $0) },
+      boolForKey: { key in
+        // Set default values for sound and vibration to false
+        if key == UserDefaultsClient.Keys.soundEnabled || key == UserDefaultsClient.Keys.vibrationEnabled {
+          let value = UserDefaults.standard.object(forKey: key)
+          if value == nil {
+            // First time - return false as default
+            return false
+          }
+        }
+        return UserDefaults.standard.bool(forKey: key)
+      },
       dataForKey: { UserDefaults.standard.data(forKey: $0) },
       doubleForKey: { UserDefaults.standard.double(forKey: $0) },
       floatForKey: { UserDefaults.standard.float(forKey: $0) },
       integerForKey: { UserDefaults.standard.integer(forKey: $0) },
       stringForKey: { UserDefaults.standard.string(forKey: $0) },
+      objectForKey: { UserDefaults.standard.object(forKey: $0) },
       remove: { UserDefaults.standard.removeObject(forKey: $0) },
       setBool: { UserDefaults.standard.set($0, forKey: $1) },
       setData: { UserDefaults.standard.set($0, forKey: $1) },
@@ -86,6 +100,7 @@ extension UserDefaultsClient: DependencyKey {
       floatForKey: { _ in 1.0 },
       integerForKey: { _ in 0 },
       stringForKey: { _ in nil },
+      objectForKey: { _ in nil },
       remove: { _ in },
       setBool: { _, _ in },
       setData: { _, _ in },
@@ -177,6 +192,10 @@ extension UserDefaultsClient {
   
   public func float(for key: FloatKey) -> Float {
     floatForKey(key.rawValue)
+  }
+  
+  public func object(for key: BoolKey) -> Any? {
+    objectForKey(key.rawValue)
   }
 
   // MARK: - Type-safe async setters

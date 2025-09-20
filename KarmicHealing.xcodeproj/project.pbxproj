@@ -49,6 +49,7 @@
 		53F8B73D9121D4070DB87CCB /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D4D7E243F10640177D9025 /* String+Localization.swift */; };
 		544AF0C8357C8E8AB6CAD588 /* Db.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD80CC0D078FA40E56A3E50 /* Db.framework */; };
 		55E78F5FEA3833CDE1286D69 /* Sharing.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C0B59758EFA10BA8AA6DA0D1 /* Sharing.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		58A6A415329E1FDE345D9FF0 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8507AAFED851628BA80B19EC /* PrivacyPolicyView.swift */; };
 		58C0B482EFB1A571D13E0F38 /* IssueReporting.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 029923781F6C803C25C065FD /* IssueReporting.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		597E4C427F06E8303131B7AB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD886FBCE4DE4450B9B2CFC /* XCTest.framework */; };
 		5C46A2B9B61966C3A51E0C0E /* TuistBundle+Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18DBDF5630C1EA9E7AE7DCE /* TuistBundle+Resources.swift */; };
@@ -580,6 +581,7 @@
 		7FE58283C3A274F5F92A7FD1 /* KarmicHealingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarmicHealingApp.swift; sourceTree = "<group>"; };
 		80D93201106153BC9279C770 /* TuistBundle+KarmicHealing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+KarmicHealing.swift"; sourceTree = "<group>"; };
 		84C8FD516CA44D211DF048D7 /* TuistAssets+Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+Resources.swift"; sourceTree = "<group>"; };
+		8507AAFED851628BA80B19EC /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		8713013181939438F04B4BB9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87179576D83D01449EED8B00 /* HomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		881F8A734FFF7D8372D06ED8 /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -767,6 +769,7 @@
 			isa = PBXGroup;
 			children = (
 				C2D5C79B861D05B675CA8AB3 /* MailComposerView.swift */,
+				8507AAFED851628BA80B19EC /* PrivacyPolicyView.swift */,
 				88EAE75075CAF930FE23AB79 /* ThemeSettingsView.swift */,
 			);
 			path = Views;
@@ -1769,6 +1772,7 @@
 				C7EDD47524AC300488535AA4 /* AppSettings.swift in Sources */,
 				076B1961B6A6106CCEA1D520 /* AppSettingsView.swift in Sources */,
 				960FE2E5190D781F79BC1F2F /* MailComposerView.swift in Sources */,
+				58A6A415329E1FDE345D9FF0 /* PrivacyPolicyView.swift in Sources */,
 				3A8F7495E3809FC29E6A7CDD /* ThemeSettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

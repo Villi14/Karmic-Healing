@@ -21,9 +21,9 @@ public struct EnergyBalansingSettings {
 
     public init(
       sessionDuration: Int = 5,
-      soundEnabled: Bool = true,
-      vibrationEnabled: Bool = true,
-      audioVolume: Float = 1.0
+      soundEnabled: Bool = false,
+      vibrationEnabled: Bool = false,
+      audioVolume: Float = 0.5
     ) {
       self.sessionDuration = sessionDuration
       self.soundEnabled = soundEnabled
@@ -80,19 +80,31 @@ public struct EnergyBalansingSettings {
         let savedDuration = userDefaults.integer(for: .sessionDuration)
         state.sessionDuration = savedDuration > 0 ? savedDuration : 5 // Default to 5 minutes if not set
 
-        // If no duration was saved, save the default value
-        if savedDuration <= 0 {
+        // Check if this is the first time opening settings
+        let hasSoundSetting = userDefaults.object(for: .soundEnabled) != nil
+        let hasVibrationSetting = userDefaults.object(for: .vibrationEnabled) != nil
+        
+        if !hasSoundSetting {
+          // First time - set default values
+          state.soundEnabled = false
+          state.vibrationEnabled = false
+          state.audioVolume = 0.5
+          
           return .run { [userDefaults] _ in
             await userDefaults.setAsync(5, for: .sessionDuration)
+            await userDefaults.setAsync(false, for: .soundEnabled)
+            await userDefaults.setAsync(false, for: .vibrationEnabled)
+            await userDefaults.setAsync(0.5, for: .audioVolume)
           }
-        }
-
-        state.soundEnabled = userDefaults.bool(for: .soundEnabled)
-        state.vibrationEnabled = userDefaults.bool(for: .vibrationEnabled)
-        state.audioVolume = userDefaults.float(for: .audioVolume)
-        let volume = state.audioVolume
-        return .run { [audio] _ in
-          audio.setVolume(volume)
+        } else {
+          // Load saved values
+          state.soundEnabled = userDefaults.bool(for: .soundEnabled)
+          state.vibrationEnabled = userDefaults.bool(for: .vibrationEnabled)
+          state.audioVolume = userDefaults.float(for: .audioVolume)
+          let volume = state.audioVolume
+          return .run { [audio] _ in
+            audio.setVolume(volume)
+          }
         }
       }
     }

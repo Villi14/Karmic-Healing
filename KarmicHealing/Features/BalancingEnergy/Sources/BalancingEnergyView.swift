@@ -6,6 +6,7 @@ import ComposableArchitecture
 import SwiftUI
 import Resources
 import Common
+import UserNotifications
 
 public struct BalancingEnergyView: View {
   @SwiftUI.Environment(\.dismiss) var dismiss
@@ -128,7 +129,27 @@ public struct BalancingEnergyView: View {
 
             Button(viewStore.currentStep == viewStore.steps.count - 1 ? "done".loc() : "next".loc()) {
               if viewStore.currentStep == viewStore.steps.count - 1 {
+                print("BalancingEnergyView: Done button tapped - completing steps")
                 viewStore.send(.completeSteps)
+                
+                // Cancel notifications immediately when done
+                let notificationCenter = UNUserNotificationCenter.current()
+                notificationCenter.getPendingNotificationRequests { requests in
+                  let balancingEnergyIdentifiers = requests.compactMap { request in
+                    let userInfo = request.content.userInfo
+                    if let notificationType = userInfo["notificationType"] as? String,
+                       notificationType == "BALANCING_ENERGY" {
+                      return request.identifier
+                    }
+                    return nil
+                  }
+                  
+                  if !balancingEnergyIdentifiers.isEmpty {
+                    notificationCenter.removePendingNotificationRequests(withIdentifiers: balancingEnergyIdentifiers)
+                    print("BalancingEnergyView: Done button - cancelled \(balancingEnergyIdentifiers.count) balancing energy notifications")
+                  }
+                }
+                
                 dismiss()
               } else {
                 viewStore.send(.nextStep)
@@ -154,14 +175,60 @@ public struct BalancingEnergyView: View {
         viewStore.send(.onAppear)
       }
       .onDisappear {
+        print("BalancingEnergyView: onDisappear called")
+        print("BalancingEnergyView: Sending .onDisappear action")
         viewStore.send(.onDisappear)
+        
+        // Also cancel notifications directly as backup
+        print("BalancingEnergyView: Cancelling notifications directly as backup")
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.getPendingNotificationRequests { requests in
+          let balancingEnergyIdentifiers = requests.compactMap { request in
+            let userInfo = request.content.userInfo
+            if let notificationType = userInfo["notificationType"] as? String,
+               notificationType == "BALANCING_ENERGY" {
+              return request.identifier
+            }
+            return nil
+          }
+          
+          if !balancingEnergyIdentifiers.isEmpty {
+            notificationCenter.removePendingNotificationRequests(withIdentifiers: balancingEnergyIdentifiers)
+            print("BalancingEnergyView: Directly cancelled \(balancingEnergyIdentifiers.count) balancing energy notifications")
+            print("BalancingEnergyView: Cancelled identifiers: \(balancingEnergyIdentifiers)")
+          } else {
+            print("BalancingEnergyView: No balancing energy notifications found to cancel directly")
+          }
+        }
       }
       .onReceive(NotificationCenter.default.publisher(for: UserDefaults.didChangeNotification)) { _ in
         viewStore.send(.settingsDidChange)
       }
       .toolbar {
         ToolbarItem(placement: .topBarLeading) {
-          Button(action: { dismiss() }) {
+          Button(action: { 
+            print("BalancingEnergyView: Back button tapped")
+            
+            // Cancel notifications immediately when going back
+            let notificationCenter = UNUserNotificationCenter.current()
+            notificationCenter.getPendingNotificationRequests { requests in
+              let balancingEnergyIdentifiers = requests.compactMap { request in
+                let userInfo = request.content.userInfo
+                if let notificationType = userInfo["notificationType"] as? String,
+                   notificationType == "BALANCING_ENERGY" {
+                  return request.identifier
+                }
+                return nil
+              }
+              
+              if !balancingEnergyIdentifiers.isEmpty {
+                notificationCenter.removePendingNotificationRequests(withIdentifiers: balancingEnergyIdentifiers)
+                print("BalancingEnergyView: Back button - cancelled \(balancingEnergyIdentifiers.count) balancing energy notifications")
+              }
+            }
+            
+            dismiss() 
+          }) {
             Image(systemName: "chevron.left")
               .renderingMode(.template)
               .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
