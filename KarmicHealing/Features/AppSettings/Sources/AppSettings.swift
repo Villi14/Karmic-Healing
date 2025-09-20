@@ -187,7 +187,7 @@ extension AlertReducer<Destination.Action.Alert>.State {
 
 extension AlertReducer<Destination.Action.CopyAlert>.State {
   static var contactUs: Self {
-    let email = "karmic.healing@gmail.com"
+    let email = "karmic.healing14@gmail.com"
 
     return .init(
       image: Image(systemName: "envelope"),
