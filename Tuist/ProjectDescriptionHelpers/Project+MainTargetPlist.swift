@@ -15,7 +15,7 @@ public let mainTargetPlist: InfoPlist = .extendingDefault(
     "UIRequiresFullScreen": .boolean(true),
     "CFBundleName": .string("KarmicHealing"),
     "CFBundleDisplayName": .string("Karmic Healing"),
-    "CFBundleShortVersionString": .string("1.0"),
+    "CFBundleShortVersionString": .string("0.1"),
     "CFBundleVersion": .string("0.1"),
   ]
 )
