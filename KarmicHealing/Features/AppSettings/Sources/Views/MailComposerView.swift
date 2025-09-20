@@ -33,7 +33,7 @@ struct MailComposerView: UIViewControllerRepresentable {
   ) -> MFMailComposeViewController {
     let vc = MFMailComposeViewController()
     vc.mailComposeDelegate = context.coordinator
-    vc.setToRecipients(["karmic.healing@gmail.com"])
+    vc.setToRecipients(["karmic.healing14@gmail.com"])
     return vc
   }
 

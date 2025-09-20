@@ -16,6 +16,6 @@ public let mainTargetPlist: InfoPlist = .extendingDefault(
     "CFBundleName": .string("KarmicHealing"),
     "CFBundleDisplayName": .string("Karmic Healing"),
     "CFBundleShortVersionString": .string("1.0"),
-    "CFBundleVersion": .string("0.2"),
+    "CFBundleVersion": .string("0.3"),
   ]
 )
