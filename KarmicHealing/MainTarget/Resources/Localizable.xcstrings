@@ -1910,6 +1910,29 @@
         }
       }
     },
+    "volume" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volume"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Громкость"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Гучність"
+          }
+        }
+      }
+    },
     "medium" : {
       "extractionState" : "manual",
       "localizations" : {

@@ -20,7 +20,7 @@ class RemindersListsModel {
     animation: .default
   )
   var remindersLists
-  
+
   @ObservationIgnored
   @FetchOne(
     Reminder.select {
@@ -33,21 +33,21 @@ class RemindersListsModel {
     }
   )
   var stats = Stats()
-  
+
   var destination: Destination?
   var searchRemindersModel = SearchRemindersModel()
   var seedDatabaseTip: SeedDatabaseTip?
   var shouldOpenReminderFormFromNotification = false
   var selectedReminderID: UUID?
   var selectedReminderListID: UUID?
-  
+
   @ObservationIgnored
   @Dependency(\.defaultDatabase) private var database
-  
+
   func statTapped(_ detailType: RemindersDetailModel.DetailType) {
     destination = .detail(RemindersDetailModel(detailType: detailType))
   }
-  
+
   func remindersListTapped(remindersList: RemindersList) {
     destination = .detail(
       RemindersDetailModel(
@@ -57,7 +57,7 @@ class RemindersListsModel {
       )
     )
   }
-  
+
   func onAppear() {
     withErrorReporting {
       try Tips.configure()
@@ -66,13 +66,13 @@ class RemindersListsModel {
       seedDatabaseTip = SeedDatabaseTip()
     }
     searchRemindersModel.searchText = ""
-    
+
     // Check if we need to open form through notification
     if shouldOpenReminderFormFromNotification {
       shouldOpenReminderFormFromNotification = false
       openReminderFormFromNotification()
     }
-    
+
     // Check if we need to open RemindersDetailView with selectedReminderID
     if let selectedReminderID = getSelectedReminderID() {
       openRemindersDetailWithSelectedReminder(selectedReminderID)
@@ -80,27 +80,25 @@ class RemindersListsModel {
       setSelectedReminderListID(nil) // Reset after use
     }
   }
-  
+
   func newReminderButtonTapped() {
-    guard let remindersList = remindersLists.first?.remindersList
-    else {
-      reportIssue("There must be at least one list.")
-      return
-    }
+    // This function is only called when there are lists, so we can safely unwrap
+    guard let remindersList = remindersLists.first?.remindersList else { return }
+
     destination = .reminderForm(
       Reminder.Draft(remindersListID: remindersList.id),
       remindersList: remindersList
     )
   }
-  
+
   func addListButtonTapped() {
     destination = .remindersListForm(RemindersList.Draft())
   }
-  
+
   func listDetailsButtonTapped(remindersList: RemindersList) {
     destination = .remindersListForm(RemindersList.Draft(remindersList))
   }
-  
+
   func openReminderFormFromNotification() {
     guard let _ = remindersLists.first?.remindersList
     else {
@@ -108,23 +106,23 @@ class RemindersListsModel {
       return
     }
   }
-  
+
   func getSelectedReminderID() -> UUID? {
     return selectedReminderID
   }
-  
+
   func setSelectedReminderID(_ id: UUID?) {
     selectedReminderID = id
   }
-  
+
   func getSelectedReminderListID() -> UUID? {
     return selectedReminderListID
   }
-  
+
   func setSelectedReminderListID(_ id: UUID?) {
     selectedReminderListID = id
   }
-  
+
   func openRemindersDetailWithSelectedReminder(_ reminderID: UUID) {
     // Try to find the specific list if selectedReminderListID is provided
     let targetRemindersList: RemindersList
@@ -140,7 +138,7 @@ class RemindersListsModel {
       }
       targetRemindersList = remindersList
     }
-    
+
     destination = .detail(
       RemindersDetailModel(
         detailType: .remindersList(targetRemindersList),
@@ -148,7 +146,7 @@ class RemindersListsModel {
       )
     )
   }
-  
+
   func move(from source: IndexSet, to destination: Int) {
     withErrorReporting {
       try database.write { db in
@@ -170,7 +168,7 @@ class RemindersListsModel {
       }
     }
   }
-  
+
 #if DEBUG
   func seedDatabaseButtonTapped() {
     withErrorReporting {
@@ -180,21 +178,21 @@ class RemindersListsModel {
     }
   }
 #endif
-  
+
   @CasePathable
   enum Destination {
     case detail(RemindersDetailModel)
     case reminderForm(Reminder.Draft, remindersList: RemindersList)
     case remindersListForm(RemindersList.Draft)
   }
-  
+
   @Selection
   struct ReminderListState: Identifiable {
     var id: RemindersList.ID { remindersList.id }
     var remindersCount: Int
     var remindersList: RemindersList
   }
-  
+
   @Selection
   struct Stats {
     var allCount = 0
@@ -202,16 +200,16 @@ class RemindersListsModel {
     var scheduledCount = 0
     var todayCount = 0
   }
-  
+
   struct SeedDatabaseTip: Tip {
     var title: Text {
       Text("Seed Sample Data")
     }
-    
+
     var message: Text? {
       Text("Tap here to quickly populate the app with test data.")
     }
-    
+
     var image: Image? {
       Image(systemName: "leaf")
     }
@@ -220,11 +218,11 @@ class RemindersListsModel {
 
 struct RemindersListsView: View {
   @Bindable var model: RemindersListsModel
-  
+
   var body: some View {
     ZStack {
       BgWithGradientView()
-      
+
       VStack(spacing: 0) {
         SearchBar(text: $model.searchRemindersModel.searchText)
         List {
@@ -240,7 +238,7 @@ struct RemindersListsView: View {
                   ) {
                     model.statTapped(.today)
                   }
-                  
+
                   GridCell(
                     color: ResourcesAsset.Colors.energy.swiftUIColor,
                     count: model.stats.scheduledCount,
@@ -250,7 +248,7 @@ struct RemindersListsView: View {
                     model.statTapped(.scheduled)
                   }
                 }
-                
+
                 GridRow {
                   GridCell(
                     color: ResourcesAsset.Colors.textSecondary.swiftUIColor,
@@ -260,7 +258,7 @@ struct RemindersListsView: View {
                   ) {
                     model.statTapped(.all)
                   }
-                  
+
                   GridCell(
                     color: ResourcesAsset.Colors.friendly.swiftUIColor,
                     count: model.stats.flaggedCount,
@@ -270,7 +268,7 @@ struct RemindersListsView: View {
                     model.statTapped(.flagged)
                   }
                 }
-                
+
                 GridRow {
                   GridCell(
                     color: ResourcesAsset.Colors.health.swiftUIColor,
@@ -285,10 +283,10 @@ struct RemindersListsView: View {
               .buttonStyle(.plain)
               .listRowBackground(Color.clear)
               .padding(.horizontal, DesignConstants.paddingNegative)
-              
+
             }
             .listSectionSeparator(.hidden)
-            
+
             Section {
               ForEach(model.remindersLists) { state in
                 RemindersListRow(
@@ -323,7 +321,7 @@ struct RemindersListsView: View {
         .onAppear {
           model.onAppear()
         }
-        
+
         .toolbar {
 #if DEBUG
           ToolbarItem(placement: .automatic) {
@@ -333,7 +331,7 @@ struct RemindersListsView: View {
               } label: {
                 Text("seed_data".loc())
                   .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
-                
+
                 Image(systemName: "leaf")
                   .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
               }
@@ -346,27 +344,32 @@ struct RemindersListsView: View {
 #endif
           ToolbarItem(placement: .bottomBar) {
             HStack {
-              Button {
-                model.newReminderButtonTapped()
-              } label: {
-                HStack {
-                  Image(systemName: "plus")
-                    .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
-                  
-                  Text("reminder".loc())
-                    .font(.body)
-                    .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
+              // Only show "Plus Reminder" button if there are lists
+              if !model.remindersLists.isEmpty {
+                Button {
+                  model.newReminderButtonTapped()
+                } label: {
+                  HStack {
+                    Image(systemName: "plus")
+                      .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
+
+                    Text("reminder".loc())
+                      .font(.body)
+                      .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
+                  }
                 }
+
+                Spacer()
+              } else {
+                Spacer()
               }
-              
-              Spacer()
-              
+
               Button {
                 model.addListButtonTapped()
               } label: {
                 Image(systemName: "plus")
                   .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
-                
+
                 Text("list".loc())
                   .font(.body)
                   .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
