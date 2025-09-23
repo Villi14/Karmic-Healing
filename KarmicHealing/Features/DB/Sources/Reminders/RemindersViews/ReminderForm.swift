@@ -161,16 +161,10 @@ struct ReminderFormView: View {
         .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
       }
     }
-    .sheet(isPresented: $showDateErrorAlert) {
-      AlertView<Never>(
-        store: .init(
-          initialState: .error(
-            title: "date_error".loc(),
-            message: "date_error_message".loc()
-          ),
-          reducer: { AlertReducer() }
-        )
-      )
+    .alert("date_error".loc(), isPresented: $showDateErrorAlert) {
+      Button("done".loc()) { }
+    } message: {
+      Text("date_error_message".loc())
     }
   }
   
