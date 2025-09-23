@@ -198,6 +198,10 @@ public struct AlertView<Action: Equatable>: View {
           .clipShape(
             RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
           )
+          .overlay(
+            RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
+              .stroke(ResourcesAsset.Colors.textInvert.swiftUIColor, lineWidth: DesignConstants.lineWidth)
+          )
           .shadow(color: .black, radius: DesignConstants.shadowRadiusLarge)
       }
       .padding(DesignConstants.paddingLarge)

@@ -52,87 +52,89 @@ public struct AppSettingsView: View {
   }
 
   public var body: some View {
-    ZStack {
-      BgWithGradientView()
-      settingsContent
-    }
-    .navigationTitle("settings".loc())
-    .navigationBarBackButtonHidden()
-    .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-    .onAppear {
-      self.store.send(.onAppear)
-    }
-    .toolbar {
-      ToolbarItem(placement: .topBarLeading) {
-        Button(action: { dismiss() }) {
-          Image(systemName: "chevron.left")
-            .renderingMode(.template)
-            .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
+    WithViewStore(store, observe: { $0 }) { viewStore in
+      ZStack {
+        BgWithGradientView()
+        settingsContent
+      }
+      .navigationTitle("settings".loc())
+      .navigationBarBackButtonHidden()
+      .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+      .onAppear {
+        viewStore.send(.onAppear)
+      }
+      .toolbar {
+        ToolbarItem(placement: .topBarLeading) {
+          Button(action: { dismiss() }) {
+            Image(systemName: "chevron.left")
+              .renderingMode(.template)
+              .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
+          }
         }
       }
-    }
-    .fullScreenCover(
-      store: store.scope(
-        state: \.$destination,
-        action: \.destination
-      ),
-      state: \.aboutAlert,
-      action: Destination.Action.aboutAlert,
-      content: AlertView<Destination.Action.Alert>.init(store:)
-    )
-    .fullScreenCover(
-      store: store.scope(
-        state: \.$destination,
-        action: \.destination
-      ),
-      state: \.themeSettings,
-      action: Destination.Action.themeSettings
-    ) { store in
-      ThemeSettingsView(store: store)
-    }
-    .fullScreenCover(
-      store: store.scope(
-        state: \.$destination,
-        action: \.destination
-      ),
-      state: \.sessionDurationAlert,
-      action: Destination.Action.sessionDurationAlert
-    ) { store in
-      EnergyBalansingSettingsView(store: store)
-    }
-    .fullScreenCover(
-      store: store.scope(
-        state: \.$destination,
-        action: \.destination
-      ),
-      state: \.clipboardAlert,
-      action: Destination.Action.clipboardAlert,
-      content: AlertView<Destination.Action.CopyAlert>.init(store:)
-    )
-    .fullScreenCover(
-      store: store.scope(
-        state: \.$destination,
-        action: \.destination
-      ),
-      state: \.privacyPolicy,
-      action: Destination.Action.privacyPolicy
-    ) { store in
-      PrivacyPolicyView(store: store)
-    }
-    .fullScreenCover(
-      store: store.scope(
-        state: \.$destination,
-        action: \.destination
-      ),
-      state: \.mailComposer,
-      action: Destination.Action.mailComposer
-    ) { store in
-      MailComposerView(
-        isShowing: Binding(
-          get: { true },
-          set: { if !$0 { self.store.send(.destination(.dismiss)) } }
-        )
+      .fullScreenCover(
+        store: store.scope(
+          state: \.$destination,
+          action: \.destination
+        ),
+        state: \.aboutAlert,
+        action: Destination.Action.aboutAlert,
+        content: AlertView<Destination.Action.Alert>.init(store:)
       )
+      .fullScreenCover(
+        store: store.scope(
+          state: \.$destination,
+          action: \.destination
+        ),
+        state: \.themeSettings,
+        action: Destination.Action.themeSettings
+      ) { store in
+        ThemeSettingsView(store: store)
+      }
+      .fullScreenCover(
+        store: store.scope(
+          state: \.$destination,
+          action: \.destination
+        ),
+        state: \.sessionDurationAlert,
+        action: Destination.Action.sessionDurationAlert
+      ) { store in
+        EnergyBalansingSettingsView(store: store)
+      }
+      .fullScreenCover(
+        store: store.scope(
+          state: \.$destination,
+          action: \.destination
+        ),
+        state: \.clipboardAlert,
+        action: Destination.Action.clipboardAlert,
+        content: AlertView<Destination.Action.CopyAlert>.init(store:)
+      )
+      .fullScreenCover(
+        store: store.scope(
+          state: \.$destination,
+          action: \.destination
+        ),
+        state: \.privacyPolicy,
+        action: Destination.Action.privacyPolicy
+      ) { store in
+        PrivacyPolicyView(store: store)
+      }
+      .fullScreenCover(
+        store: store.scope(
+          state: \.$destination,
+          action: \.destination
+        ),
+        state: \.mailComposer,
+        action: Destination.Action.mailComposer
+      ) { store in
+        MailComposerView(
+          isShowing: Binding(
+            get: { true },
+            set: { if !$0 { viewStore.send(.destination(.dismiss)) } }
+          )
+        )
+      }
     }
   }
 }
