@@ -142,7 +142,7 @@ struct RequestsListsView: View {
               Button {
                 model.seedDatabaseButtonTapped()
               } label: {
-                Text("seed_data".loc())
+                Text("seed_data".loc)
                   .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
                 
                 Image(systemName: "leaf")
@@ -163,7 +163,7 @@ struct RequestsListsView: View {
                   Image(systemName: "plus")
                     .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
                   
-                  Text("request".loc())
+                  Text("request".loc)
                     .font(.body)
                     .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
                 }
@@ -176,13 +176,13 @@ struct RequestsListsView: View {
         .sheet(item: $model.destination.requestForm, id: \.0.id) { request, requestsList in
           NavigationStack {
             RequestFormView(request: request, requestsList: requestsList)
-              .navigationTitle("new_request".loc())
+              .navigationTitle("new_request".loc)
           }
         }
         .sheet(item: $model.destination.requestsListForm) { requestsList in
           NavigationStack {
             RequestsListForm(requestsList: requestsList)
-              .navigationTitle("request_placeholder".loc())
+              .navigationTitle("request_placeholder".loc)
           }
           .presentationDetents([.large])
         }
@@ -215,7 +215,7 @@ struct RequestsListsView: View {
         )
       }
     } header: {
-      Text("my_requests".loc())
+      Text("my_requests".loc)
         .font(.system(.headline, design: .rounded, weight: .bold))
         .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
         .textCase(nil)

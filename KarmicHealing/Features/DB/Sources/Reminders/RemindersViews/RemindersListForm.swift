@@ -38,7 +38,7 @@ struct RemindersListFormPreviews: PreviewProvider {
 
     NavigationStack {
       RemindersListForm(remindersList: RemindersList.Draft())
-        .navigationTitle("new_list".loc())
+        .navigationTitle("new_list".loc)
     }
   }
 }

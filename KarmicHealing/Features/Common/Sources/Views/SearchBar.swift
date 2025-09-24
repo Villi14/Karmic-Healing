@@ -15,7 +15,7 @@ public struct SearchBar: View {
       Image(systemName: "magnifyingglass")
         .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
       
-      TextField("search".loc(), text: $text)
+      TextField("search".loc, text: $text)
         .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
         .accentColor(ResourcesAsset.Colors.clam.swiftUIColor)
       

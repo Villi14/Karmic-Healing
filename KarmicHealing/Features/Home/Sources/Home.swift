@@ -22,7 +22,7 @@ public struct Home {
     var path = StackState<Path.State>()
     
     let homeButtons: [HomeButton] = [
-      .balancingEnуergyButton,
+      .balancingEnergyButton,
       .requestsButton,
       .remindersButton,
       .settingsButton
@@ -41,7 +41,7 @@ public struct Home {
       switch action {
       case let .didTap(button):
         switch button {
-        case .balancingEnуergyButton:
+        case .balancingEnergyButton:
           state.path.append(.balancingEnergyList(.init()))
           return .none
         case .requestsButton:
@@ -60,7 +60,7 @@ public struct Home {
         state.path.append(
           .balancingEnergy(
             .init(
-              title: "initial_process".loc(),
+              title: "initial_process".loc,
               currentStep: 0,
               isCompleted: false,
               steps: Step.part1
@@ -84,7 +84,7 @@ public struct Home {
         state.path.append(
           .balancingEnergy(
             .init(
-              title: "essential_self".loc(),
+              title: "essential_self".loc,
               currentStep: 0,
               isCompleted: false,
               steps: Step.part2
@@ -96,7 +96,7 @@ public struct Home {
         state.path.append(
           .balancingEnergy(
             .init(
-              title: "divine_self".loc(),
+              title: "divine_self".loc,
               currentStep: 0,
               isCompleted: false,
               steps: Step.part3

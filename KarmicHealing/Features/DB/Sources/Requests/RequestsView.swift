@@ -26,7 +26,7 @@ public struct RequestsView: View {
           RequestsListsView(model: Self.model)
         }
       }
-      .navigationTitle("requests".loc())
+      .navigationTitle("requests".loc)
       .navigationBarBackButtonHidden()
       .navigationBarTitleDisplayMode(.automatic)
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)

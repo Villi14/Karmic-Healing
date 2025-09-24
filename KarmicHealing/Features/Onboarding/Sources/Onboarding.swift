@@ -91,8 +91,8 @@ extension OnboardingStep {
   public static var firstStep: Self {
     .init(
       imageName: "book.closed",
-      title: "onboarding_book_title".loc(),
-      description: "onboarding_book_description".loc(),
+      title: "onboarding_book_title".loc,
+      description: "onboarding_book_description".loc,
       showSkipButton: true
     )
   }
@@ -100,24 +100,24 @@ extension OnboardingStep {
   public static var secondStep: Self {
     .init(
       imageName: "sparkles",
-      title: "onboarding_app_title".loc(),
-      description: "onboarding_app_description".loc()
+      title: "onboarding_app_title".loc,
+      description: "onboarding_app_description".loc
     )
   }
   
   public static var thirdStep: Self {
     .init(
       imageName: "heart",
-      title: "onboarding_healing_title".loc(),
-      description: "onboarding_healing_description".loc()
+      title: "onboarding_healing_title".loc,
+      description: "onboarding_healing_description".loc
     )
   }
   
   public static var fourthStep: Self {
     .init(
       imageName: "star",
-      title: "onboarding_journey_title".loc(),
-      description: "onboarding_journey_description".loc()
+      title: "onboarding_journey_title".loc,
+      description: "onboarding_journey_description".loc
     )
   }
 }

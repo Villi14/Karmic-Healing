@@ -115,11 +115,11 @@ class RemindersDetailModel: HashableObject {
     var localizedTitle: String {
       switch self {
       case .dueDate:
-        return "due_date".loc()
+        return "due_date".loc
       case .priority:
-        return "priority".loc()
+        return "priority".loc
       case .title:
-        return "title".loc()
+        return "title".loc
       }
     }
     
@@ -231,7 +231,7 @@ struct RemindersDetailView: View {
               reminder: Reminder.Draft(remindersListID: remindersList.id),
               remindersList: remindersList
             )
-            .navigationTitle("new_reminder".loc())
+            .navigationTitle("new_reminder".loc)
           }
         }
       }
@@ -250,7 +250,7 @@ struct RemindersDetailView: View {
               } label: {
                 HStack {
                   Image(systemName: "plus")
-                  Text("reminder".loc())
+                  Text("reminder".loc)
                 }
                 .font(.body)
               }
@@ -273,7 +273,7 @@ struct RemindersDetailView: View {
                   }
                 }
               } label: {
-                Text("sort_by".loc())
+                Text("sort_by".loc)
                 Text(model.ordering.localizedTitle)
                 Image(systemName: "arrow.up.arrow.down")
               }
@@ -281,7 +281,7 @@ struct RemindersDetailView: View {
               Button {
                 Task { await model.showCompletedButtonTapped() }
               } label: {
-                Text(model.showCompleted ? "hide_completed".loc() : "show_completed".loc())
+                Text(model.showCompleted ? "hide_completed".loc : "show_completed".loc)
                 Image(systemName: model.showCompleted ? "eye" : "eye")
               }
             }
@@ -310,12 +310,12 @@ extension RemindersDetailModel.DetailType {
   
   fileprivate var navigationTitle: String {
     switch self {
-    case .all: "all".loc()
-    case .completed: "completed".loc()
-    case .flagged: "flagged".loc()
+    case .all: "all".loc
+    case .completed: "completed".loc
+    case .flagged: "flagged".loc
     case .remindersList(let list): list.title
-    case .scheduled: "scheduled".loc()
-    case .today: "today".loc()
+    case .scheduled: "scheduled".loc
+    case .today: "today".loc
     }
   }
   

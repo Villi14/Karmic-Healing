@@ -96,7 +96,7 @@ struct ReminderRow: View {
     }
     .buttonStyle(.borderless)
     .swipeActions {
-      Button("delete".loc(), role: .destructive) {
+      Button("delete".loc, role: .destructive) {
         withErrorReporting {
           try database.write { db in
             try Reminder.delete(reminder).execute(db)
@@ -104,7 +104,7 @@ struct ReminderRow: View {
         }
       }
       .tint(ResourcesAsset.Colors.energy.swiftUIColor)
-      Button(reminder.isFlagged ? "unflag".loc() : "flag".loc()) {
+      Button(reminder.isFlagged ? "unflag".loc : "flag".loc) {
         withErrorReporting {
           try database.write { db in
             try Reminder
@@ -115,7 +115,7 @@ struct ReminderRow: View {
         }
       }
       .tint(ResourcesAsset.Colors.friendly.swiftUIColor)
-      Button("details".loc()) {
+      Button("details".loc) {
         editReminder = Reminder.Draft(reminder)
       }
       .tint(ResourcesAsset.Colors.clarity.swiftUIColor)
@@ -123,7 +123,7 @@ struct ReminderRow: View {
     .sheet(item: $editReminder) { item in
       NavigationStack {
         ReminderFormView(reminder: item, remindersList: remindersList)
-          .navigationTitle("details".loc())
+          .navigationTitle("details".loc)
       }
     }
     .task(id: isCompleted) {

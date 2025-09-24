@@ -5,6 +5,7 @@
 public let common = Module(
   feature: .common,
   dependencies: [
+    .target(resources.implementationTarget),
     .external(name: "ComposableArchitecture"),
     .external(name: "XCTestDynamicOverlay")
   ],
@@ -123,3 +124,19 @@ public let testingUtilities = Module(
   ],
   resources: .notPresent
 )
+
+// MARK: - Watch App (all-in-one for watchOS)
+
+public let watchApp = Module(
+  feature: .watchApp,
+  dependencies: [
+    .external(name: "ComposableArchitecture")
+  ],
+  resources: .custom(
+    [
+      "KarmicHealing/Features/WatchApp/Resources/**"
+    ]
+  ),
+  hasSources: true
+)
+

@@ -1,3 +1,5 @@
 @preconcurrency import ProjectDescription
 
-let config = Config()
+let config = Config(
+  compatibleXcodeVersions: .all
+)

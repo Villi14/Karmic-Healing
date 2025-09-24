@@ -53,39 +53,39 @@ public struct PrivacyPolicyView: View {
           VStack(alignment: .leading, spacing: DesignConstants.spacingLarge) {
             // Header
             PolicySectionView(
-              title: "privacy_policy_title".loc(),
-              content: "privacy_policy_last_updated".loc(),
+              title: "privacy_policy_title".loc,
+              content: "privacy_policy_last_updated".loc,
               isHeader: true
             )
 
             // Introduction
             PolicySectionView(
-              title: "privacy_policy_intro_title".loc(),
-              content: "privacy_policy_intro_content".loc()
+              title: "privacy_policy_intro_title".loc,
+              content: "privacy_policy_intro_content".loc
             )
 
             // Data Collection
             PolicySectionView(
-              title: "privacy_policy_data_title".loc(),
-              content: "privacy_policy_data_content".loc()
+              title: "privacy_policy_data_title".loc,
+              content: "privacy_policy_data_content".loc
             )
 
             // Data Storage
             PolicySectionView(
-              title: "privacy_policy_storage_title".loc(),
-              content: "privacy_policy_storage_content".loc()
+              title: "privacy_policy_storage_title".loc,
+              content: "privacy_policy_storage_content".loc
             )
 
             // Third Parties
             PolicySectionView(
-              title: "privacy_policy_third_party_title".loc(),
-              content: "privacy_policy_third_party_content".loc()
+              title: "privacy_policy_third_party_title".loc,
+              content: "privacy_policy_third_party_content".loc
             )
 
             // Contact
             PolicySectionView(
-              title: "privacy_policy_contact_title".loc(),
-              content: "privacy_policy_contact_content".loc()
+              title: "privacy_policy_contact_title".loc,
+              content: "privacy_policy_contact_content".loc
             )
           }
           .scrollContentBackground(.hidden)

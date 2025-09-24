@@ -12,11 +12,11 @@ public struct HomeButton: Equatable {
 }
 
 extension HomeButton {
-  public static var balancingEnуergyButton: Self {
+  public static var balancingEnergyButton: Self {
     .init(
       color: ResourcesAsset.Colors.health.swiftUIColor,
       icon: Image(systemName: "apple.meditate"),
-      title: "energy_balancing".loc().uppercased()
+      title: "energy_balancing".loc.uppercased()
     )
   }
   
@@ -24,7 +24,7 @@ extension HomeButton {
     .init(
       color: ResourcesAsset.Colors.energy.swiftUIColor,
       icon: Image(systemName: "staroflife"),
-      title: "requests".loc().uppercased()
+      title: "requests".loc.uppercased()
     )
   }
   
@@ -32,7 +32,7 @@ extension HomeButton {
     .init(
       color: ResourcesAsset.Colors.friendly.swiftUIColor,
       icon: Image(systemName: "pencil.and.list.clipboard"),
-      title: "reminders".loc().uppercased()
+      title: "reminders".loc.uppercased()
     )
   }
   
@@ -40,7 +40,7 @@ extension HomeButton {
     .init(
       color: ResourcesAsset.Colors.clam.swiftUIColor,
       icon: Image(systemName: "gearshape"),
-      title: "settings".loc().uppercased()
+      title: "settings".loc.uppercased()
     )
   }
 }

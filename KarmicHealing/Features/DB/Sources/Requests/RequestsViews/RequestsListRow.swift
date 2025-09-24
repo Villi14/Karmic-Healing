@@ -29,7 +29,8 @@ struct RequestsListRow: View {
           }
         }
         // Force UI update after deletion
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        Task { @MainActor in
+          try? await Task.sleep(nanoseconds: 100_000_000)
           // This helps ensure the UI updates properly
         }
       },
@@ -43,7 +44,7 @@ struct RequestsListRow: View {
     .sheet(item: $editList) { list in
       NavigationStack {
         RequestsListForm(requestsList: RequestsList.Draft(list))
-          .navigationTitle("request_placeholder".loc())
+          .navigationTitle("request_placeholder".loc)
       }
       .presentationDetents([.large])
     }

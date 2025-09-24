@@ -9,9 +9,12 @@
 /* Begin PBXBuildFile section */
 		02750D7F43D6C3EDB43DA25F /* Onboarding.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AFCC57A0EE1A747FC6D514C6 /* Onboarding.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		032E7590EA4DCD35A70C9995 /* GRDB_GRDB.bundle in Dependencies */ = {isa = PBXBuildFile; fileRef = 2D0A0F1BA4DCAC41C8A420BB /* GRDB_GRDB.bundle */; };
+		0476A5B7E604679BA371C8A7 /* InternalCollectionsUtilities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39B4C42BD50A7E19ED4EDD17 /* InternalCollectionsUtilities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		076B1961B6A6106CCEA1D520 /* AppSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC00B74A445108E2BCA382 /* AppSettingsView.swift */; };
+		0797C925AA16F750E77097FD /* ding.wav in Resources */ = {isa = PBXBuildFile; fileRef = 256EF854342502D45FA04501 /* ding.wav */; };
 		0ADB44E8F3B95291076244FF /* HomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3EC67BA24302FC3E49017B /* HomeTests.swift */; };
 		11627E87082F410FA28FC1B2 /* BalancingEnergyHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC1149AD81ABB4347D95F68 /* BalancingEnergyHelpView.swift */; };
+		11DD993C10EDC4E4DC7089E0 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4A509A037F63A203AF1B8C06 /* Localizable.xcstrings */; };
 		13C8192BF9EFE574F4C52932 /* CombineSchedulers.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B8AF5B014AFB978DEF214451 /* CombineSchedulers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1442618D3217E119659A9193 /* HomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23889BE6F1834CCA8B1645F /* HomeButton.swift */; };
 		146BA7D07028CA56217E1A94 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; };
@@ -19,6 +22,7 @@
 		155EBEC9AA9DC80773DC028F /* BalancingEnergyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB359F3DF25939A4087B6164 /* BalancingEnergyList.swift */; };
 		1822734C08E5DCA53D98F9DD /* IdentifiedCollections.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F4583744CB6A1E0C424027D8 /* IdentifiedCollections.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		190B6649D204BD904F8C18C9 /* RequestsHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34645816A4F33C9A4E23CE69 /* RequestsHelpView.swift */; };
+		19C667E70413C674508196BA /* Dependencies.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 521A308467BDA5B20A8073FB /* Dependencies.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1B0C9A8AD54ADF49C4D282FA /* Common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1D65189D9BC84415BA5F114A /* SearchRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD34818532105B3EAE7A2CD6 /* SearchRequests.swift */; };
 		1E623DFBED945607B90FDEA4 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A782153AAD1B1D4D219DC3F5 /* SearchBar.swift */; };
@@ -26,6 +30,7 @@
 		217930F27D1DCA470DCE2CFD /* RemindersListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113860F51CC03E0D1C668731 /* RemindersListRow.swift */; };
 		229F49445F520B164C6AF127 /* RequestForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D52C8AB2FE0D25C164BA810 /* RequestForm.swift */; };
 		242D7C219A29B48AF26C10BE /* Db.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD80CC0D078FA40E56A3E50 /* Db.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		269041A33588C2782889E566 /* PerceptionCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 290CA8030B15A0AA5C2CCFFB /* PerceptionCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		282B3F2F283A936E19EBD9ED /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
 		2A7F809E8715B4D3D5AF7E63 /* KarmicHealingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B601C97CD8A2356AD07CBEF8 /* KarmicHealingView.swift */; };
 		2D063D2135124A9249DA3C1E /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
@@ -33,6 +38,7 @@
 		317169A9320838D618206708 /* Reminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4870E5CF8D28214F20BAB2E /* Reminders.swift */; };
 		31D2B5BDAE27E7506A1E06A8 /* RequestsListForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C567DBB0B83247D17BE28914 /* RequestsListForm.swift */; };
 		3283B7AFC3E2F0B7306CDEDA /* BalancingEnergy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DCCD6F2EEA1EFE1B0C75AD59 /* BalancingEnergy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		36CA96E15FC39836669BF87A /* DesignConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3410F9546CE1290B1FD9C024 /* DesignConstants.swift */; };
 		379B6D2ED5DB581DEEC1F895 /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
 		38EA7ADCFEE79EC4F1F95620 /* SharingGRDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DBA41DC6C1578B253D0E342 /* SharingGRDB.framework */; };
 		3A8F7495E3809FC29E6A7CDD /* ThemeSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EAE75075CAF930FE23AB79 /* ThemeSettingsView.swift */; };
@@ -42,8 +48,10 @@
 		431241F6831DEC99FB1E4FCF /* BalancingEnergy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCD6F2EEA1EFE1B0C75AD59 /* BalancingEnergy.framework */; };
 		43F139AF98C3AD9622858B38 /* GRDB_GRDB.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2D0A0F1BA4DCAC41C8A420BB /* GRDB_GRDB.bundle */; };
 		455384B7E840591C0B24088E /* BgWithGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7A98527CDFC20D1C42FED7 /* BgWithGradientView.swift */; };
+		45C99DAF160A524B04AF9B40 /* TuistBundle+KarmicHealingWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6548576B77CFF8DE85D93FFB /* TuistBundle+KarmicHealingWatch.swift */; };
 		461C0B38F62D26D3F7493E13 /* OrderedCollections.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00E7681AF5A25E6A938F5F1F /* OrderedCollections.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		48766B0DAAD5748433CC7A59 /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
+		4D082A5DB508EBD8D0E10063 /* WatchUserDefaultsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F47B73E0CA297551A7B4A0C /* WatchUserDefaultsClient.swift */; };
 		4DEAFE0C5358E57B559107F3 /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
 		4E5D3CB08D3281554F64720C /* BalancingEnergyList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937951BDE4A7DF3DE0227873 /* BalancingEnergyList.framework */; };
 		53F8B73D9121D4070DB87CCB /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D4D7E243F10640177D9025 /* String+Localization.swift */; };
@@ -52,11 +60,15 @@
 		58A6A415329E1FDE345D9FF0 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8507AAFED851628BA80B19EC /* PrivacyPolicyView.swift */; };
 		58C0B482EFB1A571D13E0F38 /* IssueReporting.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 029923781F6C803C25C065FD /* IssueReporting.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		597E4C427F06E8303131B7AB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD886FBCE4DE4450B9B2CFC /* XCTest.framework */; };
+		5AB878156438454B644087E3 /* XCTestDynamicOverlay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E122681E7BC43CA057476B60 /* XCTestDynamicOverlay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5B57DB0845CC1BF2632D303C /* IdentifiedCollections.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F4583744CB6A1E0C424027D8 /* IdentifiedCollections.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5C46A2B9B61966C3A51E0C0E /* TuistBundle+Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18DBDF5630C1EA9E7AE7DCE /* TuistBundle+Resources.swift */; };
 		5ED9337E6001E534C25E17D1 /* AppSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B8D2F9EDCFE04EF7D9E500 /* AppSettings.framework */; };
 		603C13D01413EBF9EF68149D /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
 		6105CF974FCFA923533095F9 /* BalancingEnergyHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F8AAEF39529DB347AF11E /* BalancingEnergyHelp.swift */; };
 		611495A73C8E242612B73BCF /* GRDB_GRDB.bundle in Dependencies */ = {isa = PBXBuildFile; fileRef = 2D0A0F1BA4DCAC41C8A420BB /* GRDB_GRDB.bundle */; };
+		63302215ECEDB3B3032DCDB0 /* KarmicHealingWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5CA79CA30830FB9B75AEB034 /* KarmicHealingWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		63C58E8553B1E408D0D72E2E /* WatchBalancingEnergyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EE065D24962AAEA91B5046 /* WatchBalancingEnergyView.swift */; };
 		666B2D0467C48D9F7D35F0F3 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1AB95A017359AC83F42C1A6 /* Colors.xcassets */; };
 		66CA89E5916FBD0D2C912809 /* XCTestDynamicOverlay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E122681E7BC43CA057476B60 /* XCTestDynamicOverlay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6740CEFDEF3D8929ED45FE96 /* AudioClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59568A355EA78B263611912 /* AudioClient.swift */; };
@@ -65,20 +77,29 @@
 		6B327F406573E7D4A1200907 /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; };
 		6C5677B1A23E6E1ABC16F136 /* RemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655D6B1EB22FB8BC88D5E5EC /* RemindersView.swift */; };
 		6CA7A5FD282AD03B4A889083 /* RemindersListsModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A999B1CC34A4492A8724A87A /* RemindersListsModelTests.swift */; };
+		6DE535C909067D2DA3BEC060 /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
 		6EAB365A9BBBE66618C346F3 /* TuistBundle+KarmicHealing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D93201106153BC9279C770 /* TuistBundle+KarmicHealing.swift */; };
 		701ED31157BD8602EA46DAE2 /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
 		709D71937CE4FAF1D6D10429 /* BalancingEnergyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2620BE86A788A5976BA13BFA /* BalancingEnergyView.swift */; };
+		718E596421EE0EB85A21EB31 /* WatchSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522B8E589C518A119361B8DA /* WatchSettingsView.swift */; };
 		734059DAC275038C63A0BD4D /* UserDefaultClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A331D9AAAC17C23F9FEB388 /* UserDefaultClient.swift */; };
 		748544E2BB8BF0F3FC1020EF /* KarmicHealingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE58283C3A274F5F92A7FD1 /* KarmicHealingApp.swift */; };
+		758A21EFFA50890B6EBD93F1 /* IssueReporting.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 029923781F6C803C25C065FD /* IssueReporting.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		78937BD4CCE48AAB88D80162 /* PerceptionCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 290CA8030B15A0AA5C2CCFFB /* PerceptionCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		789C59EAFE2884DE14686A2B /* WatchAudioClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2203AC822E4DCBC14BBC7D0 /* WatchAudioClient.swift */; };
 		7B324E6B7D4F59A548C936D4 /* BalancingEnergyList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937951BDE4A7DF3DE0227873 /* BalancingEnergyList.framework */; };
+		7B351EF61A3A731ACFE8A423 /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; };
 		7BC08B2770614B64B167F7A3 /* XCTest+withTrackedCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF29FDB478366F2E7225B38 /* XCTest+withTrackedCalls.swift */; };
+		7BD35FA87E2B9A0A15931041 /* WatchSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50680DFD646F540B7DD85862 /* WatchSettings.swift */; };
 		7D81E196F7508C35AC48DA0E /* SearchModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7532DECBB3D5F964DE3FAEA /* SearchModelTests.swift */; };
 		7E28443BDD69F1ADC1EC76C1 /* RequestsLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99540DF2E35F84AD8973A505 /* RequestsLists.swift */; };
+		7EC224698D2E9824A0971E86 /* ComposableArchitecture.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7ECCE93CC72871C99267E62A /* ReminderForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF61BEE6D15ABA11663C8E9 /* ReminderForm.swift */; };
 		7F5626B0611F053EABB3718E /* Home.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04F8E16E9A85D842C27D7B75 /* Home.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7FA78BB65866527EF2970CF2 /* RemindersListForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A36E9B49A865B67EEE804FF /* RemindersListForm.swift */; };
 		80418E4FD398616DE7CDB088 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 061863713A55E985902E3263 /* Icons.xcassets */; };
+		81BCAF88653017FF5650DFFF /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; };
+		81D9FE9989DBCE3C24DB11D5 /* TuistAssets+KarmicHealingWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E650002905DB1E68D50DCB /* TuistAssets+KarmicHealingWatch.swift */; };
 		83BDF02A56751191BE80F116 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; };
 		869905F7E178E0AE6FA187EE /* RemindersLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB717AE9E10C76853BEBD12 /* RemindersLists.swift */; };
 		873F9E68F538676E62B22303 /* DisclosureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44016B9E6DBFB7902B62FD4F /* DisclosureCell.swift */; };
@@ -86,10 +107,15 @@
 		8A0FD27E9747F6656C419293 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87D4296571F0460A46D013E /* Step.swift */; };
 		8A2C8FC1DEC63DC6A3BE2C30 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135D35F200CBF453C042ADEE /* HomeView.swift */; };
 		8A58E78BA85D192543FDB196 /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
+		8B4400FAFBBD6A04AB054B8A /* Sharing.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C0B59758EFA10BA8AA6DA0D1 /* Sharing.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8C0E0E4171CA60B92028A154 /* WatchNotificationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D154E2AC12DC52C2AFB8887 /* WatchNotificationClient.swift */; };
+		8FD6B3E9EF331B9210CC305E /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E0F86EC089494C9A0520ED /* String+Localization.swift */; };
 		904A96FE6F4FBD1B3EBD19BE /* BalancingEnergy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A350AA2DADC5C8EA3D278D /* BalancingEnergy.swift */; };
 		90CCBD4DE331478F34D95110 /* TestingUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC78A05FC6DB55E86D8DCCF5 /* TestingUtilities.framework */; };
+		91D3DBB11737E8D4123B7F74 /* WatchBalancingEnergy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C12C73D57864F8B8AF69CD /* WatchBalancingEnergy.swift */; };
 		9433F7E6732212EBE2439BEF /* TuistAssets+Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8FD516CA44D211DF048D7 /* TuistAssets+Resources.swift */; };
 		960FE2E5190D781F79BC1F2F /* MailComposerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D5C79B861D05B675CA8AB3 /* MailComposerView.swift */; };
+		984BE7577EA4432B3FFB3CF9 /* OrderedCollections.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00E7681AF5A25E6A938F5F1F /* OrderedCollections.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9C0772C91DB49BADB0D4A818 /* RemindersDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42524239F13F726D796A5D60 /* RemindersDetail.swift */; };
 		9C7A77E0B10D6E062C285FD8 /* DesignConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9D75FE2AEDC2817B7B5EB8 /* DesignConstants.swift */; };
 		9C8C914EDF8CA4A9C71DBB98 /* Dependencies.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 521A308467BDA5B20A8073FB /* Dependencies.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -106,29 +132,39 @@
 		A5CCC648F2DE494C84F58E11 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EC5F1A20AB7DE04590F636 /* OnboardingView.swift */; };
 		A6EA1BBADF3523953ECA65E1 /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB10D4AF3AE32DEC2FF63F3 /* Schema.swift */; };
 		A7A0DC03BA946D1E1379EB72 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415AF10F5D4F034547CA0BB8 /* AlertView.swift */; };
+		A9C73FAE925324B069A32E94 /* CustomDump.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB9747434FBD49D9267F979 /* CustomDump.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AA07274325F5B982EB185D76 /* ConcurrencyExtras.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1169C48DEE11FEB08AE83FBA /* ConcurrencyExtras.framework */; };
 		AAEC02716638E7886CBF6B91 /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; };
 		AC91711A46744B42B746FE1F /* GRDB_GRDB.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2D0A0F1BA4DCAC41C8A420BB /* GRDB_GRDB.bundle */; };
+		AEC8A9E35F9854937C70023F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C488553F9E0C74991842D67E /* Assets.xcassets */; };
 		AEDDAF74DD332F9D09C184D4 /* AppSettings.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10B8D2F9EDCFE04EF7D9E500 /* AppSettings.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B1A15F464BDDB7AEB94D65A8 /* ConcurrencyExtras.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1169C48DEE11FEB08AE83FBA /* ConcurrencyExtras.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B504A12C457FFC0D809BEE0F /* BalancingEnergyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035250898164081970D4C3AE /* BalancingEnergyListView.swift */; };
 		B5383194545B21ADD25ABE5C /* BalancingEnergyList.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 937951BDE4A7DF3DE0227873 /* BalancingEnergyList.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B667BA1AA9F679C2208F3AAB /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; };
 		B989D888AC268EB514247247 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE0B0C32B9B575FF3ADF75D /* Onboarding.swift */; };
+		BBEED5F66D4A61528C277FCF /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED692BAC7A80715EDA2D5919 /* Step.swift */; };
 		BBF5D94FA26053CCD727D221 /* ConcurrencyExtras.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1169C48DEE11FEB08AE83FBA /* ConcurrencyExtras.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BFCCE3CCD39973F7A25C235C /* BalancingEnergy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCD6F2EEA1EFE1B0C75AD59 /* BalancingEnergy.framework */; };
+		C2EA7FF091782DB248597801 /* WatchBalancingEnergyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E150C64780DC6977A2C694F3 /* WatchBalancingEnergyListView.swift */; };
+		C3AA8685053C84F6B0EDF3BE /* KarmicHealingWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75872EEE75D4F8A1DC990E68 /* KarmicHealingWatchApp.swift */; };
+		C75E51D4D8CD8DE3F7849D6D /* Dependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 521A308467BDA5B20A8073FB /* Dependencies.framework */; };
 		C7EDD47524AC300488535AA4 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462084A1E74237E95A83266B /* AppSettings.swift */; };
 		CDEA95E544D51AE1AB282F50 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; };
-		CEC7FD6C8EB3BE0E430FD857 /* ding.wav in Resources */ = {isa = PBXBuildFile; fileRef = E3D5C3F633DD6DCB26D2EB34 /* ding.wav */; };
 		D3D1C4E3F02DC037451E2495 /* Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F8E16E9A85D842C27D7B75 /* Home.framework */; };
+		D5DBED381A6F234F404A937A /* ding.wav in Resources */ = {isa = PBXBuildFile; fileRef = FD4DC13F1F0229734507E140 /* ding.wav */; };
 		D5E94556B773B21BB70512FD /* TuistAssets+KarmicHealing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D41708495D3BE707CEE866 /* TuistAssets+KarmicHealing.swift */; };
 		D87B90993DECBC5A5FC0B6E6 /* GridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903B56ABE0B9889C0DCD1A2F /* GridCell.swift */; };
 		DB8ED1567B4FBA780BD5D482 /* InternalCollectionsUtilities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39B4C42BD50A7E19ED4EDD17 /* InternalCollectionsUtilities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DBD9DBE8FBA452E97FE55D9C /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF69DADA3FE361892D9A9B9 /* Home.swift */; };
+		DC244EE1447A5426640883AD /* CombineSchedulers.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B8AF5B014AFB978DEF214451 /* CombineSchedulers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DCF1A53AC09361A0506CE50B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8713013181939438F04B4BB9 /* LaunchScreen.storyboard */; };
 		DD16ED6809DBFF3F0EE92709 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; };
 		DE3593631E9ECD8F6F8130DF /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; };
 		E017339F56117F53E2659544 /* RequestsListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE0E9346D8389AABBE0354E /* RequestsListRow.swift */; };
 		E080209B7FE4E310A61C96E4 /* TestingUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC78A05FC6DB55E86D8DCCF5 /* TestingUtilities.framework */; };
 		E14DDA5A61724C3253E18EF5 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AA4BB66567BBDD9C9B4C20 /* Steps.swift */; };
+		E17C659A5D97529475E8508B /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44BD87D33EFD7BB1C3E4533 /* Steps.swift */; };
 		E688AE696BAA728FD80EB1AE /* Db.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD80CC0D078FA40E56A3E50 /* Db.framework */; };
 		EB206743EBFABED2B9084AFD /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881F8A734FFF7D8372D06ED8 /* Common.framework */; };
 		EC69CACC5FB83951A6D3BB9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507E3BACDFA1B623FFF0085C /* Assets.xcassets */; };
@@ -138,6 +174,7 @@
 		EFA8D73FC778CAA85696288B /* Resources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B85762BF97E9D27C30C53840 /* Resources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F040666E0BE22C8B98880A92 /* XCTestDynamicOverlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E122681E7BC43CA057476B60 /* XCTestDynamicOverlay.framework */; };
 		F2568E3AB99DDDA1946653FA /* GRDB_GRDB.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2D0A0F1BA4DCAC41C8A420BB /* GRDB_GRDB.bundle */; };
+		F26494D8A4BEE1BC7B8C46DD /* WatchBalancingEnergyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBC06EC0761ED02FC2C3861 /* WatchBalancingEnergyList.swift */; };
 		F31D9DC674BDF73BEB21ED1B /* XCTest+expectParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDAC96EA79D8D0D062C6341 /* XCTest+expectParameter.swift */; };
 		F46FCB7F273FCA29A702D03F /* AppSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B8D2F9EDCFE04EF7D9E500 /* AppSettings.framework */; };
 		F6AF8ACB620AED7F305C336D /* CMTime+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3687F91BBB526CC60FC4DD8A /* CMTime+Ext.swift */; };
@@ -146,6 +183,7 @@
 		F92486D4B7587457EE3BE17A /* RequestRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F748E591C4A32F04A734D3C /* RequestRow.swift */; };
 		F9B79DEE9EF81F492F9C9119 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A283FF0AAE64A1782229F900 /* Localizable.xcstrings */; };
 		FA90DD52C322C57788655333 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A56804765D5B10ABB3C1A7 /* Color+Ext.swift */; };
+		FC2CF94445601D1EFF1D54D7 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56D5A4D219708EB1FD601261 /* Colors.xcassets */; };
 		FCBE30FA1F9AFB187248411A /* ComposableArchitecture.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0350537808759544E24BE7DF /* ComposableArchitecture.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD86161E32D478D1014AF73A /* HomeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F0E42B795DFC188453D03 /* HomeButtonView.swift */; };
 		FEB519927A28B70EF1692AC5 /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6F0D35A9E7B4E353BE56CF /* ListRowView.swift */; };
@@ -209,12 +247,33 @@
 			remoteGlobalIDString = 6B071305EC98B7EE2D7AC866;
 			remoteInfo = BalancingEnergyList;
 		};
+		52ACE5F25F0B695034130263 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED7F6540CBCAEA0A1A2871E9;
+			remoteInfo = Resources;
+		};
+		54F6FA642BB319D1FDD34633 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 208799A9F97EC4B92FCBA5B3;
+			remoteInfo = KarmicHealingWatch;
+		};
 		585754C12D0DE6FEDC92F919 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3D9E21BF9E22F63C4A0178D2;
 			remoteInfo = TestingUtilities;
+		};
+		5ACBFC0CA520FA12CB4519D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66A2EB0C3E9DCCB0C56A5693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED7F6540CBCAEA0A1A2871E9;
+			remoteInfo = Resources;
 		};
 		705214F4D07D4D6658FE41AA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -396,6 +455,17 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1FF1FC2157680B5BE390AEBD /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				63302215ECEDB3B3032DCDB0 /* KarmicHealingWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21BD64645E32A75C1F16920C /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -422,6 +492,28 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A77BF73D598D16A1B918ECE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DC244EE1447A5426640883AD /* CombineSchedulers.framework in Embed Frameworks */,
+				7EC224698D2E9824A0971E86 /* ComposableArchitecture.framework in Embed Frameworks */,
+				B1A15F464BDDB7AEB94D65A8 /* ConcurrencyExtras.framework in Embed Frameworks */,
+				A9C73FAE925324B069A32E94 /* CustomDump.framework in Embed Frameworks */,
+				19C667E70413C674508196BA /* Dependencies.framework in Embed Frameworks */,
+				5B57DB0845CC1BF2632D303C /* IdentifiedCollections.framework in Embed Frameworks */,
+				0476A5B7E604679BA371C8A7 /* InternalCollectionsUtilities.framework in Embed Frameworks */,
+				758A21EFFA50890B6EBD93F1 /* IssueReporting.framework in Embed Frameworks */,
+				984BE7577EA4432B3FFB3CF9 /* OrderedCollections.framework in Embed Frameworks */,
+				269041A33588C2782889E566 /* PerceptionCore.framework in Embed Frameworks */,
+				8B4400FAFBBD6A04AB054B8A /* Sharing.framework in Embed Frameworks */,
+				5AB878156438454B644087E3 /* XCTestDynamicOverlay.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -534,14 +626,17 @@
 		113860F51CC03E0D1C668731 /* RemindersListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListRow.swift; sourceTree = "<group>"; };
 		1169C48DEE11FEB08AE83FBA /* ConcurrencyExtras.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ConcurrencyExtras.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		135D35F200CBF453C042ADEE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		15C12C73D57864F8B8AF69CD /* WatchBalancingEnergy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBalancingEnergy.swift; sourceTree = "<group>"; };
 		1DB9747434FBD49D9267F979 /* CustomDump.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CustomDump.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DBA41DC6C1578B253D0E342 /* SharingGRDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SharingGRDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20D4D7E243F10640177D9025 /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
+		256EF854342502D45FA04501 /* ding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ding.wav; sourceTree = "<group>"; };
 		2620BE86A788A5976BA13BFA /* BalancingEnergyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancingEnergyView.swift; sourceTree = "<group>"; };
 		290CA8030B15A0AA5C2CCFFB /* PerceptionCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PerceptionCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B7A98527CDFC20D1C42FED7 /* BgWithGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BgWithGradientView.swift; sourceTree = "<group>"; };
 		2D0A0F1BA4DCAC41C8A420BB /* GRDB_GRDB.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GRDB_GRDB.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		3230FCD0D0F9179ED9BC3900 /* RequestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsView.swift; sourceTree = "<group>"; };
+		3410F9546CE1290B1FD9C024 /* DesignConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignConstants.swift; sourceTree = "<group>"; };
 		34645816A4F33C9A4E23CE69 /* RequestsHelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsHelpView.swift; sourceTree = "<group>"; };
 		3646CC74D580117709E372EE /* Db-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Db-Info.plist"; sourceTree = "<group>"; };
 		3687F91BBB526CC60FC4DD8A /* CMTime+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime+Ext.swift"; sourceTree = "<group>"; };
@@ -558,26 +653,37 @@
 		462084A1E74237E95A83266B /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		48DC36A78958C5F735A322A5 /* KarmicHealing-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "KarmicHealing-Info.plist"; sourceTree = "<group>"; };
 		4A36E9B49A865B67EEE804FF /* RemindersListForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListForm.swift; sourceTree = "<group>"; };
+		4A509A037F63A203AF1B8C06 /* Localizable.xcstrings */ = {isa = PBXFileReference; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		4D4B13695F0F8D88EBB899AA /* SearchReminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchReminders.swift; sourceTree = "<group>"; };
 		4D52C8AB2FE0D25C164BA810 /* RequestForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestForm.swift; sourceTree = "<group>"; };
+		50680DFD646F540B7DD85862 /* WatchSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSettings.swift; sourceTree = "<group>"; };
 		507E3BACDFA1B623FFF0085C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		521A308467BDA5B20A8073FB /* Dependencies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Dependencies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		521C60B6112B40DCB8C32F02 /* BalancingEnergyList-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BalancingEnergyList-Info.plist"; sourceTree = "<group>"; };
 		521F0E42B795DFC188453D03 /* HomeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButtonView.swift; sourceTree = "<group>"; };
+		522B8E589C518A119361B8DA /* WatchSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSettingsView.swift; sourceTree = "<group>"; };
 		52D41708495D3BE707CEE866 /* TuistAssets+KarmicHealing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+KarmicHealing.swift"; sourceTree = "<group>"; };
+		56D5A4D219708EB1FD601261 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		5CA79CA30830FB9B75AEB034 /* KarmicHealingWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KarmicHealingWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D3EC67BA24302FC3E49017B /* HomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTests.swift; sourceTree = "<group>"; };
 		5DF29FDB478366F2E7225B38 /* XCTest+withTrackedCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+withTrackedCalls.swift"; sourceTree = "<group>"; };
 		601EB9BCB25828503CE5B0B1 /* Onboarding-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Onboarding-Info.plist"; sourceTree = "<group>"; };
+		61EE065D24962AAEA91B5046 /* WatchBalancingEnergyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBalancingEnergyView.swift; sourceTree = "<group>"; };
+		6548576B77CFF8DE85D93FFB /* TuistBundle+KarmicHealingWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+KarmicHealingWatch.swift"; sourceTree = "<group>"; };
 		655D6B1EB22FB8BC88D5E5EC /* RemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersView.swift; sourceTree = "<group>"; };
+		68E0F86EC089494C9A0520ED /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
+		692AC3BED9325A26AA5462E0 /* KarmicHealingWatch-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "KarmicHealingWatch-Info.plist"; sourceTree = "<group>"; };
 		692DFBD0BC5FEB41A37F7996 /* NavigationBar+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationBar+Ext.swift"; sourceTree = "<group>"; };
 		6CD886FBCE4DE4450B9B2CFC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6F748E591C4A32F04A734D3C /* RequestRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestRow.swift; sourceTree = "<group>"; };
 		73AA4BB66567BBDD9C9B4C20 /* Steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
 		74A56804765D5B10ABB3C1A7 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		75872EEE75D4F8A1DC990E68 /* KarmicHealingWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarmicHealingWatchApp.swift; sourceTree = "<group>"; };
 		7B1A3F74D9A0F7E059908D2A /* TestingUtilities-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "TestingUtilities-Info.plist"; sourceTree = "<group>"; };
 		7B8E247924B97BE74F980EE2 /* KarmicHealing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarmicHealing.swift; sourceTree = "<group>"; };
 		7BC2C410D29978AE9208096D /* RequestsDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsDetail.swift; sourceTree = "<group>"; };
 		7BC3E01675AA2571947993BA /* AppSettings-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "AppSettings-Info.plist"; sourceTree = "<group>"; };
+		7F47B73E0CA297551A7B4A0C /* WatchUserDefaultsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchUserDefaultsClient.swift; sourceTree = "<group>"; };
 		7FE58283C3A274F5F92A7FD1 /* KarmicHealingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarmicHealingApp.swift; sourceTree = "<group>"; };
 		80D93201106153BC9279C770 /* TuistBundle+KarmicHealing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+KarmicHealing.swift"; sourceTree = "<group>"; };
 		84C8FD516CA44D211DF048D7 /* TuistAssets+Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+Resources.swift"; sourceTree = "<group>"; };
@@ -592,6 +698,7 @@
 		903B56ABE0B9889C0DCD1A2F /* GridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCell.swift; sourceTree = "<group>"; };
 		937951BDE4A7DF3DE0227873 /* BalancingEnergyList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BalancingEnergyList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99540DF2E35F84AD8973A505 /* RequestsLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsLists.swift; sourceTree = "<group>"; };
+		9D154E2AC12DC52C2AFB8887 /* WatchNotificationClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNotificationClient.swift; sourceTree = "<group>"; };
 		9D9D75FE2AEDC2817B7B5EB8 /* DesignConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignConstants.swift; sourceTree = "<group>"; };
 		9FD80CC0D078FA40E56A3E50 /* Db.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Db.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A283FF0AAE64A1782229F900 /* Localizable.xcstrings */ = {isa = PBXFileReference; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -614,7 +721,9 @@
 		C000C78A1E665D1B1E7F85DD /* TabView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabView+Ext.swift"; sourceTree = "<group>"; };
 		C0B59758EFA10BA8AA6DA0D1 /* Sharing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sharing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C18DBDF5630C1EA9E7AE7DCE /* TuistBundle+Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+Resources.swift"; sourceTree = "<group>"; };
+		C2203AC822E4DCBC14BBC7D0 /* WatchAudioClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchAudioClient.swift; sourceTree = "<group>"; };
 		C2D5C79B861D05B675CA8AB3 /* MailComposerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposerView.swift; sourceTree = "<group>"; };
+		C488553F9E0C74991842D67E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C567DBB0B83247D17BE28914 /* RequestsListForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsListForm.swift; sourceTree = "<group>"; };
 		C6C90AC6419664A553E5DA30 /* Common-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Common-Info.plist"; sourceTree = "<group>"; };
 		C87D4296571F0460A46D013E /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
@@ -626,14 +735,19 @@
 		DCCD6F2EEA1EFE1B0C75AD59 /* BalancingEnergy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BalancingEnergy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCDAC96EA79D8D0D062C6341 /* XCTest+expectParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+expectParameter.swift"; sourceTree = "<group>"; };
 		DEB10D4AF3AE32DEC2FF63F3 /* Schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
+		E0E650002905DB1E68D50DCB /* TuistAssets+KarmicHealingWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+KarmicHealingWatch.swift"; sourceTree = "<group>"; };
 		E122681E7BC43CA057476B60 /* XCTestDynamicOverlay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XCTestDynamicOverlay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E3D5C3F633DD6DCB26D2EB34 /* ding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ding.wav; sourceTree = "<group>"; };
+		E150C64780DC6977A2C694F3 /* WatchBalancingEnergyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBalancingEnergyListView.swift; sourceTree = "<group>"; };
 		E408783B2AAA3C06DBB33B5A /* KarmicHealing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KarmicHealing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E59568A355EA78B263611912 /* AudioClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioClient.swift; sourceTree = "<group>"; };
+		ED692BAC7A80715EDA2D5919 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		F09A4DB9832862A4F973377A /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
+		F44BD87D33EFD7BB1C3E4533 /* Steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
 		F4583744CB6A1E0C424027D8 /* IdentifiedCollections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IdentifiedCollections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBBC00B74A445108E2BCA382 /* AppSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsView.swift; sourceTree = "<group>"; };
 		FD34818532105B3EAE7A2CD6 /* SearchRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequests.swift; sourceTree = "<group>"; };
+		FD4DC13F1F0229734507E140 /* ding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ding.wav; sourceTree = "<group>"; };
+		FEBC06EC0761ED02FC2C3861 /* WatchBalancingEnergyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBalancingEnergyList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -680,6 +794,7 @@
 				A23087F44814E58ED4FC6D61 /* Db.framework in Frameworks */,
 				9EDAAA7133C130EEB8BA0AFE /* Home.framework in Frameworks */,
 				FFF4CDD513E9C228BD87176A /* Onboarding.framework in Frameworks */,
+				81BCAF88653017FF5650DFFF /* Resources.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -690,6 +805,16 @@
 				6935C57B7B8B3F79FE3BFCCA /* Common.framework in Frameworks */,
 				379B6D2ED5DB581DEEC1F895 /* ComposableArchitecture.framework in Frameworks */,
 				B667BA1AA9F679C2208F3AAB /* Resources.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70F52D8389B0163504F5EFB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DE535C909067D2DA3BEC060 /* ComposableArchitecture.framework in Frameworks */,
+				AA07274325F5B982EB185D76 /* ConcurrencyExtras.framework in Frameworks */,
+				C75E51D4D8CD8DE3F7849D6D /* Dependencies.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -758,6 +883,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A58E78BA85D192543FDB196 /* ComposableArchitecture.framework in Frameworks */,
+				7B351EF61A3A731ACFE8A423 /* Resources.framework in Frameworks */,
 				F040666E0BE22C8B98880A92 /* XCTestDynamicOverlay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -853,6 +979,7 @@
 				7BAA77828A13539B0FF3A1FB /* Onboarding */,
 				FBD5BEE7F204F154A2BE98F1 /* Resources */,
 				95CFB6B5839BC48BFFEF0A3B /* TestingUtilities */,
+				DD007B29E326DE70439E9C18 /* WatchApp */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -877,6 +1004,26 @@
 			path = Requests;
 			sourceTree = "<group>";
 		};
+		1F5C9622E5B0E3E082BB32E3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B2F18B2B800A812C31E16422 /* Sounds */,
+				C488553F9E0C74991842D67E /* Assets.xcassets */,
+				56D5A4D219708EB1FD601261 /* Colors.xcassets */,
+				4A509A037F63A203AF1B8C06 /* Localizable.xcstrings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		243F5C1D1DED32E394EA0BFF /* WatchBalancingEnergyList */ = {
+			isa = PBXGroup;
+			children = (
+				FEBC06EC0761ED02FC2C3861 /* WatchBalancingEnergyList.swift */,
+				E150C64780DC6977A2C694F3 /* WatchBalancingEnergyListView.swift */,
+			);
+			path = WatchBalancingEnergyList;
+			sourceTree = "<group>";
+		};
 		29EF60B9B030A63F2496326D = {
 			isa = PBXGroup;
 			children = (
@@ -890,11 +1037,22 @@
 			isa = PBXGroup;
 			children = (
 				52D41708495D3BE707CEE866 /* TuistAssets+KarmicHealing.swift */,
+				E0E650002905DB1E68D50DCB /* TuistAssets+KarmicHealingWatch.swift */,
 				84C8FD516CA44D211DF048D7 /* TuistAssets+Resources.swift */,
 				80D93201106153BC9279C770 /* TuistBundle+KarmicHealing.swift */,
+				6548576B77CFF8DE85D93FFB /* TuistBundle+KarmicHealingWatch.swift */,
 				C18DBDF5630C1EA9E7AE7DCE /* TuistBundle+Resources.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		2F1F5D6BDC795BB2FD2812DF /* WatchBalancingEnergy */ = {
+			isa = PBXGroup;
+			children = (
+				15C12C73D57864F8B8AF69CD /* WatchBalancingEnergy.swift */,
+				61EE065D24962AAEA91B5046 /* WatchBalancingEnergyView.swift */,
+			);
+			path = WatchBalancingEnergy;
 			sourceTree = "<group>";
 		};
 		323162E8899197D7D31A40CC /* Tests */ = {
@@ -908,6 +1066,7 @@
 		54ADCC4FDF2CCAB24F742D8B /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				9FB2C2A9D7CC915BA4D9D554 /* Sounds */,
 				B1AB95A017359AC83F42C1A6 /* Colors.xcassets */,
 				061863713A55E985902E3263 /* Icons.xcassets */,
 			);
@@ -964,6 +1123,16 @@
 			path = Reminders;
 			sourceTree = "<group>";
 		};
+		706922E1A92B12CC4427593C /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				C2203AC822E4DCBC14BBC7D0 /* WatchAudioClient.swift */,
+				9D154E2AC12DC52C2AFB8887 /* WatchNotificationClient.swift */,
+				7F47B73E0CA297551A7B4A0C /* WatchUserDefaultsClient.swift */,
+			);
+			path = Clients;
+			sourceTree = "<group>";
+		};
 		70BF9DCE07829874EBDAB91C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -974,11 +1143,19 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		79F749D57EFFC260328F2296 /* WatchSettings */ = {
+			isa = PBXGroup;
+			children = (
+				50680DFD646F540B7DD85862 /* WatchSettings.swift */,
+				522B8E589C518A119361B8DA /* WatchSettingsView.swift */,
+			);
+			path = WatchSettings;
+			sourceTree = "<group>";
+		};
 		7B866D3223B2A7DE86063F82 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				507E3BACDFA1B623FFF0085C /* Assets.xcassets */,
-				E3D5C3F633DD6DCB26D2EB34 /* ding.wav */,
 				8713013181939438F04B4BB9 /* LaunchScreen.storyboard */,
 				A283FF0AAE64A1782229F900 /* Localizable.xcstrings */,
 			);
@@ -1018,6 +1195,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9FB2C2A9D7CC915BA4D9D554 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				FD4DC13F1F0229734507E140 /* ding.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		A040ADF93221F67D31462ABB /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -1025,6 +1210,23 @@
 				323162E8899197D7D31A40CC /* Tests */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		A983CAEAF959C90D7F249DF2 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3410F9546CE1290B1FD9C024 /* DesignConstants.swift */,
+				68E0F86EC089494C9A0520ED /* String+Localization.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B2F18B2B800A812C31E16422 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				256EF854342502D45FA04501 /* ding.wav */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		B3B37A17BDDB8BD09CFF823B /* Sources */ = {
@@ -1063,6 +1265,20 @@
 				3DE6F8724694B2C80388579D /* Preview Content */,
 			);
 			name = Project;
+			sourceTree = "<group>";
+		};
+		C1589DC7CE32206750A14A12 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				706922E1A92B12CC4427593C /* Clients */,
+				A983CAEAF959C90D7F249DF2 /* Core */,
+				FF9A0256F0AD29E9CF683721 /* Model */,
+				2F1F5D6BDC795BB2FD2812DF /* WatchBalancingEnergy */,
+				243F5C1D1DED32E394EA0BFF /* WatchBalancingEnergyList */,
+				79F749D57EFFC260328F2296 /* WatchSettings */,
+				75872EEE75D4F8A1DC990E68 /* KarmicHealingWatchApp.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		C1866DF803C41F053BBBB942 /* Sources */ = {
@@ -1104,6 +1320,7 @@
 				04C426E45AF0F18A74DF53D6 /* Home-Info.plist */,
 				437C255FD6B4927A3574DC7A /* HomeTests-Info.plist */,
 				48DC36A78958C5F735A322A5 /* KarmicHealing-Info.plist */,
+				692AC3BED9325A26AA5462E0 /* KarmicHealingWatch-Info.plist */,
 				601EB9BCB25828503CE5B0B1 /* Onboarding-Info.plist */,
 				42B4794F9892895099628422 /* Resources-Info.plist */,
 				7B1A3F74D9A0F7E059908D2A /* TestingUtilities-Info.plist */,
@@ -1148,6 +1365,15 @@
 			path = Derived;
 			sourceTree = "<group>";
 		};
+		DD007B29E326DE70439E9C18 /* WatchApp */ = {
+			isa = PBXGroup;
+			children = (
+				1F5C9622E5B0E3E082BB32E3 /* Resources */,
+				C1589DC7CE32206750A14A12 /* Sources */,
+			);
+			path = WatchApp;
+			sourceTree = "<group>";
+		};
 		DDD2F1F584485938C3313276 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -1169,6 +1395,7 @@
 				39B4C42BD50A7E19ED4EDD17 /* InternalCollectionsUtilities.framework */,
 				029923781F6C803C25C065FD /* IssueReporting.framework */,
 				E408783B2AAA3C06DBB33B5A /* KarmicHealing.app */,
+				5CA79CA30830FB9B75AEB034 /* KarmicHealingWatch.app */,
 				AFCC57A0EE1A747FC6D514C6 /* Onboarding.framework */,
 				00E7681AF5A25E6A938F5F1F /* OrderedCollections.framework */,
 				290CA8030B15A0AA5C2CCFFB /* PerceptionCore.framework */,
@@ -1238,6 +1465,15 @@
 			path = RequestsViews;
 			sourceTree = "<group>";
 		};
+		FF9A0256F0AD29E9CF683721 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED692BAC7A80715EDA2D5919 /* Step.swift */,
+				F44BD87D33EFD7BB1C3E4533 /* Steps.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1281,6 +1517,24 @@
 			productName = Db;
 			productReference = 9FD80CC0D078FA40E56A3E50 /* Db.framework */;
 			productType = "com.apple.product-type.framework";
+		};
+		208799A9F97EC4B92FCBA5B3 /* KarmicHealingWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F27FA85C0B03D9F7A4437CEA /* Build configuration list for PBXNativeTarget "KarmicHealingWatch" */;
+			buildPhases = (
+				5F25459476CD586B6EABD489 /* Sources */,
+				7F67280CB47C7B5A9E434404 /* Resources */,
+				3A77BF73D598D16A1B918ECE /* Embed Frameworks */,
+				70F52D8389B0163504F5EFB6 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KarmicHealingWatch;
+			productName = KarmicHealingWatch;
+			productReference = 5CA79CA30830FB9B75AEB034 /* KarmicHealingWatch.app */;
+			productType = "com.apple.product-type.application";
 		};
 		2E9B8F1705F579CDF62AF8E7 /* Onboarding */ = {
 			isa = PBXNativeTarget;
@@ -1373,6 +1627,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				E0FB536534E740E366985D5B /* PBXTargetDependency */,
 			);
 			name = Common;
 			productName = Common;
@@ -1429,6 +1684,7 @@
 			buildPhases = (
 				6D7F2D584A5C1F16E2973AA1 /* Sources */,
 				C044A6FA657DB5830512B701 /* Resources */,
+				1FF1FC2157680B5BE390AEBD /* Embed Watch Content */,
 				0051B4DD3DFCD72B0B478A79 /* Embed Frameworks */,
 				2884AC4D3A6213165F983E72 /* Frameworks */,
 				A1E1484DB6A409FCB12D7869 /* Dependencies */,
@@ -1442,7 +1698,9 @@
 				A19F97AA75941D8E5D534E69 /* PBXTargetDependency */,
 				CC649D9F3F024C78FBCA45EB /* PBXTargetDependency */,
 				0B63311D327765F90301FD9D /* PBXTargetDependency */,
+				621BE55D3EDB7C12B1C7F8CB /* PBXTargetDependency */,
 				9FAFAFD26F07273147CB2C87 /* PBXTargetDependency */,
+				86330B6177BECD1FFCD7483E /* PBXTargetDependency */,
 			);
 			name = KarmicHealing;
 			productName = KarmicHealing;
@@ -1520,6 +1778,7 @@
 				850C2836C562EF4C53B3C6C1 /* Home */,
 				0B23355E064D27591EBFD153 /* HomeTests */,
 				D5734659E17303697C587D84 /* KarmicHealing */,
+				208799A9F97EC4B92FCBA5B3 /* KarmicHealingWatch */,
 				2E9B8F1705F579CDF62AF8E7 /* Onboarding */,
 				ED7F6540CBCAEA0A1A2871E9 /* Resources */,
 				3D9E21BF9E22F63C4A0178D2 /* TestingUtilities */,
@@ -1534,6 +1793,7 @@
 			files = (
 				666B2D0467C48D9F7D35F0F3 /* Colors.xcassets in Resources */,
 				80418E4FD398616DE7CDB088 /* Icons.xcassets in Resources */,
+				D5DBED381A6F234F404A937A /* ding.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1555,6 +1815,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F67280CB47C7B5A9E434404 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEC8A9E35F9854937C70023F /* Assets.xcassets in Resources */,
+				FC2CF94445601D1EFF1D54D7 /* Colors.xcassets in Resources */,
+				11DD993C10EDC4E4DC7089E0 /* Localizable.xcstrings in Resources */,
+				0797C925AA16F750E77097FD /* ding.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1587,7 +1858,6 @@
 				EC69CACC5FB83951A6D3BB9D /* Assets.xcassets in Resources */,
 				DCF1A53AC09361A0506CE50B /* LaunchScreen.storyboard in Resources */,
 				F9B79DEE9EF81F492F9C9119 /* Localizable.xcstrings in Resources */,
-				CEC7FD6C8EB3BE0E430FD857 /* ding.wav in Resources */,
 				F2568E3AB99DDDA1946653FA /* GRDB_GRDB.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1663,6 +1933,29 @@
 				709D71937CE4FAF1D6D10429 /* BalancingEnergyView.swift in Sources */,
 				8A0FD27E9747F6656C419293 /* Step.swift in Sources */,
 				E14DDA5A61724C3253E18EF5 /* Steps.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F25459476CD586B6EABD489 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81D9FE9989DBCE3C24DB11D5 /* TuistAssets+KarmicHealingWatch.swift in Sources */,
+				45C99DAF160A524B04AF9B40 /* TuistBundle+KarmicHealingWatch.swift in Sources */,
+				789C59EAFE2884DE14686A2B /* WatchAudioClient.swift in Sources */,
+				8C0E0E4171CA60B92028A154 /* WatchNotificationClient.swift in Sources */,
+				4D082A5DB508EBD8D0E10063 /* WatchUserDefaultsClient.swift in Sources */,
+				36CA96E15FC39836669BF87A /* DesignConstants.swift in Sources */,
+				8FD6B3E9EF331B9210CC305E /* String+Localization.swift in Sources */,
+				C3AA8685053C84F6B0EDF3BE /* KarmicHealingWatchApp.swift in Sources */,
+				BBEED5F66D4A61528C277FCF /* Step.swift in Sources */,
+				E17C659A5D97529475E8508B /* Steps.swift in Sources */,
+				91D3DBB11737E8D4123B7F74 /* WatchBalancingEnergy.swift in Sources */,
+				63C58E8553B1E408D0D72E2E /* WatchBalancingEnergyView.swift in Sources */,
+				F26494D8A4BEE1BC7B8C46DD /* WatchBalancingEnergyList.swift in Sources */,
+				C2EA7FF091782DB248597801 /* WatchBalancingEnergyListView.swift in Sources */,
+				7BD35FA87E2B9A0A15931041 /* WatchSettings.swift in Sources */,
+				718E596421EE0EB85A21EB31 /* WatchSettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1834,6 +2127,12 @@
 			target = 488451BFB78E2B2E8E24F0D0 /* AppSettings */;
 			targetProxy = B7B292DCC8AFB0FA4701858C /* PBXContainerItemProxy */;
 		};
+		621BE55D3EDB7C12B1C7F8CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KarmicHealingWatch;
+			target = 208799A9F97EC4B92FCBA5B3 /* KarmicHealingWatch */;
+			targetProxy = 54F6FA642BB319D1FDD34633 /* PBXContainerItemProxy */;
+		};
 		6A3FDD4E1C76D69BE4C653AE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = TestingUtilities;
@@ -1863,6 +2162,12 @@
 			name = Common;
 			target = 5478B72F927EF41FAAD1A812 /* Common */;
 			targetProxy = F6CE96CFBCAFD974AE7AF1B7 /* PBXContainerItemProxy */;
+		};
+		86330B6177BECD1FFCD7483E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Resources;
+			target = ED7F6540CBCAEA0A1A2871E9 /* Resources */;
+			targetProxy = 5ACBFC0CA520FA12CB4519D0 /* PBXContainerItemProxy */;
 		};
 		885C150AAB481BCE5C8B7662 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1923,6 +2228,12 @@
 			name = Common;
 			target = 5478B72F927EF41FAAD1A812 /* Common */;
 			targetProxy = 9D8CFE06FB00E751486EABA3 /* PBXContainerItemProxy */;
+		};
+		E0FB536534E740E366985D5B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Resources;
+			target = ED7F6540CBCAEA0A1A2871E9 /* Resources */;
+			targetProxy = 52ACE5F25F0B695034130263 /* PBXContainerItemProxy */;
 		};
 		F30A22AF899E7B314F599EBE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2136,6 +2447,8 @@
 				CFBundleName = KarmicHealing;
 				CODE_SIGN_IDENTITY = "Apple Development: Alexander  Velikotsky (R7UR2DF94C)";
 				CODE_SIGN_STYLE = Manual;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = KG394T5RF5;
 				ENABLE_PREVIEWS = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2178,8 +2491,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing;
 				PRODUCT_NAME = KarmicHealing;
-				PROVISIONING_PROFILE_SPECIFIER = karmic_dev;
+				PROVISIONING_PROFILE_SPECIFIER = karmic_healing_dev;
 				SDKROOT = iphoneos;
+				STRIP_INSTALLED_PRODUCT = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -2191,6 +2505,10 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WK_APP_BUNDLE_IDENTIFIER = com.villi.karmichealing.watchkitapp;
+				WK_APP_NAME = "Karmic Healing";
+				WK_COMPANION_APP_BUNDLE_IDENTIFIER = com.villi.karmichealing.watchkitapp;
+				WK_WATCHKIT_APP = YES;
 			};
 			name = Debug;
 		};
@@ -2264,6 +2582,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = KG394T5RF5;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -2631,10 +2950,135 @@
 			};
 			name = Debug;
 		};
+		574D1556E612EEE17F90EB48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"ARCHS[sdk=watchos*]" = "arm64_32 arm64";
+				"ARCHS[sdk=watchsimulator*]" = arm64;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development: Alexander  Velikotsky (R7UR2DF94C)";
+				CODE_SIGN_STYLE = Manual;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = KG394T5RF5;
+				ENABLE_BITCODE = NO;
+				ENABLE_PREVIEWS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(inherited)",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-navigation/Sources/UIKitNavigationShim/include",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include",
+				);
+				INFOPLIST_FILE = "Derived/InfoPlists/KarmicHealingWatch-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+				);
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing.watchkitapp;
+				PRODUCT_NAME = KarmicHealingWatch;
+				PROVISIONING_PROFILE_SPECIFIER = karmic_healing_watch_dev;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRIP_INSTALLED_PRODUCT = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_DISABLE_SAFETY_CHECKS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				"VALID_ARCHS[sdk=watchos*]" = "arm64_32 arm64";
+				"VALID_ARCHS[sdk=watchsimulator*]" = arm64;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Debug;
+		};
+		576C703FF7DF3838B40B8A6A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"ARCHS[sdk=watchos*]" = "arm64_32 arm64";
+				"ARCHS[sdk=watchsimulator*]" = arm64;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Distribution: Alexander  Velikotsky (KG394T5RF5)";
+				CODE_SIGN_STYLE = Manual;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = KG394T5RF5;
+				ENABLE_BITCODE = NO;
+				ENABLE_PREVIEWS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(inherited)",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-navigation/Sources/UIKitNavigationShim/include",
+					"$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include",
+				);
+				INFOPLIST_FILE = "Derived/InfoPlists/KarmicHealingWatch-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+				);
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
+					"-load-plugin-executable",
+					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing.watchkitapp;
+				PRODUCT_NAME = KarmicHealingWatch;
+				PROVISIONING_PROFILE_SPECIFIER = karmic_healing_watch_distr;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRIP_INSTALLED_PRODUCT = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_DISABLE_SAFETY_CHECKS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				"VALID_ARCHS[sdk=watchos*]" = "arm64_32 arm64";
+				"VALID_ARCHS[sdk=watchsimulator*]" = arm64;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Release;
+		};
 		5EE3F3B5ECADF9811BCC3351 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = KG394T5RF5;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -2822,6 +3266,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = KG394T5RF5;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -3283,6 +3728,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = KG394T5RF5;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -3416,6 +3862,8 @@
 				CFBundleName = KarmicHealing;
 				CODE_SIGN_IDENTITY = "Apple Distribution: Alexander  Velikotsky (KG394T5RF5)";
 				CODE_SIGN_STYLE = Manual;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = KG394T5RF5;
 				ENABLE_PREVIEWS = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3458,8 +3906,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing;
 				PRODUCT_NAME = KarmicHealing;
-				PROVISIONING_PROFILE_SPECIFIER = karmic_distr;
+				PROVISIONING_PROFILE_SPECIFIER = karmic_healing_distr;
 				SDKROOT = iphoneos;
+				STRIP_INSTALLED_PRODUCT = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -3467,6 +3916,10 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WK_APP_BUNDLE_IDENTIFIER = com.villi.karmichealing.watchkitapp;
+				WK_APP_NAME = "Karmic Healing";
+				WK_COMPANION_APP_BUNDLE_IDENTIFIER = com.villi.karmichealing.watchkitapp;
+				WK_WATCHKIT_APP = YES;
 			};
 			name = Release;
 		};
@@ -3623,6 +4076,15 @@
 			buildConfigurations = (
 				FE4DDC382C57F8C9ED0387D7 /* Debug */,
 				940D987705CF89A45749ACA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F27FA85C0B03D9F7A4437CEA /* Build configuration list for PBXNativeTarget "KarmicHealingWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				574D1556E612EEE17F90EB48 /* Debug */,
+				576C703FF7DF3838B40B8A6A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -19,13 +19,13 @@ public struct RequestsHelpView: View {
               .font(.system(size: DesignConstants.helpIconSize))
               .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
             
-            Text("help_title".loc())
+            Text("help_title".loc)
               .font(.title.weight(.bold))
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
               .multilineTextAlignment(.center)
               .padding(.horizontal)
 
-            Text("help_subtitle".loc())
+            Text("help_subtitle".loc)
               .font(.body)
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
               .multilineTextAlignment(.center)
@@ -37,36 +37,36 @@ public struct RequestsHelpView: View {
           VStack(spacing: DesignConstants.spacingLarge) {
             helpStep(
               number: 1,
-              title: "help_step_1_title".loc(),
-              description: "help_step_1_description".loc(),
+              title: "help_step_1_title".loc,
+              description: "help_step_1_description".loc,
               icon: "heart"
             )
             
             helpStep(
               number: 2,
-              title: "help_step_2_title".loc(),
-              description: "help_step_2_description".loc(),
+              title: "help_step_2_title".loc,
+              description: "help_step_2_description".loc,
               icon: "moon.stars"
             )
             
             helpStep(
               number: 3,
-              title: "help_step_3_title".loc(),
-              description: "help_step_3_description".loc(),
+              title: "help_step_3_title".loc,
+              description: "help_step_3_description".loc,
               icon: "sun.max"
             )
             
             helpStep(
               number: 4,
-              title: "help_step_4_title".loc(),
-              description: "help_step_4_description".loc(),
+              title: "help_step_4_title".loc,
+              description: "help_step_4_description".loc,
               icon: "hand.raised"
             )
             
             helpStep(
               number: 5,
-              title: "help_step_5_title".loc(),
-              description: "help_step_5_description".loc(),
+              title: "help_step_5_title".loc,
+              description: "help_step_5_description".loc,
               icon: "checkmark.circle"
             )
           }
@@ -74,7 +74,7 @@ public struct RequestsHelpView: View {
           
           // Detailed process of working with the Lords of Karma
           VStack(spacing: DesignConstants.spacingLarge) {
-            Text("karma_help_title".loc())
+            Text("karma_help_title".loc)
               .font(.headline.weight(.semibold))
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
               .multilineTextAlignment(.center)
@@ -82,27 +82,27 @@ public struct RequestsHelpView: View {
             VStack(spacing: DesignConstants.spacing) {
               karmaStep(
                 number: 1,
-                text: "karma_step_1".loc()
+                text: "karma_step_1".loc
               )
               
               karmaStep(
                 number: 2,
-                text: "karma_step_2".loc()
+                text: "karma_step_2".loc
               )
               
               karmaStep(
                 number: 3,
-                text: "karma_step_3".loc()
+                text: "karma_step_3".loc
               )
               
               karmaStep(
                 number: 4,
-                text: "karma_step_4".loc()
+                text: "karma_step_4".loc
               )
               
               // Liberation prayer
               VStack(alignment: .leading, spacing: DesignConstants.helpTipSpacing) {
-                Text("karma_liberation_prayer".loc())
+                Text("karma_liberation_prayer".loc)
                   .font(.body)
                   .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
                   .multilineTextAlignment(.leading)
@@ -118,39 +118,39 @@ public struct RequestsHelpView: View {
               
               karmaStep(
                 number: 5,
-                text: "karma_step_5".loc()
+                text: "karma_step_5".loc
               )
               
               karmaStep(
                 number: 6,
-                text: "karma_step_6".loc()
+                text: "karma_step_6".loc
               )
               
               karmaStep(
                 number: 7,
-                text: "karma_step_7".loc()
+                text: "karma_step_7".loc
               )
               
               karmaStep(
                 number: 8,
-                text: "karma_step_8".loc()
+                text: "karma_step_8".loc
               )
               
               // Categories of karmic healing
               VStack(alignment: .leading, spacing: DesignConstants.helpTipSpacing) {
-                Text("karma_category_a".loc())
+                Text("karma_category_a".loc)
                   .font(.body)
                   .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
                 
-                Text("karma_category_b".loc())
+                Text("karma_category_b".loc)
                   .font(.body)
                   .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
                 
-                Text("karma_category_c".loc())
+                Text("karma_category_c".loc)
                   .font(.body)
                   .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
                 
-                Text("karma_category_d".loc())
+                Text("karma_category_d".loc)
                   .font(.body)
                   .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
               }
@@ -164,7 +164,7 @@ public struct RequestsHelpView: View {
               
               karmaStep(
                 number: 9,
-                text: "karma_step_9".loc()
+                text: "karma_step_9".loc
               )
             }
           }
@@ -178,12 +178,12 @@ public struct RequestsHelpView: View {
           
           // Request Structure
           VStack(spacing: DesignConstants.helpStepSpacing) {
-            Text("requests_structure_title".loc())
+            Text("requests_structure_title".loc)
               .font(.headline.weight(.semibold))
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
             
             VStack(spacing: DesignConstants.helpTipSpacing) {
-              tipRow(text: "requests_structure_explanation".loc())
+              tipRow(text: "requests_structure_explanation".loc)
             }
           }
           .padding(.horizontal, DesignConstants.paddingLarge)
@@ -196,14 +196,14 @@ public struct RequestsHelpView: View {
           
           // Important tips
           VStack(spacing: DesignConstants.helpStepSpacing) {
-            Text("help_tips_title".loc())
+            Text("help_tips_title".loc)
               .font(.headline.weight(.semibold))
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
             
             VStack(spacing: DesignConstants.helpTipSpacing) {
-              tipRow(text: "help_tip_1".loc())
-              tipRow(text: "help_tip_2".loc())
-              tipRow(text: "help_tip_3".loc())
+              tipRow(text: "help_tip_1".loc)
+              tipRow(text: "help_tip_2".loc)
+              tipRow(text: "help_tip_3".loc)
             }
           }
           .padding(.horizontal, DesignConstants.paddingLarge)
@@ -217,7 +217,7 @@ public struct RequestsHelpView: View {
           Spacer(minLength: DesignConstants.spacingXLarge)
         }
       }
-      .navigationTitle("help".loc())
+      .navigationTitle("help".loc)
       .navigationBarTitleDisplayMode(.inline)
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
       .toolbarBackground(ResourcesAsset.Colors.background.swiftUIColor, for: .navigationBar)

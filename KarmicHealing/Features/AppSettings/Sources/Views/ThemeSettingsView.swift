@@ -63,32 +63,36 @@ public struct ThemeSettingsView: View {
 
   public var body: some View {
     WithViewStore(store, observe: { $0 }) { viewStore in
-      VStack(spacing: DesignConstants.spacingLarge) {
-        titleView
-        optionsView(viewStore)
-        doneButton(viewStore)
+      ZStack {
+        BgWithGradientView()
+
+        VStack(spacing: DesignConstants.spacingLarge) {
+          titleView
+          optionsView(viewStore)
+          doneButton(viewStore)
+        }
+        .frame(maxWidth: DesignConstants.maxWidthMedium)
+        .padding(DesignConstants.paddingXLarge)
+        .padding(.horizontal, DesignConstants.paddingXXLarge)
+        .onAppear {
+          viewStore.send(.onAppear)
+        }
+        .preferredColorScheme(preferredSchemeFor(viewStore.userTheme, systemColorScheme))
       }
-      .frame(maxWidth: DesignConstants.maxWidthMedium)
-      .padding(DesignConstants.paddingXLarge)
-      .padding(.horizontal, DesignConstants.paddingXXLarge)
-      .onAppear {
-        viewStore.send(.onAppear)
-      }
-      .preferredColorScheme(preferredSchemeFor(viewStore.userTheme, systemColorScheme))
     }
   }
 
   private var titleView: some View {
-    Text("theme".loc())
+    Text("theme".loc)
       .font(.title2.weight(.semibold))
       .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
   }
 
   private func optionsView(_ viewStore: ViewStoreOf<ThemeSettings>) -> some View {
     VStack(spacing: DesignConstants.paddingMedium) {
-      themeButton(themeKey: "system", title: "system".loc(), isSelected: viewStore.userTheme == "system", viewStore: viewStore)
-      themeButton(themeKey: "light", title: "light".loc(), isSelected: viewStore.userTheme == "light", viewStore: viewStore)
-      themeButton(themeKey: "dark", title: "dark".loc(), isSelected: viewStore.userTheme == "dark", viewStore: viewStore)
+      themeButton(themeKey: "system", title: "system".loc, isSelected: viewStore.userTheme == "system", viewStore: viewStore)
+      themeButton(themeKey: "light", title: "light".loc, isSelected: viewStore.userTheme == "light", viewStore: viewStore)
+      themeButton(themeKey: "dark", title: "dark".loc, isSelected: viewStore.userTheme == "dark", viewStore: viewStore)
     }
   }
 
@@ -119,7 +123,7 @@ public struct ThemeSettingsView: View {
     Button(action: {
       viewStore.send(.done)
     }) {
-      Text("done".loc())
+      Text("done".loc)
         .font(.headline.weight(.semibold))
         .foregroundStyle(ResourcesAsset.Colors.textInvert.swiftUIColor)
         .frame(maxWidth: .infinity)

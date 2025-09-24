@@ -68,7 +68,7 @@ public struct HomeButtonView: View {
       homeButton: .init(
         color: ResourcesAsset.Colors.clam.swiftUIColor,
         icon: Image(systemName: "info.circle"),
-        title: "About".loc().uppercased()
+        title: "About".loc.uppercased()
       )
     )
   }

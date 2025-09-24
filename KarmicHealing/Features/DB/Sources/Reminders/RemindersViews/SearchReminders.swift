@@ -96,7 +96,7 @@ struct SearchRemindersView: View {
 
   var body: some View {
     HStack {
-      Text("\(model.completedCount) " + "completed".loc())
+      Text("\(model.completedCount) " + "completed".loc)
         .monospacedDigit()
         .contentTransition(.numericText())
 
@@ -104,30 +104,30 @@ struct SearchRemindersView: View {
         Text("•")
 
         Menu {
-          Text("clear_completed_reminders".loc())
+          Text("clear_completed_reminders".loc)
 
-          Button("older_than_1_month".loc()) {
+          Button("older_than_1_month".loc) {
             model.deleteCompletedReminders(monthsAgo: 1)
           }
 
-          Button("older_than_6_months".loc()) {
+          Button("older_than_6_months".loc) {
             model.deleteCompletedReminders(monthsAgo: 6)
           }
 
-          Button("older_than_1_year".loc()) {
+          Button("older_than_1_year".loc) {
             model.deleteCompletedReminders(monthsAgo: 12)
           }
 
-          Button("all_completed".loc()) {
+          Button("all_completed".loc) {
             model.deleteCompletedReminders()
           }
         } label: {
-          Text("clear".loc())
+          Text("clear".loc)
         }
 
         Spacer()
 
-        Button(model.showCompletedInSearchResults ? "hide".loc() : "show".loc()) {
+        Button(model.showCompletedInSearchResults ? "hide".loc : "show".loc) {
           Task { await model.showCompletedButtonTapped() }
         }
       }
@@ -159,7 +159,7 @@ struct SearchRemindersView: View {
       if !searchText.isEmpty {
         SearchRemindersView(model: SearchRemindersModel())
       } else {
-        Text("tap_search".loc())
+        Text("tap_search".loc)
       }
     }
     .searchable(text: $searchText)

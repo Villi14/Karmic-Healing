@@ -33,12 +33,12 @@ struct ReminderFormView: View {
   
   var body: some View {
     Form {
-      TextField("title".loc(), text: $reminder.title)
+      TextField("title".loc, text: $reminder.title)
         .font(.system(.title3, design: .rounded, weight: .semibold))
       
       ZStack {
         if reminder.notes.isEmpty {
-          TextEditor(text: .constant("notes".loc()))
+          TextEditor(text: .constant("notes".loc))
             .foregroundStyle(.placeholder)
             .accessibilityHidden(true, isEnabled: false)
         }
@@ -58,7 +58,7 @@ struct ReminderFormView: View {
               .aspectRatio(contentMode: .fit)
               .frame(width: DesignConstants.frameHeightSmall, height: DesignConstants.frameHeightSmall)
               .foregroundStyle(ResourcesAsset.Colors.energy.swiftUIColor)
-            Text("date".loc())
+            Text("date".loc)
           }
         }
         .tint(ResourcesAsset.Colors.health.swiftUIColor)
@@ -98,17 +98,17 @@ struct ReminderFormView: View {
               .aspectRatio(contentMode: .fit)
               .frame(width: DesignConstants.frameHeightSmall, height: DesignConstants.frameHeightSmall)
               .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
-            Text("flag".loc())
+            Text("flag".loc)
           }
         }
         .tint(ResourcesAsset.Colors.health.swiftUIColor)
         
         Picker(selection: $reminder.priority) {
-          Text("none".loc()).tag(Priority?.none)
+          Text("none".loc).tag(Priority?.none)
           Divider()
-          Text("high".loc()).tag(Priority.high)
-          Text("medium".loc()).tag(Priority.medium)
-          Text("low".loc()).tag(Priority.low)
+          Text("high".loc).tag(Priority.high)
+          Text("medium".loc).tag(Priority.medium)
+          Text("low".loc).tag(Priority.low)
         } label: {
           HStack {
             Image(systemName: "exclamationmark")
@@ -116,7 +116,7 @@ struct ReminderFormView: View {
               .aspectRatio(contentMode: .fit)
               .frame(width: DesignConstants.frameHeightSmall, height: DesignConstants.frameHeightSmall)
               .foregroundStyle(ResourcesAsset.Colors.energy.swiftUIColor)
-            Text("priority".loc())
+            Text("priority".loc)
           }
         }
         
@@ -133,7 +133,7 @@ struct ReminderFormView: View {
               .aspectRatio(contentMode: .fit)
               .frame(width: DesignConstants.frameHeightSmall, height: DesignConstants.frameHeightSmall)
               .foregroundStyle(remindersList.color)
-            Text("list".loc())
+            Text("list".loc)
           }
         }
         .task(id: reminder.remindersListID) {
@@ -148,23 +148,23 @@ struct ReminderFormView: View {
     .toolbar {
       ToolbarItem {
         Button(action: saveButtonTapped) {
-          Text("save".loc())
+          Text("save".loc)
         }
         .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
         .disabled(reminder.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
       }
       
       ToolbarItem(placement: .cancellationAction) {
-        Button("cancel".loc()) {
+        Button("cancel".loc) {
           dismiss()
         }
         .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
       }
     }
-    .alert("date_error".loc(), isPresented: $showDateErrorAlert) {
-      Button("done".loc()) { }
+    .alert("date_error".loc, isPresented: $showDateErrorAlert) {
+      Button("done".loc) { }
     } message: {
-      Text("date_error_message".loc())
+      Text("date_error_message".loc)
     }
   }
   
@@ -236,7 +236,7 @@ struct ReminderFormPreview: PreviewProvider {
     
     NavigationStack {
       ReminderFormView(reminder: Reminder.Draft(reminder), remindersList: remindersList)
-        .navigationTitle("detail".loc())
+        .navigationTitle("detail".loc)
     }
   }
 }

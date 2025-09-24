@@ -4,7 +4,6 @@
 
 import ComposableArchitecture
 import Common
-import UIKit
 import SwiftUI
 
 @Reducer
@@ -58,6 +57,7 @@ public struct AppSettings {
         } else {
           state.userTheme = "system"
         }
+
         return .none
       case .didTapAbout:
         state.destination = .aboutAlert(.showAbout())
@@ -179,8 +179,8 @@ extension AlertReducer<Destination.Action.Alert>.State {
   static func showAbout() -> Self {
     .init(
       image: Image(systemName: "info.circle"),
-      title: "about".loc(),
-      message: "thanks_for_using_karmic_healing".loc()
+      title: "about".loc,
+      message: "thanks_for_using_karmic_healing".loc
     )
   }
 }
@@ -191,11 +191,11 @@ extension AlertReducer<Destination.Action.CopyAlert>.State {
 
     return .init(
       image: Image(systemName: "envelope"),
-      title: "write_to_us".loc(),
+      title: "write_to_us".loc,
       message: email,
       buttons: [
         .init(
-          label: "copy_to_clipboard".loc(),
+          label: "copy_to_clipboard".loc,
           action: .copyToClipboard(email)
         )
       ]

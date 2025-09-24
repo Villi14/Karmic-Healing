@@ -16,6 +16,7 @@ public struct BalancingEnergyList {
     public var isHelpPresented: Bool = false
 
     @Presents public var help: BalancingEnergyHelp.State?
+    @Presents public var balancingEnergy: BalancingEnergy.State?
 
     public init(initialProcessCompleted: Bool = false) {
       self.initialProcessCompleted = initialProcessCompleted
@@ -31,6 +32,7 @@ public struct BalancingEnergyList {
     case helpButtonTapped
     case helpDismissed
     case help(PresentationAction<BalancingEnergyHelp.Action>)
+    case balancingEnergy(PresentationAction<BalancingEnergy.Action>)
   }
 
   public var body: some ReducerOf<Self> {
@@ -51,12 +53,46 @@ public struct BalancingEnergyList {
       case .help(.presented(.dismiss)):
         state.help = nil
         return .none
-      case .initialProcess, .essentialSelf, .divineSelf, .help:
+      case .initialProcess:
+        state.balancingEnergy = BalancingEnergy.State(
+          title: "Initial Process",
+          currentStep: 0,
+          isCompleted: false,
+          steps: Step.part1
+        )
+        return .none
+      case .essentialSelf:
+        state.balancingEnergy = BalancingEnergy.State(
+          title: "Essential Self",
+          currentStep: 0,
+          isCompleted: false,
+          steps: Step.part2
+        )
+        return .none
+      case .divineSelf:
+        state.balancingEnergy = BalancingEnergy.State(
+          title: "Divine Self",
+          currentStep: 0,
+          isCompleted: false,
+          steps: Step.part3
+        )
+        return .none
+      case .balancingEnergy(.presented(.completeSteps)):
+        let wasInitialProcess = state.balancingEnergy?.title == "Initial Process"
+        state.balancingEnergy = nil
+        if wasInitialProcess {
+          return .send(.markInitialProcessCompleted)
+        }
+        return .none
+      case .help, .balancingEnergy:
         return .none
       }
     }
     .ifLet(\.$help, action: \.help) {
       BalancingEnergyHelp()
+    }
+    .ifLet(\.$balancingEnergy, action: \.balancingEnergy) {
+      BalancingEnergy()
     }
   }
 }

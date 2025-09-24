@@ -53,7 +53,15 @@ private class AudioPlayer {
   private var volume: Float = 1.0
   
   func playSound(named soundName: String, withExtension ext: String = "wav") {
-    guard let soundURL = Bundle.main.url(forResource: soundName, withExtension: ext) else {
+    // Try to find sound in Resources module first, then fallback to main bundle
+    let soundURL: URL?
+    if let resourcesBundle = Bundle(identifier: "com.villi.karmichealing.resources") {
+      soundURL = resourcesBundle.url(forResource: soundName, withExtension: ext)
+    } else {
+      soundURL = Bundle.main.url(forResource: soundName, withExtension: ext)
+    }
+    
+    guard let soundURL = soundURL else {
       print("Sound file not found: \(soundName).\(ext)")
       return
     }

@@ -51,7 +51,7 @@ public struct HomeView: View {
         }
       }
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-      .navigationTitle("karmic_healing".loc())
+      .navigationTitle("karmic_healing".loc)
       .navigationBarTitleDisplayMode(.inline)
     } destination: { store in
       switch store.case {

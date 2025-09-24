@@ -42,7 +42,7 @@ public struct BalancingEnergyView: View {
             .frame(height: DesignConstants.frameHeightMedium)
             .padding(.top, DesignConstants.paddingLarge)
 
-          Text("attention_before_proceeding".loc())
+          Text("attention_before_proceeding".loc)
             .font(.headline.weight(.medium))
             .multilineTextAlignment(.center)
             .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
@@ -117,7 +117,7 @@ public struct BalancingEnergyView: View {
 
           HStack {
             if viewStore.currentStep > 0 {
-              Button("back".loc()) {
+              Button("back".loc) {
                 viewStore.send(.previousStep)
                 viewStore.send(.userManuallyScrolled)
               }
@@ -127,7 +127,7 @@ public struct BalancingEnergyView: View {
 
             Spacer()
 
-            Button(viewStore.currentStep == viewStore.steps.count - 1 ? "done".loc() : "next".loc()) {
+            Button(viewStore.currentStep == viewStore.steps.count - 1 ? "done".loc : "next".loc) {
               if viewStore.currentStep == viewStore.steps.count - 1 {
                 print("BalancingEnergyView: Done button tapped - completing steps")
                 viewStore.send(.completeSteps)
@@ -262,7 +262,7 @@ public struct BalancingEnergyView: View {
     BgWithGradientView()
     BalancingEnergyView(store: .init(
       initialState: .init(
-        title: "initial_process".loc(),
+        title: "initial_process".loc,
         currentStep: 0,
         isCompleted: false,
         steps: Step.part1

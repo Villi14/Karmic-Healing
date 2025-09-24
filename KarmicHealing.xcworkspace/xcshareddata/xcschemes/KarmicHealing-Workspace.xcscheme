@@ -406,6 +406,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "208799A9F97EC4B92FCBA5B3"
+               BuildableName = "KarmicHealingWatch.app"
+               BlueprintName = "KarmicHealingWatch"
+               ReferencedContainer = "container:KarmicHealing.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "2E9B8F1705F579CDF62AF8E7"
                BuildableName = "Onboarding.framework"
                BlueprintName = "Onboarding"

@@ -54,12 +54,28 @@ private class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificatio
     )
     super.init()
     UNUserNotificationCenter.current().delegate = self
+    
+    // Watch connectivity disabled - watch is now independent
+    print("AppDelegate: Watch connectivity disabled - watch is independent")
+    
+    // Listen for language changes
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(languageDidChange),
+      name: NSLocale.currentLocaleDidChangeNotification,
+      object: nil
+    )
+    
     $selectedReminderID
       .compactMap { $0 }
       .sink { [weak self] id in
         self?.store.send(.setSelectedReminderID(id))
       }
       .store(in: &cancellables)
+  }
+  
+  deinit {
+    NotificationCenter.default.removeObserver(self)
   }
 
   func application(
@@ -74,6 +90,10 @@ private class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificatio
       }
       print("Notification permission granted: \(granted)")
     }
+    
+    // Watch connectivity disabled - watch is now independent
+    print("AppDelegate: Watch connectivity disabled - watch is independent")
+    
     return true
   }
   
@@ -94,6 +114,14 @@ private class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificatio
         print("AppDelegate: Cancelled \(balancingEnergyIdentifiers.count) balancing energy notifications on app termination")
       }
     }
+  }
+  
+  func applicationWillEnterForeground(_ application: UIApplication) {
+    print("AppDelegate: App entering foreground - watch is independent")
+  }
+  
+  func applicationDidBecomeActive(_ application: UIApplication) {
+    print("AppDelegate: App became active - watch is independent")
   }
   
   func applicationDidEnterBackground(_ application: UIApplication) {
@@ -143,5 +171,10 @@ private class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificatio
     }
 
     completionHandler()
+  }
+  
+  // MARK: - Language Change Handler
+  @objc private func languageDidChange() {
+    print("AppDelegate: Language changed - watch is independent, no sync needed")
   }
 }

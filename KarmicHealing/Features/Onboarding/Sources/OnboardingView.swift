@@ -45,7 +45,7 @@ public struct OnboardingView: View {
     HStack {
       Spacer()
       if viewStore.steps.indices.contains(viewStore.currentStep) && viewStore.steps[viewStore.currentStep].showSkipButton {
-        Button("skip".loc()) {
+        Button("skip".loc) {
           viewStore.send(.completeOnboarding)
         }
         .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
@@ -53,7 +53,7 @@ public struct OnboardingView: View {
         .padding([.top, .trailing], DesignConstants.paddingLarge)
       } else {
         // Invisible spacer to maintain consistent height
-        Text("skip".loc())
+        Text("skip".loc)
           .foregroundStyle(.clear)
           .font(.body.weight(.medium))
           .padding([.top, .trailing], DesignConstants.paddingLarge)
@@ -138,7 +138,7 @@ public struct OnboardingView: View {
   private func bottomButtons(viewStore: ViewStore<ViewState, Onboarding.Action>) -> some View {
     HStack {
       if viewStore.currentStep > 0 {
-        Button("back".loc()) {
+        Button("back".loc) {
           viewStore.send(.previousStep)
         }
         .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
@@ -149,8 +149,8 @@ public struct OnboardingView: View {
       Spacer()
 
       Button(viewStore.currentStep == viewStore.steps.count - 1 ?
-             "done".loc() :
-              "next".loc()) {
+             "done".loc :
+              "next".loc) {
         viewStore.send(.nextStep)
       }
               .padding(.horizontal, DesignConstants.paddingLarge)

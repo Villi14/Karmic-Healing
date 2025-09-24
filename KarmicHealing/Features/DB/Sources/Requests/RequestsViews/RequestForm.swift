@@ -26,12 +26,12 @@ struct RequestFormView: View {
   
   var body: some View {
     Form {
-      TextField("title".loc(), text: $request.title)
+      TextField("title".loc, text: $request.title)
         .font(.system(.title2, design: .rounded, weight: .semibold))
       
       ZStack {
         if request.notes.isEmpty {
-          TextEditor(text: .constant("notes".loc()))
+          TextEditor(text: .constant("notes".loc))
             .foregroundStyle(.placeholder)
             .accessibilityHidden(true, isEnabled: false)
         }
@@ -51,7 +51,7 @@ struct RequestFormView: View {
               .aspectRatio(contentMode: .fit)
               .frame(width: DesignConstants.frameHeightSmall, height: DesignConstants.frameHeightSmall)
               .foregroundStyle(ResourcesAsset.Colors.energy.swiftUIColor)
-            Text("date".loc())
+            Text("date".loc)
           }
         }
         .tint(ResourcesAsset.Colors.health.swiftUIColor)
@@ -79,11 +79,11 @@ struct RequestFormView: View {
       
       Section {
         Picker(selection: $request.priority) {
-          Text("none".loc()).tag(Priority?.none)
+          Text("none".loc).tag(Priority?.none)
           Divider()
-          Text("high".loc()).tag(Priority.high)
-          Text("medium".loc()).tag(Priority.medium)
-          Text("low".loc()).tag(Priority.low)
+          Text("high".loc).tag(Priority.high)
+          Text("medium".loc).tag(Priority.medium)
+          Text("low".loc).tag(Priority.low)
         } label: {
           HStack {
             Image(systemName: "exclamationmark")
@@ -91,7 +91,7 @@ struct RequestFormView: View {
               .aspectRatio(contentMode: .fit)
               .frame(width: DesignConstants.frameHeightSmall, height: DesignConstants.frameHeightSmall)
               .foregroundStyle(ResourcesAsset.Colors.energy.swiftUIColor)
-            Text("priority".loc())
+            Text("priority".loc)
           }
         }
       }
@@ -101,14 +101,14 @@ struct RequestFormView: View {
     .toolbar {
       ToolbarItem {
         Button(action: saveButtonTapped) {
-          Text("save".loc())
+          Text("save".loc)
         }
         .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
         .disabled(request.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
       }
       
       ToolbarItem(placement: .cancellationAction) {
-        Button("cancel".loc()) {
+        Button("cancel".loc) {
           dismiss()
         }
         .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
@@ -168,7 +168,7 @@ struct RequestFormPreview: PreviewProvider {
     
     NavigationStack {
       RequestFormView(request: Request.Draft(request), requestsList: requestsList)
-        .navigationTitle("detail".loc())
+        .navigationTitle("detail".loc)
     }
   }
 }

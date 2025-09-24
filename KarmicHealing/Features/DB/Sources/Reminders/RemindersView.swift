@@ -37,7 +37,7 @@ public struct RemindersView: View {
         }
       }
       
-      .navigationTitle("reminders".loc())
+      .navigationTitle("reminders".loc)
       .navigationBarBackButtonHidden()
       .navigationBarTitleDisplayMode(.automatic)
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)

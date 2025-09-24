@@ -1,7 +1,9 @@
 import Foundation
 
 public extension String {
-  func loc() -> String {
-    String(localized: String.LocalizationValue(self), bundle: .main)
+  var loc: String {
+    // Use main bundle for iOS (so system knows about supported languages)
+    // Resources module will be used for Watch app later
+    return String(localized: String.LocalizationValue(self), bundle: .main)
   }
 }

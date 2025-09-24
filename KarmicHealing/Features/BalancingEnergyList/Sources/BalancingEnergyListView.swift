@@ -24,16 +24,16 @@ public struct BalancingEnergyListView: View {
       VStack {
         KarmicHealingDisclosureGroup {
           if !store.initialProcessCompleted {
-            DisclosureCell("initial_process".loc()) {
+            DisclosureCell("initial_process".loc) {
               store.send(.initialProcess)
             }
           }
 
-          DisclosureCell("essential_self".loc()) {
+          DisclosureCell("essential_self".loc) {
             store.send(.essentialSelf)
           }
 
-          DisclosureCell("divine_self".loc()) {
+          DisclosureCell("divine_self".loc) {
             store.send(.divineSelf)
           }
         }
@@ -45,7 +45,7 @@ public struct BalancingEnergyListView: View {
       .padding(.top)
     }
     .onAppear { store.send(.onAppear) }
-    .navigationTitle("energy_balancing".loc())
+    .navigationTitle("energy_balancing".loc)
     .navigationBarBackButtonHidden()
     .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
     .sheet(item: $store.scope(state: \.help, action: \.help)) { helpStore in

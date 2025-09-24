@@ -120,24 +120,28 @@ public struct EnergyBalansingSettingsView: View {
 
   public var body: some View {
     WithViewStore(store, observe: { $0 }) { viewStore in
-      VStack(spacing: DesignConstants.spacingLarge) {
-        titleView
-        durationOptionsView(viewStore)
-        vibrationAndSoundSection(viewStore)
-        volumeSection(viewStore)
-        doneButton(viewStore)
-      }
-      .frame(maxWidth: DesignConstants.maxWidthMedium)
-      .padding(DesignConstants.paddingXLarge)
-      .padding(.horizontal, DesignConstants.paddingXXLarge)
-      .onAppear {
-        viewStore.send(.onAppear)
+      ZStack {
+        BgWithGradientView()
+        
+        VStack(spacing: DesignConstants.spacingLarge) {
+          titleView
+          durationOptionsView(viewStore)
+          vibrationAndSoundSection(viewStore)
+          volumeSection(viewStore)
+          doneButton(viewStore)
+        }
+        .frame(maxWidth: DesignConstants.maxWidthMedium)
+        .padding(DesignConstants.paddingXLarge)
+        .padding(.horizontal, DesignConstants.paddingXXLarge)
+        .onAppear {
+          viewStore.send(.onAppear)
+        }
       }
     }
   }
 
   private var titleView: some View {
-    Text("session_duration".loc())
+    Text("session_duration".loc)
       .font(.title2.weight(.semibold))
       .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
   }
@@ -155,7 +159,7 @@ public struct EnergyBalansingSettingsView: View {
       viewStore.send(.sessionDurationChanged(duration))
     }) {
       HStack {
-        Text("\(duration) \("minutes".loc())")
+        Text("\(duration) \("minutes".loc)")
           .font(.body)
           .foregroundStyle(isSelected ? ResourcesAsset.Colors.textPrimary.swiftUIColor : ResourcesAsset.Colors.textSecondary.swiftUIColor)
         Spacer()
@@ -176,7 +180,7 @@ public struct EnergyBalansingSettingsView: View {
         Image(systemName: "iphone.radiowaves.left.and.right")
           .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
 
-        Text("vibration".loc())
+        Text("vibration".loc)
           .font(.body)
           .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
 
@@ -196,7 +200,7 @@ public struct EnergyBalansingSettingsView: View {
         Image(systemName: "speaker.wave.2")
           .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
 
-        Text("sound".loc())
+        Text("sound".loc)
           .font(.body)
           .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
 
@@ -220,7 +224,7 @@ public struct EnergyBalansingSettingsView: View {
         Image(systemName: "speaker.wave.3")
           .foregroundStyle(viewStore.soundEnabled ? ResourcesAsset.Colors.friendly.swiftUIColor : ResourcesAsset.Colors.textSecondary.swiftUIColor)
 
-        Text("volume".loc())
+        Text("volume".loc)
           .font(.body)
           .foregroundStyle(viewStore.soundEnabled ? ResourcesAsset.Colors.textPrimary.swiftUIColor : ResourcesAsset.Colors.textSecondary.swiftUIColor)
 
@@ -252,7 +256,7 @@ public struct EnergyBalansingSettingsView: View {
     Button(action: {
       viewStore.send(.done)
     }) {
-      Text("done".loc())
+      Text("done".loc)
         .font(.headline.weight(.semibold))
         .foregroundStyle(ResourcesAsset.Colors.textInvert.swiftUIColor)
         .frame(maxWidth: .infinity)

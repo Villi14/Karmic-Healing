@@ -88,7 +88,7 @@ struct RequestRow: View {
     }
     .buttonStyle(.borderless)
     .swipeActions {
-      Button("delete".loc(), role: .destructive) {
+      Button("delete".loc, role: .destructive) {
         withErrorReporting {
           try database.write { db in
             try Request.delete(request).execute(db)
@@ -96,7 +96,7 @@ struct RequestRow: View {
         }
       }
       .tint(ResourcesAsset.Colors.energy.swiftUIColor)
-      Button("details".loc()) {
+      Button("details".loc) {
         editRequest = Request.Draft(request)
       }
       .tint(ResourcesAsset.Colors.clarity.swiftUIColor)
@@ -108,7 +108,7 @@ struct RequestRow: View {
           requestsList: requestsList,
           onSave: nil
         )
-        .navigationTitle("details".loc())
+        .navigationTitle("details".loc)
       }
     }
   }

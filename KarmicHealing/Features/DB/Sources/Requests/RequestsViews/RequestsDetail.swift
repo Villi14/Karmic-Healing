@@ -145,11 +145,11 @@ class RequestsDetailModel: HashableObject {
     var localizedTitle: String {
       switch self {
       case .dueDate:
-        return "due_date".loc()
+        return "due_date".loc
       case .priority:
-        return "priority".loc()
+        return "priority".loc
       case .title:
-        return "title".loc()
+        return "title".loc
       }
     }
     
@@ -247,7 +247,7 @@ struct RequestsDetailView: View {
               request: Request.Draft(requestsListID: requestsList.id),
               requestsList: requestsList
             )
-            .navigationTitle("new_request".loc())
+            .navigationTitle("new_request".loc)
           }
         }
       }
@@ -266,7 +266,7 @@ struct RequestsDetailView: View {
               } label: {
                 HStack {
                   Image(systemName: "plus")
-                  Text("additional_questions".loc())
+                  Text("additional_questions".loc)
                 }
                 .font(.body)
               }
@@ -289,7 +289,7 @@ struct RequestsDetailView: View {
                   }
                 }
               } label: {
-                Text("sort_by".loc())
+                Text("sort_by".loc)
                 Text(model.ordering.localizedTitle)
                 Image(systemName: "arrow.up.arrow.down")
               }
@@ -299,7 +299,7 @@ struct RequestsDetailView: View {
                 Button {
                   Task { await model.showCompletedButtonTapped() }
                 } label: {
-                  Text(model.showCompleted ? "hide_completed".loc() : "show_completed".loc())
+                  Text(model.showCompleted ? "hide_completed".loc : "show_completed".loc)
                   Image(systemName: model.showCompleted ? "eye" : "eye")
                 }
               }
@@ -328,11 +328,11 @@ extension RequestsDetailModel.DetailType {
   
   fileprivate var navigationTitle: String {
     switch self {
-    case .all: "all".loc()
-    case .completed: "completed".loc()
+    case .all: "all".loc
+    case .completed: "completed".loc
     case .requestsList(let list): list.title
-    case .scheduled: "scheduled".loc()
-    case .today: "today".loc()
+    case .scheduled: "scheduled".loc
+    case .today: "today".loc
     }
   }
   

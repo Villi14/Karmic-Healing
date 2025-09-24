@@ -24,7 +24,7 @@ struct RequestsListForm: View {
     Form {
       Section {
         VStack {
-          TextField("request_placeholder".loc(), text: $requestsList.title)
+          TextField("request_placeholder".loc, text: $requestsList.title)
             .font(.system(.title, design: .rounded, weight: .bold))
             .foregroundStyle(requestsList.color)
             .multilineTextAlignment(.center)
@@ -35,7 +35,7 @@ struct RequestsListForm: View {
         }
       }
       
-      ColorPicker("color".loc(), selection: $requestsList.color)
+      ColorPicker("color".loc, selection: $requestsList.color)
         .tint(ResourcesAsset.Colors.clam.swiftUIColor)
       
       Section {
@@ -49,7 +49,7 @@ struct RequestsListForm: View {
                 height: DesignConstants.frameHeightSmall
               )
               .foregroundStyle(ResourcesAsset.Colors.energy.swiftUIColor)
-            Text("date".loc())
+            Text("date".loc)
           }
         }
         .tint(ResourcesAsset.Colors.health.swiftUIColor)
@@ -78,7 +78,7 @@ struct RequestsListForm: View {
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
       ToolbarItem {
-        Button("save".loc()) {
+        Button("save".loc) {
           withErrorReporting {
             try database.write { db in
               try RequestsList.upsert(requestsList)
@@ -92,7 +92,7 @@ struct RequestsListForm: View {
       }
       
       ToolbarItem(placement: .cancellationAction) {
-        Button("cancel".loc()) {
+        Button("cancel".loc) {
           dismiss()
         }
         .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
@@ -109,7 +109,7 @@ struct RequestsListFormPreviews: PreviewProvider {
     
     NavigationStack {
       RequestsListForm(requestsList: RequestsList.Draft())
-        .navigationTitle("request_placeholder".loc())
+        .navigationTitle("request_placeholder".loc)
     }
   }
 }

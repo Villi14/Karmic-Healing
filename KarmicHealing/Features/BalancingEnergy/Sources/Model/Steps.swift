@@ -55,132 +55,132 @@ extension Step {
   ]
 
   public static var step1: Self {
-    .init(title: "step_1".loc())
+    .init(title: "step_1".loc)
   }
 
   public static var step2: Self {
-    .init(title: "step_2".loc())
+    .init(title: "step_2".loc)
   }
 
   public static var step3: Self {
     .init(
-      title: "step_3".loc(),
-      description: "step_3_text".loc(),
+      title: "step_3".loc,
+      description: "step_3_text".loc,
     )
   }
 
   public static var part1step4: Self {
-    .init(title: "part_1_step_4".loc())
+    .init(title: "part_1_step_4".loc)
   }
 
   public static var part1step5: Self {
-    .init(title: "part_1_step_5".loc())
+    .init(title: "part_1_step_5".loc)
   }
 
   public static var part1step6: Self {
     .init(
-      title: "part_1_step_6".loc(),
-      description: "part_1_step_6_text".loc()
+      title: "part_1_step_6".loc,
+      description: "part_1_step_6_text".loc
     )
   }
 
   public static var part1step7: Self {
     .init(
-      title: "part_1_step_6".loc(),
-      description: "part_1_step_7_text".loc()
+      title: "part_1_step_6".loc,
+      description: "part_1_step_7_text".loc
     )
   }
 
   public static var part1step8: Self {
     .init(
-      title: "part_1_step_6".loc(),
-      description: "part_1_step_8_text".loc()
+      title: "part_1_step_6".loc,
+      description: "part_1_step_8_text".loc
     )
   }
 
   public static var part1step9: Self {
     .init(
-      title: "part_1_step_6".loc(),
-      description: "part_1_step_9_text".loc()
+      title: "part_1_step_6".loc,
+      description: "part_1_step_9_text".loc
     )
   }
 
   public static var part1step10: Self {
     .init(
-      title: "part_1_step_10".loc(),
-      description: "part_1_step_10_text".loc()
+      title: "part_1_step_10".loc,
+      description: "part_1_step_10_text".loc
     )
   }
 
   public static var part1step11: Self {
-    .init(title: "part_1_step_11".loc())
+    .init(title: "part_1_step_11".loc)
   }
 
   public static var part1step12: Self {
-    .init(title: "part_1_step_12".loc())
+    .init(title: "part_1_step_12".loc)
   }
 
   public static var part1step13: Self {
-    .init(title: "part_1_step_13".loc())
+    .init(title: "part_1_step_13".loc)
   }
 
   public static var part1step14: Self {
-    .init(title: "part_1_step_14".loc())
+    .init(title: "part_1_step_14".loc)
   }
 
   public static var part2step4: Self {
-    .init(title: "part_2_step_4".loc())
+    .init(title: "part_2_step_4".loc)
   }
 
   public static var part2step5: Self {
-    .init(title: "part_2_step_5".loc())
+    .init(title: "part_2_step_5".loc)
   }
 
   public static var part2step8: Self {
-    .init(title: "part_2_step_8".loc())
+    .init(title: "part_2_step_8".loc)
   }
 
   public static var part2step9: Self {
-    .init(title: "part_2_step_9".loc())
+    .init(title: "part_2_step_9".loc)
   }
 
   public static var part2step10: Self {
-    .init(title: "part_2_step_10".loc())
+    .init(title: "part_2_step_10".loc)
   }
 
   public static var part2step11: Self {
-    .init(title: "part_2_step_11".loc())
+    .init(title: "part_2_step_11".loc)
   }
 
   public static var stepLast: Self {
-    .init(title: "step_last".loc())
+    .init(title: "step_last".loc)
   }
 
   public static var part3step11: Self {
-    .init(title: "part_3_step_11".loc())
+    .init(title: "part_3_step_11".loc)
   }
 
   public static var part3step12: Self {
-    .init(title: "part_3_step_12".loc())
+    .init(title: "part_3_step_12".loc)
   }
 
   public static var part3step13: Self {
-    .init(title: "part_3_step_13".loc())
+    .init(title: "part_3_step_13".loc)
   }
 
   public static var part3step14: Self {
-    .init(title: "part_3_step_14".loc())
+    .init(title: "part_3_step_14".loc)
   }
 
   public static var part3step15: Self {
-    .init(title: "part_3_step_15".loc())
+    .init(title: "part_3_step_15".loc)
   }
 
   public static var part3step16: Self {
-    .init(title: "part_3_step_16".loc())
+    .init(title: "part_3_step_16".loc)
   }
 
   public static var part3step17: Self {
-    .init(title: "part_3_step_17".loc())
+    .init(title: "part_3_step_17".loc)
   }
 }

@@ -20,27 +20,27 @@ public struct AppSettingsView: View {
     ScrollView {
       VStack {
         KarmicHealingDisclosureGroup {
-          DisclosureCell("about".loc()) {
+          DisclosureCell("about".loc) {
             store.send(.didTapAbout)
           }
 
-          DisclosureCell("theme".loc()) {
+          DisclosureCell("theme".loc) {
             store.send(.didTapThemeSettings)
           }
 
-          DisclosureCell("session_duration".loc()) {
+          DisclosureCell("session_duration".loc) {
             store.send(.didTapSessionDuration)
           }
 
-          DisclosureCell("change_language".loc()) {
+          DisclosureCell("change_language".loc) {
             store.send(.didTapChangeLanguage)
           }
 
-          DisclosureCell("privacy_policy".loc()) {
+          DisclosureCell("privacy_policy".loc) {
             store.send(.didTapPrivacyPolicy)
           }
 
-          DisclosureCell("write_to_us".loc()) {
+          DisclosureCell("write_to_us".loc) {
             store.send(.didTapContactEmail)
           }
         }
@@ -57,7 +57,7 @@ public struct AppSettingsView: View {
         BgWithGradientView()
         settingsContent
       }
-      .navigationTitle("settings".loc())
+      .navigationTitle("settings".loc)
       .navigationBarBackButtonHidden()
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
       .onAppear {

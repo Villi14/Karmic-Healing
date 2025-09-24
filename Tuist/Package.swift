@@ -5,6 +5,7 @@
 @preconcurrency import ProjectDescription
 import ProjectDescriptionHelpers
 
+// Package settings optimized for both iOS and watchOS
 let packageSettings = PackageSettings(
   productTypes: [
     "ComposableArchitecture": .framework,

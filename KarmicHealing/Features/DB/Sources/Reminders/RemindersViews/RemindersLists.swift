@@ -234,7 +234,7 @@ struct RemindersListsView: View {
                     color: ResourcesAsset.Colors.clam.swiftUIColor,
                     count: model.stats.todayCount,
                     iconName: "calendar",
-                    title: "today".loc()
+                    title: "today".loc
                   ) {
                     model.statTapped(.today)
                   }
@@ -243,7 +243,7 @@ struct RemindersListsView: View {
                     color: ResourcesAsset.Colors.energy.swiftUIColor,
                     count: model.stats.scheduledCount,
                     iconName: "calendar",
-                    title: "scheduled".loc()
+                    title: "scheduled".loc
                   ) {
                     model.statTapped(.scheduled)
                   }
@@ -254,7 +254,7 @@ struct RemindersListsView: View {
                     color: ResourcesAsset.Colors.textSecondary.swiftUIColor,
                     count: model.stats.allCount,
                     iconName: "tray",
-                    title: "all".loc()
+                    title: "all".loc
                   ) {
                     model.statTapped(.all)
                   }
@@ -263,7 +263,7 @@ struct RemindersListsView: View {
                     color: ResourcesAsset.Colors.friendly.swiftUIColor,
                     count: model.stats.flaggedCount,
                     iconName: "flag",
-                    title: "flagged".loc()
+                    title: "flagged".loc
                   ) {
                     model.statTapped(.flagged)
                   }
@@ -274,7 +274,7 @@ struct RemindersListsView: View {
                     color: ResourcesAsset.Colors.health.swiftUIColor,
                     count: nil,
                     iconName: "checkmark",
-                    title: "completed".loc()
+                    title: "completed".loc
                   ) {
                     model.statTapped(.completed)
                   }
@@ -298,7 +298,7 @@ struct RemindersListsView: View {
                 )
               }
             } header: {
-              Text("my_reminders".loc())
+              Text("my_reminders".loc)
                 .font(.system(.headline, design: .rounded, weight: .bold))
                 .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
                 .textCase(nil)
@@ -329,7 +329,7 @@ struct RemindersListsView: View {
               Button {
                 model.seedDatabaseButtonTapped()
               } label: {
-                Text("seed_data".loc())
+                Text("seed_data".loc)
                   .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
 
                 Image(systemName: "leaf")
@@ -353,7 +353,7 @@ struct RemindersListsView: View {
                     Image(systemName: "plus")
                       .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
 
-                    Text("reminder".loc())
+                    Text("reminder".loc)
                       .font(.body)
                       .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
                   }
@@ -370,7 +370,7 @@ struct RemindersListsView: View {
                 Image(systemName: "plus")
                   .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
 
-                Text("list".loc())
+                Text("list".loc)
                   .font(.body)
                   .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
               }
@@ -380,13 +380,13 @@ struct RemindersListsView: View {
         .sheet(item: $model.destination.reminderForm, id: \.0.id) { reminder, remindersList in
           NavigationStack {
             ReminderFormView(reminder: reminder, remindersList: remindersList)
-              .navigationTitle("new_reminder".loc())
+              .navigationTitle("new_reminder".loc)
           }
         }
         .sheet(item: $model.destination.remindersListForm) { remindersList in
           NavigationStack {
             RemindersListForm(remindersList: remindersList)
-              .navigationTitle("new_list".loc())
+              .navigationTitle("new_list".loc)
           }
           .presentationDetents([.large])
         }

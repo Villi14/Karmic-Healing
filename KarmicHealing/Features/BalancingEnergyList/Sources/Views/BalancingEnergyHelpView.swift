@@ -22,13 +22,13 @@ public struct BalancingEnergyHelpView: View {
               .font(.system(size: DesignConstants.helpIconSize))
               .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
             
-            Text("help_title".loc())
+            Text("help_title".loc)
               .font(.title.weight(.bold))
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
               .multilineTextAlignment(.center)
               .padding(.horizontal)
             
-            Text("help_subtitle".loc())
+            Text("help_subtitle".loc)
               .font(.body)
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
               .multilineTextAlignment(.center)
@@ -40,36 +40,36 @@ public struct BalancingEnergyHelpView: View {
           VStack(spacing: DesignConstants.spacingLarge) {
             helpStep(
               number: 1,
-              title: "help_step_1_title".loc(),
-              description: "help_step_1_description".loc(),
+              title: "help_step_1_title".loc,
+              description: "help_step_1_description".loc,
               icon: "heart"
             )
             
             helpStep(
               number: 2,
-              title: "help_step_2_title".loc(),
-              description: "help_step_2_description".loc(),
+              title: "help_step_2_title".loc,
+              description: "help_step_2_description".loc,
               icon: "moon.stars"
             )
             
             helpStep(
               number: 3,
-              title: "help_step_3_title".loc(),
-              description: "help_step_3_description".loc(),
+              title: "help_step_3_title".loc,
+              description: "help_step_3_description".loc,
               icon: "sun.max"
             )
             
             helpStep(
               number: 4,
-              title: "help_step_4_title".loc(),
-              description: "help_step_4_description".loc(),
+              title: "help_step_4_title".loc,
+              description: "help_step_4_description".loc,
               icon: "hand.raised"
             )
             
             helpStep(
               number: 5,
-              title: "help_step_5_title".loc(),
-              description: "help_step_5_description".loc(),
+              title: "help_step_5_title".loc,
+              description: "help_step_5_description".loc,
               icon: "checkmark.circle"
             )
           }
@@ -77,17 +77,17 @@ public struct BalancingEnergyHelpView: View {
           
           // Meditation Settings
           VStack(spacing: DesignConstants.helpStepSpacing) {
-            Text("meditation_settings_title".loc())
+            Text("meditation_settings_title".loc)
               .font(.headline.weight(.semibold))
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
             
             VStack(spacing: DesignConstants.helpTipSpacing) {
-              tipRow(text: "meditation_auto_scroll".loc())
-              tipRow(text: "meditation_step_timing".loc())
-              tipRow(text: "meditation_vibration_setting".loc())
-              tipRow(text: "meditation_sound_setting".loc())
-              tipRow(text: "meditation_volume_setting".loc())
-              tipRow(text: "meditation_sleep_notification".loc())
+              tipRow(text: "meditation_auto_scroll".loc)
+              tipRow(text: "meditation_step_timing".loc)
+              tipRow(text: "meditation_vibration_setting".loc)
+              tipRow(text: "meditation_sound_setting".loc)
+              tipRow(text: "meditation_volume_setting".loc)
+              tipRow(text: "meditation_sleep_notification".loc)
             }
           }
           .padding(.horizontal, DesignConstants.paddingLarge)
@@ -100,14 +100,14 @@ public struct BalancingEnergyHelpView: View {
           
           // Important tips
           VStack(spacing: DesignConstants.helpStepSpacing) {
-            Text("help_tips_title".loc())
+            Text("help_tips_title".loc)
               .font(.headline.weight(.semibold))
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
             
             VStack(spacing: DesignConstants.helpTipSpacing) {
-              tipRow(text: "help_tip_1".loc())
-              tipRow(text: "help_tip_2".loc())
-              tipRow(text: "help_tip_3".loc())
+              tipRow(text: "help_tip_1".loc)
+              tipRow(text: "help_tip_2".loc)
+              tipRow(text: "help_tip_3".loc)
             }
           }
           .padding(.horizontal, DesignConstants.paddingLarge)
@@ -121,7 +121,7 @@ public struct BalancingEnergyHelpView: View {
           Spacer(minLength: DesignConstants.spacingXLarge)
         }
       }
-      .navigationTitle("help".loc())
+      .navigationTitle("help".loc)
       .navigationBarTitleDisplayMode(.inline)
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
       .toolbarBackground(ResourcesAsset.Colors.background.swiftUIColor, for: .navigationBar)

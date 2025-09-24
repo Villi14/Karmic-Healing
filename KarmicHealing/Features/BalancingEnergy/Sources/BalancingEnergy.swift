@@ -4,7 +4,6 @@
 
 import ComposableArchitecture
 import Common
-import UIKit
 import Foundation
 import AVFoundation
 
@@ -22,10 +21,10 @@ public struct BalancingEnergy {
   @ObservableState
   public struct State: Equatable {
     @Presents var destination: Destination.State?
-    let title: String
-    var currentStep: Int
-    var isCompleted: Bool
-    let steps: [Step]
+    public let title: String
+    public var currentStep: Int
+    public var isCompleted: Bool
+    public let steps: [Step]
 
     public init(
       title: String,
@@ -100,7 +99,7 @@ public struct BalancingEnergy {
         )
 
       case .markInitialProcessCompletedIfNeeded:
-        if state.title == "initial_process".loc() {
+        if state.title == "initial_process".loc {
           return .run { send in
             await userDefaults.setAsync(true, for: .initialProcessCompleted)
             await send(.initialProcessCompletionSaved)
@@ -190,13 +189,19 @@ public struct BalancingEnergy {
       print("BalancingEnergy: Scheduling notification inside timer effect")
       // Schedule local notification to wake up the app
       notification.scheduleLocalNotification(
-        "time_to_flip_slide".loc(),
-        "tap_to_continue_energy_balancing".loc(),
+        "time_to_flip_slide".loc,
+        "tap_to_continue_energy_balancing".loc,
         TimeInterval(durationToUse * 60),
         .balancingEnergy
       )
       
-      try await clock.sleep(for: .seconds(durationToUse * 60))
+      // Use Task for non-blocking timer - this won't block UI
+      await withCheckedContinuation { continuation in
+        Task { @MainActor in
+          try await Task.sleep(nanoseconds: UInt64(durationToUse * 60 * 1_000_000_000))
+          continuation.resume()
+        }
+      }
       await send(.autoScrollTimer)
     }
     .cancellable(id: CancelID.timer)

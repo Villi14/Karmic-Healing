@@ -2,10 +2,12 @@ import Foundation
 @preconcurrency import ProjectDescription
 
 public let iosDeploymentTargets = DeploymentTargets.iOS("18.0")
+public let watchOSDeploymentTargets = DeploymentTargets.watchOS("11.0")
 
 public enum Feature: String {
   case common
   case resources
+  case watchModule
   case onboarding
   case home
   case balancingEnergyList
@@ -13,6 +15,7 @@ public enum Feature: String {
   case db
   case appSettings
   case testingUtilities
+  case watchApp
 }
 
 public struct Module: Sendable {
@@ -30,18 +33,51 @@ public struct Module: Sendable {
     hasSources: Bool = true,
     unitTests: UnitTests = .notPresent
   ) {
+    let destinations: Set<Destination> = [.iPhone]
+    let deploymentTargets: DeploymentTargets = iosDeploymentTargets
+    
+    let sources: SourceFilesList? = hasSources 
+      ? ["KarmicHealing/Features/\(feature.rawValue.firstLetterCapitalized)/Sources/**"]
+      : nil
+    
+    let settings: Settings? = nil
+    
+    self.init(
+      feature: feature,
+      dependencies: dependencies,
+      resources: resources,
+      hasSources: hasSources,
+      unitTests: unitTests,
+      destinations: destinations,
+      deploymentTargets: deploymentTargets,
+      sources: sources,
+      settings: settings
+    )
+  }
+
+  private init(
+    feature: Feature,
+    dependencies: [TargetDependency],
+    resources: Resources,
+    hasSources: Bool,
+    unitTests: UnitTests,
+    destinations: Set<Destination>,
+    deploymentTargets: DeploymentTargets,
+    sources: SourceFilesList?,
+    settings: Settings?
+  ) {
+    
     self.implementationTarget = .target(
       name: feature.rawValue.firstLetterCapitalized,
-      destinations: [.iPhone],
+      destinations: destinations,
       product: .framework,
       bundleId: "com.villi.karmichealing.\(feature.rawValue)",
-      deploymentTargets: iosDeploymentTargets,
+      deploymentTargets: deploymentTargets,
       infoPlist: .default,
-      sources: hasSources
-        ? ["KarmicHealing/Features/\(feature.rawValue.firstLetterCapitalized)/Sources/**"]
-        : nil,
+      sources: sources,
       resources: resources.resolved(feature: feature),
-      dependencies: dependencies
+      dependencies: dependencies,
+      settings: settings
     )
 
     switch unitTests {
@@ -56,7 +92,12 @@ public struct Module: Sendable {
         sources: [
           "KarmicHealing/Features/\(feature.rawValue.firstLetterCapitalized)/Tests/**",
         ],
-        dependencies: dependencies + [.target(self.implementationTarget)]
+        dependencies: dependencies + [.target(self.implementationTarget)],
+        settings: .settings(
+          base: [
+            "DEVELOPMENT_TEAM": "KG394T5RF5"
+          ]
+        )
       )
     case .notPresent:
       self.unitTestsTarget = nil

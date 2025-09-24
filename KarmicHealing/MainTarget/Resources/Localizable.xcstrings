@@ -1680,52 +1680,6 @@
         }
       }
     },
-    "request_placeholder" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Request"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Просьба"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Прохання"
-          }
-        }
-      }
-    },
-    "reminder_placeholder" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "New List"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Новый список"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Новий список"
-          }
-        }
-      }
-    },
     "low" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1906,29 +1860,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ви можете налаштувати гучність цього звуку."
-          }
-        }
-      }
-    },
-    "volume" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Volume"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Громкость"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Гучність"
           }
         }
       }
@@ -2773,7 +2704,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Попросите очистить, исцелить, выстроить, открыть и активировать три Галактические\nМатрицы."
+            "value" : "Попросите очистить, исцелить, выстроить, открыть и активировать три Галактические Матрицы."
           }
         },
         "uk" : {
@@ -2802,7 +2733,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Попросіть очистити, зцілити, вирівняти, відкрити та активувати п'ять\nгалактичних чакр."
+            "value" : "Попросіть очистити, зцілити, вирівняти, відкрити та активувати п'ять\nГалактичних Чакр."
           }
         }
       }
@@ -2865,13 +2796,13 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Попросите очистить, исцелить, выстроить, открыть и активировать три Матрицы\nкаузального тела."
+            "value" : "Попросите очистить, исцелить, выстроить, открыть и активировать три Матрицы каузального тела."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Попросіть очистити, зцілити, вистроїти, відкрити та активувати три Матриці\nкаузального тіла."
+            "value" : "Попросіть очистити, зцілити, вистроїти, відкрити та активувати три Матриці каузального тіла."
           }
         }
       }
@@ -2888,13 +2819,13 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Попросите очистить, исцелить, выстроить, открыть и активировать пять чакр\nкаузального тела."
+            "value" : "Попросите очистить, исцелить, выстроить, открыть и активировать пять чакр каузального тела."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Попросіть очистити, зцілити, вистроїти, відкрити та активувати п'ять чакр\nкаузального тіла."
+            "value" : "Попросіть очистити, зцілити, вистроїти, відкрити та активувати п'ять чакр каузального тіла."
           }
         }
       }
@@ -2905,19 +2836,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ask your Divine Self/OverSoul to come and merge with your Higher Self and\nEssential Self."
+            "value" : "Ask your Divine Self/OverSoul to come and merge with your Higher Self and Essential Self."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Попросите свое Божественное Я/Сверхдушу прийти и слиться с вашим Высшим Я и\nСущностным Я."
+            "value" : "Попросите свое Божественное Я/Сверхдушу прийти и слиться с вашим Высшим Я и Сущностным Я."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Попросіть своє Божественне Я/Наддушу прийти та злитися з вашим Вищим Я та\nСутнісним Я."
+            "value" : "Попросіть своє Божественне Я/Наддушу прийти та злитися з вашим Вищим Я та Сутнісним Я."
           }
         }
       }
@@ -2957,13 +2888,13 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Попросите свое Божественное Я остаться с вами навсегда (процесс может длиться\nнесколько дней)."
+            "value" : "Попросите свое Божественное Я остаться с вами навсегда (процесс может длиться несколько дней)."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Попросіть своє Божественне Я залишитися з вами назавжди (процес може тривати\nкілька днів)."
+            "value" : "Попросіть своє Божественне Я залишитися з вами назавжди (процес може тривати кілька днів)."
           }
         }
       }
@@ -2980,13 +2911,13 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Пригласите свою Богиню войти в вас и слиться с вашим Божественным Я, а также\nсоединить свою энергию с энергией всех ваших тел. Поговорите с ней, спросите ее имя."
+            "value" : "Пригласите свою Богиню войти в вас и слиться с вашим Божественным Я, а также соединить свою энергию с энергией всех ваших тел. Поговорите с ней, спросите ее имя."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Запросіть свою Богиню ввійти до вас та злитися з вашим Божественним Я, а також\nз'єднати свою енергію з енергією всіх ваших тіл. Поспілкуйтеся з нею, запитайте її ім'я."
+            "value" : "Запросіть свою Богиню ввійти до вас та злитися з вашим Божественним Я, а також з'єднати свою енергію з енергією всіх ваших тіл. Поспілкуйтеся з нею, запитайте її ім'я."
           }
         }
       }
@@ -3009,7 +2940,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Попросіть, щоб процес, який лише завершився, став постійним."
+            "value" : "Попросіть, щоб щойно завершений процес набув постійного характеру."
           }
         }
       }
@@ -3037,6 +2968,305 @@
         }
       }
     },
+    "privacy_policy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy Policy"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Политика конфиденциальности"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Політика конфіденційності"
+          }
+        }
+      }
+    },
+    "privacy_policy_contact_content" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you have any questions about this Privacy Policy, please contact us through the App Store review system or by email."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Если у вас есть вопросы по этой Политике конфиденциальности, пожалуйста, свяжитесь с нами через систему отзывов App Store или по электронной почте."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Якщо у вас є питання щодо цієї Політики конфіденційності, будь ласка, зв'яжіться з нами через систему відгуків App Store або електронною поштою."
+          }
+        }
+      }
+    },
+    "privacy_policy_contact_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contact Us"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Свяжитесь с нами"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зв'яжіться з нами"
+          }
+        }
+      }
+    },
+    "privacy_policy_data_content" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This app does not collect any personal data. All your reminders, requests, and notes are stored locally on your device. We do not track your usage, collect analytics, or share any information with third parties."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Это приложение не собирает никаких личных данных. Все ваши напоминания, просьбы и заметки хранятся локально на вашем устройстве. Мы не отслеживаем ваше использование, не собираем аналитику и не передаем информацию третьим лицам."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Цей додаток не збирає жодних особистих даних. Всі ваші нагадування, прохання та нотатки зберігаються локально на вашому пристрої. Ми не відстежуємо ваше використання, не збираємо аналітику та не передаємо інформацію третім особам."
+          }
+        }
+      }
+    },
+    "privacy_policy_data_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data Collection"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сбор данных"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Збір даних"
+          }
+        }
+      }
+    },
+    "privacy_policy_intro_content" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Karmic Healing respects your privacy. This app is designed to work entirely offline and does not collect, store, or transmit any personal information to external servers."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Karmic Healing уважает вашу конфиденциальность. Это приложение предназначено для работы полностью в автономном режиме и не собирает, не хранит и не передает никакой личной информации на внешние серверы."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Karmic Healing поважає вашу конфіденційність. Цей додаток призначений для роботи повністю в автономному режимі та не збирає, не зберігає та не передає жодної особистої інформації на зовнішні сервери."
+          }
+        }
+      }
+    },
+    "privacy_policy_intro_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduction"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Введение"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вступ"
+          }
+        }
+      }
+    },
+    "privacy_policy_last_updated" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Last updated: January 2025"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Последнее обновление: январь 2025"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Останнє оновлення: січень 2025"
+          }
+        }
+      }
+    },
+    "privacy_policy_storage_content" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All data is stored locally on your device using iOS's built-in database system. Your data never leaves your device and is not backed up to any cloud services unless you explicitly choose to do so through your device's backup settings."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Все данные хранятся локально на вашем устройстве с использованием встроенной системы баз данных iOS. Ваши данные никогда не покидают ваше устройство и не резервируются в облачных сервисах, если вы явно не выберете это в настройках резервного копирования вашего устройства."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Всі дані зберігаються локально на вашому пристрої за допомогою вбудованої системи баз даних iOS. Ваші дані ніколи не залишають ваш пристрій та не резервуються в хмарних сервісах, якщо ви явно не оберете це в налаштуваннях резервного копіювання вашого пристрою."
+          }
+        }
+      }
+    },
+    "privacy_policy_storage_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data Storage"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Хранение данных"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зберігання даних"
+          }
+        }
+      }
+    },
+    "privacy_policy_third_party_content" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This app does not integrate with any third-party analytics, advertising, or data collection services. We do not use cookies, tracking pixels, or any other tracking technologies."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Это приложение не интегрируется с какими-либо сторонними аналитическими, рекламными или сервисами сбора данных. Мы не используем файлы cookie, пиксели отслеживания или любые другие технологии отслеживания."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Цей додаток не інтегрується з жодними сторонніми аналітичними, рекламними або сервісами збору даних. Ми не використовуємо файли cookie, пікселі відстеження або будь-які інші технології відстеження."
+          }
+        }
+      }
+    },
+    "privacy_policy_third_party_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Third-Party Services"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сторонние сервисы"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сторонні сервіси"
+          }
+        }
+      }
+    },
+    "privacy_policy_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy Policy"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Политика конфиденциальности"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Політика конфіденційності"
+          }
+        }
+      }
+    },
     "reminder" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3056,6 +3286,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Нагадування"
+          }
+        }
+      }
+    },
+    "reminder_placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "New List"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Новый список"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Новий список"
           }
         }
       }
@@ -3084,6 +3337,29 @@
       }
     },
     "request" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Request"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Просьба"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Прохання"
+          }
+        }
+      }
+    },
+    "request_placeholder" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -3819,6 +4095,29 @@
         }
       }
     },
+    "volume" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volume"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Громкость"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Гучність"
+          }
+        }
+      }
+    },
     "welcome_description" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3884,305 +4183,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Напишіть нам"
-          }
-        }
-      }
-    },
-    "privacy_policy" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Privacy Policy"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Политика конфиденциальности"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Політика конфіденційності"
-          }
-        }
-      }
-    },
-    "privacy_policy_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Privacy Policy"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Политика конфиденциальности"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Політика конфіденційності"
-          }
-        }
-      }
-    },
-    "privacy_policy_last_updated" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Last updated: January 2025"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Последнее обновление: январь 2025"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Останнє оновлення: січень 2025"
-          }
-        }
-      }
-    },
-    "privacy_policy_intro_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Introduction"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Введение"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Вступ"
-          }
-        }
-      }
-    },
-    "privacy_policy_intro_content" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Karmic Healing respects your privacy. This app is designed to work entirely offline and does not collect, store, or transmit any personal information to external servers."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Karmic Healing уважает вашу конфиденциальность. Это приложение предназначено для работы полностью в автономном режиме и не собирает, не хранит и не передает никакой личной информации на внешние серверы."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Karmic Healing поважає вашу конфіденційність. Цей додаток призначений для роботи повністю в автономному режимі та не збирає, не зберігає та не передає жодної особистої інформації на зовнішні сервери."
-          }
-        }
-      }
-    },
-    "privacy_policy_data_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Data Collection"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Сбор данных"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Збір даних"
-          }
-        }
-      }
-    },
-    "privacy_policy_data_content" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "This app does not collect any personal data. All your reminders, requests, and notes are stored locally on your device. We do not track your usage, collect analytics, or share any information with third parties."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Это приложение не собирает никаких личных данных. Все ваши напоминания, просьбы и заметки хранятся локально на вашем устройстве. Мы не отслеживаем ваше использование, не собираем аналитику и не передаем информацию третьим лицам."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Цей додаток не збирає жодних особистих даних. Всі ваші нагадування, прохання та нотатки зберігаються локально на вашому пристрої. Ми не відстежуємо ваше використання, не збираємо аналітику та не передаємо інформацію третім особам."
-          }
-        }
-      }
-    },
-    "privacy_policy_storage_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Data Storage"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Хранение данных"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Зберігання даних"
-          }
-        }
-      }
-    },
-    "privacy_policy_storage_content" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "All data is stored locally on your device using iOS's built-in database system. Your data never leaves your device and is not backed up to any cloud services unless you explicitly choose to do so through your device's backup settings."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Все данные хранятся локально на вашем устройстве с использованием встроенной системы баз данных iOS. Ваши данные никогда не покидают ваше устройство и не резервируются в облачных сервисах, если вы явно не выберете это в настройках резервного копирования вашего устройства."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Всі дані зберігаються локально на вашому пристрої за допомогою вбудованої системи баз даних iOS. Ваші дані ніколи не залишають ваш пристрій та не резервуються в хмарних сервісах, якщо ви явно не оберете це в налаштуваннях резервного копіювання вашого пристрою."
-          }
-        }
-      }
-    },
-    "privacy_policy_third_party_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Third-Party Services"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Сторонние сервисы"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Сторонні сервіси"
-          }
-        }
-      }
-    },
-    "privacy_policy_third_party_content" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "This app does not integrate with any third-party analytics, advertising, or data collection services. We do not use cookies, tracking pixels, or any other tracking technologies."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Это приложение не интегрируется с какими-либо сторонними аналитическими, рекламными или сервисами сбора данных. Мы не используем файлы cookie, пиксели отслеживания или любые другие технологии отслеживания."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Цей додаток не інтегрується з жодними сторонніми аналітичними, рекламними або сервісами збору даних. Ми не використовуємо файли cookie, пікселі відстеження або будь-які інші технології відстеження."
-          }
-        }
-      }
-    },
-    "privacy_policy_contact_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Contact Us"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Свяжитесь с нами"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Зв'яжіться з нами"
-          }
-        }
-      }
-    },
-    "privacy_policy_contact_content" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "If you have any questions about this Privacy Policy, please contact us through the App Store review system or by email."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Если у вас есть вопросы по этой Политике конфиденциальности, пожалуйста, свяжитесь с нами через систему отзывов App Store или по электронной почте."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Якщо у вас є питання щодо цієї Політики конфіденційності, будь ласка, зв'яжіться з нами через систему відгуків App Store або електронною поштою."
           }
         }
       }
