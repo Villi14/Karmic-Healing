@@ -6,6 +6,7 @@ import ComposableArchitecture
 import Common
 import Foundation
 import AVFoundation
+import UIKit
 
 @Reducer
 public struct BalancingEnergy {
