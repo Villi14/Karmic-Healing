@@ -16,17 +16,6 @@ public let mainTargetPlist: InfoPlist = .extendingDefault(
       .string("UIInterfaceOrientationLandscapeRight")
     ],
     "UIRequiresFullScreen": .boolean(true),
-    "UIApplicationSceneManifest": [
-      "UIApplicationSupportsMultipleScenes": .boolean(false),
-      "UISceneConfigurations": [
-        "UIWindowSceneSessionRoleApplication": [
-          [
-            "UISceneConfigurationName": .string("Default Configuration"),
-            "UISceneDelegateClassName": .string("$(PRODUCT_MODULE_NAME).SceneDelegate")
-          ]
-        ]
-      ]
-    ],
     "CFBundleName": .string("KarmicHealing"),
     "CFBundleDisplayName": .string("Karmic Healing"),
     "CFBundleShortVersionString": .string(bundleShortVersionString),

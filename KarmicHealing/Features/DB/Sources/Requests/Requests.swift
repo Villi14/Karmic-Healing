@@ -18,6 +18,6 @@ public struct Requests {
   public enum Action: Equatable {}
 
   public var body: some ReducerOf<Self> {
-    Reduce { _, _ in .none }
+    Reduce { _, _ in  .none }
   }
 }

@@ -153,25 +153,24 @@ public struct Destination {
   }
 
   public var body: some ReducerOf<Self> {
-    EmptyReducer()
-      .ifLet(\.aboutAlert, action: \.aboutAlert) {
-        EmptyReducer()
-      }
-      .ifLet(\.clipboardAlert, action: \.clipboardAlert) {
-        EmptyReducer()
-      }
-      .ifLet(\.mailComposer, action: \.mailComposer) {
-        EmptyReducer()
-      }
-      .ifLet(\.themeSettings, action: \.themeSettings) {
-        ThemeSettings()
-      }
-      .ifLet(\.sessionDurationAlert, action: \.sessionDurationAlert) {
-        EnergyBalansingSettings()
-      }
-      .ifLet(\.privacyPolicy, action: \.privacyPolicy) {
-        PrivacyPolicy()
-      }
+    Scope(state: \.aboutAlert, action: \.aboutAlert) {
+      EmptyReducer()
+    }
+    Scope(state: \.clipboardAlert, action: \.clipboardAlert) {
+      EmptyReducer()
+    }
+    Scope(state: \.mailComposer, action: \.mailComposer) {
+      EmptyReducer()
+    }
+    Scope(state: \.themeSettings, action: \.themeSettings) {
+      ThemeSettings()
+    }
+    Scope(state: \.sessionDurationAlert, action: \.sessionDurationAlert) {
+      EnergyBalansingSettings()
+    }
+    Scope(state: \.privacyPolicy, action: \.privacyPolicy) {
+      PrivacyPolicy()
+    }
   }
 }
 

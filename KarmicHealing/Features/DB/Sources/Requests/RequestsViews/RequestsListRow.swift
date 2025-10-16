@@ -13,7 +13,8 @@ struct RequestsListRow: View {
   @State private var completedRequests: Int = 0
   
   @Dependency(\.defaultDatabase) private var database
-  
+  @Dependency(\.continuousClock) private var clock
+
   var body: some View {
     ListRowView(
       count: totalRequests,
@@ -30,7 +31,7 @@ struct RequestsListRow: View {
         }
         // Force UI update after deletion
         Task { @MainActor in
-          try? await Task.sleep(nanoseconds: 100_000_000)
+          try? await clock.sleep(for: .milliseconds(100))
           // This helps ensure the UI updates properly
         }
       },

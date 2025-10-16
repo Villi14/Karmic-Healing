@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -642,7 +642,7 @@
 		3687F91BBB526CC60FC4DD8A /* CMTime+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime+Ext.swift"; sourceTree = "<group>"; };
 		38A350AA2DADC5C8EA3D278D /* BalancingEnergy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancingEnergy.swift; sourceTree = "<group>"; };
 		39B4C42BD50A7E19ED4EDD17 /* InternalCollectionsUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InternalCollectionsUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3DE6F8724694B2C80388579D /* Preview Content */ = {isa = PBXFileReference; path = "Preview Content"; sourceTree = "<group>"; };
+		3DE6F8724694B2C80388579D /* Preview Content */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Preview Content"; sourceTree = "<group>"; };
 		3FF61BEE6D15ABA11663C8E9 /* ReminderForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderForm.swift; sourceTree = "<group>"; };
 		415AF10F5D4F034547CA0BB8 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		42524239F13F726D796A5D60 /* RemindersDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersDetail.swift; sourceTree = "<group>"; };
@@ -653,7 +653,7 @@
 		462084A1E74237E95A83266B /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		48DC36A78958C5F735A322A5 /* KarmicHealing-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "KarmicHealing-Info.plist"; sourceTree = "<group>"; };
 		4A36E9B49A865B67EEE804FF /* RemindersListForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListForm.swift; sourceTree = "<group>"; };
-		4A509A037F63A203AF1B8C06 /* Localizable.xcstrings */ = {isa = PBXFileReference; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		4A509A037F63A203AF1B8C06 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		4D4B13695F0F8D88EBB899AA /* SearchReminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchReminders.swift; sourceTree = "<group>"; };
 		4D52C8AB2FE0D25C164BA810 /* RequestForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestForm.swift; sourceTree = "<group>"; };
 		50680DFD646F540B7DD85862 /* WatchSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSettings.swift; sourceTree = "<group>"; };
@@ -701,7 +701,7 @@
 		9D154E2AC12DC52C2AFB8887 /* WatchNotificationClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNotificationClient.swift; sourceTree = "<group>"; };
 		9D9D75FE2AEDC2817B7B5EB8 /* DesignConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignConstants.swift; sourceTree = "<group>"; };
 		9FD80CC0D078FA40E56A3E50 /* Db.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Db.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A283FF0AAE64A1782229F900 /* Localizable.xcstrings */ = {isa = PBXFileReference; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		A283FF0AAE64A1782229F900 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		A782153AAD1B1D4D219DC3F5 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		A999B1CC34A4492A8724A87A /* RemindersListsModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListsModelTests.swift; sourceTree = "<group>"; };
 		AB359F3DF25939A4087B6164 /* BalancingEnergyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancingEnergyList.swift; sourceTree = "<group>"; };
@@ -1753,8 +1753,6 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				ORGANIZATIONNAME = home;
-				TargetAttributes = {
-				};
 			};
 			buildConfigurationList = 7859095E2874F5559794556D /* Build configuration list for PBXProject "KarmicHealing" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -2284,21 +2282,7 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing.onboarding;
 				PRODUCT_NAME = Onboarding;
 				SDKROOT = iphoneos;
@@ -2306,10 +2290,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -2347,21 +2328,7 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing.onboarding;
 				PRODUCT_NAME = Onboarding;
 				SDKROOT = iphoneos;
@@ -2406,21 +2373,7 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing.balancingEnergy;
 				PRODUCT_NAME = BalancingEnergy;
 				SDKROOT = iphoneos;
@@ -2468,27 +2421,7 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesSQLiteMacros#StructuredQueriesSQLiteMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesSQLiteMacros#StructuredQueriesSQLiteMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing;
 				PRODUCT_NAME = KarmicHealing;
 				PROVISIONING_PROFILE_SPECIFIER = karmic_healing_dev;
@@ -2497,10 +2430,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -2541,27 +2471,7 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesSQLiteMacros#StructuredQueriesSQLiteMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesSQLiteMacros#StructuredQueriesSQLiteMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing.home;
 				PRODUCT_NAME = Home;
 				SDKROOT = iphoneos;
@@ -2602,27 +2512,7 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesSQLiteMacros#StructuredQueriesSQLiteMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesSQLiteMacros#StructuredQueriesSQLiteMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing.db.tests;
 				PRODUCT_NAME = DbTests;
 				SDKROOT = iphoneos;
@@ -2664,21 +2554,7 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing.common;
 				PRODUCT_NAME = Common;
 				SDKROOT = iphoneos;
@@ -2686,10 +2562,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -2727,21 +2600,7 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing.appSettings;
 				PRODUCT_NAME = AppSettings;
 				SDKROOT = iphoneos;
@@ -2846,27 +2705,7 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesSQLiteMacros#StructuredQueriesSQLiteMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesSQLiteMacros#StructuredQueriesSQLiteMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing.db;
 				PRODUCT_NAME = Db;
 				SDKROOT = iphoneos;
@@ -2874,10 +2713,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -2915,21 +2751,7 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing.balancingEnergy;
 				PRODUCT_NAME = BalancingEnergy;
 				SDKROOT = iphoneos;
@@ -2937,10 +2759,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -2954,7 +2773,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				"ARCHS[sdk=watchos*]" = "arm64_32 arm64";
+				"ARCHS[sdk=watchos*]" = (
+					arm64_32,
+					arm64,
+				);
 				"ARCHS[sdk=watchsimulator*]" = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development: Alexander  Velikotsky (R7UR2DF94C)";
@@ -2979,21 +2801,7 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing.watchkitapp;
 				PRODUCT_NAME = KarmicHealingWatch;
 				PROVISIONING_PROFILE_SPECIFIER = karmic_healing_watch_dev;
@@ -3016,7 +2824,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				"ARCHS[sdk=watchos*]" = "arm64_32 arm64";
+				"ARCHS[sdk=watchos*]" = (
+					arm64_32,
+					arm64,
+				);
 				"ARCHS[sdk=watchsimulator*]" = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Distribution: Alexander  Velikotsky (KG394T5RF5)";
@@ -3041,21 +2852,7 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing.watchkitapp;
 				PRODUCT_NAME = KarmicHealingWatch;
 				PROVISIONING_PROFILE_SPECIFIER = karmic_healing_watch_distr;
@@ -3098,37 +2895,14 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesSQLiteMacros#StructuredQueriesSQLiteMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesSQLiteMacros#StructuredQueriesSQLiteMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing.home.tests;
 				PRODUCT_NAME = HomeTests;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -3168,21 +2942,7 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing.testingUtilities;
 				PRODUCT_NAME = TestingUtilities;
 				SDKROOT = iphoneos;
@@ -3190,10 +2950,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -3231,21 +2988,7 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing.balancingEnergyList;
 				PRODUCT_NAME = BalancingEnergyList;
 				SDKROOT = iphoneos;
@@ -3286,37 +3029,14 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesSQLiteMacros#StructuredQueriesSQLiteMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesSQLiteMacros#StructuredQueriesSQLiteMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing.db.tests;
 				PRODUCT_NAME = DbTests;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -3352,21 +3072,7 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing.common;
 				PRODUCT_NAME = Common;
 				SDKROOT = iphoneos;
@@ -3445,27 +3151,7 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesSQLiteMacros#StructuredQueriesSQLiteMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesSQLiteMacros#StructuredQueriesSQLiteMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing.db;
 				PRODUCT_NAME = Db;
 				SDKROOT = iphoneos;
@@ -3514,21 +3200,7 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing.testingUtilities;
 				PRODUCT_NAME = TestingUtilities;
 				SDKROOT = iphoneos;
@@ -3573,21 +3245,7 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing.balancingEnergyList;
 				PRODUCT_NAME = BalancingEnergyList;
 				SDKROOT = iphoneos;
@@ -3595,10 +3253,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -3636,21 +3291,7 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing.appSettings;
 				PRODUCT_NAME = AppSettings;
 				SDKROOT = iphoneos;
@@ -3658,10 +3299,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -3748,27 +3386,7 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesSQLiteMacros#StructuredQueriesSQLiteMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesSQLiteMacros#StructuredQueriesSQLiteMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing.home.tests;
 				PRODUCT_NAME = HomeTests;
 				SDKROOT = iphoneos;
@@ -3811,27 +3429,7 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesSQLiteMacros#StructuredQueriesSQLiteMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesSQLiteMacros#StructuredQueriesSQLiteMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing.home;
 				PRODUCT_NAME = Home;
 				SDKROOT = iphoneos;
@@ -3839,10 +3437,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -3883,27 +3478,7 @@
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
 					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros",
-					"-load-plugin-executable",
-					"$BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesSQLiteMacros#StructuredQueriesSQLiteMacros",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/tuist-derived/UIKitNavigationShim/UIKitNavigationShim.modulemap -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/CasePathsMacros#CasePathsMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/ComposableArchitectureMacros#ComposableArchitectureMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/DependenciesMacrosPlugin#DependenciesMacrosPlugin -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/PerceptionMacros#PerceptionMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesMacros#StructuredQueriesMacros -load-plugin-executable $BUILD_DIR/Debug$EFFECTIVE_PLATFORM_NAME/StructuredQueriesSQLiteMacros#StructuredQueriesSQLiteMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = com.villi.karmichealing;
 				PRODUCT_NAME = KarmicHealing;
 				PROVISIONING_PROFILE_SPECIFIER = karmic_healing_distr;
@@ -3947,10 +3522,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;

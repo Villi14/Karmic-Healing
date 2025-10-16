@@ -83,7 +83,7 @@ public struct WatchBalancingEnergy {
             .cancel(id: CancelID.timer),
             .run { send in
               // Wait a bit for scroll to complete, then restart timer
-              try await Task.sleep(for: .milliseconds(500))
+              try await clock.sleep(for: .milliseconds(500))
               await send(.manualScrollEnded)
             }
           )
@@ -104,7 +104,7 @@ public struct WatchBalancingEnergy {
             .cancel(id: CancelID.timer),
             .run { send in
               // Wait a bit for scroll to complete, then restart timer
-              try await Task.sleep(for: .milliseconds(500))
+              try await clock.sleep(for: .milliseconds(500))
               await send(.manualScrollEnded)
             }
           )
@@ -203,7 +203,7 @@ public struct WatchBalancingEnergy {
         if vibrationEnabled {
           // Add additional haptic feedback for stronger effect
           Task {
-            try? await Task.sleep(for: .milliseconds(100))
+            try await clock.sleep(for: .milliseconds(500))
             WKInterfaceDevice.current().play(.click)
           }
         } else {

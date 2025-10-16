@@ -196,10 +196,10 @@ public struct BalancingEnergy {
         .balancingEnergy
       )
       
-      // Use Task for non-blocking timer - this won't block UI
+      // Use clock for non-blocking timer - this won't block UI
       await withCheckedContinuation { continuation in
         Task { @MainActor in
-          try await Task.sleep(nanoseconds: UInt64(durationToUse * 60 * 1_000_000_000))
+          try await clock.sleep(for: .seconds(durationToUse * 60))
           continuation.resume()
         }
       }

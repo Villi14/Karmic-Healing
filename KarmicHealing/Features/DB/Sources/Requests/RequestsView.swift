@@ -13,7 +13,7 @@ public struct RequestsView: View {
   
   static let model = RequestsListsModel()
   
-  public let store: StoreOf<Requests>
+  @Bindable var store: StoreOf<Requests>
   
   public init(store: StoreOf<Requests>) {
     self.store = store

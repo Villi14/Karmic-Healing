@@ -15,6 +15,7 @@ struct ReminderRow: View {
   @State var isCompleted: Bool
   
   @Dependency(\.defaultDatabase) private var database
+  @Dependency(\.continuousClock) private var clock
   
   init(
     color: Color,
@@ -130,7 +131,7 @@ struct ReminderRow: View {
       guard !showCompleted else { return }
       guard isCompleted, isCompleted != reminder.isCompleted else { return }
       do {
-        try await Task.sleep(for: .seconds(2))
+        try await clock.sleep(for: .seconds(2))
         toggleCompletion()
       } catch {}
     }
