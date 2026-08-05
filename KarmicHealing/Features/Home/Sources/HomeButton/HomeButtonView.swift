@@ -7,69 +7,49 @@ import Resources
 import Common
 
 public struct HomeButtonView: View {
-  let size: CGSize
   let homeButton: HomeButton
-  
-  public init(
-    size: CGSize,
-    homeButton: HomeButton
-  ) {
-    self.size = size
+
+  public init(homeButton: HomeButton) {
     self.homeButton = homeButton
   }
-  
+
   public var body: some View {
-    VStack(alignment: .leading) {
-      HStack {
+    VStack(alignment: .leading, spacing: DesignConstants.spacingSmall) {
+      HStack(alignment: .top) {
         homeButton.icon
           .resizable()
-          .foregroundStyle(homeButton.color)
+          .foregroundStyle(AuraGradient.gradient(for: homeButton.level))
           .aspectRatio(contentMode: .fit)
           .frame(maxWidth: DesignConstants.maxWidthSmall)
-          .padding(.leading, DesignConstants.paddingXLarge)
-          .padding(.top, DesignConstants.paddingLarge)
-        
+
         Spacer()
-        
-        Rectangle()
+
+        Circle()
+          .fill(AuraGradient.gradient(for: homeButton.level))
           .frame(width: DesignConstants.frameWidthSmall, height: DesignConstants.frameWidthSmall)
-          .cornerRadius(DesignConstants.cornerRadiusSmall)
-          .foregroundStyle(homeButton.color)
-          .padding(.trailing, DesignConstants.paddingLarge)
       }
-      
-      Spacer()
-      
-      Text(homeButton.title)
-        .font(.caption.weight(.medium))
-        .minimumScaleFactor(0.5)
-        .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-        .multilineTextAlignment(.leading)
-        .padding(.horizontal, DesignConstants.paddingXLarge)
-    
-      Spacer()
+
+      Spacer(minLength: DesignConstants.padding)
+
+        Text(homeButton.title)
+          .font(Typography.cardTitle)
+          .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+          .multilineTextAlignment(.leading)
+          .lineLimit(2)
+          .fixedSize(horizontal: false, vertical: true)
     }
-    .frame(width: size.width, height: size.height)
-    .background{
-      ResourcesAsset.Colors.cellBackground.swiftUIColor
-    }
-    .cornerRadius(DesignConstants.cornerRadiusMedium)
+    .padding(DesignConstants.paddingLarge)
+    .frame(maxWidth: .infinity, alignment: .leading)
+    .aspectRatio(DesignConstants.cardAspectRatio, contentMode: .fit)
+    .cardStyle(level: homeButton.level)
   }
 }
 
 #Preview {
   ZStack {
-    ResourcesAsset.Colors.background.swiftUIColor
-      .ignoresSafeArea()
-    
-    HomeButtonView(
-      size: CGSize(width: DesignConstants.maxWidthMedium,
-                   height: DesignConstants.maxWidthMedium * DesignConstants.goldenRatio),
-      homeButton: .init(
-        color: ResourcesAsset.Colors.clam.swiftUIColor,
-        icon: Image(systemName: "info.circle"),
-        title: "About".loc.uppercased()
-      )
-    )
+    AuraBackground(level: .heart)
+
+    HomeButtonView(homeButton: .balancingEnergyButton)
+      .frame(width: DesignConstants.maxWidthMedium / 2)
   }
 }

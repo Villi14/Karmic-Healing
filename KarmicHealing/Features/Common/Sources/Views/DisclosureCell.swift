@@ -7,83 +7,88 @@ import SwiftUI
 
 public struct DisclosureCell<Content: View>: View {
   private let content: () -> Content
+  private let tone: SwiftUI.Color
   private let onTap: () -> Void
-  
-  public init(content: @escaping () -> Content, onTap: @escaping () -> Void) {
+
+  public init(
+    content: @escaping () -> Content,
+    tone: SwiftUI.Color = Spectrum.throat.color,
+    onTap: @escaping () -> Void
+  ) {
     self.content = content
+    self.tone = tone
     self.onTap = onTap
   }
-  
+
   public var body: some View {
-    Button(action: onTap, label: {
-      ZStack {
-        HStack {
-          self.content().foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-          
-          Spacer()
-          
-          Image(systemName: "chevron.right")
-            .renderingMode(.template)
-            .resizable()
-            .frame(width: DesignConstants.paddingMedium, height: DesignConstants.paddingLarge)
-            .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
-        }
+    Button(action: onTap) {
+      HStack(spacing: DesignConstants.spacingMedium) {
+        Rings(count: 2, innerRatio: 0.35)
+          .stroke(AuraGradient.gradient(for: .throat), lineWidth: DesignConstants.lineWidthThin * 2)
+          .frame(width: DesignConstants.frameHeightSmall, height: DesignConstants.frameHeightSmall)
+
+        self.content()
+          .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+          .multilineTextAlignment(.leading)
+
+        Spacer()
+
+        Image(systemName: "chevron.right")
+          .renderingMode(.template)
+          .resizable()
+          .aspectRatio(contentMode: .fit)
+          .frame(height: DesignConstants.frameWidthMedium)
+          .foregroundStyle(AuraGradient.gradient(for: .throat))
       }
-    })
-    .frame(height: DesignConstants.frameHeightXXLarge)
-    .padding(.horizontal)
+      .frame(maxWidth: .infinity, minHeight: DesignConstants.frameHeightXXLarge)
+      .padding(.horizontal, DesignConstants.paddingLarge)
+      .contentShape(Rectangle())
+    }
+    .buttonStyle(.plain)
   }
 }
 
 public struct KarmicHealingDisclosureGroup<Content: View>: View {
   private let content: () -> Content
-  private let cornerRadius: Double
-  private let backgroundColor: SwiftUI.Color
-  
+  private let tone: SwiftUI.Color
+
   public init(
     @ViewBuilder content: @escaping () -> Content,
-    cornerRadius: Double = DesignConstants.cornerRadiusMedium,
-    backgroundColor: SwiftUI.Color = ResourcesAsset.Colors.cellBackground.swiftUIColor
+    tone: SwiftUI.Color = Spectrum.throat.color
   ) {
     self.content = content
-    self.cornerRadius = cornerRadius
-    self.backgroundColor = backgroundColor
+    self.tone = tone
   }
-  
+
   public var body: some View {
     self.content()
-      .background {
-        RoundedRectangle(cornerRadius: self.cornerRadius)
-          .fill(self.backgroundColor)
-      }
+      .cardStyle(tone: tone, showsWatermark: true)
   }
 }
 
 extension DisclosureCell where Content == Text {
-  public init(_ title: String, onTap: @escaping () -> Void) {
-    self.content = { Text(title) }
-    self.onTap = onTap
+  public init(_ title: String, tone: SwiftUI.Color = Spectrum.throat.color, onTap: @escaping () -> Void) {
+    self.init(content: { Text(title) }, tone: tone, onTap: onTap)
   }
 }
 
 #Preview {
   ZStack {
-    BgWithGradientView()
-    
+    AuraBackground(level: .brow)
+
     VStack {
-      DisclosureCell("123", onTap: {})
-        .padding(.bottom)
-      
-      KarmicHealingDisclosureGroup {
-        VStack {
-          DisclosureCell("Group 1", onTap: {})
-          DisclosureCell("Group 2", onTap: {})
-          DisclosureCell("Group 3", onTap: {})
-        }
-      }
+      KarmicHealingDisclosureGroup(
+        content: {
+          VStack(spacing: 0) {
+            DisclosureCell("Group 1", onTap: {})
+            DisclosureCell("Group 2", onTap: {})
+            DisclosureCell("Group 3", onTap: {})
+          }
+        },
+        tone: Spectrum.brow.color
+      )
     }
-    .foregroundStyle(.white)
+    .font(Typography.title)
     .padding(.horizontal)
   }
 }
-

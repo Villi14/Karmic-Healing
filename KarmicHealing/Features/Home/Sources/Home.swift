@@ -3,8 +3,7 @@
 //
 
 import Foundation
-import ComposableArchitecture
-import Resources
+@preconcurrency import ComposableArchitecture
 import Common
 import AppSettings
 import Db
@@ -57,16 +56,7 @@ public struct Home {
           return .none
         }
       case .path(.element(id: _, action: .balancingEnergyList(.initialProcess))):
-        state.path.append(
-          .balancingEnergy(
-            .init(
-              title: "initial_process".loc,
-              currentStep: 0,
-              isCompleted: false,
-              steps: Step.part1
-            )
-          )
-        )
+        state.path.append(.balancingEnergy(.start(.initialProcess)))
         return .none
       case .path(.element(id: _, action: .balancingEnergy(.completeSteps))):
         // After completion return to list; list reducer will re-read the flag itself
@@ -81,29 +71,12 @@ public struct Home {
         }
         return .none
       case .path(.element(id: _, action: .balancingEnergyList(.essentialSelf))):
-        state.path.append(
-          .balancingEnergy(
-            .init(
-              title: "essential_self".loc,
-              currentStep: 0,
-              isCompleted: false,
-              steps: Step.part2
-            )
-          )
-        )
+        state.path.append(.balancingEnergy(.start(.essentialSelf)))
         return .none
       case .path(.element(id: _, action: .balancingEnergyList(.divineSelf))):
-        state.path.append(
-          .balancingEnergy(
-            .init(
-              title: "divine_self".loc,
-              currentStep: 0,
-              isCompleted: false,
-              steps: Step.part3
-            )
-          )
-        )
+        state.path.append(.balancingEnergy(.start(.divineSelf)))
         return .none
+
       case let .openReminderFormFromNotification(reminderID):
         // Open RemindersView and set selectedReminderID
         var remindersState = Reminders.State()
@@ -128,7 +101,7 @@ public struct Home {
   }
 }
 
-@Reducer(state: .equatable, action: .equatable)
+@Reducer
 public enum Path {
   case balancingEnergyList(BalancingEnergyList)
   case balancingEnergy(BalancingEnergy)
@@ -136,3 +109,6 @@ public enum Path {
   case reminders(Reminders)
   case appSettings(AppSettings)
 }
+
+extension Path.State: Equatable {}
+extension Path.Action: Equatable {}

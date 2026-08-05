@@ -1,8 +1,8 @@
 import Foundation
 @preconcurrency import ProjectDescription
 
-public let bundleShortVersionString: String = "1.2"
-public let bundleVersion: String = "0.7"
+public let bundleShortVersionString: String = "1.3"
+public let bundleVersion: String = "9"
 
 public let mainTargetPlist: InfoPlist = .extendingDefault(
   with: [
@@ -36,6 +36,11 @@ public let watchAppTargetPlist: InfoPlist = .extendingDefault(
     "CFBundleExecutable": .string("KarmicHealingWatch"),
     "CFBundlePackageType": .string("APPL"),
     "WKApplication": .boolean(true),
+    // Lets a meditation hold an extended runtime session, so the app keeps chiming and vibrating
+    // through a step even with the wrist down.
+    "WKBackgroundModes": [
+      .string("mindfulness")
+    ],
     "WKCompanionAppBundleIdentifier": .string("com.villi.karmichealing"),
     "CFBundleDisplayName": .string("Karmic Healing"),
     "CFBundleName": .string("Karmic Healing"),

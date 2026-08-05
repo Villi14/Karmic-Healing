@@ -1,0 +1,3 @@
+extern module GRDBSQLite "/Users/villi/Projects/karmic_healing/KarmicHealing/Tuist/.build/checkouts/GRDB.swift/Sources/GRDBSQLite/module.modulemap"
+extern module UIKitNavigationShim "/Users/villi/Projects/karmic_healing/KarmicHealing/Tuist/.build/tuist-derived/ModuleMaps/UIKitNavigationShim/UIKitNavigationShim.modulemap"
+extern module _SwiftSyntaxCShims "/Users/villi/Projects/karmic_healing/KarmicHealing/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap"

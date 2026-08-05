@@ -12,23 +12,33 @@ public struct EnergyBalansingSettings {
   @Dependency(\.dismiss) var dismiss
   @Dependency(\.audio) var audio
 
+  /// How long the screen stays lit after a step before it rests.
+  public static let restDelayOptions = [15, 30, 60, 120]
+  public static let defaultRestDelay = 30
+
   @ObservableState
   public struct State: Equatable {
     public var sessionDuration: Int
     public var soundEnabled: Bool
     public var vibrationEnabled: Bool
     public var audioVolume: Float
+    public var screenRestEnabled: Bool
+    public var screenRestDelay: Int
 
     public init(
       sessionDuration: Int = 5,
       soundEnabled: Bool = false,
       vibrationEnabled: Bool = false,
-      audioVolume: Float = 0.5
+      audioVolume: Float = 0.5,
+      screenRestEnabled: Bool = true,
+      screenRestDelay: Int = EnergyBalansingSettings.defaultRestDelay
     ) {
       self.sessionDuration = sessionDuration
       self.soundEnabled = soundEnabled
       self.vibrationEnabled = vibrationEnabled
       self.audioVolume = audioVolume
+      self.screenRestEnabled = screenRestEnabled
+      self.screenRestDelay = screenRestDelay
     }
   }
 
@@ -37,6 +47,8 @@ public struct EnergyBalansingSettings {
     case soundEnabledChanged(Bool)
     case vibrationEnabledChanged(Bool)
     case audioVolumeChanged(Float)
+    case screenRestEnabledChanged(Bool)
+    case screenRestDelayChanged(Int)
     case done
     case onAppear
   }
@@ -71,6 +83,18 @@ public struct EnergyBalansingSettings {
           audio.setVolume(volume)
         }
 
+      case let .screenRestEnabledChanged(enabled):
+        state.screenRestEnabled = enabled
+        return .run { [userDefaults] _ in
+          await userDefaults.setAsync(enabled, for: .screenRestEnabled)
+        }
+
+      case let .screenRestDelayChanged(seconds):
+        state.screenRestDelay = seconds
+        return .run { [userDefaults] _ in
+          await userDefaults.setAsync(seconds, for: .screenRestDelay)
+        }
+
       case .done:
         return .run { _ in
           await dismiss()
@@ -80,9 +104,13 @@ public struct EnergyBalansingSettings {
         let savedDuration = userDefaults.integer(for: .sessionDuration)
         state.sessionDuration = savedDuration > 0 ? savedDuration : 5 // Default to 5 minutes if not set
 
+        // Screen rest is on out of the box — a meditation is meant to be done with eyes closed.
+        state.screenRestEnabled = userDefaults.bool(for: .screenRestEnabled, default: true)
+        let savedRestDelay = userDefaults.integer(for: .screenRestDelay)
+        state.screenRestDelay = savedRestDelay > 0 ? savedRestDelay : Self.defaultRestDelay
+
         // Check if this is the first time opening settings
         let hasSoundSetting = userDefaults.object(for: .soundEnabled) != nil
-        let hasVibrationSetting = userDefaults.object(for: .vibrationEnabled) != nil
         
         if !hasSoundSetting {
           // First time - set default values
@@ -119,152 +147,222 @@ public struct EnergyBalansingSettingsView: View {
   }
 
   public var body: some View {
-    WithViewStore(store, observe: { $0 }) { viewStore in
-      ZStack {
-        BgWithGradientView()
+    ZStack {
+        AuraBackground(level: .heart)
         
-        VStack(spacing: DesignConstants.spacingLarge) {
-          titleView
-          durationOptionsView(viewStore)
-          vibrationAndSoundSection(viewStore)
-          volumeSection(viewStore)
-          doneButton(viewStore)
+        ScrollView {
+          VStack(spacing: DesignConstants.spacingLarge) {
+            titleView
+            durationOptionsView(store)
+            vibrationAndSoundSection(store)
+            volumeSection(store)
+            screenRestSection(store)
+            doneButton(store)
+          }
+          .frame(maxWidth: DesignConstants.maxWidthMedium)
+          .padding(DesignConstants.paddingXLarge)
+          .padding(.horizontal, DesignConstants.paddingXXLarge)
+          .frame(maxWidth: .infinity)
         }
-        .frame(maxWidth: DesignConstants.maxWidthMedium)
-        .padding(DesignConstants.paddingXLarge)
-        .padding(.horizontal, DesignConstants.paddingXXLarge)
         .onAppear {
-          viewStore.send(.onAppear)
+          store.send(.onAppear)
         }
-      }
     }
   }
 
   private var titleView: some View {
-    Text("session_duration".loc)
-      .font(.title2.weight(.semibold))
+    Text("settings".loc)
+      .font(Typography.heading)
       .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
   }
 
-  private func durationOptionsView(_ viewStore: ViewStoreOf<EnergyBalansingSettings>) -> some View {
-    VStack(spacing: DesignConstants.paddingMedium) {
-      ForEach([1, 3, 5, 10, 15], id: \.self) { duration in
-        durationButton(duration: duration, isSelected: viewStore.sessionDuration == duration, viewStore: viewStore)
-      }
-    }
+  private func durationOptionsView(_ store: StoreOf<EnergyBalansingSettings>) -> some View {
+    menuRow(
+      icon: "clock",
+      title: "session_duration".loc,
+      options: Self.durationOptions,
+      selection: store.sessionDuration,
+      label: { "\($0) \("minutes".loc)" },
+      onSelect: { store.send(.sessionDurationChanged($0)) }
+    )
   }
 
-  private func durationButton(duration: Int, isSelected: Bool, viewStore: ViewStoreOf<EnergyBalansingSettings>) -> some View {
-    Button(action: {
-      viewStore.send(.sessionDurationChanged(duration))
-    }) {
-      HStack {
-        Text("\(duration) \("minutes".loc)")
-          .font(.body)
-          .foregroundStyle(isSelected ? ResourcesAsset.Colors.textPrimary.swiftUIColor : ResourcesAsset.Colors.textSecondary.swiftUIColor)
-        Spacer()
-        if isSelected {
-          Image(systemName: "checkmark")
-            .foregroundStyle(ResourcesAsset.Colors.health.swiftUIColor)
+  private static let durationOptions = [1, 3, 5, 10, 15]
+
+  /// One card that opens the choices instead of laying them all out.
+  ///
+  /// Five durations and four delays stacked as rows pushed everything else on this screen below the
+  /// fold, and the options are only ever looked at while one is being picked.
+  private func menuRow(
+    icon: String,
+    title: String,
+    options: [Int],
+    selection: Int,
+    label: @escaping (Int) -> String,
+    onSelect: @escaping (Int) -> Void
+  ) -> some View {
+    HStack {
+      Image(systemName: icon)
+        .foregroundStyle(AuraGradient.gradient(for: .heart))
+
+      Text(title)
+        .font(Typography.body)
+        .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+
+      Spacer()
+
+      Menu {
+        // Checked rather than merely highlighted: a menu shows no selection of its own.
+        ForEach(options, id: \.self) { option in
+          Button(action: { onSelect(option) }) {
+            if option == selection {
+              Label(label(option), systemImage: "checkmark")
+            } else {
+              Text(label(option))
+            }
+          }
+        }
+      } label: {
+        HStack(spacing: DesignConstants.spacingSmall) {
+          Text(label(selection))
+            .font(Typography.body)
+            .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
+
+          Image(systemName: "chevron.up.chevron.down")
+            .font(Typography.bodySecondary)
+            .foregroundStyle(AuraGradient.gradient(for: .heart))
         }
       }
-      .padding(.horizontal, DesignConstants.paddingLarge)
-      .padding(.vertical, DesignConstants.paddingMedium)
-      .background(RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium).fill(ResourcesAsset.Colors.cellBackground.swiftUIColor))
     }
+    .padding(.horizontal, DesignConstants.paddingLarge)
+    .padding(.vertical, DesignConstants.paddingMedium)
+    .cardStyle(level: .heart, showsWatermark: false)
   }
 
-  private func vibrationAndSoundSection(_ viewStore: ViewStoreOf<EnergyBalansingSettings>) -> some View {
+  private func vibrationAndSoundSection(_ store: StoreOf<EnergyBalansingSettings>) -> some View {
     VStack(spacing: DesignConstants.paddingMedium) {
       HStack {
         Image(systemName: "iphone.radiowaves.left.and.right")
-          .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
+          .foregroundStyle(AuraGradient.gradient(for: .heart))
 
         Text("vibration".loc)
-          .font(.body)
+          .font(Typography.body)
           .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
 
         Spacer()
 
         Toggle("", isOn: Binding(
-          get: { viewStore.vibrationEnabled },
-          set: { viewStore.send(.vibrationEnabledChanged($0)) }
+          get: { store.vibrationEnabled },
+          set: { store.send(.vibrationEnabledChanged($0)) }
         ))
         .toggleStyle(SwitchToggleStyle(tint: ResourcesAsset.Colors.health.swiftUIColor))
       }
       .padding(.horizontal, DesignConstants.paddingLarge)
       .padding(.vertical, DesignConstants.paddingMedium)
-      .background(RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium).fill(ResourcesAsset.Colors.cellBackground.swiftUIColor))
+      .cardStyle(level: .heart, showsWatermark: false)
 
       HStack {
         Image(systemName: "speaker.wave.2")
-          .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
+          .foregroundStyle(AuraGradient.gradient(for: .heart))
 
         Text("sound".loc)
-          .font(.body)
+          .font(Typography.body)
           .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
 
         Spacer()
 
         Toggle("", isOn: Binding(
-          get: { viewStore.soundEnabled },
-          set: { viewStore.send(.soundEnabledChanged($0)) }
+          get: { store.soundEnabled },
+          set: { store.send(.soundEnabledChanged($0)) }
         ))
         .toggleStyle(SwitchToggleStyle(tint: ResourcesAsset.Colors.health.swiftUIColor))
       }
       .padding(.horizontal, DesignConstants.paddingLarge)
       .padding(.vertical, DesignConstants.paddingMedium)
-      .background(RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium).fill(ResourcesAsset.Colors.cellBackground.swiftUIColor))
+      .cardStyle(level: .heart, showsWatermark: false)
     }
   }
 
-  private func volumeSection(_ viewStore: ViewStoreOf<EnergyBalansingSettings>) -> some View {
+  private func volumeSection(_ store: StoreOf<EnergyBalansingSettings>) -> some View {
     VStack(spacing: DesignConstants.paddingMedium) {
       HStack {
         Image(systemName: "speaker.wave.3")
-          .foregroundStyle(viewStore.soundEnabled ? ResourcesAsset.Colors.friendly.swiftUIColor : ResourcesAsset.Colors.textSecondary.swiftUIColor)
+            .foregroundStyle(store.soundEnabled ? AnyShapeStyle(AuraGradient.gradient(for: .heart)) : AnyShapeStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor))
 
         Text("volume".loc)
-          .font(.body)
-          .foregroundStyle(viewStore.soundEnabled ? ResourcesAsset.Colors.textPrimary.swiftUIColor : ResourcesAsset.Colors.textSecondary.swiftUIColor)
+          .font(Typography.body)
+          .foregroundStyle(store.soundEnabled ? ResourcesAsset.Colors.textPrimary.swiftUIColor : ResourcesAsset.Colors.textSecondary.swiftUIColor)
 
         Spacer()
 
-        Text("\(Int(viewStore.audioVolume * 100))%")
-          .font(.body)
+        Text("\(Int(store.audioVolume * 100))%")
+          .font(Typography.body)
           .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
       }
       .padding(.horizontal, DesignConstants.paddingLarge)
       .padding(.vertical, DesignConstants.paddingMedium)
-      .background(RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium).fill(ResourcesAsset.Colors.cellBackground.swiftUIColor))
+      .cardStyle(level: .heart, showsWatermark: false)
 
       Slider(
         value: Binding(
-          get: { viewStore.audioVolume },
-          set: { viewStore.send(.audioVolumeChanged($0)) }
+          get: { store.audioVolume },
+          set: { store.send(.audioVolumeChanged($0)) }
         ),
         in: 0.0...1.0,
         step: 0.1
       )
       .accentColor(ResourcesAsset.Colors.health.swiftUIColor)
-      .disabled(!viewStore.soundEnabled)
+      .disabled(!store.soundEnabled)
       .padding(.horizontal, DesignConstants.paddingLarge)
     }
   }
 
-  private func doneButton(_ viewStore: ViewStoreOf<EnergyBalansingSettings>) -> some View {
-    Button(action: {
-      viewStore.send(.done)
-    }) {
-      Text("done".loc)
-        .font(.headline.weight(.semibold))
-        .foregroundStyle(ResourcesAsset.Colors.textInvert.swiftUIColor)
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, DesignConstants.paddingLarge)
-        .background(
-          RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
-            .fill(ResourcesAsset.Colors.clam.swiftUIColor)
+  /// Darkening the screen between steps, and how long the step stays lit first.
+  private func screenRestSection(_ store: StoreOf<EnergyBalansingSettings>) -> some View {
+    VStack(spacing: DesignConstants.paddingMedium) {
+      HStack {
+        Image(systemName: "moon.stars")
+          .foregroundStyle(AuraGradient.gradient(for: .heart))
+
+        Text("screen_rest".loc)
+          .font(Typography.body)
+          .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+
+        Spacer()
+
+        Toggle("", isOn: Binding(
+          get: { store.screenRestEnabled },
+          set: { store.send(.screenRestEnabledChanged($0)) }
+        ))
+        .toggleStyle(SwitchToggleStyle(tint: ResourcesAsset.Colors.health.swiftUIColor))
+      }
+      .padding(.horizontal, DesignConstants.paddingLarge)
+      .padding(.vertical, DesignConstants.paddingMedium)
+      .cardStyle(level: .heart, showsWatermark: false)
+
+      if store.screenRestEnabled {
+        menuRow(
+          icon: "timer",
+          title: "delay".loc,
+          options: EnergyBalansingSettings.restDelayOptions,
+          selection: store.screenRestDelay,
+          label: { "seconds_count".loc($0) },
+          onSelect: { store.send(.screenRestDelayChanged($0)) }
         )
+
+        Text("screen_rest_hint".loc)
+          .font(Typography.bodySecondary)
+          .multilineTextAlignment(.center)
+          .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
+      }
     }
+  }
+
+  private func doneButton(_ store: StoreOf<EnergyBalansingSettings>) -> some View {
+    Button("done".loc) {
+      store.send(.done)
+    }
+    .buttonStyle(.karmic(level: .heart))
+    .frame(maxWidth: .infinity)
   }
 }

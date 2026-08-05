@@ -62,77 +62,67 @@ public struct ThemeSettingsView: View {
   }
 
   public var body: some View {
-    WithViewStore(store, observe: { $0 }) { viewStore in
-      ZStack {
-        BgWithGradientView()
+    ZStack {
+        AuraBackground(level: .brow)
 
         VStack(spacing: DesignConstants.spacingLarge) {
           titleView
-          optionsView(viewStore)
-          doneButton(viewStore)
+          optionsView(store)
+          doneButton(store)
         }
         .frame(maxWidth: DesignConstants.maxWidthMedium)
         .padding(DesignConstants.paddingXLarge)
         .padding(.horizontal, DesignConstants.paddingXXLarge)
         .onAppear {
-          viewStore.send(.onAppear)
+          store.send(.onAppear)
         }
-        .preferredColorScheme(preferredSchemeFor(viewStore.userTheme, systemColorScheme))
-      }
+        .preferredColorScheme(preferredSchemeFor(store.userTheme, systemColorScheme))
     }
   }
 
   private var titleView: some View {
     Text("theme".loc)
-      .font(.title2.weight(.semibold))
+      .font(Typography.heading)
       .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
   }
 
-  private func optionsView(_ viewStore: ViewStoreOf<ThemeSettings>) -> some View {
+  private func optionsView(_ store: StoreOf<ThemeSettings>) -> some View {
     VStack(spacing: DesignConstants.paddingMedium) {
-      themeButton(themeKey: "system", title: "system".loc, isSelected: viewStore.userTheme == "system", viewStore: viewStore)
-      themeButton(themeKey: "light", title: "light".loc, isSelected: viewStore.userTheme == "light", viewStore: viewStore)
-      themeButton(themeKey: "dark", title: "dark".loc, isSelected: viewStore.userTheme == "dark", viewStore: viewStore)
+      themeButton(themeKey: "system", title: "system".loc, isSelected: store.userTheme == "system", store: store)
+      themeButton(themeKey: "light", title: "light".loc, isSelected: store.userTheme == "light", store: store)
+      themeButton(themeKey: "dark", title: "dark".loc, isSelected: store.userTheme == "dark", store: store)
     }
   }
 
-  private func themeButton(themeKey: String, title: String, isSelected: Bool, viewStore: ViewStoreOf<ThemeSettings>) -> some View {
+  private func themeButton(themeKey: String, title: String, isSelected: Bool, store: StoreOf<ThemeSettings>) -> some View {
     Button(action: {
-      viewStore.send(.themeChanged(themeKey))
+      store.send(.themeChanged(themeKey))
     }) {
       HStack {
         Text(title)
-          .font(.body)
+          .font(Typography.body)
           .foregroundStyle(isSelected ? ResourcesAsset.Colors.textPrimary.swiftUIColor : ResourcesAsset.Colors.textSecondary.swiftUIColor)
 
         Spacer()
 
         if isSelected {
           Image(systemName: "checkmark")
-            .foregroundStyle(ResourcesAsset.Colors.health.swiftUIColor)
+            .foregroundStyle(AuraGradient.gradient(for: .brow))
         }
       }
       .padding(.horizontal, DesignConstants.paddingLarge)
       .padding(.vertical, DesignConstants.paddingMedium)
-      .background(RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
-        .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor))
+      .cardStyle(level: .brow, showsWatermark: false)
     }
+    .buttonStyle(.plain)
   }
 
-  private func doneButton(_ viewStore: ViewStoreOf<ThemeSettings>) -> some View {
-    Button(action: {
-      viewStore.send(.done)
-    }) {
-      Text("done".loc)
-        .font(.headline.weight(.semibold))
-        .foregroundStyle(ResourcesAsset.Colors.textInvert.swiftUIColor)
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, DesignConstants.paddingLarge)
-        .background(
-          RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
-            .fill(ResourcesAsset.Colors.clam.swiftUIColor)
-        )
+  private func doneButton(_ store: StoreOf<ThemeSettings>) -> some View {
+    Button("done".loc) {
+      store.send(.done)
     }
+    .buttonStyle(.karmic(level: .brow))
+    .frame(maxWidth: .infinity)
   }
 }
 
@@ -143,5 +133,3 @@ private func preferredSchemeFor(_ theme: String, _ systemScheme: ColorScheme) ->
   default: return systemScheme
   }
 }
-
-

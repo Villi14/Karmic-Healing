@@ -4,10 +4,12 @@
 
 import Dependencies
 import Foundation
+import OSLog
 import XCTestDynamicOverlay
 @preconcurrency import UserNotifications
 
 public enum WatchNotificationType: String, CaseIterable, Sendable {
+  /// No longer scheduled — kept so a build that did schedule them can still be swept clean.
   case balancingEnergy = "BALANCING_ENERGY"
 }
 
@@ -18,90 +20,36 @@ extension DependencyValues {
   }
 }
 
+/// The watch schedules no notifications: a session runs only while the app is on the wrist and in
+/// front of the user. All that is left is clearing what an older build queued up.
 public struct WatchNotificationClient {
-  public var requestAuthorization: @Sendable () async -> Bool
-  public var scheduleLocalNotification: @Sendable (String, String, TimeInterval, WatchNotificationType, String, Int) -> Void
-  public var cancelBalancingEnergyNotifications: @Sendable () -> Void
-  
-  public init(
-    requestAuthorization: @escaping @Sendable () async -> Bool,
-    scheduleLocalNotification: @escaping @Sendable (String, String, TimeInterval, WatchNotificationType, String, Int) -> Void,
-    cancelBalancingEnergyNotifications: @escaping @Sendable () -> Void
-  ) {
-    self.requestAuthorization = requestAuthorization
-    self.scheduleLocalNotification = scheduleLocalNotification
-    self.cancelBalancingEnergyNotifications = cancelBalancingEnergyNotifications
+  public var purgeSessionNotifications: @Sendable () -> Void
+
+  public init(purgeSessionNotifications: @escaping @Sendable () -> Void) {
+    self.purgeSessionNotifications = purgeSessionNotifications
   }
 }
 
 extension WatchNotificationClient: DependencyKey {
   public static let liveValue: Self = {
     let center = UNUserNotificationCenter.current()
-    
+
     return Self(
-      requestAuthorization: {
-        do {
-          return try await center.requestAuthorization(options: [.alert, .sound, .badge])
-        } catch {
-          print("Failed to request notification authorization: \(error)")
-          return false
-        }
-      },
-      scheduleLocalNotification: { title, body, timeInterval, type, processTitle, currentStep in
-        // Validate timeInterval - must be >= 1 second
-        let validTimeInterval = max(1.0, timeInterval)
-        
-        let content = UNMutableNotificationContent()
-        content.title = title
-        content.body = body
-        content.sound = .default
-        content.categoryIdentifier = type.rawValue
-        
-        // Add notification type, process title and current step to userInfo
-        content.userInfo = [
-          "notificationType": type.rawValue,
-          "processTitle": processTitle,
-          "currentStep": currentStep
-        ]
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: validTimeInterval, repeats: false)
-        let request = UNNotificationRequest(identifier: "\(type.rawValue.lowercased())-\(UUID().uuidString)", content: content, trigger: trigger)
-        
-        center.add(request) { error in
-          if let error = error {
-            print("Failed to schedule notification: \(error)")
-          } else {
-            print("WatchNotificationClient: Successfully scheduled \(type.rawValue) notification with identifier: \(request.identifier)")
-          }
-        }
-      },
-      cancelBalancingEnergyNotifications: {
+      purgeSessionNotifications: {
         center.getPendingNotificationRequests { requests in
-          let balancingEnergyIdentifiers = requests.compactMap { request in
-            let userInfo = request.content.userInfo
-            if let notificationType = userInfo["notificationType"] as? String,
-               notificationType == WatchNotificationType.balancingEnergy.rawValue {
-              return request.identifier
-            }
-            return nil
-          }
-          
-          if !balancingEnergyIdentifiers.isEmpty {
-            center.removePendingNotificationRequests(withIdentifiers: balancingEnergyIdentifiers)
-            print("WatchNotificationClient: Cancelled \(balancingEnergyIdentifiers.count) balancing energy notifications")
-            print("WatchNotificationClient: Cancelled identifiers: \(balancingEnergyIdentifiers)")
-          } else {
-            print("WatchNotificationClient: No balancing energy notifications found to cancel")
-          }
+          let identifiers = requests
+            .filter { $0.content.categoryIdentifier == WatchNotificationType.balancingEnergy.rawValue }
+            .map(\.identifier)
+
+          guard !identifiers.isEmpty else { return }
+          center.removePendingNotificationRequests(withIdentifiers: identifiers)
+          Log.notifications.notice(
+            "Purged \(identifiers.count, privacy: .public) leftover balancing energy notifications"
+          )
         }
       }
     )
   }()
-  
-  public static let testValue: Self = Self(
-    requestAuthorization: { true },
-    scheduleLocalNotification: { _, _, _, _, _, _ in },
-    cancelBalancingEnergyNotifications: { }
-  )
-}
 
+  public static let testValue: Self = Self(purgeSessionNotifications: { })
+}

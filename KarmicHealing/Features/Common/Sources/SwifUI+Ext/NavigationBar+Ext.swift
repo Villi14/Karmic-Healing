@@ -13,8 +13,15 @@ extension View {
   public func navigationBarTitleColor(_ color: SwiftUI.Color) -> some View {
     let uiColor = UIColor(color)
     UINavigationBarAppearance.configure {
-      $0.titleTextAttributes = [.foregroundColor: uiColor]
-      $0.largeTitleTextAttributes = [.foregroundColor: uiColor]
+      // Screen titles are set in New York, like every other heading.
+      $0.titleTextAttributes = [
+        .foregroundColor: uiColor,
+        .font: UIFont.karmicSerif(.headline)
+      ]
+      $0.largeTitleTextAttributes = [
+        .foregroundColor: uiColor,
+        .font: UIFont.karmicSerif(.largeTitle)
+      ]
     }
     return self
   }

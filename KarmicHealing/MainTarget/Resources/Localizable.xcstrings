@@ -30,42 +30,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Add List"
+            "value" : "Add Topic"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Добавить список"
+            "value" : "Добавить тему"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Додати список"
-          }
-        }
-      }
-    },
-    "additional_questions" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Additional Requests"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Дополнительные просьбы"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Додаткові прохання"
+            "value" : "Додати тему"
           }
         }
       }
@@ -128,7 +105,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Прежде чем перейти к следующему этапу, полностью завершите\nпредыдущий. Каждый этап занимает около пяти минут."
+            "value" : "Прежде чем перейти к следующему этапу, полностью завершите предыдущий. Каждый этап занимает около пяти минут."
           }
         },
         "uk" : {
@@ -250,6 +227,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Очистити завершені нагадування"
+          }
+        }
+      }
+    },
+    "clear_completed_requests" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear Completed Requests"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Очистить завершённые просьбы"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Очистити завершені прохання"
           }
         }
       }
@@ -415,25 +415,25 @@
         }
       }
     },
-    "delete" : {
+    "delay" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Delete"
+            "value" : "Delay"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Удалить"
+            "value" : "Задержка"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Видалити"
+            "value" : "Затримка"
           }
         }
       }
@@ -480,52 +480,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Деталі"
-          }
-        }
-      }
-    },
-    "discover_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Track reminders and requests to stay on course."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Отслеживайте напоминания и просьбы, чтобы держать курс."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Відстежуйте нагадування та прохання, щоб тримати курс."
-          }
-        }
-      }
-    },
-    "discover_your_path" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Discover your path"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Открой свой путь"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Відкрийте свій шлях"
           }
         }
       }
@@ -1197,52 +1151,6 @@
         }
       }
     },
-    "initialization" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Initialization"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Инициализация"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ініціалізація"
-          }
-        }
-      }
-    },
-    "journey_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Set your preferences and begin balancing today."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Настрой предпочтения и начни балансирование уже сегодня."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Налаштуйте уподобання та розпочніть балансування вже сьогодні."
-          }
-        }
-      }
-    },
     "karma_category_a" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1640,42 +1548,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "List"
+            "value" : "Topic"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Список"
+            "value" : "Тема"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Список"
-          }
-        }
-      }
-    },
-    "list_name" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Main Request"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Основная просьба"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Основне прохання"
+            "value" : "Тема"
           }
         }
       }
@@ -1745,29 +1630,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Налаштування кроків медитації"
-          }
-        }
-      }
-    },
-    "meditation_sleep_notification" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "If the app goes to sleep, a local notification will be sent to help synchronize the steps of your meditative practice."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Если приложение заснет, будет отправлено локальное уведомление, которое поможет синхронизировать шаги вашей медитативной практики."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Якщо застосунок засне, буде надіслано локальне сповіщення, яке допоможе синхронізувати кроки вашої медитативної практики."
           }
         }
       }
@@ -1887,29 +1749,6 @@
         }
       }
     },
-    "minute" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "minute"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "минута"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "хвилина"
-          }
-        }
-      }
-    },
     "minutes" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1939,19 +1778,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "My reminders"
+            "value" : "Reminder topics"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Мои напоминания"
+            "value" : "Темы напоминаний"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Мої нагадування"
+            "value" : "Теми нагадувань"
           }
         }
       }
@@ -2359,7 +2198,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Попросите восстановить, исцелить и активировать вашу ДНК, состоящую из\nдвенадцати нитей."
+            "value" : "Попросите восстановить, исцелить и активировать вашу ДНК, состоящую из двенадцати нитей."
           }
         },
         "uk" : {
@@ -2428,7 +2267,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Попросите Властителей Кармы очистить, освободить и исцелить чакры\nКундалини от всяких негативных связей."
+            "value" : "Попросите Властителей Кармы очистить, освободить и исцелить чакры Кундалини от всяких негативных связей."
           }
         },
         "uk" : {
@@ -2451,7 +2290,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Попросите Властителей Кармы\nочистить, освободить и исцелить чакры Кундалини от всяких негативных крючьев. "
+            "value" : "Попросите Властителей Кармы очистить, освободить и исцелить чакры Кундалини от всяких негативных крючьев."
           }
         },
         "uk" : {
@@ -2474,7 +2313,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Попросите Властителей Кармы\nочистить, освободить и исцелить чакры линии Хара от всяких негативных крючьев. "
+            "value" : "Попросите Властителей Кармы очистить, освободить и исцелить чакры линии Хара от всяких негативных крючьев."
           }
         },
         "uk" : {
@@ -2497,7 +2336,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Попросите Властителей Кармы, это освободить,\nисцелить и очистить вашу энергию от всех сердечных ран."
+            "value" : "Попросите Властителей Кармы, это освободить, исцелить и очистить вашу энергию от всех сердечных ран."
           }
         },
         "uk" : {
@@ -2566,13 +2405,13 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : " Попросите свое Высшее Я очистить, выстроить, открыть, активировать и заполнить\nсобой каналы и чакры линии Хара."
+            "value" : "Попросите свое Высшее Я очистить, выстроить, открыть, активировать и заполнить собой каналы и чакры линии Хара."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Попросіть своє Вище Я очистити, вирівняти, відкрити, активувати та заповнити\nсобою канали та чакри лінії Хара."
+            "value" : "Попросіть своє Вище Я очистити, вирівняти, відкрити, активувати та заповнити собою канали та чакри лінії Хара."
           }
         }
       }
@@ -2589,13 +2428,13 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Попросите свое Высшее Я очистить, выстроить, открыть, активировать и заполнить\nсобой каналы и чакры Кундалини."
+            "value" : "Попросите свое Высшее Я очистить, выстроить, открыть, активировать и заполнить собой каналы и чакры Кундалини."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Попросіть своє Вище Я очистити, вирівняти, відкрити, активувати та заповнити\nсобою канали та чакри Кундаліні."
+            "value" : "Попросіть своє Вище Я очистити, вирівняти, відкрити, активувати та заповнити собою канали та чакри Кундаліні."
           }
         }
       }
@@ -2612,7 +2451,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Попросите, чтобы только что завершившийся процесс приобрел постоянный\nхарактер."
+            "value" : "Попросите, чтобы только что завершившийся процесс приобрел постоянный характер."
           }
         },
         "uk" : {
@@ -2727,13 +2566,13 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Попросите очистить, исцелить, выстроить, открыть и активировать пять\nГалактических Чакр."
+            "value" : "Попросите очистить, исцелить, выстроить, открыть и активировать пять Галактических Чакр."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Попросіть очистити, зцілити, вирівняти, відкрити та активувати п'ять\nГалактичних Чакр."
+            "value" : "Попросіть очистити, зцілити, вирівняти, відкрити та активувати п'ять Галактичних Чакр."
           }
         }
       }
@@ -2773,7 +2612,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : " Поговорите с ним немного и попросите соединиться с вами навсегда."
+            "value" : "Поговорите с ним немного и попросите соединиться с вами навсегда."
           }
         },
         "uk" : {
@@ -3296,19 +3135,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "New List"
+            "value" : "New topic"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Новый список"
+            "value" : "Новая тема"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Новий список"
+            "value" : "Нова тема"
           }
         }
       }
@@ -3411,19 +3250,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A main request can have additional (subordinate) requests. The main request can be marked as completed only when all subordinate requests are completed."
+            "value" : "A request can be broken into subrequests. While any subrequest is unfulfilled, the request itself stays locked — mark it yourself once they are all done."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "У основной просьбы могут быть дополнительные (подчинённые) просьбы. Основная просьба может быть отмечена как выполненная только когда все подчинённые уже выполнены."
+            "value" : "Просьбу можно разбить на подпросьбы. Пока хоть одна подпросьба не выполнена, сама просьба остаётся закрытой — отметьте её сами, когда все они будут выполнены."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "У основного прохання можуть бути додаткові (підпорядковані) прохання. Основне прохання може бути позначене як виконане, якщо всі підпорядковані вже виконані."
+            "value" : "Прохання можна розбити на підпрохання. Поки хоч одне підпрохання не виконане, саме прохання лишається заблокованим — відмітьте його самі, коли всі вони будуть виконані."
           }
         }
       }
@@ -3520,6 +3359,29 @@
         }
       }
     },
+    "tap_search" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to search"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нажмите, чтобы искать"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Натисніть, щоб шукати"
+          }
+        }
+      }
+    },
     "seed_data" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3539,29 +3401,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Тестові дані"
-          }
-        }
-      }
-    },
-    "seed_sample_data" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Seed Sample Data"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Добавить тестовые данные"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Додати тестові дані"
           }
         }
       }
@@ -3727,29 +3566,6 @@
         }
       }
     },
-    "start_your_journey" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Start your journey"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Начни своё путешествие"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Розпочніть свою подорож"
-          }
-        }
-      }
-    },
     "step_1" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3785,7 +3601,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Попросите их выстроить ваши энергетические тела и настроить контакты между\nними"
+            "value" : "Попросите их выстроить ваши энергетические тела и настроить контакты между ними"
           }
         },
         "uk" : {
@@ -3842,6 +3658,29 @@
         }
       }
     },
+    "step_counter" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Step %1$d of %2$d"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Шаг %1$d из %2$d"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Крок %1$d із %2$d"
+          }
+        }
+      }
+    },
     "step_last" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3888,71 +3727,25 @@
         }
       }
     },
-    "tap_here_to_quickly_populate_the_app_with_test_data" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tap here to quickly populate the app with test data."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Нажмите здесь, чтобы быстро заполнить приложение тестовыми данными."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Натисніть тут, щоб швидко заповнити застосунок тестовими даними."
-          }
-        }
-      }
-    },
-    "tap_to_continue_energy_balancing" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tap to continue energy balancing"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Нажмите чтобы продолжить балансирование энергии"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Натисніть щоб продовжити балансування енергії"
-          }
-        }
-      }
-    },
     "thanks_for_using_karmic_healing" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This app is a supplement to the Russian edition 'Karmic Healing', which is a translation of the English edition 'Psychic Healing with Spirit Guides and Angels' by Diana Stein.\n\nDevelopment:\n• Built with TCA (The Composable Architecture)\n\nThanks for using Karmic Healing."
+            "value" : "This app is a supplement to the Russian edition 'Karmic Healing', which is a translation of the English edition 'Psychic Healing with Spirit Guides and Angels' by Diana Stein.\n\nThanks for using Karmic Healing."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Это приложение является дополнением к российскому изданию 'Кармическое Исцеление', которое является переводом английского издания 'Psychic Healing with Spirit Guides and Angels' Дайаны Стайн.\n\nРазработка:\n• Создано с использованием TCA (The Composable Architecture)\n\nСпасибо за использование Karmic Healing."
+            "value" : "Это приложение является дополнением к российскому изданию 'Кармическое Исцеление', которое является переводом английского издания 'Psychic Healing with Spirit Guides and Angels' Дайаны Стайн.\n\nСпасибо за использование Karmic Healing."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Цей застосунок є доповненням до російського видання 'Кармическое Исцеление', яке є перекладом англійського видання 'Psychic Healing with Spirit Guides and Angels' Дайани Стайн.\n\nРозробка:\n• Створено з використанням TCA (The Composable Architecture)\n\nДякуємо за використання Karmic Healing."
+            "value" : "Цей застосунок є доповненням до російського видання 'Кармическое Исцеление', яке є перекладом англійського видання 'Psychic Healing with Spirit Guides and Angels' Дайани Стайн.\n\nДякуємо за використання Karmic Healing."
           }
         }
       }
@@ -3976,29 +3769,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Тема"
-          }
-        }
-      }
-    },
-    "time_to_flip_slide" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Next step"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Следующий шаг"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Наступний крок"
           }
         }
       }
@@ -4049,29 +3819,6 @@
         }
       }
     },
-    "unflag" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unflag"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Снять флажок"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Зняти прапорець"
-          }
-        }
-      }
-    },
     "vibration" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -4118,52 +3865,6 @@
         }
       }
     },
-    "welcome_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Balance your energy and build mindful habits."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Сбалансируйте энергию и формируйте осознанные привычки."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Збалансуйте енергію та формуйте усвідомлені звички."
-          }
-        }
-      }
-    },
-    "welcome_to_karmic_healing" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Welcome to Karmic Healing"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Добро пожаловать в Karmic Healing"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ласкаво просимо до Karmic Healing"
-          }
-        }
-      }
-    },
     "write_to_us" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -4183,6 +3884,673 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Напишіть нам"
+          }
+        }
+      }
+    },
+    "home_daily_eyebrow" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Today"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сегодня"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сьогодні"
+          }
+        }
+      }
+    },
+    "home_daily_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A moment to return to yourself"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Момент, чтобы вернуться к себе"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мить, щоб повернутися до себе"
+          }
+        }
+      }
+    },
+    "home_daily_subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Take a few quiet minutes to balance your energy and continue your practice."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Уделите несколько спокойных минут, чтобы сбалансировать энергию и продолжить практику."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Присвятіть кілька спокійних хвилин балансу енергії та продовженню практики."
+          }
+        }
+      }
+    },
+    "home_tools" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your tools"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваши инструменты"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваші інструменти"
+          }
+        }
+      }
+    },
+    "start_session" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start session"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Начать практику"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Почати практику"
+          }
+        }
+      }
+    },
+    "start_session_hint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opens the guided energy-balancing session."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открывает управляемую практику балансирования энергии."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкриває керовану практику балансування енергії."
+          }
+        }
+      }
+    },
+    "overdue" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Overdue"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Просрочено"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Прострочено"
+          }
+        }
+      }
+    },
+    "no_results" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nothing found"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ничего не найдено"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нічого не знайдено"
+          }
+        }
+      }
+    },
+    "try_another_search" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try a different word or clear the search."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Попробуйте другое слово или очистите поиск."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Спробуйте інше слово або очистіть пошук."
+          }
+        }
+      }
+    },
+    "requests_empty_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start with a request"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Начните с просьбы"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Почніть із прохання"
+          }
+        }
+      }
+    },
+    "requests_empty_message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Write down what you are asking for. If it cannot be fulfilled right away, break it into subrequests."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запишите, о чём вы просите. Если это нельзя выполнить прямо сейчас, разбейте просьбу на подпросьбы."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запишіть, про що ви просите. Якщо це не можна виконати прямо зараз, розбийте прохання на підпрохання."
+          }
+        }
+      }
+    },
+    "reminders_empty_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Create your first topic"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Создайте первую тему"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Створіть першу тему"
+          }
+        }
+      }
+    },
+    "reminders_empty_message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reminders live in topics. Create one, and small reminders will turn the practice into a steady ritual."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Напоминания живут в темах. Создайте первую — и небольшие напоминания превратят практику в устойчивый ритуал."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нагадування живуть у темах. Створіть першу — і невеликі нагадування перетворять практику на сталий ритуал."
+          }
+        }
+      }
+    },
+    "next_step_in" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next step in %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Следующий шаг через %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Наступний крок через %@"
+          }
+        }
+      }
+    },
+    "paused" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paused"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пауза"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пауза"
+          }
+        }
+      }
+    },
+    "pause" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pause"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пауза"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пауза"
+          }
+        }
+      }
+    },
+    "resume" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resume"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Продолжить"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Продовжити"
+          }
+        }
+      }
+    },
+    "screen_rest" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rest the screen"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Гасить экран"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Гасити екран"
+          }
+        }
+      }
+    },
+    "screen_rest_hint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The screen darkens between steps and lights up again on the next one."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Экран гаснет между шагами и загорается снова на следующем."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Екран гасне між кроками і загоряється знову на наступному."
+          }
+        }
+      }
+    },
+    "seconds_count" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "After %d s"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Через %d с"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Через %d с"
+          }
+        }
+      }
+    },
+    "sub_request" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Subrequest"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Подпросьба"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Підпрохання"
+          }
+        }
+      }
+    },
+    "add_sub_request" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Subrequest"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Добавить подпросьбу"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Додати підпрохання"
+          }
+        }
+      }
+    },
+    "new_sub_request" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "New Subrequest"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Новая подпросьба"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нове підпрохання"
+          }
+        }
+      }
+    },
+    "add_request" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Request"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Добавить просьбу"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Додати прохання"
+          }
+        }
+      }
+    },
+    "request_locked_hint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fulfil every subrequest first"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сначала выполните все подпросьбы"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Спершу виконайте всі підпрохання"
+          }
+        }
+      }
+    },
+    "topics_hint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every reminder belongs to a topic"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Каждое напоминание принадлежит теме"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кожне нагадування належить темі"
+          }
+        }
+      }
+    },
+    "topic" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Topic"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тема"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тема"
+          }
+        }
+      }
+    },
+    "author_site" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Author's website"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сайт автора"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сайт автора"
+          }
+        }
+      }
+    },
+    "subrequests_hint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every subrequest belongs to a request"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Каждая подпросьба принадлежит просьбе"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кожне підпрохання належить проханню"
           }
         }
       }

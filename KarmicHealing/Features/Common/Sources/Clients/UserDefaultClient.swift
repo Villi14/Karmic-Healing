@@ -125,6 +125,11 @@ extension UserDefaultsClient {
     public static let audioVolume = "audio_volume"
     public static let userTheme = "user_theme"
     public static let initialProcessCompleted = "initial_process_completed"
+    public static let activeSessionKind = "active_session_kind"
+    public static let activeSessionStep = "active_session_step"
+    public static let screenRestEnabled = "screen_rest_enabled"
+    public static let screenRestDelay = "screen_rest_delay"
+    public static let brightnessBeforeSession = "brightness_before_session"
   }
 }
 
@@ -140,6 +145,8 @@ public struct BoolKey {
   public static let soundEnabled = BoolKey(UserDefaultsClient.Keys.soundEnabled)
   public static let vibrationEnabled = BoolKey(UserDefaultsClient.Keys.vibrationEnabled)
   public static let initialProcessCompleted = BoolKey(UserDefaultsClient.Keys.initialProcessCompleted)
+  /// Darkening the screen between steps. On unless the user turns it off.
+  public static let screenRestEnabled = BoolKey(UserDefaultsClient.Keys.screenRestEnabled)
 }
 
 public struct StringKey {
@@ -151,6 +158,8 @@ public struct StringKey {
   
   public static let userLanguage = StringKey(UserDefaultsClient.Keys.userLanguage)
   public static let userTheme = StringKey(UserDefaultsClient.Keys.userTheme)
+  /// The meditation a session was left in, so a notification tap can reopen it.
+  public static let activeSessionKind = StringKey(UserDefaultsClient.Keys.activeSessionKind)
 }
 
 public struct IntKey {
@@ -163,6 +172,9 @@ public struct IntKey {
   public static let lastCompletedStep = IntKey(UserDefaultsClient.Keys.lastCompletedStep)
   public static let appLaunchCount = IntKey(UserDefaultsClient.Keys.appLaunchCount)
   public static let sessionDuration = IntKey(UserDefaultsClient.Keys.sessionDuration)
+  public static let activeSessionStep = IntKey(UserDefaultsClient.Keys.activeSessionStep)
+  /// Seconds of stillness before the screen rests.
+  public static let screenRestDelay = IntKey(UserDefaultsClient.Keys.screenRestDelay)
 }
 
 public struct FloatKey {
@@ -180,6 +192,12 @@ extension UserDefaultsClient {
   // MARK: - Type-safe getters
   public func bool(for key: BoolKey) -> Bool {
     boolForKey(key.rawValue)
+  }
+
+  /// A stored flag, or `fallback` when the user has never set it — `bool(forKey:)` alone cannot
+  /// tell "off" from "never touched", which matters for settings that default to on.
+  public func bool(for key: BoolKey, default fallback: Bool) -> Bool {
+    objectForKey(key.rawValue) == nil ? fallback : boolForKey(key.rawValue)
   }
   
   public func string(for key: StringKey) -> String? {
@@ -220,6 +238,19 @@ extension UserDefaultsClient {
   public func setAsync(_ value: Float, for key: FloatKey) async {
     await MainActor.run {
       setFloat(value, key.rawValue)
+    }
+  }
+
+  // MARK: - Type-safe removal
+  public func removeAsync(_ key: StringKey) async {
+    await MainActor.run {
+      remove(key.rawValue)
+    }
+  }
+
+  public func removeAsync(_ key: IntKey) async {
+    await MainActor.run {
+      remove(key.rawValue)
     }
   }
 }

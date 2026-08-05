@@ -1,4 +1,5 @@
 import Foundation
+import OSLog
 import AVFoundation
 import Dependencies
 
@@ -7,17 +8,25 @@ public struct AudioClient {
   public var setVolume: @Sendable (Float) -> Void
   public var getVolume: @Sendable () -> Float
   public var stopSound: @Sendable () -> Void
-  
+  /// Puts the app into a playback audio session so a session's chime is heard over the silent
+  /// switch and over whatever the user is already listening to.
+  public var activateSession: @Sendable () -> Void
+  public var deactivateSession: @Sendable () -> Void
+
   public init(
     playSound: @escaping @Sendable (String, String) -> Void,
     setVolume: @escaping @Sendable (Float) -> Void,
     getVolume: @escaping @Sendable () -> Float,
-    stopSound: @escaping @Sendable () -> Void
+    stopSound: @escaping @Sendable () -> Void,
+    activateSession: @escaping @Sendable () -> Void,
+    deactivateSession: @escaping @Sendable () -> Void
   ) {
     self.playSound = playSound
     self.setVolume = setVolume
     self.getVolume = getVolume
     self.stopSound = stopSound
+    self.activateSession = activateSession
+    self.deactivateSession = deactivateSession
   }
 }
 
@@ -36,23 +45,53 @@ extension AudioClient: DependencyKey {
       },
       stopSound: {
         audioPlayer.stopSound()
+      },
+      activateSession: {
+        audioPlayer.activateSession()
+      },
+      deactivateSession: {
+        audioPlayer.deactivateSession()
       }
     )
   }()
-  
+
   public static let testValue: Self = Self(
     playSound: { _, _ in },
     setVolume: { _ in },
     getVolume: { 1.0 },
-    stopSound: { }
+    stopSound: { },
+    activateSession: { },
+    deactivateSession: { }
   )
 }
 
 private class AudioPlayer {
   private var audioPlayer: AVAudioPlayer?
   private var volume: Float = 1.0
-  
+
+  /// `.playback` is what makes the chime audible with the ring switch flipped to silent, and
+  /// `.duckOthers` lowers the user's own music for the moment the chime lands instead of stopping it.
+  func activateSession() {
+    do {
+      let session = AVAudioSession.sharedInstance()
+      try session.setCategory(.playback, mode: .default, options: [.duckOthers])
+      try session.setActive(true)
+    } catch {
+      Log.audio.error("Failed to activate audio session: \(error.localizedDescription, privacy: .public)")
+    }
+  }
+
+  func deactivateSession() {
+    do {
+      try AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+    } catch {
+      Log.audio.error("Failed to deactivate audio session: \(error.localizedDescription, privacy: .public)")
+    }
+  }
+
   func playSound(named soundName: String, withExtension ext: String = "wav") {
+    activateSession()
+
     // Try to find sound in Resources module first, then fallback to main bundle
     let soundURL: URL?
     if let resourcesBundle = Bundle(identifier: "com.villi.karmichealing.resources") {
@@ -62,7 +101,7 @@ private class AudioPlayer {
     }
     
     guard let soundURL = soundURL else {
-      print("Sound file not found: \(soundName).\(ext)")
+      Log.audio.error("Sound file not found: \(soundName, privacy: .public).\(ext, privacy: .public)")
       return
     }
     
@@ -72,7 +111,7 @@ private class AudioPlayer {
       audioPlayer?.prepareToPlay()
       audioPlayer?.play()
     } catch {
-      print("Error playing sound: \(error)")
+      Log.audio.error("Error playing sound: \(error.localizedDescription, privacy: .public)")
     }
   }
   

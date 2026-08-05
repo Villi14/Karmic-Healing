@@ -4,13 +4,17 @@
 
 import ComposableArchitecture
 import Foundation
+import OSLog
 
 @Reducer
 public struct WatchSettings {
   @Dependency(\.watchUserDefaults) var userDefaults
   
   public init() {}
-  
+
+  /// Seconds of stillness the user can choose from before the screen rests.
+  public static let restDelayOptions = [15, 30, 60, 120]
+
   @ObservableState
   public struct State: Equatable {
     public var soundEnabled: Bool
@@ -18,21 +22,27 @@ public struct WatchSettings {
     public var audioVolume: Float
     public var sessionDuration: Int
     public var userLanguage: String
-    
+    public var screenRestEnabled: Bool
+    public var screenRestDelay: Int
+
     public init(
       soundEnabled: Bool = false,
       vibrationEnabled: Bool = false,
       audioVolume: Float = 0.5,
       sessionDuration: Int = 5,
-      userLanguage: String = "en"
+      userLanguage: String = "en",
+      screenRestEnabled: Bool = true,
+      screenRestDelay: Int = WatchBalancingEnergy.defaultRestDelay
     ) {
       self.soundEnabled = soundEnabled
       self.vibrationEnabled = vibrationEnabled
       self.audioVolume = audioVolume
       self.sessionDuration = sessionDuration
       self.userLanguage = userLanguage
+      self.screenRestEnabled = screenRestEnabled
+      self.screenRestDelay = screenRestDelay
     }
-    
+
     // Static method to create state with loaded settings
     public static func withLoadedSettings(userDefaults: WatchUserDefaultsClient) -> State {
       let soundEnabled = userDefaults.bool(for: .soundEnabled)
@@ -41,13 +51,17 @@ public struct WatchSettings {
       let rawSessionDuration = userDefaults.integer(for: .sessionDuration)
       let sessionDuration = rawSessionDuration == 0 ? 5 : rawSessionDuration
       let userLanguage = userDefaults.string(for: .userLanguage) ?? "en"
-      
+      let screenRestEnabled = userDefaults.bool(for: .screenRestEnabled, default: true)
+      let rawRestDelay = userDefaults.integer(for: .screenRestDelay)
+
       return State(
         soundEnabled: soundEnabled,
         vibrationEnabled: vibrationEnabled,
         audioVolume: audioVolume,
         sessionDuration: sessionDuration,
-        userLanguage: userLanguage
+        userLanguage: userLanguage,
+        screenRestEnabled: screenRestEnabled,
+        screenRestDelay: rawRestDelay > 0 ? rawRestDelay : WatchBalancingEnergy.defaultRestDelay
       )
     }
   }
@@ -55,11 +69,15 @@ public struct WatchSettings {
   public enum Action: Equatable {
     case onAppear
     case loadSettings(soundEnabled: Bool, vibrationEnabled: Bool, audioVolume: Float, sessionDuration: Int, userLanguage: String)
+    case loadScreenRest(enabled: Bool, delay: Int)
     case toggleSound
     case toggleVibration
     case setAudioVolume(Float)
     case setSessionDuration(Int)
     case setUserLanguage(String)
+    /// Carries the new value rather than flipping in place, so the running session can follow it.
+    case toggleScreenRest(Bool)
+    case setScreenRestDelay(Int)
   }
   
   public var body: some ReducerOf<Self> {
@@ -77,19 +95,16 @@ public struct WatchSettings {
           let sessionDuration = rawSessionDuration == 0 ? 5 : rawSessionDuration
           let userLanguage = userDefaults.string(for: .userLanguage) ?? "en"
           
-          print("🔊 WatchSettings: Loading settings from UserDefaults:")
-          print("  soundEnabled: \(soundEnabled)")
-          print("  vibrationEnabled: \(vibrationEnabled)")
-          print("  rawAudioVolume: \(rawAudioVolume)")
-          print("  audioVolume (processed): \(audioVolume)")
-          if rawAudioVolume > 0.0 {
-            print("  ✅ Using saved volume: \(rawAudioVolume)")
-          } else {
-            print("  🔄 No saved volume, will use default when enabling sound")
-          }
-          print("  sessionDuration: \(sessionDuration)")
-          print("  userLanguage: \(userLanguage)")
-          
+          Log.settings.debug(
+            """
+            Loaded settings — sound: \(soundEnabled, privacy: .public), \
+            vibration: \(vibrationEnabled, privacy: .public), \
+            volume: \(audioVolume, privacy: .public), \
+            duration: \(sessionDuration, privacy: .public) min, \
+            language: \(userLanguage, privacy: .public)
+            """
+          )
+
           await send(.loadSettings(
             soundEnabled: soundEnabled,
             vibrationEnabled: vibrationEnabled,
@@ -97,8 +112,19 @@ public struct WatchSettings {
             sessionDuration: sessionDuration,
             userLanguage: userLanguage
           ))
+
+          let rawRestDelay = userDefaults.integer(for: .screenRestDelay)
+          await send(.loadScreenRest(
+            enabled: userDefaults.bool(for: .screenRestEnabled, default: true),
+            delay: rawRestDelay > 0 ? rawRestDelay : WatchBalancingEnergy.defaultRestDelay
+          ))
         }
-        
+
+      case let .loadScreenRest(enabled, delay):
+        state.screenRestEnabled = enabled
+        state.screenRestDelay = delay
+        return .none
+
       case let .loadSettings(soundEnabled, vibrationEnabled, audioVolume, sessionDuration, userLanguage):
         state.soundEnabled = soundEnabled
         state.vibrationEnabled = vibrationEnabled
@@ -113,22 +139,18 @@ public struct WatchSettings {
         if state.soundEnabled {
           // When enabling sound, restore previous volume or use 0.5 if none saved
           let savedVolume = userDefaults.float(for: .audioVolume)
-          if savedVolume > 0.0 {
-            state.audioVolume = savedVolume
-            print("🔊 WatchSettings: Enabling sound with restored volume \(savedVolume)")
-          } else {
-            state.audioVolume = 0.5
-            print("🔊 WatchSettings: Enabling sound with default 50% volume")
-          }
-        } else {
-          print("🔊 WatchSettings: Disabling sound (keeping volume \(state.audioVolume) for later)")
+          state.audioVolume = savedVolume > 0.0 ? savedVolume : 0.5
         }
-        
+        let soundEnabled = state.soundEnabled
+        let audioVolume = state.audioVolume
+        Log.settings.debug(
+          "Sound \(soundEnabled ? "enabled" : "disabled", privacy: .public), volume \(audioVolume, privacy: .public)"
+        )
+
         return .run { [state] send in
           await userDefaults.setAsync(state.soundEnabled, for: .soundEnabled)
           if state.soundEnabled {
             await userDefaults.setAsync(state.audioVolume, for: .audioVolume)
-            print("🔊 WatchSettings: Saved sound enabled with volume \(state.audioVolume)")
           }
         }
         
@@ -140,14 +162,9 @@ public struct WatchSettings {
         
       case let .setAudioVolume(volume):
         state.audioVolume = volume
-        print("🔊 WatchSettings: Setting audio volume to \(volume)")
+        Log.settings.debug("Audio volume set to \(volume, privacy: .public)")
         return .run { [state] send in
           await userDefaults.setAsync(state.audioVolume, for: .audioVolume)
-          print("🔊 WatchSettings: Saved audio volume \(state.audioVolume) to UserDefaults")
-          
-          // Verify it was saved
-          let savedVolume = userDefaults.float(for: .audioVolume)
-          print("🔊 WatchSettings: Verified saved volume: \(savedVolume)")
         }
         
       case let .setSessionDuration(duration):
@@ -156,6 +173,19 @@ public struct WatchSettings {
           await userDefaults.setAsync(state.sessionDuration, for: .sessionDuration)
         }
         
+      case let .toggleScreenRest(enabled):
+        state.screenRestEnabled = enabled
+        Log.settings.debug("Screen rest \(enabled ? "enabled" : "disabled", privacy: .public)")
+        return .run { _ in
+          await userDefaults.setAsync(enabled, for: .screenRestEnabled)
+        }
+
+      case let .setScreenRestDelay(seconds):
+        state.screenRestDelay = seconds
+        return .run { _ in
+          await userDefaults.setAsync(seconds, for: .screenRestDelay)
+        }
+
       case let .setUserLanguage(language):
         state.userLanguage = language
         return .run { [state] send in

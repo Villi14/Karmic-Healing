@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24128" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <accessibilityOverrides/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
@@ -20,12 +20,19 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3hm-bN-fIi">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="launch_background" translatesAutoresizingMaskIntoConstraints="NO" id="oXn-9C-bg1">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                    </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="ymE-Nn-2i6">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" name="bg_launch_screen"/>
                                 <constraints>
+                                    <constraint firstItem="oXn-9C-bg1" firstAttribute="leading" secondItem="3hm-bN-fIi" secondAttribute="leading" id="bg1-leading"/>
+                                    <constraint firstItem="oXn-9C-bg1" firstAttribute="top" secondItem="3hm-bN-fIi" secondAttribute="top" id="bg1-top"/>
+                                    <constraint firstAttribute="bottom" secondItem="oXn-9C-bg1" secondAttribute="bottom" id="bg1-bottom"/>
+                                    <constraint firstAttribute="trailing" secondItem="oXn-9C-bg1" secondAttribute="trailing" id="bg1-trailing"/>
                                     <constraint firstItem="ymE-Nn-2i6" firstAttribute="leading" secondItem="3hm-bN-fIi" secondAttribute="leading" id="WaO-Ax-lTy"/>
                                     <constraint firstItem="ymE-Nn-2i6" firstAttribute="top" secondItem="3hm-bN-fIi" secondAttribute="top" id="Zfe-M2-fgf"/>
                                     <constraint firstAttribute="bottom" secondItem="ymE-Nn-2i6" secondAttribute="bottom" id="u3P-DS-beM"/>
@@ -49,8 +56,9 @@
     </scenes>
     <resources>
         <image name="icon" width="1024" height="1024"/>
+        <image name="launch_background" width="1179" height="2556"/>
         <namedColor name="bg_launch_screen">
-            <color red="0.99215686274509807" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0" green="0" blue="0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

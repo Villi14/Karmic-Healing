@@ -19,7 +19,7 @@ public struct PrivacyPolicy {
   public init() {}
 
   public var body: some ReducerOf<Self> {
-    Reduce { _, _ in .none }
+    EmptyReducer()
   }
 }
 
@@ -33,7 +33,7 @@ public struct PrivacyPolicyView: View {
 
   public var body: some View {
     ZStack {
-      BgWithGradientView()
+      AuraBackground(level: .crown)
 
       VStack(spacing: 0) {
         // Header with close button
@@ -42,8 +42,8 @@ public struct PrivacyPolicyView: View {
           Button(action: { dismiss() }) {
             Image(systemName: "xmark")
               .renderingMode(.template)
-              .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
-              .font(.title2)
+              .foregroundStyle(AuraGradient.gradient(for: .crown))
+              .font(Typography.icon)
           }
         }
         .padding(.horizontal, DesignConstants.paddingXLarge)
@@ -110,13 +110,13 @@ private struct PolicySectionView: View {
   var body: some View {
     VStack(alignment: .leading, spacing: DesignConstants.spacing) {
       Text(title)
-        .font(isHeader ? .title2.weight(.bold) : .headline.weight(.semibold))
+        .font(isHeader ? Typography.heading : Typography.title)
         .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
         .fixedSize(horizontal: false, vertical: true)
         .lineLimit(nil)
 
       Text(content)
-        .font(isHeader ? .caption : .body)
+        .font(isHeader ? Typography.label : Typography.body)
         .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
         .fixedSize(horizontal: false, vertical: true)
         .lineLimit(nil)

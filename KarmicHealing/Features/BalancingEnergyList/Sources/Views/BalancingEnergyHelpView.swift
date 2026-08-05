@@ -12,7 +12,7 @@ public struct BalancingEnergyHelpView: View {
   
   public var body: some View {
     ZStack {
-      BgWithGradientView()
+      AuraBackground(level: .heart)
       
       ScrollView {
         VStack(spacing: DesignConstants.spacingXLarge) {
@@ -20,16 +20,16 @@ public struct BalancingEnergyHelpView: View {
           VStack(spacing: DesignConstants.helpStepSpacing) {
             Image(systemName: "questionmark.circle")
               .font(.system(size: DesignConstants.helpIconSize))
-              .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
+              .foregroundStyle(AuraGradient.gradient(for: .heart))
             
             Text("help_title".loc)
-              .font(.title.weight(.bold))
+              .font(Typography.heading)
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
               .multilineTextAlignment(.center)
               .padding(.horizontal)
             
             Text("help_subtitle".loc)
-              .font(.body)
+              .font(Typography.body)
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
               .multilineTextAlignment(.center)
               .padding(.horizontal)
@@ -78,7 +78,7 @@ public struct BalancingEnergyHelpView: View {
           // Meditation Settings
           VStack(spacing: DesignConstants.helpStepSpacing) {
             Text("meditation_settings_title".loc)
-              .font(.headline.weight(.semibold))
+              .font(Typography.title)
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
             
             VStack(spacing: DesignConstants.helpTipSpacing) {
@@ -87,21 +87,17 @@ public struct BalancingEnergyHelpView: View {
               tipRow(text: "meditation_vibration_setting".loc)
               tipRow(text: "meditation_sound_setting".loc)
               tipRow(text: "meditation_volume_setting".loc)
-              tipRow(text: "meditation_sleep_notification".loc)
             }
           }
           .padding(.horizontal, DesignConstants.paddingLarge)
           .padding(.vertical, DesignConstants.paddingLarge)
-          .background(
-            RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
-              .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
-          )
+          .cardStyle(level: .heart, showsWatermark: false)
           .padding(.horizontal, DesignConstants.paddingLarge)
           
           // Important tips
           VStack(spacing: DesignConstants.helpStepSpacing) {
             Text("help_tips_title".loc)
-              .font(.headline.weight(.semibold))
+              .font(Typography.title)
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
             
             VStack(spacing: DesignConstants.helpTipSpacing) {
@@ -112,26 +108,23 @@ public struct BalancingEnergyHelpView: View {
           }
           .padding(.horizontal, DesignConstants.paddingLarge)
           .padding(.vertical, DesignConstants.paddingLarge)
-          .background(
-            RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
-              .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
-          )
+          .cardStyle(level: .heart, showsWatermark: false)
           .padding(.horizontal, DesignConstants.paddingLarge)
           
           Spacer(minLength: DesignConstants.spacingXLarge)
         }
+        .karmicContentWidth()
       }
       .navigationTitle("help".loc)
       .navigationBarTitleDisplayMode(.inline)
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-      .toolbarBackground(ResourcesAsset.Colors.background.swiftUIColor, for: .navigationBar)
-      .toolbarBackground(.visible, for: .navigationBar)
+      .toolbarBackground(.hidden, for: .navigationBar)
       .toolbar {
         ToolbarItem(placement: .topBarTrailing) {
           Button(action: { store.send(.dismissButtonTapped) }) {
             Image(systemName: "xmark")
               .renderingMode(.template)
-              .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
+              .foregroundStyle(AuraGradient.gradient(for: .heart))
           }
         }
       }
@@ -143,27 +136,27 @@ public struct BalancingEnergyHelpView: View {
       // Step number
       ZStack {
         Circle()
-          .stroke(ResourcesAsset.Colors.clam.swiftUIColor, lineWidth: DesignConstants.lineWidth)
+          .stroke(AuraGradient.gradient(for: .heart), lineWidth: DesignConstants.lineWidth)
           .frame(width: DesignConstants.helpStepCircleSize, height: DesignConstants.helpStepCircleSize)
         
         Text("\(number)")
-          .font(.headline.weight(.bold))
+          .font(Typography.title)
           .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
       }
       
       VStack(alignment: .leading, spacing: DesignConstants.helpTipSpacing) {
         HStack {
           Image(systemName: icon)
-            .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
-            .font(.title3)
+            .foregroundStyle(AuraGradient.gradient(for: .heart))
+            .font(Typography.icon)
           
           Text(title)
-            .font(.headline.weight(.semibold))
+            .font(Typography.title)
             .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
         }
         
         Text(description)
-          .font(.body)
+          .font(Typography.body)
           .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
           .multilineTextAlignment(.leading)
       }
@@ -172,20 +165,17 @@ public struct BalancingEnergyHelpView: View {
     }
     .padding(.horizontal, DesignConstants.paddingMedium)
     .padding(.vertical, DesignConstants.paddingMedium)
-    .background(
-      RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
-        .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
-    )
+    .cardStyle(level: .heart, showsWatermark: false)
   }
   
   private func tipRow(text: String) -> some View {
     HStack(alignment: .top, spacing: DesignConstants.helpTipSpacing) {
       Image(systemName: "lightbulb")
-        .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
-        .font(.title3)
+        .foregroundStyle(AuraGradient.gradient(for: .heart))
+        .font(Typography.icon)
       
       Text(text)
-        .font(.body)
+        .font(Typography.body)
         .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
         .multilineTextAlignment(.leading)
       

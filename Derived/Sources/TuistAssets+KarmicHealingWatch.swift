@@ -1,39 +1,55 @@
+// swiftlint:disable:this file_name
 // swiftlint:disable all
 // swift-format-ignore-file
 // swiftformat:disable all
 // Generated using tuist — https://github.com/tuist/tuist
 
+
+
 #if os(macOS)
-  import AppKit
-#elseif os(iOS)
-  import UIKit
-#elseif os(tvOS) || os(watchOS)
-  import UIKit
+#if hasFeature(InternalImportsByDefault)
+public import AppKit
+#else
+import AppKit
 #endif
-#if canImport(SwiftUI)
-  import SwiftUI
+#else
+#if hasFeature(InternalImportsByDefault)
+public import UIKit
+#else
+import UIKit
+#endif
 #endif
 
-// swiftlint:disable superfluous_disable_command file_length implicit_return
+#if canImport(SwiftUI)
+#if hasFeature(InternalImportsByDefault)
+public import SwiftUI
+#else
+import SwiftUI
+#endif
+#endif
 
 // MARK: - Asset Catalogs
 
-// swiftlint:disable identifier_name line_length nesting type_body_length type_name
 public enum KarmicHealingWatchAsset: Sendable {
   public enum Assets {
   }
   public enum Colors {
-  public static let background = KarmicHealingWatchColors(name: "background")
+  public static let accentColor = KarmicHealingWatchColors(name: "AccentColor")
+    public static let background = KarmicHealingWatchColors(name: "background")
     public static let cellBackground = KarmicHealingWatchColors(name: "cell_background")
     public static let clam = KarmicHealingWatchColors(name: "clam")
+    public static let clarity = KarmicHealingWatchColors(name: "clarity")
+    public static let energy = KarmicHealingWatchColors(name: "energy")
     public static let friendly = KarmicHealingWatchColors(name: "friendly")
     public static let health = KarmicHealingWatchColors(name: "health")
+    public static let onAccent = KarmicHealingWatchColors(name: "on_accent")
+    public static let peace = KarmicHealingWatchColors(name: "peace")
     public static let textInvert = KarmicHealingWatchColors(name: "text_invert")
     public static let textPrimary = KarmicHealingWatchColors(name: "text_primary")
     public static let textSecondary = KarmicHealingWatchColors(name: "text_secondary")
+    public static let wisdom = KarmicHealingWatchColors(name: "wisdom")
   }
 }
-// swiftlint:enable identifier_name line_length nesting type_body_length type_name
 
 // MARK: - Implementation Details
 
@@ -90,5 +106,5 @@ public extension SwiftUI.Color {
 }
 #endif
 
-// swiftlint:enable all
 // swiftformat:enable all
+// swiftlint:enable all

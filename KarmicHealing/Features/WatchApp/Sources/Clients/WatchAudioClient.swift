@@ -73,8 +73,6 @@ private class AudioPlayer {
   private var volume: Float = 1.0
 
   func playSound(named soundName: String, withExtension ext: String = "wav") {
-    print("🔊 WatchAudioClient: playSound called - '\(soundName).\(ext)'")
-    
     // Configure audio session for watch
     do {
       let audioSession = AVAudioSession.sharedInstance()
@@ -109,13 +107,7 @@ private class AudioPlayer {
     }
 
     guard let soundURL = soundURL else {
-      print("❌ WatchAudioClient: Sound file '\(soundName).\(ext)' not found!")
-      for bundle in Bundle.allBundles {
-        print("📦 Bundle: \(bundle.bundleIdentifier ?? "unknown")")
-        if let resourcePath = bundle.resourcePath {
-          print("📁 Resources: \(resourcePath)")
-        }
-      }
+      Log.audio.error("Sound file '\(soundName, privacy: .public).\(ext, privacy: .public)' not found in any bundle")
       return
     }
 
@@ -128,14 +120,11 @@ private class AudioPlayer {
       audioPlayer?.volume = volume
       audioPlayer?.prepareToPlay()
       
-      let success = audioPlayer?.play() ?? false
-      if success {
-        print("✅ WatchAudioClient: Sound '\(soundName)' played successfully")
-      } else {
-        print("❌ WatchAudioClient: Failed to play sound '\(soundName)'")
+      if audioPlayer?.play() != true {
+        Log.audio.error("Failed to play sound '\(soundName, privacy: .public)'")
       }
     } catch {
-      print("❌ WatchAudioClient: Error playing sound '\(soundName)': \(error)")
+      Log.audio.error("Error playing sound '\(soundName, privacy: .public)': \(error.localizedDescription, privacy: .public)")
     }
   }
 

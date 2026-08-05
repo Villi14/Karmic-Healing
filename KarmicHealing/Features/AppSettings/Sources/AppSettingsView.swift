@@ -10,7 +10,7 @@ import Common
 public struct AppSettingsView: View {
   @SwiftUI.Environment(\.dismiss) var dismiss
 
-  let store: StoreOf<AppSettings>
+  @Bindable var store: StoreOf<AppSettings>
 
   public init(store: StoreOf<AppSettings>) {
     self.store = store
@@ -19,129 +19,132 @@ public struct AppSettingsView: View {
   private var settingsContent: some View {
     ScrollView {
       VStack {
-        KarmicHealingDisclosureGroup {
-          DisclosureCell("about".loc) {
+        KarmicHealingDisclosureGroup(content: {
+          DisclosureCell("about".loc, tone: Spectrum.crown.color) {
             store.send(.didTapAbout)
           }
 
-          DisclosureCell("theme".loc) {
+          DisclosureCell("theme".loc, tone: Spectrum.brow.color) {
             store.send(.didTapThemeSettings)
           }
 
-          DisclosureCell("session_duration".loc) {
+          DisclosureCell("session_duration".loc, tone: Spectrum.brow.color) {
             store.send(.didTapSessionDuration)
           }
 
-          DisclosureCell("change_language".loc) {
+          DisclosureCell("change_language".loc, tone: Spectrum.brow.color) {
             store.send(.didTapChangeLanguage)
           }
 
-          DisclosureCell("privacy_policy".loc) {
+          DisclosureCell("privacy_policy".loc, tone: Spectrum.crown.color) {
             store.send(.didTapPrivacyPolicy)
           }
 
-          DisclosureCell("write_to_us".loc) {
+          DisclosureCell("write_to_us".loc, tone: Spectrum.brow.color) {
             store.send(.didTapContactEmail)
           }
+        }, tone: Spectrum.brow.color)
+      }
+      // Inside the scroll content, not on the ScrollView: the card's shadow
+      // needs room within the clipped bounds or it cuts off at the edges.
+      .padding(.horizontal)
+      .padding(.vertical)
+      .karmicContentWidth()
+    }
+    .font(Typography.title)
+  }
+
+  private var settingsBase: some View {
+    ZStack {
+      AuraBackground(level: .brow)
+      settingsContent
+    }
+    .navigationTitle("settings".loc)
+    .navigationBarBackButtonHidden()
+    .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+    .onAppear {
+      store.send(.onAppear)
+    }
+    .toolbar {
+      ToolbarItem(placement: .topBarLeading) {
+        Button(action: { dismiss() }) {
+          Image(systemName: "chevron.left")
+            .renderingMode(.template)
+            .foregroundStyle(AuraGradient.gradient(for: .brow))
         }
       }
     }
-    .font(.headline.weight(.medium))
-    .padding(.horizontal)
-    .padding(.top)
+  }
+
+  private func aboutAlertCover<Content: View>(_ content: Content) -> some View {
+    content.fullScreenCover(
+      item: $store.scope(\.destination?.aboutAlert, action: \.destination.aboutAlert),
+      content: AlertView<Destination.Action.Alert>.init(store:)
+    )
+  }
+
+  private func themeSettingsCover<Content: View>(_ content: Content) -> some View {
+    content.fullScreenCover(
+      item: $store.scope(\.destination?.themeSettings, action: \.destination.themeSettings)
+    ) { store in
+      ThemeSettingsView(store: store)
+    }
+  }
+
+  private func sessionDurationCover<Content: View>(_ content: Content) -> some View {
+    content.fullScreenCover(
+      item: $store.scope(\.destination?.sessionDurationAlert, action: \.destination.sessionDurationAlert)
+    ) { store in
+      EnergyBalansingSettingsView(store: store)
+    }
+  }
+
+  private func clipboardAlertCover<Content: View>(_ content: Content) -> some View {
+    content.fullScreenCover(
+      item: $store.scope(\.destination?.clipboardAlert, action: \.destination.clipboardAlert),
+      content: AlertView<Destination.Action.CopyAlert>.init(store:)
+    )
+  }
+
+  private func privacyPolicyCover<Content: View>(_ content: Content) -> some View {
+    content.fullScreenCover(
+      item: $store.scope(\.destination?.privacyPolicy, action: \.destination.privacyPolicy)
+    ) { store in
+      PrivacyPolicyView(store: store)
+    }
+  }
+
+  private func mailComposerCover<Content: View>(_ content: Content) -> some View {
+    content.fullScreenCover(
+      item: $store.scope(\.destination?.mailComposer, action: \.destination.mailComposer)
+    ) { _ in
+      MailComposerView(
+        isShowing: Binding(
+          get: { true },
+          set: { if !$0 { self.store.send(.destination(.dismiss)) } }
+        )
+      )
+    }
   }
 
   public var body: some View {
-    WithViewStore(store, observe: { $0 }) { viewStore in
-      ZStack {
-        BgWithGradientView()
-        settingsContent
-      }
-      .navigationTitle("settings".loc)
-      .navigationBarBackButtonHidden()
-      .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-      .onAppear {
-        viewStore.send(.onAppear)
-      }
-      .toolbar {
-        ToolbarItem(placement: .topBarLeading) {
-          Button(action: { dismiss() }) {
-            Image(systemName: "chevron.left")
-              .renderingMode(.template)
-              .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
-          }
-        }
-      }
-      .fullScreenCover(
-        store: store.scope(
-          state: \.$destination,
-          action: \.destination
-        ),
-        state: \.aboutAlert,
-        action: Destination.Action.aboutAlert,
-        content: AlertView<Destination.Action.Alert>.init(store:)
-      )
-      .fullScreenCover(
-        store: store.scope(
-          state: \.$destination,
-          action: \.destination
-        ),
-        state: \.themeSettings,
-        action: Destination.Action.themeSettings
-      ) { store in
-        ThemeSettingsView(store: store)
-      }
-      .fullScreenCover(
-        store: store.scope(
-          state: \.$destination,
-          action: \.destination
-        ),
-        state: \.sessionDurationAlert,
-        action: Destination.Action.sessionDurationAlert
-      ) { store in
-        EnergyBalansingSettingsView(store: store)
-      }
-      .fullScreenCover(
-        store: store.scope(
-          state: \.$destination,
-          action: \.destination
-        ),
-        state: \.clipboardAlert,
-        action: Destination.Action.clipboardAlert,
-        content: AlertView<Destination.Action.CopyAlert>.init(store:)
-      )
-      .fullScreenCover(
-        store: store.scope(
-          state: \.$destination,
-          action: \.destination
-        ),
-        state: \.privacyPolicy,
-        action: Destination.Action.privacyPolicy
-      ) { store in
-        PrivacyPolicyView(store: store)
-      }
-      .fullScreenCover(
-        store: store.scope(
-          state: \.$destination,
-          action: \.destination
-        ),
-        state: \.mailComposer,
-        action: Destination.Action.mailComposer
-      ) { store in
-        MailComposerView(
-          isShowing: Binding(
-            get: { true },
-            set: { if !$0 { viewStore.send(.destination(.dismiss)) } }
+    mailComposerCover(
+      privacyPolicyCover(
+        clipboardAlertCover(
+          sessionDurationCover(
+            themeSettingsCover(
+              aboutAlertCover(settingsBase)
+            )
           )
         )
-      }
-    }
+      )
+    )
   }
 }
 
 #Preview {
   ZStack {
-    BgWithGradientView()
+    AuraBackground(level: .brow)
     AppSettingsView(store: .init(
       initialState: .init(),
       reducer: {
@@ -150,4 +153,3 @@ public struct AppSettingsView: View {
     ))
   }
 }
-

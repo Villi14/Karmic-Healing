@@ -6,23 +6,17 @@ public enum DesignConstants {
   public static let paddingSmall: CGFloat = 4
   public static let padding: CGFloat = 8
   public static let paddingMedium: CGFloat = 12
-  public static let paddingLarge: CGFloat = 16
-  public static let paddingXLarge: CGFloat = 24
-  public static let paddingXXLarge: CGFloat = 32
-  public static let bottomPaddingLarge: CGFloat = 50
 
   // Corner radius
-  public static let cornerRadius: CGFloat = 10
-  public static let cornerRadiusMedium: CGFloat = 12
+  /// Cards in the "Aura" direction — the larger radius reads calmer.
+  public static let cornerRadiusLarge: CGFloat = 20
 
   // Spacing
   public static let spacing: CGFloat = 16
-  public static let spacingLarge: CGFloat = 20
-  public static let spacingSmall: CGFloat = 8
-  public static let spacingXLarge: CGFloat = 32
 
-  // Opacity
-  public static let opacityLow: Double = 0.1
+  // Aura
+  /// Width of the tone stripe that marks a card's level.
+  public static let toneStripeWidth: CGFloat = 3
 
   // Watch specific constants
   public static let watchVStackSpacing: CGFloat = 0
@@ -36,4 +30,9 @@ public enum DesignConstants {
   public static let watchNavigationHorizontalPadding: CGFloat = 20
   public static let watchNavigationTopPadding: CGFloat = 4
   public static let watchSwipeThreshold: CGFloat = 50
+  /// The countdown ring that shows when the slide turns next.
+  public static let watchRingSize: CGFloat = 14
+  public static let watchRingLineWidth: CGFloat = 2
+  /// The black resting layer fades at the same gentle pace as the phone's brightness ramp.
+  public static let watchScreenFadeDuration: TimeInterval = 0.8
 }

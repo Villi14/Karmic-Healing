@@ -21,33 +21,37 @@ public struct HomeView: View {
   public var body: some View {
     NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
       ZStack {
-        BgWithGradientView()
+        AuraBackground(level: .heart)
 
-        GeometryReader { proxy in
-          let previewSize = previewSize(in: proxy.size)
+        ScrollView {
+          VStack(alignment: .leading, spacing: DesignConstants.spacingLarge) {
+            HomeHeroCardView {
+              store.send(.didTap(.balancingEnergyButton))
+            }
 
-          LazyVGrid(columns: [
-            GridItem(.fixed(previewSize.width)),
-            GridItem(.fixed(previewSize.width))
-          ], spacing: 0) {
-            ForEach(0 ..< store.homeButtons.count, id: \.self) { index in
-              let homeButton = store.homeButtons[index]
-              VStack {
+            Text("home_tools".loc)
+              .font(Typography.title)
+              .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+              .padding(.top, DesignConstants.paddingSmall)
+
+            LazyVGrid(
+              columns: [
+                GridItem(.flexible(), spacing: DesignConstants.spacingMedium),
+                GridItem(.flexible(), spacing: DesignConstants.spacingMedium)
+              ],
+              spacing: DesignConstants.spacingMedium
+            ) {
+              ForEach(store.homeButtons.filter { $0 != .balancingEnergyButton }, id: \.title) { homeButton in
                 Button(action: { store.send(.didTap(homeButton)) }) {
-                  HomeButtonView(
-                    size: previewSize,
-                    homeButton: homeButton
-                  )
+                  HomeButtonView(homeButton: homeButton)
                 }
+                .buttonStyle(.plain)
               }
             }
-            .frame(
-              width: abs(previewSize.width),
-              height: abs(previewSize.height + DesignConstants.padding)
-            )
           }
-          .padding(.top, DesignConstants.paddingXLarge)
-          .padding(.bottom, DesignConstants.paddingXLarge)
+          .padding(.horizontal, DesignConstants.paddingLarge)
+          .padding(.vertical, DesignConstants.paddingXLarge)
+          .karmicContentWidth()
         }
       }
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
@@ -59,8 +63,8 @@ public struct HomeView: View {
         BalancingEnergyListView(store: store)
       case .balancingEnergy(let store):
         BalancingEnergyView(store: store)
-      case .requests(let store):
-        RequestsView(store: store)
+      case .requests:
+        RequestsView()
       case .reminders(let store):
         RemindersView(store: store)
       case .appSettings(let store):
@@ -69,16 +73,11 @@ public struct HomeView: View {
     }
   }
 
-  private func previewSize(in proxy: CGSize) -> CGSize {
-    let width = (proxy.width - DesignConstants.itemSpacing) / 2
-    let height = width * DesignConstants.goldenRatio
-    return .init(width: width, height: height)
-  }
 }
 
 #Preview {
   ZStack {
-    BgWithGradientView()
+    AuraBackground(level: .heart)
     HomeView(store: .init(
       initialState: .init(),
       reducer: {
@@ -87,4 +86,3 @@ public struct HomeView: View {
     ))
   }
 }
-

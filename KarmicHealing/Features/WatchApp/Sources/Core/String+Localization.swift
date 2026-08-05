@@ -28,12 +28,12 @@ public extension String {
       ],
       "vibration": [
         "en": "Vibration",
-        "ru": "Вібрація",
+        "ru": "Вибрация",
         "uk": "Вібрація"
       ],
       "duration": [
         "en": "Duration",
-        "ru": "Тривалість",
+        "ru": "Длительность",
         "uk": "Тривалість"
       ],
       "language": [
@@ -45,6 +45,21 @@ public extension String {
         "en": "min",
         "ru": "мин",
         "uk": "хв"
+      ],
+      "sec": [
+        "en": "sec",
+        "ru": "сек",
+        "uk": "с"
+      ],
+      "delay": [
+        "en": "Delay",
+        "ru": "Задержка",
+        "uk": "Затримка"
+      ],
+      "screen_rest": [
+        "en": "Screen rest",
+        "ru": "Отдых экрана",
+        "uk": "Відпочинок екрана"
       ],
       "en": [
         "en": "English",
@@ -161,15 +176,20 @@ public extension String {
         "ru": "Попросите, чтобы только что завершенный процесс приобрел постоянный характер.",
         "uk": "Попросіть, щоб щойно завершений процес набув постійного характеру."
       ],
-      "time_to_flip_slide": [
-        "en": "Next step",
-        "ru": "Следующий шаг",
-        "uk": "Наступний крок"
+      "paused": [
+        "en": "Paused",
+        "ru": "Пауза",
+        "uk": "Пауза"
       ],
-      "tap_to_continue_energy_balancing": [
-        "en": "Tap to continue energy balancing",
-        "ru": "Нажмите чтобы продолжить балансирование энергии",
-        "uk": "Натисніть щоб продовжити балансування енергії"
+      "pause": [
+        "en": "Pause",
+        "ru": "Пауза",
+        "uk": "Пауза"
+      ],
+      "resume": [
+        "en": "Resume",
+        "ru": "Продолжить",
+        "uk": "Продовжити"
       ]
     ]
     

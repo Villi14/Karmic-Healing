@@ -13,25 +13,21 @@ public struct SearchBar: View {
   public var body: some View {
     HStack {
       Image(systemName: "magnifyingglass")
-        .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
+        .foregroundStyle(AuraGradient.gradient(for: .throat))
       
       TextField("search".loc, text: $text)
         .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-        .accentColor(ResourcesAsset.Colors.clam.swiftUIColor)
+        .accentColor(Spectrum.throat.color)
       
       if !text.isEmpty {
         Button(action: { text = "" }) {
           Image(systemName: "xmark.circle")
-            .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
+            .foregroundStyle(AuraGradient.gradient(for: .throat))
         }
       }
     }
-    .padding(DesignConstants.padding)
-    .background{
-      RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
-        .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
-    }
-    .cornerRadius(DesignConstants.cornerRadius)
+    .padding(DesignConstants.paddingMedium)
+    .cardStyle()
     .padding(.horizontal)
   }
 }

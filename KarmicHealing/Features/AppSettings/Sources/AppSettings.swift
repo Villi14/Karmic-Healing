@@ -115,6 +115,10 @@ public struct AppSettings {
         return .run { [userDefaults, theme] _ in
           await userDefaults.setAsync(theme, for: .userTheme)
         }
+      case .destination(.presented(.aboutAlert(.openAuthorSite))):
+        return .run { [openURL] _ in
+          await openURL(AlertReducer<Destination.Action.Alert>.State.authorSiteURL)
+        }
       case .destination:
         return .none
       }
@@ -145,7 +149,9 @@ public struct Destination {
     case themeSettings(ThemeSettings.Action)
     case privacyPolicy(PrivacyPolicy.Action)
 
-    public enum Alert: Equatable {}
+    public enum Alert: Equatable {
+      case openAuthorSite
+    }
     public enum CopyAlert: Equatable {
       case copyToClipboard(String)
     }
@@ -153,33 +159,42 @@ public struct Destination {
   }
 
   public var body: some ReducerOf<Self> {
-    Scope(state: \.aboutAlert, action: \.aboutAlert) {
+    Reduce { _, _ in .none }
+    .ifCaseLet(\.aboutAlert, action: \.aboutAlert) {
       EmptyReducer()
     }
-    Scope(state: \.clipboardAlert, action: \.clipboardAlert) {
+    .ifCaseLet(\.clipboardAlert, action: \.clipboardAlert) {
       EmptyReducer()
     }
-    Scope(state: \.mailComposer, action: \.mailComposer) {
+    .ifCaseLet(\.mailComposer, action: \.mailComposer) {
       EmptyReducer()
     }
-    Scope(state: \.themeSettings, action: \.themeSettings) {
+    .ifCaseLet(\.themeSettings, action: \.themeSettings) {
       ThemeSettings()
     }
-    Scope(state: \.sessionDurationAlert, action: \.sessionDurationAlert) {
+    .ifCaseLet(\.sessionDurationAlert, action: \.sessionDurationAlert) {
       EnergyBalansingSettings()
     }
-    Scope(state: \.privacyPolicy, action: \.privacyPolicy) {
+    .ifCaseLet(\.privacyPolicy, action: \.privacyPolicy) {
       PrivacyPolicy()
     }
   }
 }
 
 extension AlertReducer<Destination.Action.Alert>.State {
+  /// The site of the author the book behind the app comes from — the About text names them,
+  /// so the alert is where a reader looks for the source.
+  static let authorSiteURL = URL(string: "https://www.dianestein.net")!
+
   static func showAbout() -> Self {
     .init(
       image: Image(systemName: "info.circle"),
       title: "about".loc,
-      message: "thanks_for_using_karmic_healing".loc
+      message: "thanks_for_using_karmic_healing".loc,
+      buttons: [
+        .init(label: "author_site".loc, action: .openAuthorSite),
+        .init(label: "done".loc, role: .cancel)
+      ]
     )
   }
 }

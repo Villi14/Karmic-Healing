@@ -16,7 +16,12 @@ let watchAppTarget = Target.target(
     "KarmicHealing/Features/WatchApp/Sources/**",
   ],
   resources: [
-    "KarmicHealing/Features/WatchApp/Resources/**"
+    // Assets.xcassets nests its own catalogs, so a recursive glob would add them twice.
+    .glob(
+      pattern: "KarmicHealing/Features/WatchApp/Resources/**",
+      excluding: ["KarmicHealing/Features/WatchApp/Resources/Assets.xcassets/**"]
+    ),
+    "KarmicHealing/Features/WatchApp/Resources/Assets.xcassets",
   ],
   dependencies: [
     .external(name: "ComposableArchitecture"),
@@ -106,20 +111,79 @@ let mainTarget = Target.target(
   )
 )
 
+// MARK: - Test Targets for the app targets
+
+let mainTestsTarget = Target.target(
+  name: "\(appName)Tests",
+  destinations: [.iPhone, .iPad],
+  product: .unitTests,
+  bundleId: "com.villi.karmichealing.tests",
+  deploymentTargets: iosDeploymentTargets,
+  infoPlist: .default,
+  sources: [
+    "KarmicHealing/MainTarget/Tests/**",
+  ],
+  dependencies: [
+    .target(mainTarget),
+    .target(testingUtilities.implementationTarget),
+    .external(name: "ComposableArchitecture")
+  ],
+  settings: .settings(
+    base: [
+      "DEVELOPMENT_TEAM": "KG394T5RF5"
+    ]
+  )
+)
+
+let watchAppTestsTarget = Target.target(
+  name: "KarmicHealingWatchTests",
+  destinations: [.appleWatch],
+  product: .unitTests,
+  bundleId: "com.villi.karmichealing.watchkitapp.tests",
+  deploymentTargets: watchOSDeploymentTargets,
+  infoPlist: .default,
+  sources: [
+    "KarmicHealing/Features/WatchApp/Tests/**",
+  ],
+  dependencies: [
+    .target(watchAppTarget),
+    .external(name: "ComposableArchitecture")
+  ],
+  settings: .settings(
+    base: [
+      "DEVELOPMENT_TEAM": "KG394T5RF5",
+      "ARCHS[sdk=watchsimulator*]": "arm64",
+      "VALID_ARCHS[sdk=watchsimulator*]": "arm64"
+    ]
+  )
+)
+
+// Feature unit tests need an application to be hosted by: unhosted (library) test
+// bundles crash on launch on recent simulator runtimes.
+let featureTargets: [Target] = Array.all(
+  common.targets,
+  resources.targets,
+  onboarding.targets,
+  home.targets,
+  db.targets,
+  balancingEnergyList.targets,
+  balancingEnergy.targets,
+  appSettings.targets,
+  testingUtilities.targets
+)
+.map { target in
+  guard target.product == .unitTests else { return target }
+  var hostedTarget = target
+  hostedTarget.dependencies.append(.target(mainTarget))
+  return hostedTarget
+}
+
 let project = Project(
   name: appName,
   organizationName: "home",
   targets: .all(
-    [mainTarget, watchAppTarget],
-    common.targets,
-    resources.targets,
-    onboarding.targets,
-    home.targets,
-    db.targets,
-    balancingEnergyList.targets,
-    balancingEnergy.targets,
-    appSettings.targets,
-    testingUtilities.targets
+    [mainTarget, mainTestsTarget, watchAppTarget, watchAppTestsTarget],
+    featureTargets
   ),
   fileHeaderTemplate: .string("Karmic Healing ___YEAR___"),
   additionalFiles: [

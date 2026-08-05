@@ -9,7 +9,13 @@ public let common = Module(
     .external(name: "ComposableArchitecture"),
     .external(name: "XCTestDynamicOverlay")
   ],
-  resources: .notPresent
+  resources: .notPresent,
+  unitTests: .present(
+    dependencies: [
+      .target(testingUtilities.implementationTarget),
+      .external(name: "ComposableArchitecture")
+    ]
+  )
 )
 
 // MARK: - Shared Resources (colors)
@@ -34,7 +40,13 @@ public let onboarding = Module(
     .target(resources.implementationTarget),
     .external(name: "ComposableArchitecture")
   ],
-  resources: .notPresent
+  resources: .notPresent,
+  unitTests: .present(
+    dependencies: [
+      .target(testingUtilities.implementationTarget),
+      .external(name: "ComposableArchitecture")
+    ]
+  )
 )
 
 // MARK: - Home module
@@ -68,7 +80,13 @@ public let balancingEnergyList = Module(
     .target(balancingEnergy.implementationTarget),
     .external(name: "ComposableArchitecture")
   ],
-  resources: .notPresent
+  resources: .notPresent,
+  unitTests: .present(
+    dependencies: [
+      .target(testingUtilities.implementationTarget),
+      .external(name: "ComposableArchitecture")
+    ]
+  )
 )
 
 // MARK: - Balancing Energy module
@@ -80,7 +98,13 @@ public let balancingEnergy = Module(
     .target(resources.implementationTarget),
     .external(name: "ComposableArchitecture")
   ],
-  resources: .notPresent
+  resources: .notPresent,
+  unitTests: .present(
+    dependencies: [
+      .target(testingUtilities.implementationTarget),
+      .external(name: "ComposableArchitecture")
+    ]
+  )
 )
 
 // MARK: - Requests module
@@ -91,7 +115,9 @@ public let db = Module(
     .target(common.implementationTarget),
     .target(resources.implementationTarget),
     .external(name: "ComposableArchitecture"),
-    .external(name: "SharingGRDB")
+    .external(name: "SQLiteData"),
+    // SQLiteData, unlike the old SharingGRDB, does not re-export Sharing.
+    .external(name: "Sharing")
   ],
   resources: .notPresent,
   unitTests: .present(
@@ -111,7 +137,13 @@ public let appSettings = Module(
     .target(resources.implementationTarget),
     .external(name: "ComposableArchitecture")
   ],
-  resources: .notPresent
+  resources: .notPresent,
+  unitTests: .present(
+    dependencies: [
+      .target(testingUtilities.implementationTarget),
+      .external(name: "ComposableArchitecture")
+    ]
+  )
 )
 
 // MARK: - Testing Utilities (links XCTest so don't depend on it in app modules)
@@ -122,7 +154,8 @@ public let testingUtilities = Module(
     .xctest,
     .external(name: "ComposableArchitecture"),
   ],
-  resources: .notPresent
+  resources: .notPresent,
+  unitTests: .present(dependencies: [])
 )
 
 // MARK: - Watch App (all-in-one for watchOS)

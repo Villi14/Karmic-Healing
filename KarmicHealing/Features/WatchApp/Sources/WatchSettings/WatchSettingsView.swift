@@ -23,7 +23,7 @@ public struct WatchSettingsView: View {
           Section {
             HStack {
               Image(systemName: "speaker.wave.2")
-                .foregroundColor(KarmicHealingWatchAsset.Colors.friendly.swiftUIColor)
+                .foregroundColor(Spectrum.brow.color)
               
               if store.soundEnabled {
                 Spacer()
@@ -36,7 +36,7 @@ public struct WatchSettingsView: View {
                 get: { store.soundEnabled },
                 set: { _ in store.send(.toggleSound) }
               ))
-              .tint(KarmicHealingWatchAsset.Colors.health.swiftUIColor)
+              .tint(Spectrum.brow.color)
             }
 
             if store.soundEnabled {
@@ -48,58 +48,95 @@ public struct WatchSettingsView: View {
                 in: 0...1,
                 step: 0.1
               )
-              .tint(KarmicHealingWatchAsset.Colors.health.swiftUIColor)
+              .tint(Spectrum.brow.color)
             }
           } header: {
             Text("sound".localized(for: Locale(identifier: userLanguage)))
               .foregroundColor(KarmicHealingWatchAsset.Colors.textPrimary.swiftUIColor)
-              .font(.caption.bold())
+              .font(Typography.label)
           }
 
           Section {
             HStack {
               Image(systemName: "iphone.radiowaves.left.and.right")
-                .foregroundColor(KarmicHealingWatchAsset.Colors.friendly.swiftUIColor)
+                .foregroundColor(Spectrum.brow.color)
               Toggle("", isOn: Binding(
                 get: { store.vibrationEnabled },
                 set: { _ in store.send(.toggleVibration) }
               ))
-              .tint(KarmicHealingWatchAsset.Colors.health.swiftUIColor)
+              .tint(Spectrum.brow.color)
             }
           } header: {
             Text("vibration".localized(for: Locale(identifier: userLanguage)))
               .foregroundColor(KarmicHealingWatchAsset.Colors.textPrimary.swiftUIColor)
-              .font(.caption.bold())
+              .font(Typography.label)
           }
 
           Section {
-            VStack(alignment: .leading, spacing: 8) {
-              HStack {
-                Image(systemName: "clock")
-                  .foregroundColor(KarmicHealingWatchAsset.Colors.friendly.swiftUIColor)
-                Spacer()
+            // A row that pushes the choices rather than stacking five of them: on a screen this
+            // narrow the durations alone used to fill it end to end.
+            Picker(selection: Binding(
+              get: { store.sessionDuration },
+              set: { store.send(.setSessionDuration($0)) }
+            )) {
+              ForEach([1, 3, 5, 10, 15], id: \.self) { duration in
+                Text("\(duration) \("min".localized(for: Locale(identifier: userLanguage)))")
+                  .tag(duration)
               }
-
-              VStack(spacing: 8) {
-                ForEach([1, 3, 5, 10, 15], id: \.self) { duration in
-                  SettingsButtonLabel(text: "\(duration) \("min".localized(for: Locale(identifier: userLanguage)))", isSelected: store.sessionDuration == duration)
-                    .onTapGesture { 
-                      store.send(.setSessionDuration(duration)) 
-                    }
-                }
+            } label: {
+              Label {
+                Text("duration".localized(for: Locale(identifier: userLanguage)))
+                  .foregroundColor(KarmicHealingWatchAsset.Colors.textPrimary.swiftUIColor)
+              } icon: {
+                Image(systemName: "clock")
+                  .foregroundColor(Spectrum.brow.color)
               }
             }
+            .pickerStyle(.navigationLink)
+          }
+
+          Section {
+            HStack {
+              Image(systemName: "moon.stars")
+                .foregroundColor(Spectrum.brow.color)
+              Toggle("", isOn: Binding(
+                get: { store.screenRestEnabled },
+                set: { store.send(.toggleScreenRest($0)) }
+              ))
+              .tint(Spectrum.brow.color)
+            }
+
+            if store.screenRestEnabled {
+              Picker(selection: Binding(
+                get: { store.screenRestDelay },
+                set: { store.send(.setScreenRestDelay($0)) }
+              )) {
+                ForEach(WatchSettings.restDelayOptions, id: \.self) { seconds in
+                  Text("\(seconds) \("sec".localized(for: Locale(identifier: userLanguage)))")
+                    .tag(seconds)
+                }
+              } label: {
+                Label {
+                  Text("delay".localized(for: Locale(identifier: userLanguage)))
+                    .foregroundColor(KarmicHealingWatchAsset.Colors.textPrimary.swiftUIColor)
+                } icon: {
+                  Image(systemName: "timer")
+                    .foregroundColor(Spectrum.brow.color)
+                }
+              }
+              .pickerStyle(.navigationLink)
+            }
           } header: {
-            Text("duration".localized(for: Locale(identifier: userLanguage)))
+            Text("screen_rest".localized(for: Locale(identifier: userLanguage)))
               .foregroundColor(KarmicHealingWatchAsset.Colors.textPrimary.swiftUIColor)
-              .font(.caption.bold())
+              .font(Typography.label)
           }
 
           Section {
             VStack(alignment: .leading, spacing: 8) {
               HStack {
                 Image(systemName: "globe")
-                  .foregroundColor(KarmicHealingWatchAsset.Colors.friendly.swiftUIColor)
+                  .foregroundColor(Spectrum.brow.color)
                 Spacer()
               }
 
@@ -115,7 +152,7 @@ public struct WatchSettingsView: View {
           } header: {
             Text("language".localized(for: Locale(identifier: userLanguage)))
               .foregroundColor(KarmicHealingWatchAsset.Colors.textPrimary.swiftUIColor)
-              .font(.caption.bold())
+              .font(Typography.label)
           }
 
         }
@@ -136,13 +173,18 @@ private struct SettingsButtonLabel: View {
 
   var body: some View {
     Text(text)
-      .font(.caption2.bold())
-      .foregroundColor(KarmicHealingWatchAsset.Colors.textPrimary.swiftUIColor)
+      .font(Typography.cardTitle)
+      .foregroundColor(
+        isSelected
+        ? KarmicHealingWatchAsset.Colors.textInvert.swiftUIColor
+        : KarmicHealingWatchAsset.Colors.textPrimary.swiftUIColor
+      )
       .frame(maxWidth: .infinity)
       .padding(.vertical, DesignConstants.padding)
       .padding(.horizontal, DesignConstants.paddingMedium)
-      .background(isSelected ? KarmicHealingWatchAsset.Colors.clam.swiftUIColor : KarmicHealingWatchAsset.Colors.cellBackground.swiftUIColor)
-      .clipShape(RoundedRectangle(cornerRadius: DesignConstants.cornerRadius))
+      .background(isSelected ? Spectrum.brow.color : KarmicHealingWatchAsset.Colors.cellBackground.swiftUIColor)
+      .clipShape(RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusLarge, style: .continuous))
+      .animation(Motion.touch, value: isSelected)
   }
 }
 

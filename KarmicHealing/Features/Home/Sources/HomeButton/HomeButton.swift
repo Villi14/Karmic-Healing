@@ -3,44 +3,47 @@
 //
 
 import SwiftUI
-import Resources
+import Common
 
 public struct HomeButton: Equatable {
-  let color: SwiftUI.Color
+  /// Where the destination sits on the spectrum — it tints the card.
+  let level: Spectrum
   let icon: Image
   let title: String
+
+  var color: SwiftUI.Color { level.color }
 }
 
 extension HomeButton {
   public static var balancingEnergyButton: Self {
     .init(
-      color: ResourcesAsset.Colors.health.swiftUIColor,
+      level: .heart,
       icon: Image(systemName: "apple.meditate"),
-      title: "energy_balancing".loc.uppercased()
+      title: "energy_balancing".loc
     )
   }
-  
+
   public static var requestsButton: Self {
     .init(
-      color: ResourcesAsset.Colors.energy.swiftUIColor,
+      level: .sacral,
       icon: Image(systemName: "staroflife"),
-      title: "requests".loc.uppercased()
+      title: "requests".loc
     )
   }
-  
+
   public static var remindersButton: Self {
     .init(
-      color: ResourcesAsset.Colors.friendly.swiftUIColor,
+      level: .solar,
       icon: Image(systemName: "pencil.and.list.clipboard"),
-      title: "reminders".loc.uppercased()
+      title: "reminders".loc
     )
   }
-  
+
   public static var settingsButton: Self {
     .init(
-      color: ResourcesAsset.Colors.clam.swiftUIColor,
+      level: .brow,
       icon: Image(systemName: "gearshape"),
-      title: "settings".loc.uppercased()
+      title: "settings".loc
     )
   }
 }

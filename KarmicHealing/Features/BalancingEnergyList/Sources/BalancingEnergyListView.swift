@@ -19,30 +19,31 @@ public struct BalancingEnergyListView: View {
 
   public var body: some View {
     ZStack {
-      BgWithGradientView()
+      AuraBackground(level: .heart)
 
       VStack {
-        KarmicHealingDisclosureGroup {
+        KarmicHealingDisclosureGroup(content: {
           if !store.initialProcessCompleted {
-            DisclosureCell("initial_process".loc) {
+            DisclosureCell("initial_process".loc, tone: Spectrum.heart.color) {
               store.send(.initialProcess)
             }
           }
 
-          DisclosureCell("essential_self".loc) {
+          DisclosureCell("essential_self".loc, tone: Spectrum.heart.color) {
             store.send(.essentialSelf)
           }
 
-          DisclosureCell("divine_self".loc) {
+          DisclosureCell("divine_self".loc, tone: Spectrum.heart.color) {
             store.send(.divineSelf)
           }
-        }
+        }, tone: Spectrum.heart.color)
 
         Spacer()
       }
-      .font(.headline.weight(.medium))
+      .font(Typography.title)
       .padding(.horizontal)
       .padding(.top)
+      .karmicContentWidth()
     }
     .onAppear { store.send(.onAppear) }
     .navigationTitle("energy_balancing".loc)
@@ -59,13 +60,13 @@ public struct BalancingEnergyListView: View {
         Button(action: { dismiss() }) {
           Image(systemName: "chevron.left")
             .renderingMode(.template)
-            .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
+            .foregroundStyle(AuraGradient.gradient(for: .heart))
         }
       }
       ToolbarItem(placement: .topBarTrailing) {
         Button(action: { store.send(.helpButtonTapped) }) {
           Image(systemName: "questionmark.circle")
-            .foregroundStyle(ResourcesAsset.Colors.clam.swiftUIColor)
+            .foregroundStyle(AuraGradient.gradient(for: .heart))
         }
       }
     }
@@ -74,7 +75,7 @@ public struct BalancingEnergyListView: View {
 
 #Preview {
   ZStack {
-    BgWithGradientView()
+    AuraBackground(level: .heart)
     BalancingEnergyListView(store: .init(
       initialState: .init(),
       reducer: {
@@ -83,4 +84,3 @@ public struct BalancingEnergyListView: View {
     ))
   }
 }
-

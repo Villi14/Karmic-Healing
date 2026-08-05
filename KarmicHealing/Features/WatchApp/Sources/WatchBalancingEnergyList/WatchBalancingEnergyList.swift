@@ -8,26 +8,21 @@ import Foundation
 public enum MeditationType: String, CaseIterable {
   case essential = "essential_self"
   case divine = "divine_self"
+
+  public var steps: [Step] {
+    switch self {
+    case .essential: Step.part2
+    case .divine: Step.part3
+    }
+  }
 }
 
 @Reducer
 public struct WatchBalancingEnergyList {
   @Dependency(\.watchUserDefaults) var userDefaults
   @Dependency(\.watchNotification) var notification
+  @Dependency(\.watchRuntime) var runtime
   public init() {}
-
-  private func getMeditationData(for meditationType: MeditationType) -> (String, [Step]) {
-    print("WatchBalancingEnergyList: getMeditationData for meditationType: '\(meditationType.rawValue)'")
-
-    switch meditationType {
-    case .essential:
-      print("WatchBalancingEnergyList: Returning essential_self with \(Step.part2.count) steps")
-      return ("essential_self", Step.part2)
-    case .divine:
-      print("WatchBalancingEnergyList: Returning divine_self with \(Step.part3.count) steps")
-      return ("divine_self", Step.part3)
-    }
-  }
 
   @ObservableState
   public struct State: Equatable {
@@ -42,8 +37,6 @@ public struct WatchBalancingEnergyList {
     case essentialSelf
     case divineSelf
     case openSettings
-    case handlePushNotification(currentStep: Int, processTitle: String)
-    case handleNotificationTap(processTitle: String, currentStep: Int)
     case balancingEnergy(PresentationAction<WatchBalancingEnergy.Action>)
     case settings(PresentationAction<WatchSettings.Action>)
   }
@@ -52,91 +45,37 @@ public struct WatchBalancingEnergyList {
     Reduce { state, action in
       switch action {
       case .onAppear:
-        return .none
+        // Sessions no longer schedule anything, but a watch updated from a build that did still
+        // carries the tail, and it would keep buzzing with the app closed.
+        return .run { _ in notification.purgeSessionNotifications() }
+
       case .essentialSelf:
-        let rawSessionDuration = userDefaults.integer(for: .sessionDuration)
-        let sessionDuration = rawSessionDuration == 0 ? 5 : rawSessionDuration
-        state.balancingEnergy = WatchBalancingEnergy.State(
-          title: "essential_self",
-          currentStep: 0,
-          isCompleted: false,
-          steps: Step.part2,
-          remainingTime: sessionDuration * 60
-        )
-        // Save meditation type
-        return .run { _ in
-          await userDefaults.setString(MeditationType.essential.rawValue, StringKey.activeMeditationType.rawValue)
-        }
+        state.balancingEnergy = .start(.essential)
+        return .none
+
       case .divineSelf:
-        let rawSessionDuration = userDefaults.integer(for: .sessionDuration)
-        let sessionDuration = rawSessionDuration == 0 ? 5 : rawSessionDuration
-        state.balancingEnergy = WatchBalancingEnergy.State(
-          title: "divine_self",
-          currentStep: 0,
-          isCompleted: false,
-          steps: Step.part3,
-          remainingTime: sessionDuration * 60
-        )
-        // Save meditation type
-        return .run { _ in
-          await userDefaults.setString(MeditationType.divine.rawValue, StringKey.activeMeditationType.rawValue)
-        }
+        state.balancingEnergy = .start(.divine)
+        return .none
+
       case .openSettings:
         state.settings = WatchSettings.State.withLoadedSettings(userDefaults: userDefaults)
         return .none
-      case .settings:
-        return .none
-      case let .handlePushNotification(currentStep, processTitle):
-        // Open the correct meditation at the correct step
-        // Get the correct meditation data based on processTitle
-        guard let meditationType = MeditationType(rawValue: processTitle) else {
-          print("WatchBalancingEnergyList: Invalid meditation type: \(processTitle)")
-          return .none
-        }
-        let (title, steps) = getMeditationData(for: meditationType)
 
-        // Open the meditation at the current step
-        state.balancingEnergy = WatchBalancingEnergy.State(
-          title: title,
-          currentStep: currentStep,
-          isCompleted: false,
-          steps: steps
-        )
-        return .none
-
-      case let .handleNotificationTap(processTitle, currentStep):
-        // Handle notification tap - open the specific meditation at the specific step
-        print("WatchBalancingEnergyList: Handling notification tap - processTitle: \(processTitle), currentStep: \(currentStep)")
-        // Cancel any pending notifications to avoid duplicate wakes
-        notification.cancelBalancingEnergyNotifications()
-        // Use the saved meditation type instead of trying to guess from processTitle
-        let meditationTypeString = userDefaults.string(for: StringKey.activeMeditationType) ?? processTitle
-        guard let meditationType = MeditationType(rawValue: meditationTypeString) else {
-          print("WatchBalancingEnergyList: Invalid meditation type: \(meditationTypeString)")
-          return .none
-        }
-        
-        let (title, steps) = getMeditationData(for: meditationType)
-        let rawSessionDuration = userDefaults.integer(for: .sessionDuration)
-        let sessionDuration = rawSessionDuration == 0 ? 5 : rawSessionDuration
-
-        print("WatchBalancingEnergyList: Opening meditation - title: \(title), steps: \(steps.count), currentStep: \(currentStep)")
-        state.balancingEnergy = WatchBalancingEnergy.State(
-          title: title,
-          currentStep: currentStep,
-          isCompleted: false,
-          steps: steps,
-          remainingTime: sessionDuration * 60
-        )
-        // Don't trigger autoScrollTimer - notification already opens the correct step
-        return .none
       case .balancingEnergy(.presented(.completeSteps)):
-        // Clear meditation state when completed
         state.balancingEnergy = nil
-        return .run { _ in
+        return .none
+
+      case .balancingEnergy(.dismiss):
+        // Swiping the session away is the one exit the session reducer never sees: the cover's
+        // binding nils the state, and `ifLet` cancels the ticking for us — but the runtime session
+        // would keep the display awake for a meditation nobody is in, and the wrist would still
+        // offer to resume it.
+        return .run { [runtime, userDefaults] _ in
+          runtime.stop()
           await userDefaults.setAsync(false, for: .hasActiveMeditation)
         }
-      case .balancingEnergy:
+
+      case .balancingEnergy, .settings:
         return .none
       }
     }
@@ -149,3 +88,17 @@ public struct WatchBalancingEnergyList {
   }
 }
 
+extension WatchBalancingEnergy.State {
+  /// A fresh session for `type`, optionally resumed on a given slide.
+  ///
+  /// The step duration is read by the session itself, so it runs at the pace the user configured.
+  public static func start(_ type: MeditationType, at step: Int = 0) -> Self {
+    let steps = type.steps
+    return .init(
+      title: type.rawValue,
+      currentStep: min(max(0, step), max(0, steps.count - 1)),
+      isCompleted: false,
+      steps: steps
+    )
+  }
+}

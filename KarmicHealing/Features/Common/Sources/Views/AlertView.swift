@@ -5,13 +5,16 @@ import Resources
 import ComposableArchitecture
 
 @Reducer
-public struct AlertReducer<Action: Equatable> {
+public struct AlertReducer<AlertAction: Equatable> {
+  public typealias Action = AlertAction
+
   public init() {}
   
-  public func reduce(into state: inout State, action: Action) -> Effect<Action> {
-    return .none
+  public var body: some ReducerOf<Self> {
+    Reduce { _, _ in .none }
   }
   
+  @ObservableState
   public struct State: Equatable {
     let image: Image?
     let title: String
@@ -57,10 +60,10 @@ public struct AlertReducer<Action: Equatable> {
     public struct ButtonState: Equatable, Identifiable {
       public let id = UUID()
       let label: String
-      let action: Action?
+      let action: AlertAction?
       let role: Role?
       
-      public init(label: String, action: Action? = nil, role: Role? = nil) {
+      public init(label: String, action: AlertAction? = nil, role: Role? = nil) {
         self.label = label
         self.action = action
         self.role = role
@@ -157,61 +160,71 @@ public struct AlertView<Action: Equatable>: View {
   }
   
   public var body: some View {
-    WithViewStore(store, observe: { $0 }) { viewStore in
-      VStack(spacing: DesignConstants.spacingXLarge) {
+    VStack(spacing: DesignConstants.spacingXLarge) {
         VStack(spacing: DesignConstants.spacing) {
-          if let image = viewStore.image {
+          if let image = store.image {
             image
               .resizable()
               .aspectRatio(contentMode: .fit)
-              .foregroundStyle(ResourcesAsset.Colors.friendly.swiftUIColor)
+              .foregroundStyle(AuraGradient.gradient(for: level(for: store.style)))
               .frame(height: DesignConstants.frameHeightMedium)
           }
           VStack(spacing: DesignConstants.spacingSmall) {
-            Text(viewStore.title)
+            Text(store.title)
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-              .font(.callout.weight(.medium))
+              .font(Typography.title)
               .multilineTextAlignment(.center)
               .padding(.horizontal, DesignConstants.paddingLarge)
             
-            if let message = viewStore.message {
+            if let message = store.message {
               Text(message)
-                .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-                .font(.callout)
+                .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
+                .font(Typography.bodySecondary)
                 .multilineTextAlignment(.center)
                 .minimumScaleFactor(0.5)
                 .padding(.horizontal, DesignConstants.paddingLarge)
             }
           }
         }
-        HStack(spacing: DesignConstants.spacingSmall) {
-          self.buttonsView(viewStore.buttons)
+        VStack(spacing: DesignConstants.spacingSmall) {
+          self.buttonsView(store.buttons, tone: tone(for: store.style))
         }
       }
       .frame(maxHeight: DesignConstants.maxHeightLarge)
       .multilineTextAlignment(.center)
       .padding(DesignConstants.paddingLarge)
       .fixedSize(horizontal: false, vertical: true)
-      .background {
-        Rectangle()
-          .fill(ResourcesAsset.Colors.background.swiftUIColor)
-          .clipShape(
-            RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
-          )
-          .overlay(
-            RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
-              .stroke(ResourcesAsset.Colors.textInvert.swiftUIColor, lineWidth: DesignConstants.lineWidth)
-          )
-          .shadow(color: .black, radius: DesignConstants.shadowRadiusLarge)
-      }
+      .cardStyle(
+        tone: tone(for: store.style),
+        showsWatermark: true,
+        gradient: AuraGradient.gradient(for: level(for: store.style))
+      )
       .padding(DesignConstants.paddingLarge)
-    }
-    .background {
-      FullScreenCoverBackgroundView(backgroundColor: .clear)
-    }
+      .karmicContentWidth(DesignConstants.maxAlertWidth)
+      .background {
+        FullScreenCoverBackgroundView(backgroundColor: .clear)
+      }
   }
   
-  private func buttonsView(_ buttons: [AlertReducer<Action>.State.ButtonState]) -> some View {
+  /// An alert takes the level its meaning sits on: a warning at the root,
+  /// a confirmation at the heart, an explanation at the crown.
+  private func tone(for style: AlertReducer<Action>.State.AlertStyle) -> Color {
+    level(for: style).color
+  }
+
+  private func level(for style: AlertReducer<Action>.State.AlertStyle) -> Spectrum {
+    switch style {
+    case .error, .warning: .root
+    case .success: .heart
+    case .info: .crown
+    case .default: .throat
+    }
+  }
+
+  private func buttonsView(
+    _ buttons: [AlertReducer<Action>.State.ButtonState],
+    tone: Color
+  ) -> some View {
     ForEach(buttons) { button in
       Button {
         if let action = button.action {
@@ -219,34 +232,26 @@ public struct AlertView<Action: Equatable>: View {
         }
         self.dismiss()
       } label: {
-        Group {
-          switch button.role {
-          case .cancel:
-            Text(button.label)
-              .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-              .frame(height: DesignConstants.frameHeightXLarge)
-              .frame(maxWidth: .infinity)
-              .background(ResourcesAsset.Colors.background.swiftUIColor)
-            
-          default:
-            Text(button.label)
-              .foregroundStyle(ResourcesAsset.Colors.textInvert.swiftUIColor)
-              .frame(height: DesignConstants.frameHeightXLarge)
-              .frame(maxWidth: .infinity)
-              .background(ResourcesAsset.Colors.clam.swiftUIColor)
-          }
-        }
+        // Stacked buttons share the card's width, so a long label wraps inside
+        // the button instead of being truncated to fit a shared row.
+        Text(button.label)
+          .multilineTextAlignment(.center)
+          .fixedSize(horizontal: false, vertical: true)
+          .frame(maxWidth: .infinity)
       }
-      .frame(maxWidth: DesignConstants.maxWidthMedium)
-      .font(.subheadline.weight(.semibold))
-      .clipShape(RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium))
+      .buttonStyle(
+        .karmic(
+          tone: button.role == .destructive ? Spectrum.root.color : tone,
+          prominence: button.role == .cancel ? .quiet : .filled
+        )
+      )
     }
   }
 }
 
 #Preview {
   ZStack {
-    BgWithGradientView()
+    AuraBackground(level: .root)
     KarmicHealingAlertPreviewView()
   }
 }
@@ -271,4 +276,3 @@ private struct KarmicHealingAlertPreviewView: View {
   
   private enum Action: Equatable { }
 }
-

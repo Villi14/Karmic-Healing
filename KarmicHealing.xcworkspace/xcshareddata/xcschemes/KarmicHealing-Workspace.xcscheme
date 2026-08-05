@@ -28,6 +28,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "084656A0819E8DC5D7A63ED9"
+               BuildableName = "AppSettingsTests.xctest"
+               BlueprintName = "AppSettingsTests"
+               ReferencedContainer = "container:KarmicHealing.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "F1F0DB3FD5F4DD1B938C14EB"
                BuildableName = "BalancingEnergy.framework"
                BlueprintName = "BalancingEnergy"
@@ -56,10 +70,38 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "532AEB2DA263243A2AE4D27A"
+               BuildableName = "BalancingEnergyListTests.xctest"
+               BlueprintName = "BalancingEnergyListTests"
+               ReferencedContainer = "container:KarmicHealing.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "66E914CD913FE8DECAEB7DA2"
+               BuildableName = "BalancingEnergyTests.xctest"
+               BlueprintName = "BalancingEnergyTests"
+               ReferencedContainer = "container:KarmicHealing.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "7CB5E98E45FAAF594F8A0F1E"
                BuildableName = "CasePaths.framework"
                BlueprintName = "CasePaths"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-case-paths/swift-case-paths.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-case-paths/swift-case-paths.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -73,7 +115,7 @@
                BlueprintIdentifier = "84B59B5B47BB30629F561CC9"
                BuildableName = "CasePathsCore.framework"
                BlueprintName = "CasePathsCore"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-case-paths/swift-case-paths.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-case-paths/swift-case-paths.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -87,7 +129,21 @@
                BlueprintIdentifier = "DBD1C6C6B55C0106C2711D38"
                BuildableName = "CasePathsMacros"
                BlueprintName = "CasePathsMacros"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-case-paths/swift-case-paths.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-case-paths/swift-case-paths.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4F435DA6575C51FEBF21B8BB"
+               BuildableName = "CasePathsMacrosSupport.framework"
+               BlueprintName = "CasePathsMacrosSupport"
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-case-paths/swift-case-paths.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -101,7 +157,7 @@
                BlueprintIdentifier = "A1DFC045089F7370FF821C6F"
                BuildableName = "Clocks.framework"
                BlueprintName = "Clocks"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-clocks/swift-clocks.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-clocks/swift-clocks.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -115,7 +171,7 @@
                BlueprintIdentifier = "62E835EE2C76720CE1A57783"
                BuildableName = "CombineSchedulers.framework"
                BlueprintName = "CombineSchedulers"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/combine-schedulers/combine-schedulers.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/combine-schedulers/combine-schedulers.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -140,10 +196,24 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0901862DAF8C8B00A62B45AA"
+               BuildableName = "CommonTests.xctest"
+               BlueprintName = "CommonTests"
+               ReferencedContainer = "container:KarmicHealing.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "BC4117F08C3E566F28BA80F7"
                BuildableName = "ComposableArchitecture.framework"
                BlueprintName = "ComposableArchitecture"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-composable-architecture/swift-composable-architecture.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-composable-architecture/swift-composable-architecture.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -157,7 +227,7 @@
                BlueprintIdentifier = "AE906E2A067FA0ACAD789F11"
                BuildableName = "ComposableArchitectureMacros"
                BlueprintName = "ComposableArchitectureMacros"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-composable-architecture/swift-composable-architecture.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-composable-architecture/swift-composable-architecture.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -171,7 +241,7 @@
                BlueprintIdentifier = "FB5353CF964F76EE56056930"
                BuildableName = "ConcurrencyExtras.framework"
                BlueprintName = "ConcurrencyExtras"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-concurrency-extras/swift-concurrency-extras.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-concurrency-extras/swift-concurrency-extras.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -185,7 +255,7 @@
                BlueprintIdentifier = "5D71332DAEA508F122BB62C1"
                BuildableName = "CustomDump.framework"
                BlueprintName = "CustomDump"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-custom-dump/swift-custom-dump.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-custom-dump/swift-custom-dump.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -227,7 +297,7 @@
                BlueprintIdentifier = "56E5E7D15D17320671D69B9C"
                BuildableName = "Dependencies.framework"
                BlueprintName = "Dependencies"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-dependencies/swift-dependencies.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-dependencies/swift-dependencies.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -241,7 +311,7 @@
                BlueprintIdentifier = "E7F33AB21A26F4B64244D7FD"
                BuildableName = "DependenciesMacros.framework"
                BlueprintName = "DependenciesMacros"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-dependencies/swift-dependencies.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-dependencies/swift-dependencies.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -255,7 +325,7 @@
                BlueprintIdentifier = "B6C2866B4487873862C7B958"
                BuildableName = "DependenciesMacrosPlugin"
                BlueprintName = "DependenciesMacrosPlugin"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-dependencies/swift-dependencies.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-dependencies/swift-dependencies.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -269,7 +339,7 @@
                BlueprintIdentifier = "3ED582F0F3B373C0FB2085D6"
                BuildableName = "GRDB.framework"
                BlueprintName = "GRDB"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/GRDB/GRDB.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/GRDB/GRDB.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -283,21 +353,7 @@
                BlueprintIdentifier = "C24D9A5B3C7ECFA38AA2FA9D"
                BuildableName = "GRDBSQLite.framework"
                BlueprintName = "GRDBSQLite"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/GRDB/GRDB.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7DB89A052E254CA7109A6B0D"
-               BuildableName = "GRDB_GRDB.bundle"
-               BlueprintName = "GRDB_GRDB"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/GRDB/GRDB.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/GRDB/GRDB.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -339,7 +395,7 @@
                BlueprintIdentifier = "210AE3919E1578F6373794C3"
                BuildableName = "IdentifiedCollections.framework"
                BlueprintName = "IdentifiedCollections"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-identified-collections/swift-identified-collections.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-identified-collections/swift-identified-collections.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -353,7 +409,7 @@
                BlueprintIdentifier = "6A7B38BD8A72F03E40DC88E0"
                BuildableName = "InternalCollectionsUtilities.framework"
                BlueprintName = "InternalCollectionsUtilities"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-collections/swift-collections.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-collections/swift-collections.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -367,21 +423,7 @@
                BlueprintIdentifier = "310D0AA95300B4409ADF885D"
                BuildableName = "IssueReporting.framework"
                BlueprintName = "IssueReporting"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/xctest-dynamic-overlay/xctest-dynamic-overlay.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1918E6267DCA4B8A806076DD"
-               BuildableName = "IssueReportingPackageSupport.framework"
-               BlueprintName = "IssueReportingPackageSupport"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/xctest-dynamic-overlay/xctest-dynamic-overlay.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/xctest-dynamic-overlay/xctest-dynamic-overlay.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -395,6 +437,20 @@
                BlueprintIdentifier = "D5734659E17303697C587D84"
                BuildableName = "KarmicHealing.app"
                BlueprintName = "KarmicHealing"
+               ReferencedContainer = "container:KarmicHealing.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4D5361A34F7A7FCB1394CAE0"
+               BuildableName = "KarmicHealingTests.xctest"
+               BlueprintName = "KarmicHealingTests"
                ReferencedContainer = "container:KarmicHealing.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -420,6 +476,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0276154E62B291CC25DE8EF2"
+               BuildableName = "KarmicHealingWatchTests.xctest"
+               BlueprintName = "KarmicHealingWatchTests"
+               ReferencedContainer = "container:KarmicHealing.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "2E9B8F1705F579CDF62AF8E7"
                BuildableName = "Onboarding.framework"
                BlueprintName = "Onboarding"
@@ -434,10 +504,24 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8D33C84E5336D9B27B142FE8"
+               BuildableName = "OnboardingTests.xctest"
+               BlueprintName = "OnboardingTests"
+               ReferencedContainer = "container:KarmicHealing.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "E07053DCBDB7F16C14688195"
                BuildableName = "OrderedCollections.framework"
                BlueprintName = "OrderedCollections"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-collections/swift-collections.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-collections/swift-collections.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -451,7 +535,7 @@
                BlueprintIdentifier = "D87A673CA6042584AEA9877A"
                BuildableName = "Perception.framework"
                BlueprintName = "Perception"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-perception/swift-perception.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-perception/swift-perception.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -465,7 +549,7 @@
                BlueprintIdentifier = "3F957B3DA27BBE08A5EF7DDF"
                BuildableName = "PerceptionCore.framework"
                BlueprintName = "PerceptionCore"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-perception/swift-perception.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-perception/swift-perception.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -479,7 +563,7 @@
                BlueprintIdentifier = "FEF8F0119F315E02A6904938"
                BuildableName = "PerceptionMacros"
                BlueprintName = "PerceptionMacros"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-perception/swift-perception.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-perception/swift-perception.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -504,10 +588,24 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2274A0083BF15024D3DDA744"
+               BuildableName = "SQLiteData.framework"
+               BlueprintName = "SQLiteData"
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/sqlite-data/sqlite-data.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "82CBDEFA4ED532AC90F265F5"
                BuildableName = "Sharing.framework"
                BlueprintName = "Sharing"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-sharing/swift-sharing.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-sharing/swift-sharing.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -521,7 +619,7 @@
                BlueprintIdentifier = "35B4E54210C23805EA4387E7"
                BuildableName = "Sharing1.framework"
                BlueprintName = "Sharing1"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-sharing/swift-sharing.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-sharing/swift-sharing.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -535,35 +633,7 @@
                BlueprintIdentifier = "C0610B4CD2E3AD4E87CBB8A6"
                BuildableName = "Sharing2.framework"
                BlueprintName = "Sharing2"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-sharing/swift-sharing.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A18AC968A6E36DDC0A444783"
-               BuildableName = "SharingGRDB.framework"
-               BlueprintName = "SharingGRDB"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/sharing-grdb/sharing-grdb.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F7F066FE0D37F550A8FA5BC3"
-               BuildableName = "SharingGRDBCore.framework"
-               BlueprintName = "SharingGRDBCore"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/sharing-grdb/sharing-grdb.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-sharing/swift-sharing.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -577,7 +647,7 @@
                BlueprintIdentifier = "1F5D38C8851508897C4D1328"
                BuildableName = "StructuredQueries.framework"
                BlueprintName = "StructuredQueries"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-structured-queries/swift-structured-queries.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-structured-queries/swift-structured-queries.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -591,35 +661,7 @@
                BlueprintIdentifier = "115266CF29A2F8DE1BF9C3C5"
                BuildableName = "StructuredQueriesCore.framework"
                BlueprintName = "StructuredQueriesCore"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-structured-queries/swift-structured-queries.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9077A6D4127CD919EEB7F80A"
-               BuildableName = "StructuredQueriesGRDB.framework"
-               BlueprintName = "StructuredQueriesGRDB"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/sharing-grdb/sharing-grdb.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9AB70E8C734027F7C289E7A6"
-               BuildableName = "StructuredQueriesGRDBCore.framework"
-               BlueprintName = "StructuredQueriesGRDBCore"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/sharing-grdb/sharing-grdb.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-structured-queries/swift-structured-queries.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -633,7 +675,7 @@
                BlueprintIdentifier = "F73339DCC49ABB99D412087D"
                BuildableName = "StructuredQueriesMacros"
                BlueprintName = "StructuredQueriesMacros"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-structured-queries/swift-structured-queries.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-structured-queries/swift-structured-queries.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -647,7 +689,7 @@
                BlueprintIdentifier = "962A03DF31837F98C9D5EE22"
                BuildableName = "StructuredQueriesSQLite.framework"
                BlueprintName = "StructuredQueriesSQLite"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-structured-queries/swift-structured-queries.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-structured-queries/swift-structured-queries.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -661,7 +703,7 @@
                BlueprintIdentifier = "314CC642CFF9D8D1CAD4A963"
                BuildableName = "StructuredQueriesSQLiteCore.framework"
                BlueprintName = "StructuredQueriesSQLiteCore"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-structured-queries/swift-structured-queries.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-structured-queries/swift-structured-queries.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -675,7 +717,7 @@
                BlueprintIdentifier = "CBC7B0AB77B4C3FB47DCC4D5"
                BuildableName = "StructuredQueriesSQLiteMacros"
                BlueprintName = "StructuredQueriesSQLiteMacros"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-structured-queries/swift-structured-queries.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-structured-queries/swift-structured-queries.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -689,7 +731,7 @@
                BlueprintIdentifier = "114FBD9E0C8A1E594FBAE26F"
                BuildableName = "SwiftBasicFormat.framework"
                BlueprintName = "SwiftBasicFormat"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-syntax/swift-syntax.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-syntax/swift-syntax.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -703,7 +745,7 @@
                BlueprintIdentifier = "BAA2DFDEB950C2DAB26247A4"
                BuildableName = "SwiftCompilerPlugin.framework"
                BlueprintName = "SwiftCompilerPlugin"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-syntax/swift-syntax.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-syntax/swift-syntax.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -717,7 +759,7 @@
                BlueprintIdentifier = "E93ACA4C8B15E51B05C2F61D"
                BuildableName = "SwiftCompilerPluginMessageHandling.framework"
                BlueprintName = "SwiftCompilerPluginMessageHandling"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-syntax/swift-syntax.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-syntax/swift-syntax.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -731,7 +773,7 @@
                BlueprintIdentifier = "748FFC58591037186F21E4AF"
                BuildableName = "SwiftDiagnostics.framework"
                BlueprintName = "SwiftDiagnostics"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-syntax/swift-syntax.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-syntax/swift-syntax.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -745,7 +787,21 @@
                BlueprintIdentifier = "40524DC8200B6826FB2CF42C"
                BuildableName = "SwiftNavigation.framework"
                BlueprintName = "SwiftNavigation"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-navigation/swift-navigation.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-navigation/swift-navigation.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "04EAAB7C6DAB0A2BE395AE1D"
+               BuildableName = "SwiftNavigationMacros"
+               BlueprintName = "SwiftNavigationMacros"
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-navigation/swift-navigation.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -759,7 +815,7 @@
                BlueprintIdentifier = "B81054C7484CA28454D8B4CE"
                BuildableName = "SwiftOperators.framework"
                BlueprintName = "SwiftOperators"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-syntax/swift-syntax.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-syntax/swift-syntax.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -773,7 +829,7 @@
                BlueprintIdentifier = "CB4CE5083ACF4EE5DCEA043E"
                BuildableName = "SwiftParser.framework"
                BlueprintName = "SwiftParser"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-syntax/swift-syntax.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-syntax/swift-syntax.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -787,7 +843,7 @@
                BlueprintIdentifier = "DF2FC39D6DEDC29667D46596"
                BuildableName = "SwiftParserDiagnostics.framework"
                BlueprintName = "SwiftParserDiagnostics"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-syntax/swift-syntax.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-syntax/swift-syntax.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -801,7 +857,7 @@
                BlueprintIdentifier = "F625BBB9CD69788B960E4ADB"
                BuildableName = "SwiftSyntax.framework"
                BlueprintName = "SwiftSyntax"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-syntax/swift-syntax.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-syntax/swift-syntax.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -815,7 +871,7 @@
                BlueprintIdentifier = "B0A8CAFAE3CA114D679D02CD"
                BuildableName = "SwiftSyntax509.framework"
                BlueprintName = "SwiftSyntax509"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-syntax/swift-syntax.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-syntax/swift-syntax.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -829,7 +885,7 @@
                BlueprintIdentifier = "9B5FEE59760A931CD91D78F3"
                BuildableName = "SwiftSyntax510.framework"
                BlueprintName = "SwiftSyntax510"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-syntax/swift-syntax.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-syntax/swift-syntax.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -843,7 +899,7 @@
                BlueprintIdentifier = "6DE4BE3F7815F5EAE293D552"
                BuildableName = "SwiftSyntax600.framework"
                BlueprintName = "SwiftSyntax600"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-syntax/swift-syntax.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-syntax/swift-syntax.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -857,7 +913,7 @@
                BlueprintIdentifier = "1D8DA41D0A39871147A531A6"
                BuildableName = "SwiftSyntax601.framework"
                BlueprintName = "SwiftSyntax601"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-syntax/swift-syntax.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-syntax/swift-syntax.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -871,7 +927,7 @@
                BlueprintIdentifier = "6B23134A13672C26A2911FCE"
                BuildableName = "SwiftSyntaxBuilder.framework"
                BlueprintName = "SwiftSyntaxBuilder"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-syntax/swift-syntax.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-syntax/swift-syntax.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -885,7 +941,7 @@
                BlueprintIdentifier = "43F82D27B454B21563A235E0"
                BuildableName = "SwiftSyntaxMacroExpansion.framework"
                BlueprintName = "SwiftSyntaxMacroExpansion"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-syntax/swift-syntax.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-syntax/swift-syntax.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -899,7 +955,7 @@
                BlueprintIdentifier = "66BC27FFC6C6DA572EEAEC5C"
                BuildableName = "SwiftSyntaxMacros.framework"
                BlueprintName = "SwiftSyntaxMacros"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-syntax/swift-syntax.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-syntax/swift-syntax.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -913,7 +969,7 @@
                BlueprintIdentifier = "9F54B0AD0FAFCF6AA8B17783"
                BuildableName = "SwiftUINavigation.framework"
                BlueprintName = "SwiftUINavigation"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-navigation/swift-navigation.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-navigation/swift-navigation.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -938,10 +994,24 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8C3CF76853ECB0B8740C4ADC"
+               BuildableName = "TestingUtilitiesTests.xctest"
+               BlueprintName = "TestingUtilitiesTests"
+               ReferencedContainer = "container:KarmicHealing.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "8A53F29ADBAE4C27AB5DA4CE"
                BuildableName = "UIKitNavigation.framework"
                BlueprintName = "UIKitNavigation"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-navigation/swift-navigation.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-navigation/swift-navigation.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -955,7 +1025,7 @@
                BlueprintIdentifier = "6C811F5B95387868880207B6"
                BuildableName = "UIKitNavigationShim.framework"
                BlueprintName = "UIKitNavigationShim"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-navigation/swift-navigation.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-navigation/swift-navigation.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -969,7 +1039,7 @@
                BlueprintIdentifier = "6D1BFFAE456610AE81A4206D"
                BuildableName = "XCTestDynamicOverlay.framework"
                BlueprintName = "XCTestDynamicOverlay"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/xctest-dynamic-overlay/xctest-dynamic-overlay.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/xctest-dynamic-overlay/xctest-dynamic-overlay.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -983,7 +1053,7 @@
                BlueprintIdentifier = "0A53192A7011B08CCC7F8D0D"
                BuildableName = "_SwiftSyntaxCShims.framework"
                BlueprintName = "_SwiftSyntaxCShims"
-               ReferencedContainer = "container:Tuist/.build/tuist-derived/swift-syntax/swift-syntax.xcodeproj">
+               ReferencedContainer = "container:Tuist/.build/tuist-derived/Projects/swift-syntax/swift-syntax.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -995,7 +1065,52 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            parallelizable = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "084656A0819E8DC5D7A63ED9"
+               BuildableName = "AppSettingsTests.xctest"
+               BlueprintName = "AppSettingsTests"
+               ReferencedContainer = "container:KarmicHealing.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "532AEB2DA263243A2AE4D27A"
+               BuildableName = "BalancingEnergyListTests.xctest"
+               BlueprintName = "BalancingEnergyListTests"
+               ReferencedContainer = "container:KarmicHealing.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "66E914CD913FE8DECAEB7DA2"
+               BuildableName = "BalancingEnergyTests.xctest"
+               BlueprintName = "BalancingEnergyTests"
+               ReferencedContainer = "container:KarmicHealing.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0901862DAF8C8B00A62B45AA"
+               BuildableName = "CommonTests.xctest"
+               BlueprintName = "CommonTests"
+               ReferencedContainer = "container:KarmicHealing.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4F0D63B2F6E390D5DB9165E7"
@@ -1005,12 +1120,57 @@
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            parallelizable = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0B23355E064D27591EBFD153"
                BuildableName = "HomeTests.xctest"
                BlueprintName = "HomeTests"
+               ReferencedContainer = "container:KarmicHealing.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4D5361A34F7A7FCB1394CAE0"
+               BuildableName = "KarmicHealingTests.xctest"
+               BlueprintName = "KarmicHealingTests"
+               ReferencedContainer = "container:KarmicHealing.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0276154E62B291CC25DE8EF2"
+               BuildableName = "KarmicHealingWatchTests.xctest"
+               BlueprintName = "KarmicHealingWatchTests"
+               ReferencedContainer = "container:KarmicHealing.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8D33C84E5336D9B27B142FE8"
+               BuildableName = "OnboardingTests.xctest"
+               BlueprintName = "OnboardingTests"
+               ReferencedContainer = "container:KarmicHealing.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8C3CF76853ECB0B8740C4ADC"
+               BuildableName = "TestingUtilitiesTests.xctest"
+               BlueprintName = "TestingUtilitiesTests"
                ReferencedContainer = "container:KarmicHealing.xcodeproj">
             </BuildableReference>
          </TestableReference>

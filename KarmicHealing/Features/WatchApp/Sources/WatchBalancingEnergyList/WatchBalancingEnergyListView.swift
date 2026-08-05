@@ -24,15 +24,24 @@ public struct WatchBalancingEnergyListView: View {
         
         ScrollView {
           VStack(spacing: DesignConstants.spacing) {
-            ActionButtonView(text: "essential_self".localized(for: Locale(identifier: userLanguage))) {
+            ActionButtonView(
+              text: "essential_self".localized(for: Locale(identifier: userLanguage)),
+              tone: Spectrum.heart.color
+            ) {
               store.send(.essentialSelf)
             }
             
-            ActionButtonView(text: "divine_self".localized(for: Locale(identifier: userLanguage))) {
+            ActionButtonView(
+              text: "divine_self".localized(for: Locale(identifier: userLanguage)),
+              tone: Spectrum.crown.color
+            ) {
               store.send(.divineSelf)
             }
             
-            ActionButtonView(text: "settings".localized(for: Locale(identifier: userLanguage))) {
+            ActionButtonView(
+              text: "settings".localized(for: Locale(identifier: userLanguage)),
+              tone: Spectrum.brow.color
+            ) {
               store.send(.openSettings)
             }
           }
@@ -54,20 +63,27 @@ public struct WatchBalancingEnergyListView: View {
   
   private struct ActionButtonView: View {
     let text: String
+    let tone: Color
     let action: () -> Void
-    
+
     var body: some View {
-      Text(text)
-        .font(.caption2.bold())
-        .foregroundColor(KarmicHealingWatchAsset.Colors.textPrimary.swiftUIColor)
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, DesignConstants.padding)
-        .padding(.horizontal, DesignConstants.paddingMedium)
-        .background(KarmicHealingWatchAsset.Colors.cellBackground.swiftUIColor)
-        .clipShape(RoundedRectangle(cornerRadius: DesignConstants.cornerRadius))
-        .onTapGesture {
-          action()
-        }
+      HStack(spacing: DesignConstants.padding) {
+        Capsule()
+          .fill(tone)
+          .frame(width: DesignConstants.toneStripeWidth)
+
+        Text(text)
+          .font(Typography.cardTitle)
+          .foregroundColor(KarmicHealingWatchAsset.Colors.textPrimary.swiftUIColor)
+          .frame(maxWidth: .infinity, alignment: .leading)
+      }
+      .padding(.vertical, DesignConstants.padding)
+      .padding(.horizontal, DesignConstants.paddingMedium)
+      .background(KarmicHealingWatchAsset.Colors.cellBackground.swiftUIColor)
+      .clipShape(RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusLarge, style: .continuous))
+      .onTapGesture {
+        action()
+      }
     }
   }
   
@@ -77,13 +93,13 @@ public struct WatchBalancingEnergyListView: View {
     
     var body: some View {
       Text(text)
-        .font(.caption2.bold())
+        .font(Typography.cardTitle)
         .foregroundColor(KarmicHealingWatchAsset.Colors.textPrimary.swiftUIColor)
         .frame(maxWidth: .infinity)
         .padding(.vertical, DesignConstants.padding)
         .padding(.horizontal, DesignConstants.paddingMedium)
         .background(KarmicHealingWatchAsset.Colors.cellBackground.swiftUIColor)
-        .clipShape(RoundedRectangle(cornerRadius: DesignConstants.cornerRadius))
+        .clipShape(RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusLarge, style: .continuous))
     }
   }
 }

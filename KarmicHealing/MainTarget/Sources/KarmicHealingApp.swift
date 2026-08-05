@@ -4,9 +4,11 @@
 
 import SwiftUI
 import ComposableArchitecture
-import SharingGRDB
+import SQLiteData
+import BalancingEnergy
 import Common
 import Db
+import OSLog
 import UserNotifications
 import Combine
 
@@ -54,10 +56,7 @@ private class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificatio
     )
     super.init()
     UNUserNotificationCenter.current().delegate = self
-    
-    // Watch connectivity disabled - watch is now independent
-    print("AppDelegate: Watch connectivity disabled - watch is independent")
-    
+
     // Listen for language changes
     NotificationCenter.default.addObserver(
       self,
@@ -84,51 +83,24 @@ private class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificatio
   ) -> Bool {
     store.send(.onDidFinishLaunching)
 
+    // Brightness is a system setting: if a session was killed mid-rest, the user would otherwise
+    // be left with a black phone and no idea why.
+    @Dependency(\.screen) var screen
+    screen.restoreAfterUncleanExit()
+
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-      if let error = error {
-        print("Notification permission error: \(error)")
+      if let error {
+        Log.notifications.error("Permission request failed: \(error.localizedDescription, privacy: .public)")
       }
-      print("Notification permission granted: \(granted)")
+      Log.notifications.notice("Notification permission granted: \(granted, privacy: .public)")
     }
-    
-    // Watch connectivity disabled - watch is now independent
-    print("AppDelegate: Watch connectivity disabled - watch is independent")
-    
+
     return true
   }
   
-  func applicationWillTerminate(_ application: UIApplication) {
-    // Cancel only balancing energy notifications when app is about to terminate
-    UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
-      let balancingEnergyIdentifiers = requests.compactMap { request in
-        let userInfo = request.content.userInfo
-        
-        if let notificationType = userInfo["notificationType"] as? String, notificationType == "BALANCING_ENERGY" {
-          return request.identifier
-        }
-        return nil
-      }
-      
-      if !balancingEnergyIdentifiers.isEmpty {
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: balancingEnergyIdentifiers)
-        print("AppDelegate: Cancelled \(balancingEnergyIdentifiers.count) balancing energy notifications on app termination")
-      }
-    }
-  }
-  
-  func applicationWillEnterForeground(_ application: UIApplication) {
-    print("AppDelegate: App entering foreground - watch is independent")
-  }
-  
-  func applicationDidBecomeActive(_ application: UIApplication) {
-    print("AppDelegate: App became active - watch is independent")
-  }
-  
-  func applicationDidEnterBackground(_ application: UIApplication) {
-    // Don't cancel balancing energy notifications when app goes to background
-    // They should continue working if user is still in meditation process
-    print("AppDelegate: App went to background - keeping balancing energy notifications active")
-  }
+  // A balancing energy session schedules no notifications at all: it runs only while the user is
+  // in the app, so nothing can arrive once the app is closed. Reminders are unaffected — a
+  // reminder is meant to fire with the app shut.
 
   // MARK: - Notification Delegate
   func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
@@ -140,7 +112,7 @@ private class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificatio
         // Extract notification type from userInfo
         let notificationTypeString = response.notification.request.content.userInfo["notificationType"] as? String
         let notificationType = NotificationType(rawValue: notificationTypeString ?? "") ?? .reminder
-        
+
         switch notificationType {
         case .reminder:
           // For reminder notification - open RemindersDetailView
@@ -148,22 +120,20 @@ private class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificatio
              let reminderID = UUID(uuidString: reminderIDString),
              let reminderListIDString = response.notification.request.content.userInfo["reminderListID"] as? String,
              let reminderListID = UUID(uuidString: reminderListIDString) {
-            print("AppDelegate: Opening RemindersDetailView for reminder: \(reminderID) in list: \(reminderListID)")
+            Log.notifications.notice("Opening reminder \(reminderID, privacy: .public) in list \(reminderListID, privacy: .public)")
             self.store.send(.destination(.home(.resetNavigationAndOpenReminder(reminderID: reminderID, reminderListID: reminderListID))))
           } else if let reminderIDString = response.notification.request.content.userInfo["reminderID"] as? String,
                     let reminderID = UUID(uuidString: reminderIDString) {
-            print("AppDelegate: Opening RemindersDetailView for reminder: \(reminderID) without list")
+            Log.notifications.notice("Opening reminder \(reminderID, privacy: .public) without a list")
             self.store.send(.destination(.home(.resetNavigationAndOpenReminder(reminderID: reminderID))))
           } else {
-            print("AppDelegate: No reminderID found, opening RemindersDetailView without specific reminder")
+            Log.notifications.notice("Reminder notification carried no reminderID, opening the list")
             self.store.send(.destination(.home(.resetNavigationAndOpenReminder(reminderID: nil))))
           }
-          
+
         case .balancingEnergy:
-          // For balancing energy notification - just open the app
-          print("AppDelegate: Balancing energy notification tapped - just opening app")
-          // Do nothing, just open the app
-          break
+          // Only a leftover from an older build can land here, and it has no session to reopen.
+          Log.notifications.notice("Ignoring a stale balancing energy notification")
         }
       }
     default:
@@ -174,7 +144,7 @@ private class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificatio
   }
   
   // MARK: - Language Change Handler
-  @objc private func languageDidChange() {
-    print("AppDelegate: Language changed - watch is independent, no sync needed")
-  }
+  // The watch app is independent, so a locale change needs no sync — the observer is kept
+  // as the hook for anything the app itself needs to refresh.
+  @objc private func languageDidChange() {}
 }

@@ -8,6 +8,7 @@ public struct GridCell: View {
   let count: Int?
   let iconName: String
   let title: String
+  let level: Spectrum
   let action: () -> Void
 
   public init(
@@ -15,12 +16,14 @@ public struct GridCell: View {
     count: Int? = nil,
     iconName: String,
     title: String,
+    level: Spectrum = .solar,
     action: @escaping () -> Void
   ) {
     self.color = color
     self.count = count
     self.iconName = iconName
     self.title = title
+    self.level = level
     self.action = action
   }
 
@@ -31,13 +34,13 @@ public struct GridCell: View {
 
           Image(systemName: iconName)
             .resizable()
-            .foregroundStyle(color)
+            .foregroundStyle(AuraGradient.gradient(for: level))
             .aspectRatio(contentMode: .fit)
             .frame(height: DesignConstants.frameHeightSmall)
             .padding(.top, DesignConstants.paddingSmall)
 
           Text(title)
-            .font(.footnote.weight(.medium))
+            .font(Typography.cardTitle)
             .minimumScaleFactor(0.5)
             .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
             .padding(.top, DesignConstants.paddingSmall)
@@ -47,7 +50,7 @@ public struct GridCell: View {
 
         if let count {
           Text("\(count)")
-            .font(.title3.weight(.bold))
+            .font(Typography.figure)
             .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
         }
       }
@@ -57,10 +60,7 @@ public struct GridCell: View {
         bottom: DesignConstants.padding,
         trailing: DesignConstants.paddingLarge)
       )
-      .background{
-        RoundedRectangle(cornerRadius: DesignConstants.cornerRadiusMedium)
-          .fill(ResourcesAsset.Colors.cellBackground.swiftUIColor)
-      }
+      .cardStyle(level: level, showsWatermark: true)
     }
   }
 }
