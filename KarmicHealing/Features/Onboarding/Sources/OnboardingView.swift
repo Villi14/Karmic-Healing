@@ -117,6 +117,9 @@ public struct OnboardingView: View {
       }
       .padding(.top, DesignConstants.spacingLarge)
     }
+    // Pages hold to the top instead of centring: otherwise a longer description lifts the icon
+    // and the title with it, and everything shifts from one step to the next.
+    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
   }
 
   /// The onboarding climbs the spectrum as it goes, like a session does.
