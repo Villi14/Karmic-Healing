@@ -1,5 +1,5 @@
 //
-// Karmic Healing 2025
+// Karmic Healing 2026
 //
 
 import ComposableArchitecture
@@ -74,6 +74,12 @@ public struct PrivacyPolicyView: View {
             PolicySectionView(
               title: "privacy_policy_storage_title".loc,
               content: "privacy_policy_storage_content".loc
+            )
+
+            // Local Notifications
+            PolicySectionView(
+              title: "privacy_policy_notifications_title".loc,
+              content: "privacy_policy_notifications_content".loc
             )
 
             // Third Parties

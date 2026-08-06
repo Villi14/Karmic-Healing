@@ -2836,19 +2836,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "If you have any questions about this Privacy Policy, please contact us through the App Store review system or by email."
+            "value" : "If you contact us, we receive the information you choose to include so that we can respond to your request."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Если у вас есть вопросы по этой Политике конфиденциальности, пожалуйста, свяжитесь с нами через систему отзывов App Store или по электронной почте."
+            "value" : "Если вы свяжетесь с нами, мы получим информацию, которую вы решите включить, чтобы ответить на ваш запрос."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Якщо у вас є питання щодо цієї Політики конфіденційності, будь ласка, зв'яжіться з нами через систему відгуків App Store або електронною поштою."
+            "value" : "Якщо ви зв’яжетеся з нами, ми отримаємо інформацію, яку ви вирішите додати, щоб відповісти на ваш запит."
           }
         }
       }
@@ -2882,19 +2882,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This app does not collect any personal data. All your reminders, requests, and notes are stored locally on your device. We do not track your usage, collect analytics, or share any information with third parties."
+            "value" : "The app does not require an account and does not send your reminders, requests, notes, or app activity to us. Information you enter is kept on your device for the app to function. We do not use analytics, advertising identifiers, or usage-tracking services."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Это приложение не собирает никаких личных данных. Все ваши напоминания, просьбы и заметки хранятся локально на вашем устройстве. Мы не отслеживаем ваше использование, не собираем аналитику и не передаем информацию третьим лицам."
+            "value" : "Приложению не требуется учетная запись, и оно не отправляет нам ваши напоминания, просьбы, заметки или данные об использовании. Введенная вами информация хранится на вашем устройстве для работы приложения. Мы не используем аналитику, рекламные идентификаторы или сервисы отслеживания использования."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Цей додаток не збирає жодних особистих даних. Всі ваші нагадування, прохання та нотатки зберігаються локально на вашому пристрої. Ми не відстежуємо ваше використання, не збираємо аналітику та не передаємо інформацію третім особам."
+            "value" : "Застосунок не потребує облікового запису та не надсилає нам ваші нагадування, прохання, нотатки чи дані про використання. Введена вами інформація зберігається на пристрої, щоб застосунок міг працювати. Ми не використовуємо аналітику, рекламні ідентифікатори або сервіси відстеження використання."
           }
         }
       }
@@ -2928,19 +2928,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Karmic Healing respects your privacy. This app is designed to work entirely offline and does not collect, store, or transmit any personal information to external servers."
+            "value" : "Karmic Healing works on iPhone, iPad, and Apple Watch and is designed to work offline. We do not operate servers that collect, store, or process your personal information."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Karmic Healing уважает вашу конфиденциальность. Это приложение предназначено для работы полностью в автономном режиме и не собирает, не хранит и не передает никакой личной информации на внешние серверы."
+            "value" : "Karmic Healing работает на iPhone, iPad и Apple Watch и предназначено для работы в автономном режиме. Мы не управляем серверами, которые собирают, хранят или обрабатывают вашу личную информацию."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Karmic Healing поважає вашу конфіденційність. Цей додаток призначений для роботи повністю в автономному режимі та не збирає, не зберігає та не передає жодної особистої інформації на зовнішні сервери."
+            "value" : "Karmic Healing працює на iPhone, iPad і Apple Watch та розроблений для роботи офлайн. Ми не керуємо серверами, які збирають, зберігають або обробляють вашу особисту інформацію."
           }
         }
       }
@@ -2974,19 +2974,65 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Last updated: January 2025"
+            "value" : "Last updated: August 6, 2026"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Последнее обновление: январь 2025"
+            "value" : "Последнее обновление: 6 августа 2026"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Останнє оновлення: січень 2025"
+            "value" : "Останнє оновлення: 6 серпня 2026"
+          }
+        }
+      }
+    },
+    "privacy_policy_notifications_content" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you grant permission, Karmic Healing schedules local notifications for reminders. Notification titles, text, and identifiers are used by the operating system to display and open those reminders; they are not sent to our servers. You can change notification access at any time in your device settings."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Если вы предоставите разрешение, Karmic Healing планирует локальные уведомления для напоминаний. Заголовки, текст и идентификаторы уведомлений используются операционной системой для их показа и открытия соответствующих напоминаний; они не отправляются на наши серверы. Доступ к уведомлениям можно в любой момент изменить в настройках устройства."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Якщо ви надасте дозвіл, Karmic Healing планує локальні сповіщення для нагадувань. Заголовки, текст та ідентифікатори сповіщень використовуються операційною системою для їх показу та відкриття відповідних нагадувань; вони не надсилаються на наші сервери. Доступ до сповіщень можна будь-коли змінити в налаштуваннях пристрою."
+          }
+        }
+      }
+    },
+    "privacy_policy_notifications_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Local Notifications"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Локальные уведомления"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Локальні сповіщення"
           }
         }
       }
@@ -2997,19 +3043,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "All data is stored locally on your device using iOS's built-in database system. Your data never leaves your device and is not backed up to any cloud services unless you explicitly choose to do so through your device's backup settings."
+            "value" : "Your reminders, requests, notes, and preferences are stored locally in the app’s storage on your Apple device. The app does not provide cloud sync. Depending on your iOS backup settings, app data may be included in a device backup. Any backup or restore service is governed by the policies and settings of Apple or the service you choose."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Все данные хранятся локально на вашем устройстве с использованием встроенной системы баз данных iOS. Ваши данные никогда не покидают ваше устройство и не резервируются в облачных сервисах, если вы явно не выберете это в настройках резервного копирования вашего устройства."
+            "value" : "Ваши напоминания, просьбы, заметки и настройки хранятся локально в хранилище приложения на вашем устройстве Apple. В приложении нет синхронизации с облаком. В зависимости от настроек резервного копирования iOS данные приложения могут попасть в резервную копию устройства. Любое резервное копирование или восстановление регулируется политиками и настройками Apple или выбранного вами сервиса."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Всі дані зберігаються локально на вашому пристрої за допомогою вбудованої системи баз даних iOS. Ваші дані ніколи не залишають ваш пристрій та не резервуються в хмарних сервісах, якщо ви явно не оберете це в налаштуваннях резервного копіювання вашого пристрою."
+            "value" : "Ваші нагадування, прохання, нотатки та налаштування зберігаються локально у сховищі застосунку на вашому пристрої Apple. Застосунок не має синхронізації з хмарою. Залежно від налаштувань резервного копіювання iOS, дані застосунку можуть потрапити до резервної копії пристрою. Будь-яке резервне копіювання або відновлення регулюється політиками та налаштуваннями Apple або обраного вами сервісу."
           }
         }
       }
@@ -3043,19 +3089,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This app does not integrate with any third-party analytics, advertising, or data collection services. We do not use cookies, tracking pixels, or any other tracking technologies."
+            "value" : "The app contains no third-party analytics, advertising, tracking pixels, cookies, or data-collection SDKs. It does use open-source software libraries to provide app functionality. If you choose to open an external website or contact us by email, that interaction is handled by the relevant website, App Store, or email provider under its own privacy policy. The app does not send your stored app data along with those actions."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Это приложение не интегрируется с какими-либо сторонними аналитическими, рекламными или сервисами сбора данных. Мы не используем файлы cookie, пиксели отслеживания или любые другие технологии отслеживания."
+            "value" : "Приложение не содержит сторонней аналитики, рекламы, пикселей отслеживания, файлов cookie или SDK для сбора данных. Оно использует библиотеки с открытым исходным кодом для работы функций. Если вы откроете внешний веб-сайт или свяжетесь с нами по электронной почте, соответствующее взаимодействие обрабатывается этим сайтом, App Store или почтовым провайдером в соответствии с их собственной политикой конфиденциальности. Приложение не отправляет вместе с этими действиями сохраненные данные приложения."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Цей додаток не інтегрується з жодними сторонніми аналітичними, рекламними або сервісами збору даних. Ми не використовуємо файли cookie, пікселі відстеження або будь-які інші технології відстеження."
+            "value" : "Застосунок не містить сторонньої аналітики, реклами, пікселів відстеження, файлів cookie або SDK для збору даних. Він використовує бібліотеки з відкритим кодом для роботи функцій. Якщо ви відкриєте зовнішній вебсайт або зв’яжетеся з нами електронною поштою, відповідна взаємодія обробляється цим вебсайтом, App Store або поштовим провайдером відповідно до їхньої власної політики конфіденційності. Застосунок не надсилає разом із цими діями збережені дані застосунку."
           }
         }
       }
@@ -3733,19 +3779,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This app is a supplement to the Russian edition 'Karmic Healing', which is a translation of the English edition 'Psychic Healing with Spirit Guides and Angels' by Diana Stein.\n\nThanks for using Karmic Healing."
+            "value" : "This app is an unofficial supplement to the Russian edition 'Karmic Healing', which is a translation of the English edition 'Psychic Healing with Spirit Guides and Angels' by Diana Stein. It is not affiliated with or endorsed by Diana Stein or the publisher.\n\nThanks for using Karmic Healing."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Это приложение является дополнением к российскому изданию 'Кармическое Исцеление', которое является переводом английского издания 'Psychic Healing with Spirit Guides and Angels' Дайаны Стайн.\n\nСпасибо за использование Karmic Healing."
+            "value" : "Это приложение является неофициальным дополнением к российскому изданию 'Кармическое Исцеление', которое является переводом английского издания 'Psychic Healing with Spirit Guides and Angels' Дайаны Стайн. Оно не связано с Дайаной Стайн и издательством и не одобрено ими.\n\nСпасибо за использование Karmic Healing."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Цей застосунок є доповненням до російського видання 'Кармическое Исцеление', яке є перекладом англійського видання 'Psychic Healing with Spirit Guides and Angels' Дайани Стайн.\n\nДякуємо за використання Karmic Healing."
+            "value" : "Цей застосунок є неофіційним доповненням до російського видання 'Кармическое Исцеление', яке є перекладом англійського видання 'Psychic Healing with Spirit Guides and Angels' Дайани Стайн. Він не пов’язаний із Дайаною Стайн і видавництвом та не схвалений ними.\n\nДякуємо за використання Karmic Healing."
           }
         }
       }
