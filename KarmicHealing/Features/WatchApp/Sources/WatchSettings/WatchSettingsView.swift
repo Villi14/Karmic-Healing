@@ -90,12 +90,15 @@ public struct WatchSettingsView: View {
               VStack(spacing: 8) {
                 ForEach(["en", "uk", "ru"], id: \.self) { language in
                   SettingsButtonLabel(text: language.localized(for: Locale(identifier: userLanguage)), isSelected: store.userLanguage == language)
-                    .onTapGesture { 
+                    .onTapGesture {
                       store.send(.setUserLanguage(language))
                     }
                 }
               }
             }
+            // Language is the last thing on this screen, and the last plate used to sit right on
+            // the bottom edge — hard to read and harder to hit where the glass curves away.
+            .padding(.bottom, DesignConstants.watchSettingsBottomPadding)
           } header: {
             Text("language".localized(for: Locale(identifier: userLanguage)))
               .foregroundColor(KarmicHealingWatchAsset.Colors.textPrimary.swiftUIColor)

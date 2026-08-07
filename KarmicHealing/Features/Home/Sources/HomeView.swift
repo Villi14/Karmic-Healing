@@ -24,7 +24,7 @@ public struct HomeView: View {
         AuraBackground(level: .heart)
 
         ScrollView {
-          VStack(alignment: .leading, spacing: DesignConstants.spacingLarge) {
+          VStack(alignment: .leading, spacing: DesignConstants.sectionSpacing) {
             HomeHeroCardView {
               store.send(.didTap(.balancingEnergyButton))
             }
@@ -32,7 +32,7 @@ public struct HomeView: View {
             Text("home_tools".loc)
               .font(Typography.title)
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
-              .padding(.top, DesignConstants.paddingSmall)
+              .padding(.top, DesignConstants.compact(DesignConstants.paddingSmall, 0))
 
             LazyVGrid(
               columns: [
@@ -50,7 +50,7 @@ public struct HomeView: View {
             }
           }
           .padding(.horizontal, DesignConstants.paddingLarge)
-          .padding(.vertical, DesignConstants.paddingXLarge)
+          .padding(.vertical, DesignConstants.screenVerticalPadding)
           .karmicContentWidth()
         }
       }

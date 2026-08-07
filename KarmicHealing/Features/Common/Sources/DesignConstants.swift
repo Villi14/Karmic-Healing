@@ -12,6 +12,29 @@ public enum DesignConstants {
     /// A drawn size at the current device's scale.
     public static func scaled(_ value: CGFloat) -> CGFloat { value * contentScale }
 
+    /// The 4.7" phones — an iPhone SE is 667pt tall, some 150pt short of the phone the
+    /// fixed screens are laid out for. Everything still fits there, but only once the
+    /// vertical air between blocks comes down; left alone, the last card on Home and the
+    /// Done button in the session settings fall below the fold and the screen scrolls.
+    public static let isCompactHeight: Bool = screenHeight > 0 && screenHeight <= 700
+
+    /// A vertical measure that comes down on a short phone.
+    public static func compact(_ value: CGFloat, _ compactValue: CGFloat) -> CGFloat {
+        isCompactHeight ? compactValue : value
+    }
+
+    /// Air between the blocks of a screen laid out to fit without scrolling.
+    public static var sectionSpacing: CGFloat { compact(spacingLarge, spacingMedium) }
+
+    /// Top and bottom margin of such a screen.
+    public static var screenVerticalPadding: CGFloat { compact(paddingXLarge, padding) }
+
+    private static var screenHeight: CGFloat {
+        let scenes = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }
+        let active = scenes.first { $0.activationState == .foregroundActive } ?? scenes.first
+        return active?.screen.bounds.height ?? 0
+    }
+
     /// A single column of content never runs wider than this, so a card or a line of
     /// text on iPad stays as readable as it is on a phone instead of spanning the pane.
     public static let maxContentWidth: CGFloat = 700
@@ -108,8 +131,9 @@ public enum DesignConstants {
     // Threshold
     public static let thresholdMedium: CGFloat = 50
 
-    /// Width/height of a home card.
-    public static let cardAspectRatio: CGFloat = 1 / 0.78
+    /// Width/height of a home card. Two rows of these are the tallest block on Home, so on a
+    /// short phone the card gives up some of its height rather than the grid a whole row.
+    public static var cardAspectRatio: CGFloat { 1 / compact(0.78, 0.68) }
 }
 
 extension View {

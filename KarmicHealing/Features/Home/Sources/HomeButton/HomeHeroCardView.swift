@@ -50,7 +50,7 @@ public struct HomeHeroCardView: View {
         }
       }
       .frame(maxWidth: .infinity, alignment: .leading)
-      .padding(DesignConstants.paddingXLarge)
+      .padding(DesignConstants.compact(DesignConstants.paddingXLarge, DesignConstants.paddingLarge))
       .cardStyle(level: .heart, showsWatermark: true)
     }
     .buttonStyle(.plain)

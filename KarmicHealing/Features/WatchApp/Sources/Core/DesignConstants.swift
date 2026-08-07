@@ -33,4 +33,7 @@ public enum DesignConstants {
   /// The countdown ring that shows when the slide turns next.
   public static let watchRingSize: CGFloat = 14
   public static let watchRingLineWidth: CGFloat = 2
+  /// Room under the last row of settings, so the bottom plate clears the curve of the screen
+  /// instead of ending against it.
+  public static let watchSettingsBottomPadding: CGFloat = 30
 }

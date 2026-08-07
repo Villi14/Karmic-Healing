@@ -151,7 +151,7 @@ public struct EnergyBalansingSettingsView: View {
         AuraBackground(level: .heart)
         
         ScrollView {
-          VStack(spacing: DesignConstants.spacingLarge) {
+          VStack(spacing: DesignConstants.sectionSpacing) {
             titleView
             durationOptionsView(store)
             vibrationAndSoundSection(store)
@@ -160,8 +160,12 @@ public struct EnergyBalansingSettingsView: View {
             doneButton(store)
           }
           .frame(maxWidth: DesignConstants.maxWidthMedium)
-          .padding(DesignConstants.paddingXLarge)
-          .padding(.horizontal, DesignConstants.paddingXXLarge)
+          .padding(.vertical, DesignConstants.screenVerticalPadding)
+          .padding(.horizontal, DesignConstants.paddingXLarge)
+          // The rows are already held to a phone's width above; the extra inset only has room
+          // to spare on a tall screen. On a short one it squeezes "Session duration" onto two
+          // lines and every row grows with it.
+          .padding(.horizontal, DesignConstants.compact(DesignConstants.paddingXXLarge, 0))
           .frame(maxWidth: .infinity)
         }
         .onAppear {
