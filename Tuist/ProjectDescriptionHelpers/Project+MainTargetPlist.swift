@@ -2,7 +2,7 @@ import Foundation
 @preconcurrency import ProjectDescription
 
 public let bundleShortVersionString: String = "1.5"
-public let bundleVersion: String = "12"
+public let bundleVersion: String = "13"
 
 public let mainTargetPlist: InfoPlist = .extendingDefault(
   with: [

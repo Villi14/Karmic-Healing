@@ -22,7 +22,7 @@ extension DependencyValues {
 public struct WatchRuntimeClient {
   public var start: @Sendable () -> Void
   public var stop: @Sendable () -> Void
-  /// Buzzes the wrist for a step, through the session so it lands with the arm down.
+  /// Buzzes the wrist for a step — what the session is being kept alive to be able to do.
   public var notify: @Sendable () -> Void
 
   public init(
@@ -97,18 +97,14 @@ private final class RuntimeSessionHolder: NSObject, WKExtendedRuntimeSessionDele
 
   /// Buzzes the wrist for a step.
   ///
-  /// `WKInterfaceDevice.play(_:)` is only honoured while the app is frontmost, which a wrist lying
-  /// by the user's side is not — so a step announced that way went unfelt in exactly the posture a
-  /// meditation is done in. A running session has its own way of reaching the user, and that is
-  /// what this asks; the device is the fallback for the moments before the session is up.
+  /// Not through `WKExtendedRuntimeSession.notifyUser(hapticType:)`, which reads like the API for
+  /// exactly this and is not: it belongs to a *scheduled* session and alerts at a time arranged in
+  /// advance. Asked for a haptic here and now, in the middle of a mindfulness session, it brings
+  /// the app down. The device plays it, and the running session is what keeps the app around to
+  /// ask at all.
   func notify() {
     Task { @MainActor in
-      if let session = self.session, session.state == .running {
-        session.notifyUser(hapticType: .notification)
-      } else {
-        Log.session.notice("No running session to notify through, buzzing the device directly")
-        WKInterfaceDevice.current().play(.notification)
-      }
+      WKInterfaceDevice.current().play(.notification)
     }
   }
 
