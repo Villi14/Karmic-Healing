@@ -5,7 +5,7 @@
 import ComposableArchitecture
 import Foundation
 import OSLog
-import WatchKit
+import SwiftUI
 
 @Reducer
 public struct WatchBalancingEnergy {
@@ -16,9 +16,6 @@ public struct WatchBalancingEnergy {
   @Dependency(\.watchRuntime) var runtime
 
   private enum CancelID { case ticking }
-
-  /// Seconds of stillness before the screen rests, when the user has not chosen otherwise.
-  public static let defaultRestDelay = 30
 
   public init() {}
 
@@ -36,13 +33,6 @@ public struct WatchBalancingEnergy {
     public var now: Date
     /// `onAppear` fires again when a sheet closes; the schedule must survive that.
     public var isRunning: Bool
-    /// The screen has gone black to let the user sit with the step.
-    public var isResting: Bool
-    /// When the screen last lit up — a step change or a touch.
-    public var lastWokeAt: Date
-    /// Whether the screen rests at all, and after how long.
-    public var restEnabled: Bool
-    public var restDelay: Int
     /// The session was paused because the app left the screen, not because the user asked — only
     /// such a pause is lifted again on the way back.
     public var pausedByBackground: Bool
@@ -55,10 +45,6 @@ public struct WatchBalancingEnergy {
       timer: SessionTimer = .init(minutes: 0, startedAt: .distantPast),
       now: Date = .distantPast,
       isRunning: Bool = false,
-      isResting: Bool = false,
-      lastWokeAt: Date = .distantPast,
-      restEnabled: Bool = true,
-      restDelay: Int = WatchBalancingEnergy.defaultRestDelay,
       pausedByBackground: Bool = false
     ) {
       self.title = title
@@ -68,10 +54,6 @@ public struct WatchBalancingEnergy {
       self.timer = timer
       self.now = now
       self.isRunning = isRunning
-      self.isResting = isResting
-      self.lastWokeAt = lastWokeAt
-      self.restEnabled = restEnabled
-      self.restDelay = restDelay
       self.pausedByBackground = pausedByBackground
     }
 
@@ -81,19 +63,6 @@ public struct WatchBalancingEnergy {
     public var remaining: TimeInterval { timer.remaining(at: now) }
     /// How far through the current step, 0…1.
     public var stepProgress: Double { timer.progress(at: now) }
-
-    /// Brings the screen back and restarts the countdown to the next rest.
-    mutating func wake(at now: Date) {
-      isResting = false
-      lastWokeAt = now
-    }
-
-    /// A rest is due only once the screen has been left alone for the chosen delay, and never
-    /// while the session is paused — a paused session is one the user is looking at.
-    func shouldRest(at now: Date) -> Bool {
-      guard restEnabled, !isResting, !isCompleted, !timer.isPaused else { return false }
-      return now.timeIntervalSince(lastWokeAt) >= TimeInterval(restDelay)
-    }
   }
 
   public enum Action: Equatable {
@@ -106,8 +75,6 @@ public struct WatchBalancingEnergy {
     case nextStep
     case previousStep
     case pauseToggled
-    /// The user touched the resting screen and wants the step back.
-    case screenTapped
     case timerTicked(Date)
     case completeSteps
     case didTapSettings
@@ -129,15 +96,6 @@ public struct WatchBalancingEnergy {
             "Session started — \(title, privacy: .public), step \(stepDuration, privacy: .public)s"
           )
         }
-        state.restEnabled = userDefaults.bool(for: .screenRestEnabled, default: true)
-        let storedDelay = userDefaults.integer(for: .screenRestDelay)
-        state.restDelay = storedDelay > 0 ? storedDelay : Self.defaultRestDelay
-        let restEnabled = state.restEnabled
-        let restDelay = state.restDelay
-        Log.session.debug(
-          "Screen rest \(restEnabled ? "on" : "off", privacy: .public) after \(restDelay, privacy: .public)s"
-        )
-        state.wake(at: now)
         return .merge(
           // Without this the app sleeps the moment the wrist drops, and no step ever lands.
           .run { _ in runtime.start() },
@@ -147,7 +105,6 @@ public struct WatchBalancingEnergy {
 
       case .onDisappear:
         Log.session.debug("Session screen dismissed, tearing the schedule down")
-        state.isResting = false
         return .merge(
           .cancel(id: CancelID.ticking),
           .run { _ in runtime.stop() },
@@ -162,7 +119,6 @@ public struct WatchBalancingEnergy {
           state.timer.resume(at: now)
           state.pausedByBackground = false
         }
-        state.wake(at: now)
         return .merge(
           .run { _ in runtime.start() },
           ticking()
@@ -173,7 +129,6 @@ public struct WatchBalancingEnergy {
         // the session holds its place rather than running on unwatched.
         let now = date.now
         state.now = now
-        state.isResting = false
         if !state.timer.isPaused {
           state.timer.pause(at: now)
           state.pausedByBackground = true
@@ -188,13 +143,7 @@ public struct WatchBalancingEnergy {
         guard !state.isCompleted else { return .none }
 
         let advanced = state.timer.consumeElapsedSteps(at: now)
-        guard advanced > 0 else {
-          // No step is due, but the screen may have earned its rest.
-          guard state.shouldRest(at: now) else { return .none }
-          state.isResting = true
-          Log.session.debug("Screen resting")
-          return .none
-        }
+        guard advanced > 0 else { return .none }
 
         let lastStep = state.steps.count - 1
         let target = state.currentStep + advanced
@@ -205,8 +154,6 @@ public struct WatchBalancingEnergy {
 
         Log.session.debug("Advanced \(advanced, privacy: .public) step(s) to \(target, privacy: .public)")
         state.currentStep = target
-        // A new step is the moment the screen has to come back — this is the whole point of resting.
-        state.wake(at: now)
         return .merge(feedback(), storeProgress(state))
 
       case .nextStep:
@@ -215,14 +162,12 @@ public struct WatchBalancingEnergy {
         state.currentStep += 1
         // Taking over navigation buys a full step with the slide the user just chose.
         state.timer.restart(at: state.now)
-        state.wake(at: state.now)
         return .merge(feedback(), storeProgress(state))
 
       case .previousStep:
         guard !state.isCompleted, state.currentStep > 0 else { return .none }
         state.currentStep -= 1
         state.timer.restart(at: state.now)
-        state.wake(at: state.now)
         return .merge(feedback(), storeProgress(state))
 
       case .pauseToggled:
@@ -232,22 +177,11 @@ public struct WatchBalancingEnergy {
         } else {
           state.timer.pause(at: state.now)
         }
-        state.wake(at: state.now)
-        return .none
-
-      case .screenTapped:
-        guard state.isResting else {
-          // Already awake: touching only buys more time before the next rest.
-          state.lastWokeAt = state.now
-          return .none
-        }
-        state.wake(at: state.now)
         return .none
 
       case .completeSteps:
         guard !state.isCompleted else { return .none }
         state.isCompleted = true
-        state.isResting = false
         return .merge(
           .cancel(id: CancelID.ticking),
           .run { _ in runtime.stop() },
@@ -261,16 +195,6 @@ public struct WatchBalancingEnergy {
       case let .destination(.presented(.settings(.setSessionDuration(minutes)))):
         // Settings talk to the session directly, so the pace changes under the user at once.
         state.timer.setDuration(SessionTimer.duration(fromStoredMinutes: minutes), at: state.now)
-        return .none
-
-      case let .destination(.presented(.settings(.toggleScreenRest(enabled)))):
-        state.restEnabled = enabled
-        state.wake(at: state.now)
-        return .none
-
-      case let .destination(.presented(.settings(.setScreenRestDelay(seconds)))):
-        state.restDelay = seconds
-        state.wake(at: state.now)
         return .none
 
       case .destination:
@@ -311,25 +235,37 @@ public struct WatchBalancingEnergy {
     }
   }
 
+  /// How a new step reaches the user.
+  ///
+  /// The haptic is not optional and has no setting behind it: the watch cannot light its own
+  /// display, so with the wrist down a buzz is the only thing left that can say a step has turned.
+  /// Sound is a choice on top of it.
   private func feedback() -> Effect<Action> {
     .run { _ in
-      let soundEnabled = userDefaults.bool(for: .soundEnabled)
-      let vibrationEnabled = userDefaults.bool(for: .vibrationEnabled)
+      runtime.notify()
 
-      if vibrationEnabled {
-        // A notification-style haptic is what a step change should feel like, and it lands at the
-        // same moment as the chime rather than half a second behind it.
-        await MainActor.run {
-          WKInterfaceDevice.current().play(.notification)
-        }
-      }
-
-      if soundEnabled {
+      if userDefaults.bool(for: .soundEnabled) {
         // An unset volume reads as 0, which used to mean "sound on, but silent".
         let storedVolume = userDefaults.float(for: .audioVolume)
         audio.setVolume(storedVolume > 0 ? storedVolume : 0.5)
         audio.playSound("ding", "wav")
       }
+    }
+  }
+}
+
+// MARK: - Scene phase
+
+extension WatchBalancingEnergy.Action {
+  /// What a change of scene phase means to a session, if anything.
+  ///
+  /// A dropped wrist reads as `.inactive`, and the runtime session is carrying the meditation
+  /// through it — so it must not stop anything. Only `.background`, the user leaving the app, does.
+  public static func forScenePhase(_ phase: ScenePhase) -> WatchBalancingEnergy.Action? {
+    switch phase {
+    case .active: .didBecomeActive
+    case .background: .didEnterBackground
+    default: nil
     }
   }
 }

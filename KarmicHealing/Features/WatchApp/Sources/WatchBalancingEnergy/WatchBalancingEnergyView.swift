@@ -29,7 +29,7 @@ public struct WatchBalancingEnergyView: View {
         KarmicHealingWatchAsset.Colors.background.swiftUIColor
           .ignoresSafeArea()
 
-        if store.currentStep < store.steps.count, !store.isResting {
+        if store.currentStep < store.steps.count {
           let step = store.steps[store.currentStep]
 
           VStack(spacing: DesignConstants.watchVStackSpacing) {
@@ -80,42 +80,21 @@ public struct WatchBalancingEnergyView: View {
           )
         }
 
-        // watchOS has no brightness API, and the `mindfulness` runtime session deliberately keeps
-        // the display on for the whole meditation. Pure black on an OLED panel is the nearest thing
-        // to switching it off — and it is the touch target that brings the step back.
-        //
-        // The step underneath is not merely covered but left unbuilt: the session ticks once a
-        // second, and a countdown nobody can see is the one thing here that would redraw the screen
-        // for a whole hour for nothing.
-        if store.isResting {
-          Color.black
-            .ignoresSafeArea()
-            .transition(.opacity)
-            .onTapGesture { store.send(.screenTapped) }
-            .accessibilityLabel("screen_rest".localized(for: locale))
-            .accessibilityAddTraits(.isButton)
-        }
       }
-      .animation(.easeInOut(duration: DesignConstants.watchScreenFadeDuration), value: store.isResting)
       .toolbar {
         ToolbarItem(placement: .topBarTrailing) {
-          if !store.isResting {
-            Button(action: { store.send(.didTapSettings) }) {
-              Image(systemName: "gearshape")
-                .foregroundColor(tone)
-            }
+          Button(action: { store.send(.didTapSettings) }) {
+            Image(systemName: "gearshape")
+              .foregroundColor(tone)
           }
         }
       }
     }
     .onAppear { store.send(.onAppear) }
     .onChange(of: scenePhase) { _, phase in
-      // A dropped wrist reads as `.inactive` and must not disturb the session — the runtime session
-      // is carrying it. Only `.background`, the user leaving the app, stops it.
-      switch phase {
-      case .active: store.send(.didBecomeActive)
-      case .background: store.send(.didEnterBackground)
-      default: break
+      // A dropped wrist must not disturb the session — see `forScenePhase`.
+      if let action = WatchBalancingEnergy.Action.forScenePhase(phase) {
+        store.send(action)
       }
     }
     .sheet(item: $store.scope(state: \.destination?.settings, action: \.destination.settings)) { settingsStore in

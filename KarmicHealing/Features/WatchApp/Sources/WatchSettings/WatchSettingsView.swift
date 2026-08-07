@@ -57,22 +57,6 @@ public struct WatchSettingsView: View {
           }
 
           Section {
-            HStack {
-              Image(systemName: "iphone.radiowaves.left.and.right")
-                .foregroundColor(Spectrum.brow.color)
-              Toggle("", isOn: Binding(
-                get: { store.vibrationEnabled },
-                set: { _ in store.send(.toggleVibration) }
-              ))
-              .tint(Spectrum.brow.color)
-            }
-          } header: {
-            Text("vibration".localized(for: Locale(identifier: userLanguage)))
-              .foregroundColor(KarmicHealingWatchAsset.Colors.textPrimary.swiftUIColor)
-              .font(Typography.label)
-          }
-
-          Section {
             // A row that pushes the choices rather than stacking five of them: on a screen this
             // narrow the durations alone used to fill it end to end.
             Picker(selection: Binding(
@@ -93,43 +77,6 @@ public struct WatchSettingsView: View {
               }
             }
             .pickerStyle(.navigationLink)
-          }
-
-          Section {
-            HStack {
-              Image(systemName: "moon.stars")
-                .foregroundColor(Spectrum.brow.color)
-              Toggle("", isOn: Binding(
-                get: { store.screenRestEnabled },
-                set: { store.send(.toggleScreenRest($0)) }
-              ))
-              .tint(Spectrum.brow.color)
-            }
-
-            if store.screenRestEnabled {
-              Picker(selection: Binding(
-                get: { store.screenRestDelay },
-                set: { store.send(.setScreenRestDelay($0)) }
-              )) {
-                ForEach(WatchSettings.restDelayOptions, id: \.self) { seconds in
-                  Text("\(seconds) \("sec".localized(for: Locale(identifier: userLanguage)))")
-                    .tag(seconds)
-                }
-              } label: {
-                Label {
-                  Text("delay".localized(for: Locale(identifier: userLanguage)))
-                    .foregroundColor(KarmicHealingWatchAsset.Colors.textPrimary.swiftUIColor)
-                } icon: {
-                  Image(systemName: "timer")
-                    .foregroundColor(Spectrum.brow.color)
-                }
-              }
-              .pickerStyle(.navigationLink)
-            }
-          } header: {
-            Text("screen_rest".localized(for: Locale(identifier: userLanguage)))
-              .foregroundColor(KarmicHealingWatchAsset.Colors.textPrimary.swiftUIColor)
-              .font(Typography.label)
           }
 
           Section {

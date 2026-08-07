@@ -165,11 +165,10 @@ public struct BalancingEnergyView: View {
       .onAppear { store.send(.onAppear) }
       .onChange(of: scenePhase) { _, phase in
         // Backgrounding is not the end of a session, but it does stop it: nothing runs while the
-        // app is out of sight, and coming back resumes from the same slide.
-        switch phase {
-        case .active: store.send(.didBecomeActive)
-        case .background, .inactive: store.send(.didEnterBackground)
-        @unknown default: break
+        // app is out of sight, and coming back resumes from the same slide. A passing interruption
+        // is not a departure — see `forScenePhase`.
+        if let action = BalancingEnergy.Action.forScenePhase(phase) {
+          store.send(action)
         }
       }
       .toolbar {

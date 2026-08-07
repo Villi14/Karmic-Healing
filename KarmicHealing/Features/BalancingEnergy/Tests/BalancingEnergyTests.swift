@@ -6,6 +6,7 @@ import Common
 import ComposableArchitecture
 import ConcurrencyExtras
 import Foundation
+import SwiftUI
 import XCTest
 @testable import BalancingEnergy
 
@@ -505,5 +506,21 @@ final class BalancingEnergyTests: XCTestCase {
       $0.isResting = true
     }
     await store.finish()
+  }
+
+  // MARK: - Scene phase
+
+  /// The complaint behind this: a glance at Control Center mid-meditation used to pause the session
+  /// and throw the screen back to full brightness.
+  func testAPassingInterruptionIsNotADeparture() {
+    XCTAssertNil(
+      BalancingEnergy.Action.forScenePhase(.inactive),
+      "Control Center, the app switcher and a call banner all read as inactive, and none of them means the user left"
+    )
+  }
+
+  func testLeavingTheAppStopsTheSessionAndReturningResumesIt() {
+    XCTAssertEqual(BalancingEnergy.Action.forScenePhase(.background), .didEnterBackground)
+    XCTAssertEqual(BalancingEnergy.Action.forScenePhase(.active), .didBecomeActive)
   }
 }

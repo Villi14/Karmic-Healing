@@ -33,6 +33,4 @@ public enum DesignConstants {
   /// The countdown ring that shows when the slide turns next.
   public static let watchRingSize: CGFloat = 14
   public static let watchRingLineWidth: CGFloat = 2
-  /// The black resting layer fades at the same gentle pace as the phone's brightness ramp.
-  public static let watchScreenFadeDuration: TimeInterval = 0.8
 }

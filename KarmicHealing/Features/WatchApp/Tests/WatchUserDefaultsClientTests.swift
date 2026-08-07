@@ -11,17 +11,14 @@ final class WatchUserDefaultsClientTests: XCTestCase {
   /// a rename on both.
   func testTypeSafeKeysUseExpectedRawValues() {
     XCTAssertEqual(BoolKey.soundEnabled.rawValue, "sound_enabled")
-    XCTAssertEqual(BoolKey.vibrationEnabled.rawValue, "vibration_enabled")
     XCTAssertEqual(BoolKey.hasActiveMeditation.rawValue, "has_active_meditation")
     XCTAssertEqual(BoolKey.activeMeditationCompleted.rawValue, "active_meditation_completed")
-    XCTAssertEqual(BoolKey.screenRestEnabled.rawValue, "screen_rest_enabled")
     XCTAssertEqual(StringKey.userLanguage.rawValue, "user_language")
     XCTAssertEqual(StringKey.userTheme.rawValue, "user_theme")
     XCTAssertEqual(StringKey.activeMeditationTitle.rawValue, "active_meditation_title")
     XCTAssertEqual(IntKey.lastCompletedStep.rawValue, "last_completed_step")
     XCTAssertEqual(IntKey.sessionDuration.rawValue, "session_duration")
     XCTAssertEqual(IntKey.activeMeditationStep.rawValue, "active_meditation_step")
-    XCTAssertEqual(IntKey.screenRestDelay.rawValue, "screen_rest_delay")
     XCTAssertEqual(FloatKey.audioVolume.rawValue, "audio_volume")
   }
 
@@ -54,7 +51,7 @@ final class WatchUserDefaultsClientTests: XCTestCase {
     XCTAssertEqual(client.float(for: .audioVolume), 0.25)
     XCTAssertEqual(client.integer(for: .sessionDuration), 15)
     XCTAssertEqual(client.string(for: .userLanguage), "uk")
-    XCTAssertEqual(client.object(for: .vibrationEnabled) as? Bool, true)
+    XCTAssertEqual(client.object(for: .hasActiveMeditation) as? Bool, true)
 
     XCTAssertEqual(
       requestedKeys.value,
@@ -63,26 +60,9 @@ final class WatchUserDefaultsClientTests: XCTestCase {
         "audio_volume",
         "session_duration",
         "user_language",
-        "vibration_enabled"
+        "has_active_meditation"
       ]
     )
-  }
-
-  /// Screen rest is on until the user turns it off, so "never touched" has to read as on while
-  /// a stored `false` reads as off — `bool(forKey:)` alone answers `false` to both.
-  func testAFlagThatWasNeverSetFallsBackToItsDefault() {
-    let untouched = WatchUserDefaultsClient.mock(
-      boolForKey: { _ in false },
-      objectForKey: { _ in nil }
-    )
-    XCTAssertTrue(untouched.bool(for: .screenRestEnabled, default: true))
-    XCTAssertFalse(untouched.bool(for: .screenRestEnabled, default: false))
-
-    let turnedOff = WatchUserDefaultsClient.mock(
-      boolForKey: { _ in false },
-      objectForKey: { _ in false }
-    )
-    XCTAssertFalse(turnedOff.bool(for: .screenRestEnabled, default: true))
   }
 
   @MainActor

@@ -5,6 +5,7 @@
 import ComposableArchitecture
 import ConcurrencyExtras
 import Foundation
+import SwiftUI
 import XCTest
 @testable import KarmicHealingWatch
 
@@ -20,30 +21,19 @@ final class WatchBalancingEnergyTests: XCTestCase {
   }
 
   /// What `WatchSettings.State.withLoadedSettings` produces from the test UserDefaults client.
-  private static func loadedSettings(
-    sessionDuration: Int = 5,
-    screenRestEnabled: Bool = true,
-    screenRestDelay: Int = WatchBalancingEnergy.defaultRestDelay
-  ) -> WatchSettings.State {
+  private static func loadedSettings(sessionDuration: Int = 5) -> WatchSettings.State {
     .init(
       soundEnabled: false,
-      vibrationEnabled: false,
       audioVolume: 1.0,
       sessionDuration: sessionDuration,
-      userLanguage: "en",
-      screenRestEnabled: screenRestEnabled,
-      screenRestDelay: screenRestDelay
+      userLanguage: "en"
     )
   }
 
   /// A session already running at `start`, with a five-minute step.
-  ///
-  /// Screen rest is off by default here so the timer tests read plainly; the rest tests turn it on.
   private func makeRunningState(
     currentStep: Int = 0,
-    steps: [Step] = Step.part2,
-    restEnabled: Bool = false,
-    restDelay: Int = 30
+    steps: [Step] = Step.part2
   ) -> WatchBalancingEnergy.State {
     .init(
       title: "essential_self",
@@ -52,10 +42,7 @@ final class WatchBalancingEnergyTests: XCTestCase {
       steps: steps,
       timer: SessionTimer(minutes: 5, startedAt: start),
       now: start,
-      isRunning: true,
-      lastWokeAt: start,
-      restEnabled: restEnabled,
-      restDelay: restDelay
+      isRunning: true
     )
   }
 
@@ -67,7 +54,6 @@ final class WatchBalancingEnergyTests: XCTestCase {
     await store.send(.nextStep) {
       $0.currentStep = 1
       $0.timer.restart(at: self.start)
-      $0.lastWokeAt = self.start
     }
     await store.finish()
   }
@@ -101,7 +87,6 @@ final class WatchBalancingEnergyTests: XCTestCase {
     await store.send(.previousStep) {
       $0.currentStep = 1
       $0.timer.restart(at: self.start)
-      $0.lastWokeAt = self.start
     }
     await store.finish()
   }
@@ -127,8 +112,6 @@ final class WatchBalancingEnergyTests: XCTestCase {
       $0.timer = SessionTimer(minutes: 1, startedAt: self.start)
       $0.isRunning = true
       // The same stub backs every integer key, so the rest delay reads 1 too.
-      $0.restDelay = 1
-      $0.lastWokeAt = self.start
     }
     await store.send(.onDisappear)
     await store.finish()
@@ -154,8 +137,6 @@ final class WatchBalancingEnergyTests: XCTestCase {
       $0.now = self.start
       $0.timer = SessionTimer(minutes: 5, startedAt: self.start)
       $0.isRunning = true
-      $0.restDelay = 5
-      $0.lastWokeAt = self.start
     }
 
     let due = start.addingTimeInterval(300)
@@ -165,7 +146,6 @@ final class WatchBalancingEnergyTests: XCTestCase {
       $0.now = due
       _ = $0.timer.consumeElapsedSteps(at: due)
       $0.currentStep = 1
-      $0.lastWokeAt = due
     }
 
     await store.send(.onDisappear)
@@ -187,8 +167,6 @@ final class WatchBalancingEnergyTests: XCTestCase {
 
     await store.send(.onAppear) {
       $0.now = self.start
-      $0.restEnabled = true
-      $0.lastWokeAt = self.start
     }
     XCTAssertEqual(store.state.currentStep, 2)
     XCTAssertTrue(store.state.isRunning)
@@ -215,7 +193,6 @@ final class WatchBalancingEnergyTests: XCTestCase {
       $0.now = back
       _ = $0.timer.consumeElapsedSteps(at: back)
       $0.currentStep = 4
-      $0.lastWokeAt = back
     }
     await store.finish()
   }
@@ -232,10 +209,7 @@ final class WatchBalancingEnergyTests: XCTestCase {
       _ = $0.timer.consumeElapsedSteps(at: due)
       $0.currentStep = steps.count - 1
     }
-    await store.receive(.completeSteps) {
-      $0.isCompleted = true
-      $0.isResting = false
-    }
+    await store.receive(.completeSteps) { $0.isCompleted = true }
     await store.finish()
   }
 
@@ -283,7 +257,6 @@ final class WatchBalancingEnergyTests: XCTestCase {
       $0.now = back
       $0.timer.resume(at: back)
       $0.pausedByBackground = false
-      $0.lastWokeAt = back
     }
     XCTAssertEqual(store.state.remaining, 300, "the step the user left on still has its full length")
 
@@ -304,19 +277,13 @@ final class WatchBalancingEnergyTests: XCTestCase {
       $0.date = .init { now.value }
     }
 
-    await store.send(.pauseToggled) {
-      $0.timer.pause(at: self.start)
-      $0.lastWokeAt = self.start
-    }
+    await store.send(.pauseToggled) { $0.timer.pause(at: self.start) }
     // Already paused, so backgrounding takes no pause of its own — and must not lift the user's.
     await store.send(.didEnterBackground)
 
     let back = start.addingTimeInterval(60)
     now.setValue(back)
-    await store.send(.didBecomeActive) {
-      $0.now = back
-      $0.lastWokeAt = back
-    }
+    await store.send(.didBecomeActive) { $0.now = back }
 
     XCTAssertTrue(store.state.isPaused, "coming back must not start a session the user stopped")
 
@@ -333,10 +300,7 @@ final class WatchBalancingEnergyTests: XCTestCase {
       $0.date = .init { now.value }
     }
 
-    await store.send(.pauseToggled) {
-      $0.timer.pause(at: self.start)
-      $0.lastWokeAt = self.start
-    }
+    await store.send(.pauseToggled) { $0.timer.pause(at: self.start) }
 
     let later = start.addingTimeInterval(3_600)
     now.setValue(later)
@@ -354,14 +318,8 @@ final class WatchBalancingEnergyTests: XCTestCase {
       WatchBalancingEnergy()
     }
 
-    await store.send(.pauseToggled) {
-      $0.timer.pause(at: self.start.addingTimeInterval(120))
-      $0.lastWokeAt = self.start.addingTimeInterval(120)
-    }
-    await store.send(.pauseToggled) {
-      $0.timer.resume(at: self.start.addingTimeInterval(120))
-      $0.lastWokeAt = self.start.addingTimeInterval(120)
-    }
+    await store.send(.pauseToggled) { $0.timer.pause(at: self.start.addingTimeInterval(120)) }
+    await store.send(.pauseToggled) { $0.timer.resume(at: self.start.addingTimeInterval(120)) }
 
     XCTAssertEqual(store.state.remaining, 180)
     await store.finish()
@@ -381,7 +339,6 @@ final class WatchBalancingEnergyTests: XCTestCase {
     await store.send(.nextStep) {
       $0.currentStep = 3
       $0.timer.restart(at: self.start)
-      $0.lastWokeAt = self.start
     }
     await store.finish()
 
@@ -421,140 +378,67 @@ final class WatchBalancingEnergyTests: XCTestCase {
     XCTAssertEqual(store.state.remaining, 60, "the new pace takes hold under the user at once")
   }
 
-  // MARK: - Screen rest
+  // MARK: - Feedback
 
-  func testTheScreenRestsAfterTheChosenStillness() async {
-    let now = LockIsolated(start)
+  /// With the arm down the watch can neither light its display nor be looked at, so the buzz is
+  /// the only thing left that can announce a step — and it answers to no setting.
+  func testEveryStepBuzzesTheWristEvenWithSoundOff() async {
+    let buzzes = LockIsolated(0)
+    let played = LockIsolated<[String]>([])
 
-    let store = TestStore(initialState: makeRunningState(restEnabled: true, restDelay: 30)) {
+    let store = TestStore(initialState: makeRunningState()) {
       WatchBalancingEnergy()
     } withDependencies: {
-      $0.date = .init { now.value }
+      $0.watchRuntime.notify = { buzzes.withValue { $0 += 1 } }
+      $0.watchUserDefaults.boolForKey = { _ in false }
+      $0.audio.playSound = { name, ext in played.withValue { $0.append("\(name).\(ext)") } }
     }
 
-    // Still short of the delay.
-    let early = start.addingTimeInterval(29)
-    now.setValue(early)
-    await store.send(.timerTicked(early)) { $0.now = early }
-    XCTAssertFalse(store.state.isResting)
-
-    let restDue = start.addingTimeInterval(30)
-    now.setValue(restDue)
-    await store.send(.timerTicked(restDue)) {
-      $0.now = restDue
-      $0.isResting = true
-    }
-
-    // The step falling due lights the screen back up — that is the point of resting.
-    let stepDue = start.addingTimeInterval(300)
-    now.setValue(stepDue)
-    await store.send(.timerTicked(stepDue)) {
-      $0.now = stepDue
-      _ = $0.timer.consumeElapsedSteps(at: stepDue)
+    await store.send(.nextStep) {
       $0.currentStep = 1
-      $0.isResting = false
-      $0.lastWokeAt = stepDue
+      $0.timer.restart(at: self.start)
     }
     await store.finish()
+
+    XCTAssertEqual(buzzes.value, 1)
+    XCTAssertEqual(played.value, [], "sound is still the user's to turn off")
   }
 
-  func testTappingTheRestingScreenBringsTheStepBack() async {
-    var state = makeRunningState(restEnabled: true)
-    state.isResting = true
+  func testASoundJoinsTheBuzzWhenTheUserAsksForOne() async {
+    let buzzes = LockIsolated(0)
+    let played = LockIsolated<[String]>([])
 
-    let store = TestStore(initialState: state) {
-      WatchBalancingEnergy()
-    }
-
-    await store.send(.screenTapped) {
-      $0.isResting = false
-      $0.lastWokeAt = self.start
-    }
-    await store.finish()
-  }
-
-  func testTappingAnAwakeScreenPostponesTheNextRest() async {
-    var state = makeRunningState(restEnabled: true)
-    state.lastWokeAt = start.addingTimeInterval(-60)
-
-    let store = TestStore(initialState: state) {
-      WatchBalancingEnergy()
-    }
-
-    await store.send(.screenTapped) {
-      $0.lastWokeAt = self.start
-    }
-    await store.finish()
-  }
-
-  func testAPausedSessionNeverRests() async {
-    let now = LockIsolated(start)
-
-    let store = TestStore(initialState: makeRunningState(restEnabled: true, restDelay: 30)) {
+    let store = TestStore(initialState: makeRunningState()) {
       WatchBalancingEnergy()
     } withDependencies: {
-      $0.date = .init { now.value }
+      $0.watchRuntime.notify = { buzzes.withValue { $0 += 1 } }
+      $0.watchUserDefaults.boolForKey = { _ in true }
+      $0.audio.playSound = { name, ext in played.withValue { $0.append("\(name).\(ext)") } }
     }
 
-    await store.send(.pauseToggled) {
-      $0.timer.pause(at: self.start)
-      $0.lastWokeAt = self.start
+    // A step falling due on its own is the case that matters: the user is not holding the watch.
+    let due = start.addingTimeInterval(300)
+    await store.send(.timerTicked(due)) {
+      $0.now = due
+      _ = $0.timer.consumeElapsedSteps(at: due)
+      $0.currentStep = 1
     }
-
-    let wellPast = start.addingTimeInterval(600)
-    now.setValue(wellPast)
-    await store.send(.timerTicked(wellPast)) { $0.now = wellPast }
-    XCTAssertFalse(store.state.isResting)
     await store.finish()
+
+    XCTAssertEqual(buzzes.value, 1)
+    XCTAssertEqual(played.value, ["ding.wav"])
   }
 
-  func testRestTurnedOffInSettingsKeepsTheScreenLit() async {
-    let now = LockIsolated(start)
+  // MARK: - Scene phase
 
-    let store = TestStore(initialState: makeRunningState(restEnabled: false)) {
-      WatchBalancingEnergy()
-    } withDependencies: {
-      $0.date = .init { now.value }
-    }
-
-    let wellPast = start.addingTimeInterval(240)
-    now.setValue(wellPast)
-    await store.send(.timerTicked(wellPast)) { $0.now = wellPast }
-    XCTAssertFalse(store.state.isResting)
-    await store.finish()
+  /// The posture a meditation is done in: the wrist drops, the app goes inactive, and the runtime
+  /// session carries the steps on regardless.
+  func testADroppedWristIsNotADeparture() {
+    XCTAssertNil(WatchBalancingEnergy.Action.forScenePhase(.inactive))
   }
 
-  func testLeavingTheSessionClearsTheRest() async {
-    var state = makeRunningState(restEnabled: true)
-    state.isResting = true
-
-    let store = TestStore(initialState: state) {
-      WatchBalancingEnergy()
-    }
-
-    await store.send(.onDisappear) { $0.isResting = false }
-    await store.finish()
-  }
-
-  func testSettingsWakeTheScreenSoTheChangeIsSeen() async {
-    var state = makeRunningState(restEnabled: true)
-    state.isResting = true
-
-    let store = TestStore(initialState: state) {
-      WatchBalancingEnergy()
-    }
-
-    await store.send(.didTapSettings) { $0.destination = .settings(Self.loadedSettings()) }
-    await store.send(.destination(.presented(.settings(.setScreenRestDelay(120))))) {
-      $0.destination = .settings(Self.loadedSettings(screenRestDelay: 120))
-      $0.restDelay = 120
-      $0.isResting = false
-      $0.lastWokeAt = self.start
-    }
-    await store.send(.destination(.presented(.settings(.toggleScreenRest(false))))) {
-      $0.destination = .settings(Self.loadedSettings(screenRestEnabled: false, screenRestDelay: 120))
-      $0.restEnabled = false
-    }
-    await store.finish()
+  func testLeavingTheAppStopsTheSessionAndReturningResumesIt() {
+    XCTAssertEqual(WatchBalancingEnergy.Action.forScenePhase(.background), .didEnterBackground)
+    XCTAssertEqual(WatchBalancingEnergy.Action.forScenePhase(.active), .didBecomeActive)
   }
 }

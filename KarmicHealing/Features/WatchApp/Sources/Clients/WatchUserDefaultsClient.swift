@@ -123,15 +123,12 @@ extension WatchUserDefaultsClient {
     public static let lastCompletedStep = "last_completed_step"
     public static let sessionDuration = "session_duration"
     public static let soundEnabled = "sound_enabled"
-    public static let vibrationEnabled = "vibration_enabled"
     public static let audioVolume = "audio_volume"
     public static let userTheme = "user_theme"
     public static let activeMeditationTitle = "active_meditation_title"
     public static let activeMeditationStep = "active_meditation_step"
     public static let activeMeditationCompleted = "active_meditation_completed"
     public static let hasActiveMeditation = "has_active_meditation"
-    public static let screenRestEnabled = "screen_rest_enabled"
-    public static let screenRestDelay = "screen_rest_delay"
   }
 }
 
@@ -144,10 +141,8 @@ public struct BoolKey {
   }
 
   public static let soundEnabled = BoolKey(WatchUserDefaultsClient.Keys.soundEnabled)
-  public static let vibrationEnabled = BoolKey(WatchUserDefaultsClient.Keys.vibrationEnabled)
   public static let activeMeditationCompleted = BoolKey(WatchUserDefaultsClient.Keys.activeMeditationCompleted)
   public static let hasActiveMeditation = BoolKey(WatchUserDefaultsClient.Keys.hasActiveMeditation)
-  public static let screenRestEnabled = BoolKey(WatchUserDefaultsClient.Keys.screenRestEnabled)
 }
 
 public struct StringKey {
@@ -172,7 +167,6 @@ public struct IntKey {
   public static let lastCompletedStep = IntKey(WatchUserDefaultsClient.Keys.lastCompletedStep)
   public static let sessionDuration = IntKey(WatchUserDefaultsClient.Keys.sessionDuration)
   public static let activeMeditationStep = IntKey(WatchUserDefaultsClient.Keys.activeMeditationStep)
-  public static let screenRestDelay = IntKey(WatchUserDefaultsClient.Keys.screenRestDelay)
 }
 
 public struct FloatKey {
@@ -190,12 +184,6 @@ extension WatchUserDefaultsClient {
   // MARK: - Type-safe getters
   public func bool(for key: BoolKey) -> Bool {
     boolForKey(key.rawValue)
-  }
-
-  /// A stored flag, or `fallback` when the user has never set it — `bool(forKey:)` alone cannot
-  /// tell "off" from "never touched", which matters for settings that default to on.
-  public func bool(for key: BoolKey, default fallback: Bool) -> Bool {
-    objectForKey(key.rawValue) == nil ? fallback : boolForKey(key.rawValue)
   }
 
   public func string(for key: StringKey) -> String? {

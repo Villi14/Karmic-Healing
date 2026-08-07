@@ -44,14 +44,9 @@ final class WatchBalancingEnergyListTests: XCTestCase {
     await store.send(.openSettings) {
       $0.settings = WatchSettings.State(
         soundEnabled: true,
-        vibrationEnabled: true,
         audioVolume: 0.3,
         sessionDuration: 10,
-        userLanguage: "uk",
-        // The rest flag was never written, so it keeps its default; the delay shares the
-        // integer stub with the duration.
-        screenRestEnabled: true,
-        screenRestDelay: 10
+        userLanguage: "uk"
       )
     }
   }

@@ -6,6 +6,7 @@ import ComposableArchitecture
 import Common
 import Foundation
 import OSLog
+import SwiftUI
 import UIKit
 
 @Reducer
@@ -392,6 +393,24 @@ public struct BalancingEnergy {
           UIImpactFeedbackGenerator(style: .medium).impactOccurred()
         }
       }
+    }
+  }
+}
+
+// MARK: - Scene phase
+
+extension BalancingEnergy.Action {
+  /// What a change of scene phase means to a session, if anything.
+  ///
+  /// `.inactive` is deliberately not a departure. iOS reports it for every passing interruption —
+  /// Control Center or the notification shade pulled down, the app switcher, a call banner, Face ID
+  /// — and reading those as leaving would pause the meditation, hand the screen its full brightness
+  /// back and start the countdown to the next rest from zero. The user has not gone anywhere.
+  public static func forScenePhase(_ phase: ScenePhase) -> BalancingEnergy.Action? {
+    switch phase {
+    case .active: .didBecomeActive
+    case .background: .didEnterBackground
+    default: nil
     }
   }
 }

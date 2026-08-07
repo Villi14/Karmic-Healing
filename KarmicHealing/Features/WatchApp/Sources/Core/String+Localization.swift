@@ -26,11 +26,6 @@ public extension String {
         "ru": "Звук",
         "uk": "Звук"
       ],
-      "vibration": [
-        "en": "Vibration",
-        "ru": "Вибрация",
-        "uk": "Вібрація"
-      ],
       "duration": [
         "en": "Duration",
         "ru": "Длительность",
@@ -45,21 +40,6 @@ public extension String {
         "en": "min",
         "ru": "мин",
         "uk": "хв"
-      ],
-      "sec": [
-        "en": "sec",
-        "ru": "сек",
-        "uk": "с"
-      ],
-      "delay": [
-        "en": "Delay",
-        "ru": "Задержка",
-        "uk": "Затримка"
-      ],
-      "screen_rest": [
-        "en": "Screen rest",
-        "ru": "Отдых экрана",
-        "uk": "Відпочинок екрана"
       ],
       "en": [
         "en": "English",

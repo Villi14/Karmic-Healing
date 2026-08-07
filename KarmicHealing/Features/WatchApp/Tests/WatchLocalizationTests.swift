@@ -15,13 +15,13 @@ final class WatchLocalizationTests: XCTestCase {
 
   /// Every word the screens ask for by hand, next to what the steps ask for.
   private let interfaceKeys = [
-    "essential_self", "divine_self", "settings", "sound", "vibration", "duration", "language",
-    "min", "sec", "delay", "screen_rest", "paused", "pause", "resume", "en", "uk", "ru"
+    "essential_self", "divine_self", "settings", "sound", "duration", "language",
+    "min", "paused", "pause", "resume", "en", "uk", "ru"
   ]
 
-  /// Two abbreviations are their own English word, so for these the translation matching the key
-  /// is the translation rather than a missing entry.
-  private let keysThatAreTheirOwnEnglishWord: Set<String> = ["min", "sec"]
+  /// The abbreviation is its own English word, so here the translation matching the key is the
+  /// translation rather than a missing entry.
+  private let keysThatAreTheirOwnEnglishWord: Set<String> = ["min"]
 
   func testEveryStepOfEveryPartIsTranslatedIntoEveryLanguage() {
     for step in Step.part2 + Step.part3 {
