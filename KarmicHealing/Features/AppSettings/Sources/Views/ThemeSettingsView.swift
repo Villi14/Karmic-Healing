@@ -118,11 +118,15 @@ public struct ThemeSettingsView: View {
   }
 
   private func doneButton(_ store: StoreOf<ThemeSettings>) -> some View {
-    Button("done".loc) {
+    Button {
       store.send(.done)
+    } label: {
+      Text("done".loc)
+        .multilineTextAlignment(.center)
+        .fixedSize(horizontal: false, vertical: true)
+        .frame(maxWidth: .infinity)
     }
     .buttonStyle(.karmic(level: .brow))
-    .frame(maxWidth: .infinity)
   }
 }
 

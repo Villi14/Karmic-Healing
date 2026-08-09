@@ -101,6 +101,7 @@ public struct BalancingEnergyHelpView: View {
               .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
             
             VStack(spacing: DesignConstants.helpTipSpacing) {
+              tipRow(text: "help_tip_initial_process".loc)
               tipRow(text: "help_tip_1".loc)
               tipRow(text: "help_tip_2".loc)
               tipRow(text: "help_tip_3".loc)

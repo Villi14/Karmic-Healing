@@ -31,6 +31,7 @@ public struct Module: Sendable {
     dependencies: [TargetDependency],
     resources: Resources,
     hasSources: Bool = true,
+    scripts: [TargetScript] = [],
     unitTests: UnitTests = .notPresent
   ) {
     let destinations: Set<Destination> = [.iPhone]
@@ -47,6 +48,7 @@ public struct Module: Sendable {
       dependencies: dependencies,
       resources: resources,
       hasSources: hasSources,
+      scripts: scripts,
       unitTests: unitTests,
       destinations: destinations,
       deploymentTargets: deploymentTargets,
@@ -60,6 +62,7 @@ public struct Module: Sendable {
     dependencies: [TargetDependency],
     resources: Resources,
     hasSources: Bool,
+    scripts: [TargetScript],
     unitTests: UnitTests,
     destinations: Set<Destination>,
     deploymentTargets: DeploymentTargets,
@@ -76,6 +79,7 @@ public struct Module: Sendable {
       infoPlist: .default,
       sources: sources,
       resources: resources.resolved(feature: feature),
+      scripts: scripts,
       dependencies: dependencies,
       settings: settings
     )

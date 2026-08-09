@@ -259,7 +259,8 @@ public struct EnergyBalansingSettingsView: View {
           get: { store.vibrationEnabled },
           set: { store.send(.vibrationEnabledChanged($0)) }
         ))
-        .toggleStyle(SwitchToggleStyle(tint: ResourcesAsset.Colors.health.swiftUIColor))
+        .toggleStyle(AuraSwitchToggleStyle(level: .heart))
+        .accessibilityLabel("vibration".loc)
       }
       .padding(.horizontal, DesignConstants.paddingLarge)
       .padding(.vertical, DesignConstants.paddingMedium)
@@ -279,7 +280,8 @@ public struct EnergyBalansingSettingsView: View {
           get: { store.soundEnabled },
           set: { store.send(.soundEnabledChanged($0)) }
         ))
-        .toggleStyle(SwitchToggleStyle(tint: ResourcesAsset.Colors.health.swiftUIColor))
+        .toggleStyle(AuraSwitchToggleStyle(level: .heart))
+        .accessibilityLabel("sound".loc)
       }
       .padding(.horizontal, DesignConstants.paddingLarge)
       .padding(.vertical, DesignConstants.paddingMedium)
@@ -307,15 +309,16 @@ public struct EnergyBalansingSettingsView: View {
       .padding(.vertical, DesignConstants.paddingMedium)
       .cardStyle(level: .heart, showsWatermark: false)
 
-      Slider(
+      AuraSlider(
         value: Binding(
           get: { store.audioVolume },
           set: { store.send(.audioVolumeChanged($0)) }
         ),
         in: 0.0...1.0,
-        step: 0.1
+        step: 0.1,
+        level: .heart
       )
-      .accentColor(ResourcesAsset.Colors.health.swiftUIColor)
+      .accessibilityLabel("volume".loc)
       .disabled(!store.soundEnabled)
       .padding(.horizontal, DesignConstants.paddingLarge)
     }
@@ -338,7 +341,8 @@ public struct EnergyBalansingSettingsView: View {
           get: { store.screenRestEnabled },
           set: { store.send(.screenRestEnabledChanged($0)) }
         ))
-        .toggleStyle(SwitchToggleStyle(tint: ResourcesAsset.Colors.health.swiftUIColor))
+        .toggleStyle(AuraSwitchToggleStyle(level: .heart))
+        .accessibilityLabel("screen_rest".loc)
       }
       .padding(.horizontal, DesignConstants.paddingLarge)
       .padding(.vertical, DesignConstants.paddingMedium)
@@ -363,10 +367,121 @@ public struct EnergyBalansingSettingsView: View {
   }
 
   private func doneButton(_ store: StoreOf<EnergyBalansingSettings>) -> some View {
-    Button("done".loc) {
+    Button {
       store.send(.done)
+    } label: {
+      Text("done".loc)
+        .multilineTextAlignment(.center)
+        .fixedSize(horizontal: false, vertical: true)
+        .frame(maxWidth: .infinity)
     }
     .buttonStyle(.karmic(level: .heart))
-    .frame(maxWidth: .infinity)
+  }
+}
+
+/// A switch whose active track carries the same two-tone aura as the screen.
+private struct AuraSwitchToggleStyle: ToggleStyle {
+  let level: Spectrum
+
+  func makeBody(configuration: Configuration) -> some View {
+    Button {
+      configuration.isOn.toggle()
+    } label: {
+      ZStack {
+        Capsule()
+          .fill(configuration.isOn
+            ? AnyShapeStyle(AuraGradient.horizontal(for: level))
+            : AnyShapeStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(0.28)))
+
+        Circle()
+          .fill(.white)
+          .padding(2)
+          .shadow(color: .black.opacity(0.16), radius: 2, y: 1)
+          .offset(x: configuration.isOn ? 10 : -10)
+      }
+      .frame(width: 51, height: 31)
+      .contentShape(Capsule())
+    }
+    .buttonStyle(.plain)
+    .animation(Motion.touch, value: configuration.isOn)
+  }
+}
+
+/// A native-feeling slider with a gradient-filled progress track.
+private struct AuraSlider: View {
+  @Binding var value: Float
+
+  let range: ClosedRange<Float>
+  let step: Float
+  let level: Spectrum
+
+  @Environment(\.isEnabled) private var isEnabled
+
+  init(
+    value: Binding<Float>,
+    in range: ClosedRange<Float>,
+    step: Float,
+    level: Spectrum
+  ) {
+    _value = value
+    self.range = range
+    self.step = step
+    self.level = level
+  }
+
+  var body: some View {
+    GeometryReader { proxy in
+      let thumbDiameter: CGFloat = 28
+      let availableWidth = max(proxy.size.width - thumbDiameter, 1)
+      let progress = CGFloat((value - range.lowerBound) / (range.upperBound - range.lowerBound))
+      let thumbX = thumbDiameter / 2 + availableWidth * min(max(progress, 0), 1)
+
+      ZStack(alignment: .leading) {
+        Capsule()
+          .fill(ResourcesAsset.Colors.textSecondary.swiftUIColor.opacity(0.20))
+          .frame(height: 6)
+          .padding(.horizontal, thumbDiameter / 2)
+
+        Capsule()
+          .fill(AuraGradient.horizontal(for: level))
+          .frame(width: availableWidth * min(max(progress, 0), 1), height: 6)
+          .padding(.leading, thumbDiameter / 2)
+
+        Circle()
+          .fill(.white)
+          .overlay {
+            Circle()
+              .stroke(AuraGradient.gradient(for: level), lineWidth: 2)
+          }
+          .shadow(color: .black.opacity(0.16), radius: 3, y: 1)
+          .frame(width: thumbDiameter, height: thumbDiameter)
+          .position(x: thumbX, y: proxy.size.height / 2)
+      }
+      .contentShape(Rectangle())
+      .gesture(
+        DragGesture(minimumDistance: 0)
+          .onChanged { gesture in
+            guard isEnabled else { return }
+            updateValue(for: gesture.location.x, availableWidth: availableWidth, thumbDiameter: thumbDiameter)
+          }
+      )
+    }
+    .frame(height: 32)
+    .opacity(isEnabled ? 1 : DesignConstants.opacityMedium)
+    .accessibilityRepresentation {
+      Slider(value: $value, in: range, step: step)
+    }
+  }
+
+  private func updateValue(
+    for location: CGFloat,
+    availableWidth: CGFloat,
+    thumbDiameter: CGFloat
+  ) {
+    let progress = min(max((location - thumbDiameter / 2) / availableWidth, 0), 1)
+    let rawValue = range.lowerBound + Float(progress) * (range.upperBound - range.lowerBound)
+    let steppedValue = range.lowerBound
+      + ((rawValue - range.lowerBound) / step).rounded() * step
+    value = min(max(steppedValue, range.lowerBound), range.upperBound)
   }
 }

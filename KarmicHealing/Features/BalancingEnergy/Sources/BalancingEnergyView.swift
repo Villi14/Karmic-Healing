@@ -116,8 +116,10 @@ public struct BalancingEnergyView: View {
 
           HStack {
             if store.currentStep > 0 {
-              Button("back".loc) {
+              Button {
                 store.send(.previousStep)
+              } label: {
+                navigationButtonLabel("back".loc)
               }
               .buttonStyle(.karmic(
                 tone: tone(for: store),
@@ -125,12 +127,12 @@ public struct BalancingEnergyView: View {
               ))
             }
 
-            Spacer()
-
             // Finishing leaves the screen too, but the session does that itself once it has
             // stored what it has to store.
-            Button(store.isLastStep ? "done".loc : "next".loc) {
+            Button {
               store.send(store.isLastStep ? .completeSteps : .nextStep)
+            } label: {
+              navigationButtonLabel(store.isLastStep ? "done".loc : "next".loc)
             }
             .buttonStyle(.karmic(
               tone: tone(for: store),
@@ -197,6 +199,13 @@ public struct BalancingEnergyView: View {
   private func progress(of step: Int, in count: Int) -> Double {
     guard count > 1 else { return 0 }
     return Double(step) / Double(count - 1)
+  }
+
+  private func navigationButtonLabel(_ title: String) -> some View {
+    Text(title)
+      .multilineTextAlignment(.center)
+      .fixedSize(horizontal: false, vertical: true)
+      .frame(maxWidth: .infinity)
   }
 
   private func tone(for store: StoreOf<BalancingEnergy>) -> Color {

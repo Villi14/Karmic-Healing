@@ -1,2 +1,2 @@
-extern module UIKitNavigationShim "/Users/villi/Projects/karmic_healing/KarmicHealing/Tuist/.build/tuist-derived/ModuleMaps/UIKitNavigationShim/UIKitNavigationShim.modulemap"
-extern module _SwiftSyntaxCShims "/Users/villi/Projects/karmic_healing/KarmicHealing/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap"
+extern module UIKitNavigationShim "/Users/villi/Projects/KarmicHealing/KarmicHealing/Tuist/.build/tuist-derived/ModuleMaps/UIKitNavigationShim/UIKitNavigationShim.modulemap"
+extern module _SwiftSyntaxCShims "/Users/villi/Projects/KarmicHealing/KarmicHealing/Tuist/.build/checkouts/swift-syntax/Sources/_SwiftSyntaxCShims/include/module.modulemap"

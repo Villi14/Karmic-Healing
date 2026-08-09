@@ -155,8 +155,10 @@ public struct OnboardingView: View {
   private func bottomButtons(store: StoreOf<Onboarding>) -> some View {
     HStack {
       if store.currentStep > 0 {
-        Button("back".loc) {
+        Button {
           store.send(.previousStep)
+        } label: {
+          navigationButtonLabel("back".loc)
         }
         .buttonStyle(.karmic(
           tone: tone(for: store),
@@ -164,19 +166,26 @@ public struct OnboardingView: View {
         ))
       }
 
-      Spacer()
-
-      Button(store.currentStep == store.steps.count - 1 ?
-             "done".loc :
-              "next".loc) {
+      Button {
         store.send(.nextStep)
+      } label: {
+        navigationButtonLabel(
+          store.currentStep == store.steps.count - 1 ? "done".loc : "next".loc
+        )
       }
-              .buttonStyle(.karmic(
-                tone: tone(for: store),
-                gradient: AuraGradient.gradient(for: level(for: store))
-              ))
+      .buttonStyle(.karmic(
+        tone: tone(for: store),
+        gradient: AuraGradient.gradient(for: level(for: store))
+      ))
     }
     .padding(DesignConstants.paddingLarge)
+  }
+
+  private func navigationButtonLabel(_ title: String) -> some View {
+    Text(title)
+      .multilineTextAlignment(.center)
+      .fixedSize(horizontal: false, vertical: true)
+      .frame(maxWidth: .infinity)
   }
 }
 

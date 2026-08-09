@@ -19,7 +19,7 @@
       disablePerformanceAntipatternChecker = "YES"
       launchStyle = "0"
       useCustomWorkingDirectory = "YES"
-      customWorkingDirectory = "/Users/villi/Projects/karmic_healing/KarmicHealing"
+      customWorkingDirectory = "/Users/villi/Projects/KarmicHealing/KarmicHealing"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
