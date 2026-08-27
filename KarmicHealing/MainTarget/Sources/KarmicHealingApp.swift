@@ -34,7 +34,9 @@ struct KarmicHealingApp: App {
   var body: some Scene {
     WindowGroup {
       if context == .live {
-        KarmicHealingView(store: delegate.store)
+        AppLockView {
+          KarmicHealingView(store: delegate.store)
+        }
       }
     }
   }

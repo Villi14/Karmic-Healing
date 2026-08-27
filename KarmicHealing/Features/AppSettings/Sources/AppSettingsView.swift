@@ -9,6 +9,7 @@ import Common
 
 public struct AppSettingsView: View {
   @SwiftUI.Environment(\.dismiss) var dismiss
+  @AppStorage(UserDefaultsClient.Keys.appLockEnabled) private var appLockEnabled = false
 
   @Bindable var store: StoreOf<AppSettings>
 
@@ -36,6 +37,8 @@ public struct AppSettingsView: View {
             store.send(.didTapChangeLanguage)
           }
 
+          appLockRow
+
           DisclosureCell("privacy_policy".loc, tone: Spectrum.crown.color) {
             store.send(.didTapPrivacyPolicy)
           }
@@ -52,6 +55,30 @@ public struct AppSettingsView: View {
       .karmicContentWidth()
     }
     .font(Typography.title)
+  }
+
+  private var appLockRow: some View {
+    HStack(spacing: DesignConstants.spacingMedium) {
+      Image(systemName: "lock.shield")
+        .font(Typography.icon)
+        .foregroundStyle(AuraGradient.gradient(for: .brow))
+        .frame(width: DesignConstants.frameHeightSmall)
+
+      VStack(alignment: .leading, spacing: DesignConstants.paddingTiny) {
+        Text("app_lock".loc)
+        Text("app_lock_description".loc)
+          .font(Typography.caption)
+          .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
+      }
+
+      Spacer(minLength: DesignConstants.spacingSmall)
+
+      Toggle("app_lock".loc, isOn: $appLockEnabled)
+        .labelsHidden()
+        .tint(Spectrum.brow.color)
+    }
+    .frame(maxWidth: .infinity, minHeight: DesignConstants.frameHeightXXLarge)
+    .padding(.horizontal, DesignConstants.paddingLarge)
   }
 
   private var settingsBase: some View {

@@ -13,6 +13,18 @@ public struct WatchSettingsView: View {
     self.store = store
   }
 
+  static let supportedLanguages = [
+    "en", "uk", "ru", "es", "pt-BR", "fr", "de", "it", "pl", "tr", "zh-Hans", "ja", "ko", "hi", "bn"
+  ]
+
+  /// Each language is listed in its own words, the way the system language picker does it —
+  /// a reader looking for their language finds it without knowing the current one.
+  static func languageName(_ identifier: String) -> String {
+    let locale = Locale(identifier: identifier)
+    let name = locale.localizedString(forIdentifier: identifier) ?? identifier
+    return name.prefix(1).uppercased(with: locale) + name.dropFirst()
+  }
+
   public var body: some View {
     NavigationView {
       ZStack {
@@ -88,8 +100,8 @@ public struct WatchSettingsView: View {
               }
 
               VStack(spacing: 8) {
-                ForEach(["en", "uk", "ru"], id: \.self) { language in
-                  SettingsButtonLabel(text: language.localized(for: Locale(identifier: userLanguage)), isSelected: store.userLanguage == language)
+                ForEach(Self.supportedLanguages, id: \.self) { language in
+                  SettingsButtonLabel(text: Self.languageName(language), isSelected: store.userLanguage == language)
                     .onTapGesture {
                       store.send(.setUserLanguage(language))
                     }

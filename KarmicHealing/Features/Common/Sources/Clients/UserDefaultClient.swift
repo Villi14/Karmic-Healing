@@ -124,6 +124,7 @@ extension UserDefaultsClient {
     public static let vibrationEnabled = "vibration_enabled"
     public static let audioVolume = "audio_volume"
     public static let userTheme = "user_theme"
+    public static let appLockEnabled = "app_lock_enabled"
     public static let initialProcessCompleted = "initial_process_completed"
     public static let activeSessionKind = "active_session_kind"
     public static let activeSessionStep = "active_session_step"
@@ -254,4 +255,3 @@ extension UserDefaultsClient {
     }
   }
 }
-

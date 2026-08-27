@@ -18,6 +18,7 @@ public let mainTargetPlist: InfoPlist = .extendingDefault(
     "UIRequiresFullScreen": .boolean(true),
     "CFBundleName": .string("KarmicHealing"),
     "CFBundleDisplayName": .string("Karmic Healing"),
+    "NSFaceIDUsageDescription": .string("Face ID protects access to your Karmic Healing information."),
     "CFBundleShortVersionString": .string(bundleShortVersionString),
     "CFBundleVersion": .string(bundleVersion),
     "LSApplicationCategoryType": .string("public.app-category.lifestyle")

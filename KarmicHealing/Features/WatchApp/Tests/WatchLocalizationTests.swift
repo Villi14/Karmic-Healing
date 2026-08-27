@@ -62,11 +62,23 @@ final class WatchLocalizationTests: XCTestCase {
     XCTAssertEqual("".localized(for: Locale(identifier: "en")), "")
   }
 
-  /// Only the three offered languages are translated, and a fourth falls through to the key
-  /// rather than to English. The settings screen never offers one, so nothing reaches this —
-  /// but a language written into storage from elsewhere would.
-  func testALanguageOutsideTheThreeFallsThroughToTheKey() {
-    XCTAssertEqual("settings".localized(for: Locale(identifier: "fr")), "settings")
+  /// Only the offered languages are translated, and any other falls through to the key rather
+  /// than to English. The settings screen never offers one, so nothing reaches this — but a
+  /// language written into storage from elsewhere would.
+  func testALanguageOutsideTheOfferedOnesFallsThroughToTheKey() {
+    XCTAssertEqual("settings".localized(for: Locale(identifier: "sv")), "settings")
+  }
+
+  /// Every language the settings picker lists has to be a language the table actually speaks.
+  func testEveryLanguageThePickerOffersIsTranslated() {
+    for identifier in WatchSettingsView.supportedLanguages {
+      let locale = Locale(identifier: identifier)
+      XCTAssertNotEqual(
+        "settings".localized(for: locale),
+        "settings",
+        "The picker offers \(identifier) but the table has no words for it"
+      )
+    }
   }
 
   // MARK: - Helpers
