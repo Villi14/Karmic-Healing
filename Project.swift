@@ -29,7 +29,7 @@ let watchAppTarget = Target.target(
     .external(name: "ConcurrencyExtras")
   ],
   settings: .settings(
-    base: [
+    base: appInfoSettings.merging([
       "ENABLE_BITCODE": "NO",
       "CODE_SIGN_STYLE": "Manual",
       "DEVELOPMENT_TEAM": "KG394T5RF5",
@@ -44,7 +44,7 @@ let watchAppTarget = Target.target(
       "STRIP_INSTALLED_PRODUCT": "YES",
       "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "SWIFT_PACKAGE",
       "SWIFT_DISABLE_SAFETY_CHECKS": "YES",
-    ],
+    ]) { _, new in new },
     debug: [
       "CODE_SIGN_IDENTITY": "Apple Development: Alexander  Velikotsky (R7UR2DF94C)",
       "PROVISIONING_PROFILE_SPECIFIER": "karmic_healing_watch_dev"
@@ -84,14 +84,13 @@ let mainTarget = Target.target(
     .external(name: "ComposableArchitecture")
   ],
   settings: .settings(
-    base: [
+    base: appInfoSettings.merging([
       "CFBundleName": .string("KarmicHealing"),
-      "CFBundleDisplayName": .string("Karmic Healing"),
       "CODE_SIGN_STYLE": "Manual",
       "WK_COMPANION_APP_BUNDLE_IDENTIFIER": "com.villi.karmichealing.watchkitapp",
       "WK_WATCHKIT_APP": "YES",
       "WK_APP_BUNDLE_IDENTIFIER": "com.villi.karmichealing.watchkitapp",
-      "WK_APP_NAME": "Karmic Healing",
+      "WK_APP_NAME": .string(bundleDisplayName),
       "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon",
       "ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES": .array(["AppIcon"]),
       "ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS": "YES",
@@ -99,7 +98,7 @@ let mainTarget = Target.target(
       // Avoid symbol conflicts with Watch app
       "DEAD_CODE_STRIPPING": "YES",
       "STRIP_INSTALLED_PRODUCT": "YES"
-    ],
+    ]) { _, new in new },
     debug: [
       "PROVISIONING_PROFILE_SPECIFIER": "karmic_healing_dev",
       "CODE_SIGN_IDENTITY": "Apple Development: Alexander  Velikotsky (R7UR2DF94C)",
