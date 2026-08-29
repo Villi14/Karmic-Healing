@@ -217,7 +217,7 @@ struct RemindersDetailView: View {
         }
       }
       .navigationBarBackButtonHidden()
-      .navigationBarTitleDisplayMode(.automatic)
+      .navigationBarTitleDisplayMode(.inline)
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
       .toolbar {
         ToolbarItem(placement: .topBarLeading) {

@@ -47,6 +47,7 @@ public struct BalancingEnergyListView: View {
     }
     .onAppear { store.send(.onAppear) }
     .navigationTitle("energy_balancing".loc)
+    .navigationBarTitleDisplayMode(.inline)
     .navigationBarBackButtonHidden()
     .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
     .sheet(item: $store.scope(state: \.help, action: \.help)) { helpStore in

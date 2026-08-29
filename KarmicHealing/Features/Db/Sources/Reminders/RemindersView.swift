@@ -28,7 +28,7 @@ public struct RemindersView: View {
     RemindersListsView(model: model)
       .navigationTitle("reminders".loc)
       .navigationBarBackButtonHidden()
-      .navigationBarTitleDisplayMode(.automatic)
+      .navigationBarTitleDisplayMode(.inline)
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
       .toolbar {
         ToolbarItem(placement: .topBarLeading) {

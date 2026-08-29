@@ -154,7 +154,7 @@ struct RequestsDetailView: View {
         .listRowBackground(Color.clear)
       }
       .navigationBarBackButtonHidden()
-      .navigationBarTitleDisplayMode(.automatic)
+      .navigationBarTitleDisplayMode(.inline)
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
       .toolbar {
         ToolbarItem(placement: .topBarLeading) {

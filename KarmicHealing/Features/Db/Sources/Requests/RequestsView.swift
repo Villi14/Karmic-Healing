@@ -20,7 +20,7 @@ public struct RequestsView: View {
     RequestsListsView(model: model)
       .navigationTitle("requests".loc)
       .navigationBarBackButtonHidden()
-      .navigationBarTitleDisplayMode(.automatic)
+      .navigationBarTitleDisplayMode(.inline)
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
       .toolbar {
         ToolbarItem(placement: .topBarLeading) {
