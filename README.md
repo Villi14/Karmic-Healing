@@ -121,7 +121,7 @@ adding a key —
 checks the catalog as it ships: every language present, every key answered in
 each, nothing blank, and format specifiers agreeing across translations.
 
-The watch does not read that catalog. It translates by hand from a table in
+The watch has no catalog of its own. It translates by hand from a table in
 [String+Localization.swift](KarmicHealing/Features/WatchApp/Sources/Core/String+Localization.swift),
 keyed by the very strings its screens ask for, because the language is chosen in
 the app rather than taken from the system. Its own tests take the language list
