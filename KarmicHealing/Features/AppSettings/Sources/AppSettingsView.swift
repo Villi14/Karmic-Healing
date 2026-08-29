@@ -157,6 +157,9 @@ public struct AppSettingsView: View {
       settingsContent
     }
     .navigationTitle("settings".loc)
+    // The scroll sits under a full-bleed background, so the bar cannot track it: left on the
+    // large title it drew one title in the bar and a second one over the rows.
+    .navigationBarTitleDisplayMode(.inline)
     .navigationBarBackButtonHidden()
     .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
     .onAppear {

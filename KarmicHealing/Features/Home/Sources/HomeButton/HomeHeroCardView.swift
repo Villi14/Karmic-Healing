@@ -42,6 +42,10 @@ public struct HomeHeroCardView: View {
 
           Label("start_session".loc, systemImage: "arrow.right")
             .font(Typography.body.weight(.semibold))
+            .lineLimit(2)
+            .minimumScaleFactor(0.7)
+            .multilineTextAlignment(.leading)
+            .fixedSize(horizontal: false, vertical: true)
             .foregroundStyle(ResourcesAsset.Colors.onAccent.swiftUIColor)
             .padding(.horizontal, DesignConstants.paddingLarge)
             .padding(.vertical, DesignConstants.paddingMedium)

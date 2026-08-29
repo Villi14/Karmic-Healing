@@ -289,7 +289,7 @@ struct AppLockView<Content: View>: View {
         Text("app_locked".loc)
           .font(Typography.heading)
           .multilineTextAlignment(.center)
-          .lineLimit(2)
+          .minimumScaleFactor(0.7)
           .fixedSize(horizontal: false, vertical: true)
           .frame(maxWidth: .infinity)
 
