@@ -158,8 +158,6 @@ struct RemindersDetailView: View {
   @SwiftUI.Environment(\.dismiss) var dismiss
   @Bindable var model: RemindersDetailModel
   
-  @State var isNavigationTitleVisible = false
-  @State var navigationTitleHeight: CGFloat = 36
   @State private var didScrollToReminder = false
   
   var body: some View {
@@ -168,26 +166,6 @@ struct RemindersDetailView: View {
       
       ScrollViewReader { proxy in
         List {
-          VStack(alignment: .leading, spacing: DesignConstants.spacingSmall) {
-            // A topic's screen names itself as one; the mixed screens leave the eyebrow off.
-            if model.detailType.is(\.remindersList) {
-              Text("topic".loc)
-                .karmicLabel(tone: model.detailType.color)
-            }
-
-            Text(model.detailType.navigationTitle)
-              .font(Typography.title)
-              .foregroundStyle(model.detailType.color)
-              .fixedSize(horizontal: false, vertical: true)
-              .frame(maxWidth: .infinity, alignment: .leading)
-              .onGeometryChange(for: CGFloat.self) { $0.size.height } action: {
-                navigationTitleHeight = $0
-              }
-          }
-          .listRowSeparator(.hidden)
-          .listRowBackground(Color.clear)
-          .padding(.bottom, DesignConstants.paddingLarge)
-          
           ForEach(model.reminderRows) { row in
             ReminderRow(
               color: model.detailType.color,
@@ -216,6 +194,7 @@ struct RemindersDetailView: View {
           }
         }
       }
+      .navigationTitle(model.detailType.navigationTitle)
       .navigationBarBackButtonHidden()
       .navigationBarTitleDisplayMode(.inline)
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
@@ -227,11 +206,6 @@ struct RemindersDetailView: View {
               .foregroundStyle(AuraGradient.gradient(for: .solar))
           }
         }
-      }
-      .onScrollGeometryChange(for: Bool.self) { geometry in
-        geometry.contentOffset.y + geometry.contentInsets.top > navigationTitleHeight
-      } action: {
-        isNavigationTitleVisible = $1
       }
       .listStyle(.plain)
       .scrollContentBackground(.hidden)
@@ -248,12 +222,6 @@ struct RemindersDetailView: View {
         }
       }
       .toolbar {
-        ToolbarItem(placement: .principal) {
-          Text(model.detailType.navigationTitle)
-            .font(Typography.title)
-            .opacity(isNavigationTitleVisible ? 1 : 0)
-            .animation(.default.speed(2), value: isNavigationTitleVisible)
-        }
         if model.detailType.is(\.remindersList) {
           ToolbarItem(placement: .bottomBar) {
             HStack {

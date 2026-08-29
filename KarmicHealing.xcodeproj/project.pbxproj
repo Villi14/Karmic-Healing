@@ -21,7 +21,6 @@
 		0C4954327220DA2B3C5A3FC6 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1EE5429C5999395AA37FDD /* AppDatabase.swift */; };
 		0E72F5A3893293FFFA701576 /* RemindersFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6A1664395FE0EB7323F42C /* RemindersFeatureTests.swift */; };
 		11627E87082F410FA28FC1B2 /* BalancingEnergyHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC1149AD81ABB4347D95F68 /* BalancingEnergyHelpView.swift */; };
-		11DD993C10EDC4E4DC7089E0 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4A509A037F63A203AF1B8C06 /* Localizable.xcstrings */; };
 		13C8192BF9EFE574F4C52932 /* CombineSchedulers.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B8AF5B014AFB978DEF214451 /* CombineSchedulers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		13D389681AF6CD88AB53C2B2 /* TestingUtilities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BC78A05FC6DB55E86D8DCCF5 /* TestingUtilities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1442618D3217E119659A9193 /* HomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23889BE6F1834CCA8B1645F /* HomeButton.swift */; };
@@ -992,7 +991,6 @@
 		48DC36A78958C5F735A322A5 /* KarmicHealing-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "KarmicHealing-Info.plist"; sourceTree = "<group>"; };
 		4962BC4266C61CB530AD35B8 /* RequestsListsModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsListsModelTests.swift; sourceTree = "<group>"; };
 		4A36E9B49A865B67EEE804FF /* RemindersListForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListForm.swift; sourceTree = "<group>"; };
-		4A509A037F63A203AF1B8C06 /* Localizable.xcstrings */ = {isa = PBXFileReference; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		4D1EE5429C5999395AA37FDD /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
 		4D4B13695F0F8D88EBB899AA /* SearchReminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchReminders.swift; sourceTree = "<group>"; };
 		4D52C8AB2FE0D25C164BA810 /* RequestForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestForm.swift; sourceTree = "<group>"; };
@@ -1515,7 +1513,6 @@
 				B2F18B2B800A812C31E16422 /* Sounds */,
 				C488553F9E0C74991842D67E /* Assets.xcassets */,
 				56D5A4D219708EB1FD601261 /* Colors.xcassets */,
-				4A509A037F63A203AF1B8C06 /* Localizable.xcstrings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -2741,7 +2738,6 @@
 			files = (
 				AEC8A9E35F9854937C70023F /* Assets.xcassets in Resources */,
 				FC2CF94445601D1EFF1D54D7 /* Colors.xcassets in Resources */,
-				11DD993C10EDC4E4DC7089E0 /* Localizable.xcstrings in Resources */,
 				0797C925AA16F750E77097FD /* ding.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

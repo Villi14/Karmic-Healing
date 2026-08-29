@@ -13,14 +13,13 @@ extension View {
   public func navigationBarTitleColor(_ color: SwiftUI.Color) -> some View {
     let uiColor = UIColor(color)
     UINavigationBarAppearance.configure {
-      // Screen titles are set in New York, like every other heading.
+      // Screen titles are set in New York, like every other heading, and every screen says its
+      // name inline. There is deliberately no large-title style to fall back on: a screen that
+      // reached for one drew its title twice, once in the bar and once over the rows, because
+      // the aura runs full-bleed and leaves the bar nothing to track the scroll by.
       $0.titleTextAttributes = [
         .foregroundColor: uiColor,
         .font: UIFont.karmicSerif(.headline)
-      ]
-      $0.largeTitleTextAttributes = [
-        .foregroundColor: uiColor,
-        .font: UIFont.karmicSerif(.largeTitle)
       ]
     }
     return self
@@ -36,7 +35,6 @@ extension UINavigationBarAppearance {
     let standardAppearance = UINavigationBar.appearance().standardAppearance
     appearance.backgroundColor = standardAppearance.backgroundColor
     appearance.titleTextAttributes = standardAppearance.titleTextAttributes
-    appearance.largeTitleTextAttributes = standardAppearance.largeTitleTextAttributes
 
     configure(appearance)
 

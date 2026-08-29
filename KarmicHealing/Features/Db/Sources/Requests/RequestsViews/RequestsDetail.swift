@@ -115,32 +115,18 @@ struct RequestsDetailView: View {
   @SwiftUI.Environment(\.dismiss) var dismiss
   @Bindable var model: RequestsDetailModel
   
-  @State var isNavigationTitleVisible = false
-  @State var navigationTitleHeight: CGFloat = 36
-  
   var body: some View {
     ZStack {
       AuraBackground(level: .sacral)
       
       List {
-        VStack(alignment: .leading) {
-          if let requestsList = model.detailType.requestsList {
-            RequestDetailHeader(requestsList: requestsList, color: model.detailType.color)
-          } else {
-            Text(model.detailType.navigationTitle)
-              .font(Typography.title)
-              .foregroundStyle(model.detailType.color)
-              .fixedSize(horizontal: false, vertical: true)
-              .frame(maxWidth: .infinity, alignment: .leading)
-          }
+        if let requestsList = model.detailType.requestsList {
+          RequestDetailHeader(requestsList: requestsList, color: model.detailType.color)
+            .listRowSeparator(.hidden)
+            .listRowBackground(Color.clear)
+            .padding(.bottom, DesignConstants.paddingLarge)
         }
-        .onGeometryChange(for: CGFloat.self) { $0.size.height } action: {
-          navigationTitleHeight = $0
-        }
-        .listRowSeparator(.hidden)
-        .listRowBackground(Color.clear)
-        .padding(.bottom, DesignConstants.paddingLarge)
-        
+
         ForEach(model.requestRows) { row in
           RequestRow(
             color: model.detailType.color,
@@ -153,6 +139,7 @@ struct RequestsDetailView: View {
         }
         .listRowBackground(Color.clear)
       }
+      .navigationTitle(model.detailType.navigationTitle)
       .navigationBarBackButtonHidden()
       .navigationBarTitleDisplayMode(.inline)
       .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
@@ -164,11 +151,6 @@ struct RequestsDetailView: View {
               .foregroundStyle(AuraGradient.gradient(for: .sacral))
           }
         }
-      }
-      .onScrollGeometryChange(for: Bool.self) { geometry in
-        geometry.contentOffset.y + geometry.contentInsets.top > navigationTitleHeight
-      } action: {
-        isNavigationTitleVisible = $1
       }
       .listStyle(.plain)
       .scrollContentBackground(.hidden)
@@ -185,12 +167,6 @@ struct RequestsDetailView: View {
         }
       }
       .toolbar {
-        ToolbarItem(placement: .principal) {
-          Text(model.detailType.navigationTitle)
-            .font(Typography.title)
-            .opacity(isNavigationTitleVisible ? 1 : 0)
-            .animation(.default.speed(2), value: isNavigationTitleVisible)
-        }
         if model.detailType.is(\.requestsList) {
           ToolbarItem(placement: .bottomBar) {
             HStack {
