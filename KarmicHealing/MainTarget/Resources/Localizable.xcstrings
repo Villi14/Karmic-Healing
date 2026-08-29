@@ -672,91 +672,91 @@
         "bn" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Face ID, Touch ID বা ডিভাইসের পাসকোড আবশ্যক করুন"
+            "value" : "Face ID, Touch ID বা আপনার কোড আবশ্যক করুন"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Face ID, Touch ID oder Gerätecode verlangen"
+            "value" : "Face ID, Touch ID oder deinen Code verlangen"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Require Face ID, Touch ID, or device passcode"
+            "value" : "Require Face ID, Touch ID, or your code"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Requerir Face ID, Touch ID o el código del dispositivo"
+            "value" : "Requerir Face ID, Touch ID o tu código"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Exiger Face ID, Touch ID ou le code de l'appareil"
+            "value" : "Exiger Face ID, Touch ID ou votre code"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Face ID, Touch ID या डिवाइस पासकोड अनिवार्य करें"
+            "value" : "Face ID, Touch ID या अपना कोड अनिवार्य करें"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Richiedi Face ID, Touch ID o il codice del dispositivo"
+            "value" : "Richiedi Face ID, Touch ID o il tuo codice"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Face ID、Touch ID、またはデバイスのパスコードを要求"
+            "value" : "Face ID、Touch ID、またはコードを要求"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Face ID, Touch ID 또는 기기 암호 요구"
+            "value" : "Face ID, Touch ID 또는 코드 요구"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Wymagaj Face ID, Touch ID lub kodu urządzenia"
+            "value" : "Wymagaj Face ID, Touch ID lub swojego kodu"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Exigir Face ID, Touch ID ou o código do dispositivo"
+            "value" : "Exigir Face ID, Touch ID ou seu código"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Требовать Face ID, Touch ID или код-пароль устройства"
+            "value" : "Требовать Face ID, Touch ID или ваш код"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Face ID, Touch ID veya cihaz parolası iste"
+            "value" : "Face ID, Touch ID veya kodunu iste"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Вимагати Face ID, Touch ID або код-пароль пристрою"
+            "value" : "Вимагати Face ID, Touch ID або ваш код"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "需要面容 ID、触控 ID 或设备密码"
+            "value" : "需要 Face ID、Touch ID 或你的密码"
           }
         }
       }
@@ -3427,91 +3427,91 @@
         "bn" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "আপনার সাধনা চালিয়ে যেতে Face ID, Touch ID বা ডিভাইসের পাসকোড ব্যবহার করুন।"
+            "value" : "আপনার সাধনা চালিয়ে যেতে Face ID, Touch ID বা আপনার কোড ব্যবহার করুন।"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Nutze Face ID, Touch ID oder deinen Gerätecode, um deine Praxis fortzusetzen."
+            "value" : "Nutze Face ID, Touch ID oder deinen Code, um deine Praxis fortzusetzen."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Use Face ID, Touch ID, or your device passcode to continue your practice."
+            "value" : "Use Face ID, Touch ID, or your code to continue your practice."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Usa Face ID, Touch ID o el código de tu dispositivo para continuar tu práctica."
+            "value" : "Usa Face ID, Touch ID o tu código para continuar tu práctica."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Utilisez Face ID, Touch ID ou le code de votre appareil pour poursuivre votre pratique."
+            "value" : "Utilisez Face ID, Touch ID ou votre code pour poursuivre votre pratique."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "अपना अभ्यास जारी रखने के लिए Face ID, Touch ID या अपने डिवाइस का पासकोड उपयोग करें।"
+            "value" : "अपना अभ्यास जारी रखने के लिए Face ID, Touch ID या अपना कोड उपयोग करें।"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Usa Face ID, Touch ID o il codice del dispositivo per continuare la tua pratica."
+            "value" : "Usa Face ID, Touch ID o il tuo codice per continuare la tua pratica."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Face ID、Touch ID、またはデバイスのパスコードで実践を続けましょう。"
+            "value" : "Face ID、Touch ID、またはコードで実践を続けましょう。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Face ID, Touch ID 또는 기기 암호로 수행을 이어가세요."
+            "value" : "Face ID, Touch ID 또는 코드로 수행을 이어가세요."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Użyj Face ID, Touch ID lub kodu urządzenia, aby kontynuować praktykę."
+            "value" : "Użyj Face ID, Touch ID lub swojego kodu, aby kontynuować praktykę."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Use o Face ID, o Touch ID ou o código do seu dispositivo para continuar sua prática."
+            "value" : "Use o Face ID, o Touch ID ou seu código para continuar sua prática."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Используйте Face ID, Touch ID или код-пароль устройства, чтобы продолжить практику."
+            "value" : "Используйте Face ID, Touch ID или ваш код, чтобы продолжить практику."
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Pratiğine devam etmek için Face ID, Touch ID ya da cihaz parolanı kullan."
+            "value" : "Pratiğine devam etmek için Face ID, Touch ID veya kodunu kullan."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Використайте Face ID, Touch ID або код-пароль пристрою, щоб продовжити практику."
+            "value" : "Використайте Face ID, Touch ID або ваш код, щоб продовжити практику."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "使用面容 ID、触控 ID 或设备密码继续你的练习。"
+            "value" : "使用 Face ID、Touch ID 或你的密码继续你的练习。"
           }
         }
       }
@@ -7977,6 +7977,196 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "低"
+          }
+        }
+      }
+    },
+    "machine_translation_note" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "এই ভাষাটি স্বয়ংক্রিয়ভাবে অনুবাদ করা হয়েছে, তাই কিছু বাক্য অস্বাভাবিক শোনাতে পারে। কোনো ভুল চোখে পড়লে আমাদের লিখুন — আমরা খুবই কৃতজ্ঞ থাকব।"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Diese Sprache wurde automatisch übersetzt, daher können einzelne Formulierungen unpassend sein. Wenn Ihnen ein Fehler auffällt, schreiben Sie uns bitte — wir wären sehr dankbar."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This language was translated automatically, so some wording may be off. If you notice a mistake, please write to us — we would be very grateful."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Este idioma se tradujo automáticamente, así que algunas expresiones pueden sonar extrañas. Si detectas un error, escríbenos: te lo agradeceremos mucho."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Cette langue a été traduite automatiquement, certaines formulations peuvent donc sembler étranges. Si vous remarquez une erreur, écrivez-nous : nous vous en serions très reconnaissants."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "इस भाषा का अनुवाद स्वचालित रूप से किया गया है, इसलिए कुछ वाक्य अटपटे लग सकते हैं। यदि आपको कोई गलती दिखे, तो हमें लिखें — हम बहुत आभारी होंगे।"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Questa lingua è stata tradotta automaticamente, quindi alcune espressioni potrebbero suonare strane. Se noti un errore, scrivici: te ne saremmo molto grati."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "この言語は自動翻訳されているため、表現が不自然な箇所があるかもしれません。誤りにお気づきの際は、ぜひご連絡ください。とても助かります。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "이 언어는 자동으로 번역되어 어색한 표현이 있을 수 있습니다. 잘못된 부분을 발견하시면 알려주세요. 정말 감사하겠습니다."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ten język został przetłumaczony automatycznie, więc niektóre sformułowania mogą brzmieć dziwnie. Jeśli zauważysz błąd, napisz do nas — będziemy bardzo wdzięczni."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Este idioma foi traduzido automaticamente, então algumas expressões podem soar estranhas. Se você notar um erro, escreva para nós — ficaremos muito gratos."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Этот язык переведён автоматически, поэтому некоторые формулировки могут быть неточными. Если заметите ошибку, напишите нам — будем очень благодарны."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Bu dil otomatik olarak çevrildi, bu yüzden bazı ifadeler kulağa tuhaf gelebilir. Bir hata fark ederseniz bize yazın — çok memnun oluruz."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Цю мову перекладено автоматично, тож деякі формулювання можуть бути неточними. Якщо помітите помилку, напишіть нам — будемо дуже вдячні."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "此语言为自动翻译，部分表述可能不够自然。如果您发现错误，欢迎写信告诉我们，非常感谢。"
+          }
+        }
+      }
+    },
+    "machine_translation_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "যন্ত্র অনুবাদ"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Maschinelle Übersetzung"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Machine translation"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Traducción automática"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Traduction automatique"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "मशीन अनुवाद"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Traduzione automatica"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "機械翻訳"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "기계 번역"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Tłumaczenie maszynowe"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Tradução automática"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Машинный перевод"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Makine çevirisi"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Машинний переклад"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "机器翻译"
           }
         }
       }
@@ -13297,6 +13487,1051 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "请求刚刚完成的过程成为永久的。"
+          }
+        }
+      }
+    },
+    "passcode_change" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "কোড পরিবর্তন করুন"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Code ändern"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Change code"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Cambiar el código"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Modifier le code"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "कोड बदलें"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Cambia il codice"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "コードを変更"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "코드 변경"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Zmień kod"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Alterar o código"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Изменить код"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Kodu değiştir"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Змінити код"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "更改密码"
+          }
+        }
+      }
+    },
+    "passcode_create_subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "চারটি অঙ্ক, Face ID বা Touch ID কাজ না করলে অ্যাপ খুলতে।"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Vier Ziffern, um die App zu öffnen, wenn Face ID oder Touch ID es nicht kann."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Four digits to open the app when Face ID or Touch ID cannot."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Cuatro dígitos para abrir la app cuando Face ID o Touch ID no puedan."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Quatre chiffres pour ouvrir l'app quand Face ID ou Touch ID ne le peut pas."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "चार अंक, जो Face ID या Touch ID के काम न आने पर ऐप खोलते हैं।"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Quattro cifre per aprire l'app quando Face ID o Touch ID non ci riescono."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Face ID や Touch ID が使えないときにアプリを開く 4 桁の数字です。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Face ID나 Touch ID를 쓸 수 없을 때 앱을 여는 네 자리 숫자입니다."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Cztery cyfry, aby otworzyć aplikację, gdy Face ID lub Touch ID nie zadziała."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Quatro dígitos para abrir o app quando o Face ID ou o Touch ID não puderem."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Четыре цифры, чтобы открыть приложение, когда Face ID или Touch ID не сработает."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Face ID veya Touch ID işe yaramadığında uygulamayı açmak için dört rakam."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Чотири цифри, щоб відкрити застосунок, коли Face ID або Touch ID не спрацює."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "四位数字，在 Face ID 或 Touch ID 无法使用时打开应用。"
+          }
+        }
+      }
+    },
+    "passcode_create_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "কোড তৈরি করুন"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Lege einen Code fest"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Create a code"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Crea un código"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Créez un code"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "कोड बनाएँ"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Crea un codice"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "コードを設定"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "코드 만들기"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Utwórz kod"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Crie um código"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Придумайте код"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Bir kod oluştur"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Придумайте код"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "设置密码"
+          }
+        }
+      }
+    },
+    "passcode_delete" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "মুছুন"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Löschen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Borrar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Supprimer"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "मिटाएँ"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Elimina"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "削除"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "삭제"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Usuń"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Apagar"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Стереть"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Sil"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Стерти"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "删除"
+          }
+        }
+      }
+    },
+    "passcode_enter_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "আপনার কোড লিখুন"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Gib deinen Code ein"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter your code"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Introduce tu código"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Saisissez votre code"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "अपना कोड डालें"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Inserisci il tuo codice"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "コードを入力"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "코드를 입력하세요"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Wprowadź swój kod"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Digite seu código"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Введите код"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Kodunu gir"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Введіть код"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "输入密码"
+          }
+        }
+      }
+    },
+    "passcode_forgot" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "কোড ভুলে গেছেন?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Code vergessen?"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Forgot your code?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "¿Olvidaste tu código?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Code oublié ?"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "कोड भूल गए?"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Hai dimenticato il codice?"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "コードをお忘れですか？"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "코드를 잊으셨나요?"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Nie pamiętasz kodu?"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Esqueceu seu código?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Забыли код?"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Kodunu mu unuttun?"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Забули код?"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "忘记密码？"
+          }
+        }
+      }
+    },
+    "passcode_locked_out" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "অনেকবার চেষ্টা করা হয়েছে। %d সেকেন্ড পরে আবার চেষ্টা করুন।"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Zu viele Versuche. Versuche es in %d s erneut."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Too many attempts. Try again in %d s."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Demasiados intentos. Inténtalo de nuevo en %d s."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Trop de tentatives. Réessayez dans %d s."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "बहुत अधिक प्रयास। %d सेकंड बाद फिर से प्रयास करें।"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Troppi tentativi. Riprova tra %d s."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "試行回数が多すぎます。%d 秒後にもう一度お試しください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "시도가 너무 많습니다. %d초 후에 다시 시도하세요."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Zbyt wiele prób. Spróbuj ponownie za %d s."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Muitas tentativas. Tente novamente em %d s."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Слишком много попыток. Повторите через %d с."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Çok fazla deneme. %d sn sonra tekrar dene."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Забагато спроб. Повторіть через %d с."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "尝试次数过多，请在 %d 秒后重试。"
+          }
+        }
+      }
+    },
+    "passcode_mismatch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "কোড দুটি মেলেনি। আবার শুরু করুন।"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Die Codes stimmen nicht überein. Fang noch einmal an."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Those two codes are different. Start again."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Los códigos no coinciden. Empieza de nuevo."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Les codes ne correspondent pas. Recommencez."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "दोनों कोड अलग हैं। फिर से शुरू करें।"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "I codici non coincidono. Ricomincia."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "コードが一致しません。もう一度設定してください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "코드가 서로 다릅니다. 처음부터 다시 입력하세요."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Kody się różnią. Zacznij od nowa."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Os códigos não coincidem. Comece de novo."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Коды не совпадают. Попробуйте ещё раз."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Kodlar aynı değil. Baştan dene."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Коди не збігаються. Спробуйте ще раз."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "两次输入的密码不一致，请重新开始。"
+          }
+        }
+      }
+    },
+    "passcode_repeat_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "কোডটি আবার লিখুন"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Code wiederholen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Repeat the code"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Repite el código"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Répétez le code"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "कोड दोहराएँ"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ripeti il codice"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "コードをもう一度入力"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "코드를 다시 입력"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Powtórz kod"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Repita o código"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повторите код"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Kodu tekrarla"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повторіть код"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "再次输入密码"
+          }
+        }
+      }
+    },
+    "passcode_reset_reason" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "নতুন কোড বেছে নিতে নিশ্চিত করুন যে এটি আপনিই।"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Bestätige, dass du es bist, um einen neuen Code festzulegen."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirm it is you to choose a new code."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Confirma que eres tú para elegir un código nuevo."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Confirmez votre identité pour choisir un nouveau code."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "नया कोड चुनने के लिए पुष्टि करें कि यह आप ही हैं।"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Conferma la tua identità per scegliere un nuovo codice."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "本人であることを確認して、新しいコードを設定します。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "본인임을 확인하고 새 코드를 설정하세요."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Potwierdź swoją tożsamość, aby ustawić nowy kod."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Confirme que é você para escolher um novo código."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Подтвердите, что это вы, чтобы задать новый код."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Yeni bir kod belirlemek için kimliğini doğrula."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Підтвердіть, що це ви, щоб задати новий код."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "确认身份以设置新密码。"
+          }
+        }
+      }
+    },
+    "passcode_wrong" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "কোড ভুল। আবার চেষ্টা করুন।"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Falscher Code. Versuche es erneut."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wrong code. Try again."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Código incorrecto. Inténtalo de nuevo."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Code incorrect. Réessayez."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "कोड गलत है। फिर से प्रयास करें।"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Codice errato. Riprova."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "コードが違います。もう一度お試しください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "코드가 올바르지 않습니다. 다시 시도해 주세요."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Nieprawidłowy kod. Spróbuj ponownie."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Código incorreto. Tente novamente."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неверный код. Попробуйте ещё раз."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Kod yanlış. Tekrar dene."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неправильний код. Спробуйте ще раз."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "密码错误，请重试。"
           }
         }
       }

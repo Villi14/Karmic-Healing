@@ -10,6 +10,10 @@ import Common
 public struct AppSettingsView: View {
   @SwiftUI.Environment(\.dismiss) var dismiss
   @AppStorage(UserDefaultsClient.Keys.appLockEnabled) private var appLockEnabled = false
+  @Dependency(\.passcode) private var passcode
+  /// Read once rather than asked of the keychain on every redraw.
+  @State private var hasPasscode = false
+  @State private var isSettingPasscode = false
 
   @Bindable var store: StoreOf<AppSettings>
 
@@ -37,7 +41,17 @@ public struct AppSettingsView: View {
             store.send(.didTapChangeLanguage)
           }
 
+          if Translation.isMachineTranslated {
+            machineTranslationRow
+          }
+
           appLockRow
+
+          if appLockEnabled {
+            DisclosureCell("passcode_change".loc, tone: Spectrum.brow.color) {
+              isSettingPasscode = true
+            }
+          }
 
           DisclosureCell("privacy_policy".loc, tone: Spectrum.crown.color) {
             store.send(.didTapPrivacyPolicy)
@@ -57,6 +71,43 @@ public struct AppSettingsView: View {
     .font(Typography.title)
   }
 
+  /// Shown only where the words on screen came from a machine. It sits under the language row
+  /// because that is where somebody who has just noticed a strange one will look, and it opens
+  /// the same letter the "write to us" row does — the shortest path from noticing to telling.
+  private var machineTranslationRow: some View {
+    Button {
+      store.send(.didTapContactEmail)
+    } label: {
+      HStack(spacing: DesignConstants.spacingMedium) {
+        Image(systemName: "character.bubble")
+          .font(Typography.icon)
+          .foregroundStyle(AuraGradient.gradient(for: .throat))
+          .frame(width: DesignConstants.frameHeightSmall)
+
+        VStack(alignment: .leading, spacing: DesignConstants.paddingTiny) {
+          Text("machine_translation_title".loc)
+            .foregroundStyle(ResourcesAsset.Colors.textPrimary.swiftUIColor)
+          Text("machine_translation_note".loc)
+            .font(Typography.caption)
+            .foregroundStyle(ResourcesAsset.Colors.textSecondary.swiftUIColor)
+            .fixedSize(horizontal: false, vertical: true)
+        }
+        .multilineTextAlignment(.leading)
+
+        Spacer(minLength: DesignConstants.spacingSmall)
+
+        Image(systemName: "envelope")
+          .font(Typography.icon)
+          .foregroundStyle(AuraGradient.gradient(for: .throat))
+      }
+      .frame(maxWidth: .infinity, minHeight: DesignConstants.frameHeightXXLarge)
+      .padding(.horizontal, DesignConstants.paddingLarge)
+      .padding(.vertical, DesignConstants.paddingSmall)
+      .contentShape(Rectangle())
+    }
+    .buttonStyle(.plain)
+  }
+
   private var appLockRow: some View {
     HStack(spacing: DesignConstants.spacingMedium) {
       Image(systemName: "lock.shield")
@@ -73,12 +124,31 @@ public struct AppSettingsView: View {
 
       Spacer(minLength: DesignConstants.spacingSmall)
 
-      Toggle("app_lock".loc, isOn: $appLockEnabled)
+      Toggle("app_lock".loc, isOn: appLockBinding)
         .labelsHidden()
         .tint(Spectrum.brow.color)
     }
     .frame(maxWidth: .infinity, minHeight: DesignConstants.frameHeightXXLarge)
     .padding(.horizontal, DesignConstants.paddingLarge)
+  }
+
+  /// Turning the lock on needs a code to fall back on when Face ID cannot answer, so the first
+  /// switch of it goes through choosing one — and leaves the switch off if that is abandoned.
+  private var appLockBinding: Binding<Bool> {
+    Binding(
+      get: { appLockEnabled },
+      set: { isOn in
+        guard isOn else {
+          appLockEnabled = false
+          return
+        }
+        if hasPasscode {
+          appLockEnabled = true
+        } else {
+          isSettingPasscode = true
+        }
+      }
+    )
   }
 
   private var settingsBase: some View {
@@ -91,6 +161,13 @@ public struct AppSettingsView: View {
     .navigationBarTitleColor(ResourcesAsset.Colors.textPrimary.swiftUIColor)
     .onAppear {
       store.send(.onAppear)
+      hasPasscode = passcode.isSet()
+    }
+    .fullScreenCover(isPresented: $isSettingPasscode) {
+      PasscodeSetupView(onFinished: {
+        hasPasscode = true
+        appLockEnabled = true
+      })
     }
     .toolbar {
       ToolbarItem(placement: .topBarLeading) {

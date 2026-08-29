@@ -2,6 +2,7 @@
 // Karmic Healing 2026
 //
 
+import Common
 import Foundation
 import XCTest
 @testable import KarmicHealing
@@ -109,6 +110,59 @@ final class LocalizationCatalogueTests: XCTestCase {
       NSDictionary(contentsOfFile: path) as? [String: String],
       "The \(language) Localizable table is not a table of strings"
     )
+  }
+
+  // MARK: - What the app admits to
+
+  /// The apology shown in Settings is driven by `Translation.reviewed`, while the yellow badges
+  /// in Xcode are driven by the catalogue's own `state`. Nothing keeps the two in step but this:
+  /// a language read through and marked `translated` should stop being apologised for, and one
+  /// added to the reviewed list without anybody reading it should be caught here rather than by
+  /// a user who is quietly no longer invited to write in.
+  func testTheLanguagesTheAppVouchesForAreTheOnesTheCatalogueCallsTranslated() throws {
+    let catalogue = try catalogueSource()
+    var states: [String: Set<String>] = [:]
+
+    for (_, entry) in catalogue.strings {
+      for (language, localization) in entry.localizations {
+        states[language, default: []].insert(localization.stringUnit.state)
+      }
+    }
+
+    for (language, seen) in states {
+      let vouchedFor = !Translation.isMachineTranslated(language)
+      XCTAssertEqual(
+        seen, [vouchedFor ? "translated" : "needs_review"],
+        "\(language) is \(vouchedFor ? "vouched for" : "apologised for") in the app but \(seen.sorted()) in the catalogue"
+      )
+    }
+  }
+
+  /// The catalogue as it is written, rather than as it is compiled: the built `.strings` tables
+  /// carry the words but not the states, and the states are the point here.
+  private func catalogueSource() throws -> Catalogue {
+    let source = URL(fileURLWithPath: #filePath)
+      .deletingLastPathComponent()   // Tests
+      .deletingLastPathComponent()   // MainTarget
+      .appending(path: "Resources/Localizable.xcstrings")
+
+    return try JSONDecoder().decode(Catalogue.self, from: Data(contentsOf: source))
+  }
+
+  private struct Catalogue: Decodable {
+    let strings: [String: Entry]
+
+    struct Entry: Decodable {
+      let localizations: [String: Localization]
+    }
+
+    struct Localization: Decodable {
+      let stringUnit: StringUnit
+
+      struct StringUnit: Decodable {
+        let state: String
+      }
+    }
   }
 
   /// Captures the argument number of a numbered specifier, its length modifier, and what it reads
