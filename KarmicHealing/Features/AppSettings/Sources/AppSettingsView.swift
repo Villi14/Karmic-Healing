@@ -213,14 +213,6 @@ public struct AppSettingsView: View {
     )
   }
 
-  private func privacyPolicyCover<Content: View>(_ content: Content) -> some View {
-    content.fullScreenCover(
-      item: $store.scope(\.destination?.privacyPolicy, action: \.destination.privacyPolicy)
-    ) { store in
-      PrivacyPolicyView(store: store)
-    }
-  }
-
   private func mailComposerCover<Content: View>(_ content: Content) -> some View {
     content.fullScreenCover(
       item: $store.scope(\.destination?.mailComposer, action: \.destination.mailComposer)
@@ -236,12 +228,10 @@ public struct AppSettingsView: View {
 
   public var body: some View {
     mailComposerCover(
-      privacyPolicyCover(
-        clipboardAlertCover(
-          sessionDurationCover(
-            themeSettingsCover(
-              aboutAlertCover(settingsBase)
-            )
+      clipboardAlertCover(
+        sessionDurationCover(
+          themeSettingsCover(
+            aboutAlertCover(settingsBase)
           )
         )
       )

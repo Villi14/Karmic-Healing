@@ -88,8 +88,10 @@ public struct AppSettings {
         state.destination = .themeSettings(.init(userTheme: state.userTheme))
         return .none
       case .didTapPrivacyPolicy:
-        state.destination = .privacyPolicy(.init())
-        return .none
+        let url = Self.privacyPolicyURL(localization: Bundle.main.preferredLocalizations.first)
+        return .run { [openURL] _ in
+          await openURL(url)
+        }
       case let .sessionDurationChanged(duration):
         state.sessionDuration = duration
         return .run { [userDefaults] _ in
@@ -127,6 +129,18 @@ public struct AppSettings {
       Destination()
     }
   }
+
+  /// The privacy policy is kept on the web, where the stores link to it too, so it can change
+  /// without a release. It opens in the language the app fell back to — asked of the bundle, as
+  /// `Translation` does — and the page shows English for one it does not have.
+  static func privacyPolicyURL(localization: String?) -> URL {
+    var components = URLComponents(string: "https://villi14.github.io/karmic-healing-privacy-policy-github.io/privacy-policy.html")!
+    let language = localization.map {
+      Locale(identifier: $0).language.languageCode?.identifier ?? $0
+    }
+    components.queryItems = [URLQueryItem(name: "lang", value: language ?? "en")]
+    return components.url!
+  }
 }
 
 @Reducer
@@ -138,7 +152,6 @@ public struct Destination {
     case mailComposer
     case sessionDurationAlert(EnergyBalansingSettings.State)
     case themeSettings(ThemeSettings.State)
-    case privacyPolicy(PrivacyPolicy.State)
   }
 
   public enum Action: Equatable {
@@ -147,7 +160,6 @@ public struct Destination {
     case mailComposer(MailComposer)
     case sessionDurationAlert(EnergyBalansingSettings.Action)
     case themeSettings(ThemeSettings.Action)
-    case privacyPolicy(PrivacyPolicy.Action)
 
     public enum Alert: Equatable {
       case openAuthorSite
@@ -174,9 +186,6 @@ public struct Destination {
     }
     .ifCaseLet(\.sessionDurationAlert, action: \.sessionDurationAlert) {
       EnergyBalansingSettings()
-    }
-    .ifCaseLet(\.privacyPolicy, action: \.privacyPolicy) {
-      PrivacyPolicy()
     }
   }
 }

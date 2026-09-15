@@ -68,14 +68,37 @@ final class AppSettingsTests: XCTestCase {
     }
   }
 
-  func testDidTapPrivacyPolicyPresentsPrivacyPolicy() async {
+  func testDidTapPrivacyPolicyOpensThePolicyOnTheWeb() async {
+    let openedURLs = LockIsolated<[URL]>([])
+
     let store = TestStore(initialState: AppSettings.State()) {
       AppSettings()
+    } withDependencies: {
+      $0.openURL = OpenURLEffect { url in
+        openedURLs.withValue { $0.append(url) }
+        return true
+      }
     }
 
-    await store.send(.didTapPrivacyPolicy) {
-      $0.destination = .privacyPolicy(.init())
+    await store.send(.didTapPrivacyPolicy)
+    await store.finish()
+
+    XCTAssertEqual(openedURLs.value.count, 1)
+    XCTAssertEqual(openedURLs.value.first?.host(), "villi14.github.io")
+    XCTAssertEqual(openedURLs.value.first?.path(), "/karmic-healing-privacy-policy-github.io/privacy-policy.html")
+  }
+
+  func testPrivacyPolicyOpensInTheAppLanguage() {
+    func language(_ localization: String?) -> String? {
+      URLComponents(url: AppSettings.privacyPolicyURL(localization: localization), resolvingAgainstBaseURL: false)?
+        .queryItems?.first { $0.name == "lang" }?.value
     }
+
+    XCTAssertEqual(language("uk"), "uk")
+    // A regional variant opens its language: the page is kept per language, not per region.
+    XCTAssertEqual(language("pt-BR"), "pt")
+    XCTAssertEqual(language("zh-Hans"), "zh")
+    XCTAssertEqual(language(nil), "en")
   }
 
   func testDidTapThemeSettingsPassesCurrentTheme() async {
