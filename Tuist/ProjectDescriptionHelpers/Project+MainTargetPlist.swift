@@ -1,8 +1,8 @@
 import Foundation
 @preconcurrency import ProjectDescription
 
-public let bundleShortVersionString: String = "1.6"
-public let bundleVersion: String = "17"
+public let bundleShortVersionString: String = "1.7"
+public let bundleVersion: String = "18"
 public let bundleDisplayName: String = "Karmic Healing"
 public let applicationCategory: String = "public.app-category.lifestyle"
 

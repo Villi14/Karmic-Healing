@@ -33,7 +33,7 @@ struct KarmicHealing {
     Reduce { state, action in
       switch action {
       case .onDidFinishLaunching:
-        if shouldShowOnboarding() {
+        if didShowOnboarding() {
           state.destination = .home(.init())
         }
         // Sessions no longer schedule anything, but a device updated from a build that did still
@@ -66,7 +66,7 @@ extension Destination.Action: Equatable {}
 
 
 extension KarmicHealing {
-  fileprivate func shouldShowOnboarding() -> Bool {
+  fileprivate func didShowOnboarding() -> Bool {
     return userDefaults.bool(for: .showedOnboarding)
   }
 }
